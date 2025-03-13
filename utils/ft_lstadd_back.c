@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/13 18:08:29 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/03/13 17:46:28 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/03/13 18:09:37 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./minishell.h"
+#include "../minishell.h"
 
-int main(void)
+void	ft_add_gc(t_gc **head, t_gc *new)
 {
-	char	*line;
+	t_gc	*last;
 
-	while(true)
-	{
-		line = readline("Minishell: ");
-		tokenizer(line);
-		free(line);
-	}
+	if(!head || !new)
+		return ;
+	last = *head;
+	while(last->next)
+		last = last->next;
+	last->next = new;
+}
+
+void	ft_add_tk(t_tk **head, t_tk *new)
+{
+	t_tk	*last;
+
+	if(!head || !new)
+		return ;
+	last = *head;
+	while(last->next)
+		last = last->next;
+	last->next = new;
+	new->prev = last;
 }

@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/13 18:08:29 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/03/13 18:13:28 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./minishell.h"
+#include "../../minishell.h"
 
-int main(void)
+void	tokenizer(char *line)
 {
-	char	*line;
-
-	while(true)
-	{
-		line = readline("Minishell: ");
-		tokenizer(line);
-		free(line);
-	}
+	(void)line;
+	return ;
 }
