@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 15:32:50 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 19:53:08 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <readline/readline.h>
+#include <readline/history.h>
 
 typedef struct s_garbage
 {

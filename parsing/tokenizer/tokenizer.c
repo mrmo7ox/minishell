@@ -6,11 +6,16 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 16:55:31 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 19:54:29 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+// bool	filter(char **split)
+// {
+	
+// }
 
 bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line)
 {

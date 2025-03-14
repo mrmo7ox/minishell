@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 16:54:40 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 19:39:28 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,15 @@ static int	strlen_mod(char *str, char *sap)
 	{
 		while (str[i] == ' ' && str[i] != '\0')
 			i++;
+		if(str[i] == '"')
+		{
+			words++;
+			i++;
+			while (str[i] != '"' && str[i] != '\0')
+				i++;
+			if (str[i] == '"')
+				i++;
+		}
 		if (str[i] != ' ' && str[i] != '\0')
 			words += in_sap(sap, &str[i]);
 		while (str[i] != ' ' && str[i] != '\0')
@@ -125,7 +134,15 @@ char	**ft_split(char *str, char *sap, int i, int j)
 		while (str[i] && (str[i] == ' ' ))
 			i++;
 		j = i;
-		if (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap))
+		if(str[i] == '"')
+		{
+			i++;
+			while (str[i] != '"' && str[i] != '\0')
+				i++;
+			if (str[i] == '"')
+				i++;
+		}
+		else if (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap))
 		{
 			old = str[i];
 			while (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap) == old)
