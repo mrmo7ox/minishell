@@ -6,7 +6,7 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/03/14 12:40:30 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/03/14 15:17:25 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME = minishell
 all: $(NAME)
 	make clean
 	clear
-	valgrind ./minishell
+	./minishell
 
 $(NAME):$(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) ${MFLAGS} -o $@

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 12:46:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:17:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 	{
 		line = readline("Minishell: ");
 		ft_add_gc(&garbage, ft_new_gc_node(line));
-		if(tokenizer(&garbage, &tokens, line));
+		if(tokenizer(&garbage, &tokens, line))
 		{
 			printf("ffffff\n");
 		}

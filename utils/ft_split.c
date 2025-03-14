@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 15:09:59 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:35:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,32 @@ static void	ft_copy(char *dest, char *src, int len)
 	dest[i] = '\0';
 }
 
-static int	strlen_mod(char *str, char c)
+static bool	in_sap(char *sap, char c)
 {
+	while(*sap)
+	{
+		if(*sap == c)
+			return (true);
+		sap++;
+	}
+	return (false);
+}
+
+static int	strlen_mod(char *str, char *sap)
+{
+	
 	int	i;
 	int	words;
-
+	
 	i = 0;
 	words = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] == c && str[i] != '\0')
+		while (str[i] == ' ' && str[i] != '\0')
 			i++;
-		if (str[i] != c && str[i] != '\0')
+		if (str[i] != ' ' && str[i] != '\0')
 			words++;
-		while (str[i] != c && str[i] != '\0')
+		while (str[i] != ' ' && !in_sap(sap, str[i]) && str[i] != '\0')
 			i++;
 	}
 	return (words);
@@ -55,7 +67,7 @@ static char	**free_the_split(char **res, int words)
 	return (NULL);
 }
 
-bool	*add_split_gc(t_gc **head ,char **res)
+bool	add_split_gc(t_gc **head ,char **res)
 {
 	int	i;
 
@@ -69,12 +81,12 @@ bool	*add_split_gc(t_gc **head ,char **res)
 	return (NULL);
 }
 
-char	**ft_split(char *str, char c, char c2, int i, int j)
+char	**ft_split(char *str, char *sap, int i, int j)
 {
 	char	**res;
 	int		words;
 
-	words = strlen_mod(str, c);
+	words = strlen_mod(str, sap);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
@@ -82,10 +94,10 @@ char	**ft_split(char *str, char c, char c2, int i, int j)
 	words = 0;
 	while (str[i])
 	{
-		while (str[i] && (str[i] == c || str[i] == c2))
+		while (str[i] && (str[i] == ' ' || str[i] == '>'))
 			i++;
 		j = i;
-		while (str[i] && (str[i] != c || str[i] != c2))
+		while (str[i] && (str[i] != ' ' || str[i] != '>'))
 			i++;
 		if (i > j)
 		{
