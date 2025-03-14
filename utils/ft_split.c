@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 15:35:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:54:40 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,44 @@ static void	ft_copy(char *dest, char *src, int len)
 	}
 	dest[i] = '\0';
 }
-
-static bool	in_sap(char *sap, char c)
+static int ft_strchr(char c, char *sap)
 {
-	while(*sap)
+	int i;
+
+	i = 0;
+	while(sap[i] != '\0')
 	{
-		if(*sap == c)
-			return (true);
-		sap++;
+		if(sap[i] == c)
+			return (c);	
+		i++;
 	}
-	return (false);
+	return (0);
+}
+static int	in_sap(char *sap, char *str)
+{
+	int		i;
+	int		words;
+	char	old;
+
+	words = 0;
+	i = 0;
+	while (str[i] != '\0' && str[i] != ' ')
+	{
+		if (!ft_strchr(str[i], sap))
+			words++;
+		while (!ft_strchr(str[i], sap) && (str[i] != '\0' && str[i] != ' '))
+			i++;
+		old = str[i];
+		if (ft_strchr(str[i], sap))
+		{
+			words += 1;
+			i++;
+		}
+		while (ft_strchr(str[i], sap) == old 
+			&& (str[i] != '\0' && str[i] != ' '))
+			i++;
+	}
+	return words;
 }
 
 static int	strlen_mod(char *str, char *sap)
@@ -49,8 +77,8 @@ static int	strlen_mod(char *str, char *sap)
 		while (str[i] == ' ' && str[i] != '\0')
 			i++;
 		if (str[i] != ' ' && str[i] != '\0')
-			words++;
-		while (str[i] != ' ' && !in_sap(sap, str[i]) && str[i] != '\0')
+			words += in_sap(sap, &str[i]);
+		while (str[i] != ' ' && str[i] != '\0')
 			i++;
 	}
 	return (words);
@@ -85,7 +113,7 @@ char	**ft_split(char *str, char *sap, int i, int j)
 {
 	char	**res;
 	int		words;
-
+	char	old;
 	words = strlen_mod(str, sap);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
@@ -94,18 +122,28 @@ char	**ft_split(char *str, char *sap, int i, int j)
 	words = 0;
 	while (str[i])
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '>'))
+		while (str[i] && (str[i] == ' ' ))
 			i++;
 		j = i;
-		while (str[i] && (str[i] != ' ' || str[i] != '>'))
-			i++;
-		if (i > j)
+		if (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap))
 		{
+			old = str[i];
+			while (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap) == old)
+				i++;
+		}
+		else
+		{
+			while (str[i] && (str[i] != ' ' ) && !ft_strchr(str[i], sap))
+				i++;
+		}
+		if (i > j)
+        {
 			res[words] = malloc(sizeof(char) * ((i - j) + 1));
 			if (!res[words])
 				return (free_the_split(res, words));
-			(ft_copy (res[words], &str[j], (i - j)), words++);
+						(ft_copy (res[words], &str[j], (i - j)), words++);
 		}
+		
 	}
 	return (res[words] = NULL, res);
 }
