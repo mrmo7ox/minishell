@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   garbage_collector.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 12:46:28 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/03/14 12:34:17 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/03/14 12:40:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./minishell.h"
+#include "../minishell.h"
 
-int main(void)
+void    free_garbage(t_gc **list)
 {
-	char	*line;
-	t_gc	*garbage;
-	t_tk	*tokens;
+    t_gc    *tmp;
 
-	while(true)
-	{
-		line = readline("Minishell: ");
-		ft_add_gc(&garbage, ft_new_gc_node(line));
-		if(tokenizer(&garbage, &tokens, line));
-		{
-			printf("ffffff\n");
-		}
-		free(line);
-	}
+    if(!*list || !list)
+        return ;
+    tmp = *list;
+    while(tmp)
+    {
+        free(tmp->addr);
+        tmp = tmp->next; 
+    }
+    free(tmp);
 }

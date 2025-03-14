@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/13 19:26:03 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:46:04 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,18 @@ typedef struct s_tokenizer
 	void	*prev;
 }			t_tk;
 
-void	tokenizer(char *line);
-t_gc	*ft_new_gc_node(void *content);
+// tokenizer
+bool	tokenizer(t_gc **garbage, t_tk tokens, char *line);
 t_tk	*ft_new_tk_node(void *content, void *token);
-void	ft_add_gc(t_gc **head, t_gc *new);
 void	ft_add_tk(t_tk **head, t_tk *new);
+
+// utils
+char	**ft_split(char *str, char c, int i, int j);
+
+// garbage collector
+bool	*add_split_gc(t_gc **head ,char **res);
+t_gc	*ft_new_gc_node(void *content);
+void	ft_add_gc(t_gc **head, t_gc *new);
+void    free_garbage(t_gc **list);
 
 #endif
