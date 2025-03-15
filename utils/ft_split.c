@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 19:39:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:13:44 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	ft_copy(char *dest, char *src, int len)
 	}
 	dest[i] = '\0';
 }
-static int ft_strchr(char c, char *sap)
+int ft_strchr(char c, char *sap)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(sap[i] != '\0')
+	while (sap[i] != '\0')
 	{
-		if(sap[i] == c)
+		if (sap[i] == c)
 			return (c);	
 		i++;
 	}

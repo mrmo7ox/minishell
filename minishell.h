@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 15:16:14 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:48:10 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ t_tk	*ft_new_tk_node(void *content, void *token);
 void	ft_add_tk(t_tk **head, t_tk *new);
 
 // syntax_error
+bool	and_or(char *line);
 bool	syntax_error(char *line);
 
 // utils
 char	**ft_split(char *str, char *sap, int i, int j);
 int		ft_chrcount(char *str, char c);
 int		ft_chrinstr(char *str, char c);
+int		ft_strchr(char c, char *sap);
 
 
 // garbage collector

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
+#    By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/03/15 16:52:19 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/03/15 20:48:45 by ihamani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ MFLAGS = -lreadline -lncurses
 TSRC = tests/ft_strjoin.c
 USRC = utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c
 ESRC =
-PSRC = parsing/tokenizer/syntax_error.c parsing/tokenizer/tokenizer.c 
+PSRC = parsing/tokenizer/syntax_error.c parsing/tokenizer/tokenizer.c  parsing/tokenizer/and_or.c
 SRCS = $(PSRC) $(ESRC) $(USRC) $(TSRC) main.c 
 OBJECTS = $(SRCS:%.c=%.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 17:42:41 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:54:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,44 +43,43 @@ static bool	qoutes(char *line)
 
 static void	skip_qoutes (char *line, int *i)
 {
-	char quote;
+	char	quote;
 
 	if (!line || !line[*i])
-		return;
+		return ;
 	while ((line[*i] == '\'' || line[*i] == '"'))
 	{
 		quote = line[*i];
 		(*i)++;
-		while (line[*i] && line[*i] != quote) 
+		while (line[*i] && line[*i] != quote)
 			(*i)++;
 		if (line[*i] == quote)
 			(*i)++;
 	}
-	
 }
 
-static bool parenthesis(char *line, int *i, int depth)
+static bool	parenthesis(char *line, int *i, int depth)
 {
 	while (line[*i])
 	{
 		skip_qoutes(line, i);
 		if (!line[*i])
-			break;
+			break ;
 		if (line[*i] == '(')
 		{
 			(*i)++;
-			if (!parenthesis(line, i, depth + 1)) 
-				return false;
+			if (!parenthesis(line, i, depth + 1))
+				return (false);
 		}
 		else if (line[*i] == ')')
 		{
 			if (depth == 0)
-				return false;
+				return (false);
 			(*i)++;
-			return true;
+			return (true);
 		}
 		else
-			(*i)++; 
+			(*i)++;
 	}
 	return (depth == 0);
 }
@@ -89,10 +88,9 @@ static bool parenthesis(char *line, int *i, int depth)
 
 bool	syntax_error(char *line)
 {
-	int i = 0;
-	if (!qoutes(line))
-		printf("syntax error\n");
-	if (!parenthesis(line, &i, 0))
+	int	i = 0;
+
+	if (!qoutes(line) || !and_or(line) || !parenthesis(line, &i, 0))
 		printf("syntax error\n");
 	return (true);
 }
