@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/14 19:52:51 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:18:07 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,38 @@ int main(void)
 	{
 		line = readline("Minishell: ");
 		add_history(line);
-		ft_add_gc(&garbage, ft_new_gc_node(line));
-		tokenizer(&garbage, &tokens, line);
+		syntax_error(line);
+		(void)tokens;
+		(void)garbage;
+		// if()
+		// {	
+		// 	// ft_add_gc(&garbage, ft_new_gc_node(line));
+		// 	// tokenizer(&garbage, &tokens, line);
+		// }
 		free(line);
 	}
 }
+
+// for testing 
+// int main(int ac , char **dc)
+// {
+// 	char	*line;
+// 	t_gc	*garbage;
+// 	t_tk	*tokens;
+
+	
+// 	if(ac >= 2 )
+	
+// 	{
+// 		int i = 1;
+// 		line = dc[i];
+// 		while(dc[i])
+// 		{
+// 			i++;
+// 			line = ft_strjoin(line, dc[i]);
+// 		}
+// 		printf("[TEST] [%s]\n", line);
+// 		ft_add_gc(&garbage, ft_new_gc_node(line));
+// 		tokenizer(&garbage, &tokens, line);
+// 	}
+// }

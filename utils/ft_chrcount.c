@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tokenizer.c                                        :+:      :+:    :+:   */
+/*   ft_chrcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 15:17:00 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/03/15 13:58:35 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/03/15 15:14:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line)
+int	ft_chrcount(char *str, char c)
 {
-	// char	**splited;
-	// int		i;
-	// char	*sap;
-	(void)garbage;
-	(void)tokens;
-	if (!line)
-		return (false);
-	syntax_error(line);
-	return (true);
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
 }
+
+
+

@@ -6,18 +6,19 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/03/14 15:17:25 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/03/15 15:42:44 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 MFLAGS = -lreadline -lncurses
-USRC = utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c
+TSRC = tests/ft_strjoin.c
+USRC = utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c
 ESRC =
-PSRC = parsing/tokenizer/tokenizer.c 
-SRCS = $(PSRC) $(ESRC) $(USRC) main.c 
+PSRC = parsing/tokenizer/syntax_error.c parsing/tokenizer/tokenizer.c 
+SRCS = $(PSRC) $(ESRC) $(USRC) $(TSRC) main.c 
 OBJECTS = $(SRCS:%.c=%.o)
 
 NAME = minishell
