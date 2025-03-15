@@ -6,12 +6,12 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/03/15 15:42:44 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/03/15 15:46:38 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 MFLAGS = -lreadline -lncurses
 TSRC = tests/ft_strjoin.c

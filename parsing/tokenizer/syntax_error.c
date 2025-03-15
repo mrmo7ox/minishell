@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 15:41:27 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:51:10 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static bool	parenthesis(char *line)
 		}
 		if (line[i] == ')')
 			return (false);
-		i++;
+		if (line[i] != ')' && line[i] != '(')
+			i++;
 	}
 	return (true);
 }
