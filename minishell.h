@@ -6,19 +6,19 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/16 12:57:55 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/16 14:51:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <errno.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <errno.h>
 
 typedef struct s_garbage
 {
@@ -40,6 +40,7 @@ t_tk	*ft_new_tk_node(void *content, void *token);
 void	ft_add_tk(t_tk **head, t_tk *new);
 
 // syntax_error
+bool	and_or(char *line);
 bool	syntax_error(char *line);
 int		checke_bf(char *line ,int *i);
 
@@ -48,11 +49,12 @@ char	**ft_split(char *str, char *sap, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 
+
 // garbage collector
 bool	add_split_gc(t_gc **head ,char **res);
 t_gc	*ft_new_gc_node(void *content);
 void	ft_add_gc(t_gc **head, t_gc *new);
-void    free_garbage(t_gc **list);
+void	free_garbage(t_gc **list);
 
 
 
