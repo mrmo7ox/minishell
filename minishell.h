@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 15:16:14 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/16 12:57:55 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	ft_add_tk(t_tk **head, t_tk *new);
 
 // syntax_error
 bool	syntax_error(char *line);
+int		checke_bf(char *line ,int *i);
 
 // utils
 char	**ft_split(char *str, char *sap, int i, int j);
 int		ft_chrcount(char *str, char c);
-int		ft_chrinstr(char *str, char c);
-
+bool	ft_chrstr(char chr, char *str);
 
 // garbage collector
 bool	add_split_gc(t_gc **head ,char **res);

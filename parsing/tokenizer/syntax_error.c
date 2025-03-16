@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 17:42:41 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/16 14:38:59 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,78 @@ static bool parenthesis(char *line, int *i, int depth)
 	return (depth == 0);
 }
 
+int	checke_bf(char *line ,int *i)
+{
+	bool	after;
+	bool	before;
+	int		init;
+	int		count;
 
+	after = false;
+	before = false;
+	init = *i;
+	count = 0;
+	// checking before
+	while(line[*i] == '<' && line[*i])
+		(count++, (*i)++);
+	if(count == 0)
+	{
+		while(line[*i] == '>' && line[*i])
+			(count++, (*i)++);
+	}
+	if( count != 0 && (line[*i] == '>' || line[*i] == '<') )
+		return (false);
+	while(line[*i] && *i > 1 && count <= 2)
+	{
+		if (line[*i] != ' ' && !ft_chrstr(line[*i], "<>"))
+		{
+			before = true;
+			break;
+		}
+		(*i)--;
+	}
+	// checking before
+	*i = init;
+	if (count <= 2 && *i == 0)
+		before = true;
+	while(line[*i] && before)
+	{
+		if(line[*i] != ' ' && !ft_chrstr(line[*i], "<>"))
+		{
+			after = true;
+			break;
+		}
+		(*i)++;
+	}
+	if(before && after)
+		return (*i);
+	return (false);
+}
+
+bool	redir_handler(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (*line == ' ')
+		line++;
+	
+	while (line[i])
+	{
+		if (ft_chrstr(line[i], "<>"))
+		{
+			if (!checke_bf(line ,&i))
+				return (false);
+			else
+			{
+				i = checke_bf(line ,&i);			
+				continue;
+			}
+		}
+		i++;	
+	}
+	return (true);
+}
 
 bool	syntax_error(char *line)
 {
@@ -94,5 +165,7 @@ bool	syntax_error(char *line)
 		printf("syntax error\n");
 	if (!parenthesis(line, &i, 0))
 		printf("syntax error\n");
+	if (!redir_handler(line))
+		printf("syntax error redir_handler\n");
 	return (true);
 }
