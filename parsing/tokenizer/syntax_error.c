@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 20:54:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/03/16 14:00:07 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static bool	qoutes(char *line)
 	int	i;
 
 	i = 0;
-	while(line[i])
+	while (line[i])
 	{
 		if (line[i] == '"' && line[i])
 		{
@@ -41,7 +41,7 @@ static bool	qoutes(char *line)
 	return (true);
 }
 
-static void	skip_qoutes (char *line, int *i)
+static void	skip_qoutes(char *line, int *i)
 {
 	char	quote;
 
