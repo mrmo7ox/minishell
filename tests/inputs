@@ -21,3 +21,40 @@ echo 'another unterminated string
 echo "" | cat -e
 echo "a    b" | tr -s ' '
 echo "tab	separated" | tr '\t' ' '
+&& && &&
+|| || ||
+| | | |
+&& || &&
+|| && ||
+| && |
+ls && echo "hello"
+ls |& grep foo
+echo "hello" && ls
+ls && echo "test"
+ls | wc -l
+echo "hello" || ls
+ls || || echo "test"
+ls && && echo "test"
+ls | | wc -l
+&& ls
+|| echo "test"
+| grep foo
+ls |
+echo "hello" &&
+cat file ||
+ls && | wc
+echo "hello" || && ls
+grep foo | || cat
+mkdir test | && rm -rf test
+ls & & echo "test"
+echo "hello" | | wc
+cat file | | grep foo
+ls & & echo "test"
+echo "hello" | | wc
+cat file | | grep foo
+" | ls"
+"ls && "
+" || echo fail"
+ls && && echo "hello"
+||
+|
