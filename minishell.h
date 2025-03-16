@@ -6,19 +6,19 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 20:48:10 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/03/15 21:13:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <errno.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <errno.h>
 
 typedef struct s_garbage
 {
@@ -54,7 +54,7 @@ int		ft_strchr(char c, char *sap);
 bool	add_split_gc(t_gc **head ,char **res);
 t_gc	*ft_new_gc_node(void *content);
 void	ft_add_gc(t_gc **head, t_gc *new);
-void    free_garbage(t_gc **list);
+void	free_garbage(t_gc **list);
 
 
 

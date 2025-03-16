@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/03/15 20:47:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/03/16 13:58:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	and(char *line, int *i)
 	(*i)++;
 	if (line[*i] == '|')
 		(*i)++;
-	while (line[*i] == ' ')
+	while (line[*i] == ' ' || line[*i] == '(' || line[*i] == ')')
 		(*i)++;
 	if (!line[*i] || line[*i] == '|' || line[*i] == '&')
 		return (false);
@@ -35,7 +35,7 @@ static	bool	or(char *line, int *i)
 		return (false);
 	else
 		(*i)++;
-	while (line[*i] == ' ')
+	while (line[*i] == ' ' || line[*i] == '(' || line[*i] == ')')
 		(*i)++;
 	if (!line[*i] || line[*i] == '|' || line[*i] == '&')
 		return (false);
