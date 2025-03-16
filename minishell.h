@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 21:13:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/03/16 14:51:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	ft_add_tk(t_tk **head, t_tk *new);
 // syntax_error
 bool	and_or(char *line);
 bool	syntax_error(char *line);
+int		checke_bf(char *line ,int *i);
 
 // utils
 char	**ft_split(char *str, char *sap, int i, int j);
 int		ft_chrcount(char *str, char c);
-int		ft_chrinstr(char *str, char c);
-int		ft_strchr(char c, char *sap);
+bool	ft_chrstr(char chr, char *str);
 
 
 // garbage collector

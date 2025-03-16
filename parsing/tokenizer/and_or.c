@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   and_or.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/03/16 14:10:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/03/16 14:50:52 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static bool	and(char *line, int *i)
 	(*i)++;
 	if (line[*i] == '|')
 		(*i)++;
-	while (ft_strchr(line[*i], "() "))
+	while (ft_chrstr(line[*i], "() "))
 		(*i)++;
-	if (!line[*i] || ft_strchr(line[*i], "<>|&;"))
+	if (!line[*i] || ft_chrstr(line[*i], "<>|&;"))
 		return (false);
 	return (true);
 }
@@ -35,9 +35,9 @@ static	bool	or(char *line, int *i)
 		return (false);
 	else
 		(*i)++;
-	while (ft_strchr(line[*i], "() "))
+	while (ft_chrstr(line[*i], "() "))
 		(*i)++;
-	if (!line[*i] || ft_strchr(line[*i], "<>|&;"))
+	if (!line[*i] || ft_chrstr(line[*i], "<>|&;"))
 		return (false);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/15 20:13:44 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/03/16 14:52:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,7 @@ static void	ft_copy(char *dest, char *src, int len)
 	}
 	dest[i] = '\0';
 }
-int ft_strchr(char c, char *sap)
-{
-	int	i;
 
-	i = 0;
-	while (sap[i] != '\0')
-	{
-		if (sap[i] == c)
-			return (c);	
-		i++;
-	}
-	return (0);
-}
 static int	in_sap(char *sap, char *str)
 {
 	int		i;
@@ -47,17 +35,17 @@ static int	in_sap(char *sap, char *str)
 	i = 0;
 	while (str[i] != '\0' && str[i] != ' ')
 	{
-		if (!ft_strchr(str[i], sap))
+		if (!ft_chrstr(str[i], sap))
 			words++;
-		while (!ft_strchr(str[i], sap) && (str[i] != '\0' && str[i] != ' '))
+		while (!ft_chrstr(str[i], sap) && (str[i] != '\0' && str[i] != ' '))
 			i++;
 		old = str[i];
-		if (ft_strchr(str[i], sap))
+		if (ft_chrstr(str[i], sap))
 		{
 			words += 1;
 			i++;
 		}
-		while (ft_strchr(str[i], sap) == old 
+		while (ft_chrstr(str[i], sap) == old 
 			&& (str[i] != '\0' && str[i] != ' '))
 			i++;
 	}
@@ -142,15 +130,15 @@ char	**ft_split(char *str, char *sap, int i, int j)
 			if (str[i] == '"')
 				i++;
 		}
-		else if (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap))
+		else if (str[i] && (str[i] != ' ' ) && ft_chrstr(str[i], sap))
 		{
 			old = str[i];
-			while (str[i] && (str[i] != ' ' ) && ft_strchr(str[i], sap) == old)
+			while (str[i] && (str[i] != ' ' ) && ft_chrstr(str[i], sap) == old)
 				i++;
 		}
 		else
 		{
-			while (str[i] && (str[i] != ' ' ) && !ft_strchr(str[i], sap))
+			while (str[i] && (str[i] != ' ' ) && !ft_chrstr(str[i], sap))
 				i++;
 		}
 		if (i > j)
