@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nero <nero@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:25:02 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:30:47 by nero             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
 bool	parenthesis(char *line, int *i, int depth);
+void 	skip_qoutes(char *line, int *i);
 
 // utils
 char	**ft_split(char *str, char *sap, int i, int j);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   and_or.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nero <nero@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/03/16 14:50:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:37:12 by nero             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	and(char *line, int *i)
+static bool	or(char *line, int *i)
 {
 	if (*i == 0)
 		return (false);
@@ -26,7 +26,7 @@ static bool	and(char *line, int *i)
 	return (true);
 }
 
-static	bool	or(char *line, int *i)
+static	bool	and(char *line, int *i)
 {
 	if (*i == 0)
 		return (false);
@@ -51,12 +51,12 @@ bool	and_or(char *line)
 	{
 		if (line[i] == '|')
 		{
-			if (!and(line, &i))
+			if (!or(line, &i))
 				return (false);
 		}
 		else if (line[i] == '&')
 		{
-			if (!or(line, &i))
+			if (!and(line, &i))
 				return (false);
 		}
 		i++;

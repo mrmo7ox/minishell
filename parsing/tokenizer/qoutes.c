@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   qoutes.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nero <nero@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:23:16 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:23:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:30:52 by nero             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	skip_qoutes(char *line, int *i)
+void	skip_qoutes(char *line, int *i)
 {
 	char	quote;
 
