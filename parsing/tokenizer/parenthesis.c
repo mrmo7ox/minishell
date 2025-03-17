@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   parenthesis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 17:46:28 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:27:02 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/03/17 13:21:47 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-void	ft_add_gc(t_gc **head, t_gc *new)
+bool	parenthesis(char *line, int *i, int depth)
 {
-	t_gc	*last;
-
-	if (!head || !new)
-		return ;
-	last = *head;
-	while (last->next)
-		last = last->next;
-	last->next = new;
-}
-
-void	ft_add_tk(t_tk **head, t_tk *new)
-{
-	t_tk	*last;
-
-	if (!head || !new)
-		return ;
-	last = *head;
-	while (last->next)
-		last = last->next;
-	last->next = new;
-	new->prev = last;
+	while (line[*i])
+	{
+		skip_qoutes(line, i);
+		if (!line[*i])
+			break ;
+		if (line[*i] == '(')
+		{
+			(*i)++;
+			if (!parenthesis(line, i, depth + 1))
+				return (false);
+		}
+		else if (line[*i] == ')')
+		{
+			if (depth == 0)
+				return (false);
+			(*i)++;
+			return (true);
+		}
+		else
+			(*i)++;
+	}
+	return (depth == 0);
 }
