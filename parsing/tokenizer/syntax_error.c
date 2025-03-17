@@ -6,12 +6,11 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/16 15:28:25 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/17 13:06:18 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-
 
 static bool	qoutes(char *line)
 {
@@ -84,84 +83,79 @@ static bool	parenthesis(char *line, int *i, int depth)
 	return (depth == 0);
 }
 
-int	checke_bf(char *line ,int *i)
+bool	correct_count(char *line)
 {
-	bool	after;
-	bool	before;
-	int		init;
-	int		count;
+	int	count;
 
-	after = false;
-	before = false;
-	init = *i;
 	count = 0;
-	// checking before
-	while(line[*i] == '<' && line[*i])
-		(count++, (*i)++);
-	if(count == 0)
+	while (*line)
 	{
-		while(line[*i] == '>' && line[*i])
-			(count++, (*i)++);
+		while (ft_chrstr(*line, "<>") && *line != '\0')
+		{
+			count++;
+			line++;
+		}
+		if (ft_chrstr(*line, "|;&"))
+			return (false);
+		if (count <= 2 && !ft_chrstr(*line, "<>"))
+			count = 0;
+		if (count > 2 || *line == '\0')
+			break;
+		line++;
 	}
-	if( count != 0 && (line[*i] == '>' || line[*i] == '<') )
+	if (count > 2)
 		return (false);
-	while(line[*i] && *i > 1 && count <= 2)
-	{
-		if (line[*i] != ' ' && !ft_chrstr(line[*i], "<>"))
-		{
-			before = true;
-			break;
-		}
-		(*i)--;
-	}
-	// checking before
-	*i = init;
-	if (count <= 2 && *i == 0)
-		before = true;
-	while((line[*i] == '<' || line[*i] == '>') && line[*i] != '\0')
-	{
-		(*i)++;
-	}
-	while(line[*i] && before)
-	{
-		if(line[*i] != ' ' && !ft_chrstr(line[*i], "<>"))
-		{
-			after = true;
-			break;
-		}
-		(*i)++;
-	}
-	if(before && after)
-	{
+	return (true);
+}
 
-		return (*i);
+bool	correct_format(char *line)
+{
+	char	oldchr;
+
+	if (!*line)
+		return (true);
+	while (*line)
+	{
+		if(ft_chrstr(*line, "<>"))
+			oldchr = *line;
+		while (oldchr == *line && *line)
+			line++;
+		if (oldchr == '>')
+		{
+			if (ft_chrstr(*line, "<"))
+				return (false);
+		}
+		else
+		{
+			if (ft_chrstr(*line, ">"))
+				return (false);
+		}
+			
+		while (!ft_chrstr(*line, "<>") && *line)
+			line++;
 	}
-	return (false);
+	return (true);
+}
+
+bool	inthe_end(char *line)
+{
+	int	length;
+
+	length = ft_strlen(line);
+	
+	if (length > 0 && ft_chrstr(line[length - 1], "<>"))
+		return (false);
+	else
+		return (true);
 }
 
 bool	redir_handler(char *line)
 {
-	int	i;
 
-	i = 0;
-	while (*line == ' ')
-		line++;
-	
-	while (line[i])
-	{
-		if (ft_chrstr(line[i], "<>"))
-		{
-			if (!checke_bf(line ,&i))
-				return (false);
-			else
-			{
-				while((line[i] == '<' || line[i] == '>') && line[i] != '\0')
-					(i)++;
-				continue;
-			}
-		}
-		i++;	
-	}
+	if(!correct_count(line) || !correct_format(line))
+		return (false);
+	if(!inthe_end(line))
+		return (false);
 	return (true);
 }
 
@@ -169,7 +163,9 @@ bool	syntax_error(char *line)
 {
 	int	i = 0;
 
-	if (!qoutes(line) || !and_or(line) || !parenthesis(line, &i, 0) || !redir_handler(line))
+	if (!qoutes(line) || !and_or(line) 
+		|| !parenthesis(line, &i, 0) 
+		|| !redir_handler(line))
 		printf("syntax error\n");
 	return (true);
 }
