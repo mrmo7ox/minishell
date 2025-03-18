@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:29:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:45:08 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ bool	syntax_error(char *line)
 	if (!qoutes(line) || !and_or(line)
 		|| !parenthesis(line, &i, 0)
 		|| !redir_handler(line))
-		perror("syntax error\n");
+		printf("syntax error\n");
 	return (true);
 }
