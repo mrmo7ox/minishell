@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 13:04:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:17:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int main(void)
 		if (!line)
 			exit(0);
 		add_history(line);
-		syntax_error(line);
-		(void)tokens;
-		(void)garbage;
+		if(syntax_error(line))
+		{
+			tokenizer(&garbage, &tokens, line);
+		}
+
 		// if()
 		// {	
 		// 	// ft_add_gc(&garbage, ft_new_gc_node(line));

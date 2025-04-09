@@ -6,11 +6,12 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/16 14:52:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:11:49 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h" 
+
 
 static void	ft_copy(char *dest, char *src, int len)
 {
@@ -25,57 +26,20 @@ static void	ft_copy(char *dest, char *src, int len)
 	dest[i] = '\0';
 }
 
-static int	in_sap(char *sap, char *str)
+static int	strlen_mod(char *str, char c)
 {
-	int		i;
-	int		words;
-	char	old;
-
-	words = 0;
-	i = 0;
-	while (str[i] != '\0' && str[i] != ' ')
-	{
-		if (!ft_chrstr(str[i], sap))
-			words++;
-		while (!ft_chrstr(str[i], sap) && (str[i] != '\0' && str[i] != ' '))
-			i++;
-		old = str[i];
-		if (ft_chrstr(str[i], sap))
-		{
-			words += 1;
-			i++;
-		}
-		while (ft_chrstr(str[i], sap) == old 
-			&& (str[i] != '\0' && str[i] != ' '))
-			i++;
-	}
-	return words;
-}
-
-static int	strlen_mod(char *str, char *sap)
-{
-	
 	int	i;
 	int	words;
-	
+
 	i = 0;
 	words = 0;
 	while (str[i] != '\0')
 	{
-		while (str[i] == ' ' && str[i] != '\0')
+		while (str[i] == c && str[i] != '\0')
 			i++;
-		if(str[i] == '"')
-		{
+		if (str[i] != c && str[i] != '\0')
 			words++;
-			i++;
-			while (str[i] != '"' && str[i] != '\0')
-				i++;
-			if (str[i] == '"')
-				i++;
-		}
-		if (str[i] != ' ' && str[i] != '\0')
-			words += in_sap(sap, &str[i]);
-		while (str[i] != ' ' && str[i] != '\0')
+		while (str[i] != c && str[i] != '\0')
 			i++;
 	}
 	return (words);
@@ -92,26 +56,12 @@ static char	**free_the_split(char **res, int words)
 	return (NULL);
 }
 
-bool	add_split_gc(t_gc **head ,char **res)
-{
-	int	i;
-
-	i = 0;
-	while (res[i])
-	{
-		ft_add_gc (head, ft_new_gc_node(res[i]));
-		i++;
-	}
-	ft_add_gc (head, ft_new_gc_node(res));
-	return (NULL);
-}
-
-char	**ft_split(char *str, char *sap, int i, int j)
+char	**ft_split(char *str, char c, int i, int j)
 {
 	char	**res;
 	int		words;
-	char	old;
-	words = strlen_mod(str, sap);
+
+	words = strlen_mod(str, c);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
@@ -119,36 +69,18 @@ char	**ft_split(char *str, char *sap, int i, int j)
 	words = 0;
 	while (str[i])
 	{
-		while (str[i] && (str[i] == ' ' ))
+		while (str[i] && str[i] == c)
 			i++;
 		j = i;
-		if(str[i] == '"')
-		{
+		while (str[i] && str[i] != c)
 			i++;
-			while (str[i] != '"' && str[i] != '\0')
-				i++;
-			if (str[i] == '"')
-				i++;
-		}
-		else if (str[i] && (str[i] != ' ' ) && ft_chrstr(str[i], sap))
-		{
-			old = str[i];
-			while (str[i] && (str[i] != ' ' ) && ft_chrstr(str[i], sap) == old)
-				i++;
-		}
-		else
-		{
-			while (str[i] && (str[i] != ' ' ) && !ft_chrstr(str[i], sap))
-				i++;
-		}
 		if (i > j)
-        {
+		{
 			res[words] = malloc(sizeof(char) * ((i - j) + 1));
 			if (!res[words])
 				return (free_the_split(res, words));
-						(ft_copy (res[words], &str[j], (i - j)), words++);
+			(ft_copy (res[words], &str[j], (i - j)), words++);
 		}
-		
 	}
 	return (res[words] = NULL, res);
 }

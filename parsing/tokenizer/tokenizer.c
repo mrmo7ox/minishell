@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:30:08 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:16:08 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line)
 {
-	// char	**splited;
-	// int		i;
-	// char	*sap;
+	char	**splited;
+	int		i;
+
 	(void)garbage;
 	(void)tokens;
 
 	if (!line)
 		return (false);
-	syntax_error(line);
+	splited = ft_split(line, ' ', 0, 0);
+	for (i = 0; splited[i]; i++)
+	{
+		printf("[%d] :%s\n", i, splited[i]);
+	}
+
 	return (true);
 }

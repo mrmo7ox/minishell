@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 13:04:42 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:14:00 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool	parenthesis(char *line, int *i, int depth);
 char	*formating(char *line);
 
 // utils
-char	**ft_split(char *str, char *sap, int i, int j);
+char	**ft_split(char *str, char c, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -57,13 +57,9 @@ bool	ft_whitespaces(char chr);
 
 
 // garbage collector
-bool	add_split_gc(t_gc **head ,char **res);
 t_gc	*ft_new_gc_node(void *content);
 void	ft_add_gc(t_gc **head, t_gc *new);
 void	free_garbage(t_gc **list);
-
-
-
 
 
 // for testing 
