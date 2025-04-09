@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:13:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 11:42:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int main(void)
 	t_gc	*garbage;
 	t_tk	*tokens;
 
-	while(true)
+	while (true)
 	{
 		line = readline("Minishell: ");
+		if (!line)
+			exit(0);
 		add_history(line);
 		syntax_error(line);
 		(void)tokens;
