@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nero <nero@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:19:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:29:01 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:51:42 by nero             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static bool	correct_count(char *line)
 			count++;
 			line++;
 		}
-		if (ft_chrstr(*line, "|;&"))
-			return (false);
 		if (count <= 2 && !ft_chrstr(*line, "<>"))
 			count = 0;
 		if (count > 2 || *line == '\0')
@@ -65,6 +63,22 @@ static bool	correct_format(char *line)
 	return (true);
 }
 
+static	bool	check_after(char *line)
+{
+	while (*line)
+	{
+		if (ft_chrstr(*line, "<>"))
+		{
+			while(*line && ft_chrstr(*line, "<> ()"))
+				line++;
+			if(*line && ft_chrstr(*line, "&|;"))
+				return (false);
+		}
+		line++;
+	}
+	return (true);
+}
+
 static bool	inthe_end(char *line)
 {
 	int	length;
@@ -78,7 +92,8 @@ static bool	inthe_end(char *line)
 
 bool	redir_handler(char *line)
 {
-	if (!correct_count(line) || !correct_format(line))
+	if (!correct_count(line) || !correct_format(line)
+			|| !check_after(line))
 		return (false);
 	if (!inthe_end(line))
 		return (false);
