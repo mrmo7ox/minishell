@@ -6,11 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 12:33:52 by moel-oua          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/04/09 11:11:02 by moel-oua         ###   ########.fr       */
-=======
-/*   Updated: 2025/03/17 13:27:34 by moel-oua         ###   ########.fr       */
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
+/*   Updated: 2025/04/09 12:50:52 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +49,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
-<<<<<<< HEAD
-=======
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char	*tmp_dst;
-	unsigned char	*tmp_src;
-
-	if (dst == (void *)0 && src == (void *)0)
-		return (dst);
-	tmp_dst = (unsigned char *) dst;
-	tmp_src = (unsigned char *) src;
-	while (n > 0)
-	{
-		*tmp_dst++ = *tmp_src++;
-		n--;
-	}
-	return (dst);
-}
-
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
 char	*ft_strdup(const char *source)
 {
 	char	*dup;

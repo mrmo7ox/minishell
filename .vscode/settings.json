@@ -6,7 +6,6 @@
         "stdio.h": "c",
         "stdlib.h": "c",
         "errno.h": "c",
-<<<<<<< HEAD
         "history.h": "c",
         "array": "c",
         "chrono": "c",
@@ -19,9 +18,6 @@
         "initializer_list": "c",
         "span": "c",
         "text_encoding": "c"
-=======
-        "history.h": "c"
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
     },
     "files.exclude": {
         "**/.git": true,

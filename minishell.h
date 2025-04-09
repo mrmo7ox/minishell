@@ -6,11 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/04/09 11:50:54 by moel-oua         ###   ########.fr       */
-=======
-/*   Updated: 2025/03/18 13:59:49 by moel-oua         ###   ########.fr       */
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
+/*   Updated: 2025/04/09 12:50:11 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +50,9 @@ bool	parenthesis(char *line, int *i, int depth);
 char	**ft_split(char *str, char *sap, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
-<<<<<<< HEAD
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 bool	ft_whitespaces(char chr);
-=======
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
 
 
 // garbage collector

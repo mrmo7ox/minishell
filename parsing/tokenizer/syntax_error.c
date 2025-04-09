@@ -6,11 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/04/09 11:51:59 by moel-oua         ###   ########.fr       */
-=======
-/*   Updated: 2025/03/18 14:00:55 by moel-oua         ###   ########.fr       */
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
+/*   Updated: 2025/04/09 12:47:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +37,8 @@ bool	syntax_error(char *line)
 	int	i;
 
 	i = 0;
-<<<<<<< HEAD
 	line = formating(line);
 	printf("'%s'\n", line);
-=======
->>>>>>> b70dd6c7dbda1ef8ca7740fbdfa054d841302f36
 	if (!qoutes(line) || !and_or(line)
 		|| !parenthesis(line, &i, 0)
 		|| !redir_handler(line))
