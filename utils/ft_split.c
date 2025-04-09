@@ -6,25 +6,25 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 16:16:59 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:27:13 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h" 
 
 
-// static void	ft_copy(char *dest, char *src, int len)
-// {
-// 	int	i;
+static void	ft_copy(char *dest, char *src, int len)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (src[i] && i < len)
-// 	{
-// 		dest[i] = src[i];
-// 		i++;
-// 	}
-// 	dest[i] = '\0';
-// }
+	i = 0;
+	while (src[i] && i < len)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+}
 
 static bool special_cases(char *str)
 {
@@ -88,23 +88,26 @@ static int	strlen_mod(char *line)
 	return (words);
 }
 
-// static char	**free_the_split(char **res, int words)
-// {
-// 	while (words)
-// 	{
-// 		free (res[words]);
-// 		words--;
-// 	}
-// 	free(res);
-// 	return (NULL);
-// }
+static char	**free_the_split(char **res, int words)
+{
+	while (words)
+	{
+		free (res[words]);
+		words--;
+	}
+	free(res);
+	return (NULL);
+}
 void	add_string(int i, int j, char **res, int words, char *line)
 {
 	if (i > j)
 	{
 		res[words] = malloc(sizeof(char) * ((i - j) + 1));
 		if (!res[words])
-			return (free_the_split(res, words));
+		{
+			free_the_split(res, words);
+			exit(1);
+		}
 		(ft_copy (res[words], &line[j], (i - j)), words++);
 	}
 }
@@ -124,18 +127,36 @@ char	**ft_split(char *line, int i, int j)
 		while (line[i] != '\0' && ft_chrstr(line[i], " "))
 			i++;
 		j = i;
-		if (line[i] != '\0' && special_cases(line + i) )
+		if (special_cases(line + i) && line[i] != '\0')
 		{
-			while(ft_chrstr(line[i], "<>|&") && line[i] != '\0')
-				i++;
-			
-		}
-		else if (line[i] != ' ' && line[i] != '\0')
+			while(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
+				{
+					if(line[i] == '(')
+					{
+						while(line[i] != '\0' && line[i] != ')')
+							i++;
+					}
+					else if(line[i] == '\'')
+					{
+						while(line[i] != '\0' && line[i] != '\'')
+							i++;
+					}
+					else if(line[i] == '"')
+					{
+						while(line[i] != '\0' && line[i] != '"')
+							i++;
+					}
+					else
+						i++;
+				}
 			add_string(i, j , res, words, line);
-		while (!ft_chrstr(line[i], "<>|& ") && line[i] != '\0')
+			words++;
+			continue;
+		}
+		while (!ft_chrstr(line[i], "<>|&('\") ") && line[i] != '\0')
 			i++;
-		
-		
+		add_string(i, j , res, words, line);
+		words++;
 	}
 	return (res[words] = NULL, res);
 }
