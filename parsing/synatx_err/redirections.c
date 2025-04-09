@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nero <nero@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:19:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 17:51:42 by nero             ###   ########.fr       */
+/*   Updated: 2025/04/09 13:14:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static bool	correct_format(char *line)
 
 	if (!*line)
 		return (true);
+	oldchr = 0;
 	while (*line)
 	{
 		if (ft_chrstr(*line, "<>"))
@@ -69,12 +70,13 @@ static	bool	check_after(char *line)
 	{
 		if (ft_chrstr(*line, "<>"))
 		{
-			while(*line && ft_chrstr(*line, "<> ()"))
+			while (*line && ft_chrstr(*line, "<> ()"))
 				line++;
-			if(*line && ft_chrstr(*line, "&|;"))
+			if (*line && ft_chrstr(*line, "&|;"))
 				return (false);
 		}
-		line++;
+		if (*line)
+			line++;
 	}
 	return (true);
 }

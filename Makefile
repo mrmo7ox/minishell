@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
+#    By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/04/09 12:56:25 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/04/09 13:11:56 by ihamani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 MFLAGS = -lreadline -lncurses
 TSRC = tests/ft_strjoin.c
 USRC = utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c
