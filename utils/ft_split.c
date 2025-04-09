@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 16:27:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:37:16 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,33 @@ static int	strlen_mod(char *line)
 			i++;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			while(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
+			while(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
 				{
+					printf("test\n");
 					if(line[i] == '(')
 					{
-						while(line[i] != ')')
+						i++;
+						while(line[i] != '\0' && line[i] != ')')
 							i++;
+						i++;
 					}
 					else if(line[i] == '\'')
 					{
-						while(line[i] != '\'')
+						i++;
+						i++;
+						while(line[i] != '\0' && line[i] != '\'')
 							i++;
+						i++;
 					}
 					else if(line[i] == '"')
 					{
-						while(line[i] != '"')
+						i++;
+						while(line[i] != '\0' && line[i] != '"')
 							i++;
+						i++;
 					}
-					i++;
+					else
+						i++;
 				}
 			words++;
 			continue;
@@ -129,22 +138,28 @@ char	**ft_split(char *line, int i, int j)
 		j = i;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			while(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
+			while(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
 				{
 					if(line[i] == '(')
 					{
+						i++;
 						while(line[i] != '\0' && line[i] != ')')
 							i++;
+						i++;
 					}
 					else if(line[i] == '\'')
 					{
+						i++;
 						while(line[i] != '\0' && line[i] != '\'')
 							i++;
+						i++;
 					}
 					else if(line[i] == '"')
 					{
+						i++;
 						while(line[i] != '\0' && line[i] != '"')
 							i++;
+						i++;
 					}
 					else
 						i++;

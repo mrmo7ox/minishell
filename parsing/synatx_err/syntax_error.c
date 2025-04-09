@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 13:12:20 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/09 16:30:11 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ bool	syntax_error(char *line)
 	if (!qoutes(line) || !and_or(line)
 		|| !parenthesis(line, &i, 0)
 		|| !redir_handler(line))
+	{	
 		printf("syntax error\n");
+		return (false);
+	}
 	return (true);
 }
