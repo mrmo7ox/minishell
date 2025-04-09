@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 12:52:38 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:04:52 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(void)
 	while (true)
 	{
 		line = readline("Minishell: ");
+		line = formating(line);
 		if (!line)
 			exit(0);
 		add_history(line);

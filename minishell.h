@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 12:50:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:04:42 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
 bool	parenthesis(char *line, int *i, int depth);
+char	*formating(char *line);
 
 // utils
 char	**ft_split(char *str, char *sap, int i, int j);
