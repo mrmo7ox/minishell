@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   and_or.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/03/18 14:03:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 10:34:48 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static bool	or(char *line, int *i)
 		(*i)++;
 	while (ft_chrstr(line[*i], "() "))
 		(*i)++;
-	if (!line[*i] || ft_chrstr(line[*i], "<|&;"))
+	if (!line[*i] || ft_chrstr(line[*i], "|&;"))
 		return (false);
 	return (true);
 }
@@ -37,7 +37,7 @@ static	bool	and(char *line, int *i)
 		(*i)++;
 	while (ft_chrstr(line[*i], "() "))
 		(*i)++;
-	if (!line[*i] || ft_chrstr(line[*i], "<|&;"))
+	if (!line[*i] || ft_chrstr(line[*i], "|&;"))
 		return (false);
 	return (true);
 }
