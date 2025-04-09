@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parenthesis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/18 13:59:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:36:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ static void	skip_qoutes(char *line, int *i)
 
 bool	parenthesis(char *line, int *i, int depth)
 {
+	int	count;
+	int tmp;
+
+	count = 0;
 	while (line[*i])
 	{
 		skip_qoutes(line, i);
@@ -38,19 +42,34 @@ bool	parenthesis(char *line, int *i, int depth)
 			break ;
 		if (line[*i] == '(')
 		{
+			if (count)
+			{
+				tmp = (*i) - 1;
+				while (line[tmp] == ' ')
+					tmp--;
+				if (line[tmp] && !ft_chrstr(line[tmp], "|&<>"))
+					return (false);
+			}
 			(*i)++;
 			if (!parenthesis(line, i, depth + 1))
 				return (false);
 		}
 		else if (line[*i] == ')')
 		{
-			if (depth == 0)
+			if (depth == 0 || !count)
 				return (false);
 			(*i)++;
+			while (line[*i] == ' ')
+				(*i)++;
+			if (line[*i] && !ft_chrstr(line[*i], "|&<>"))
+				return (false);
 			return (true);
 		}
 		else
+		{
 			(*i)++;
+			count++;
+		}
 	}
 	return (depth == 0);
 }
