@@ -1,0 +1,59 @@
+&& && &&
+|| || ||
+| | | |
+&& || &&
+|| && ||
+| && |
+&& ls
+| grep foo
+ls |
+ls && | wc
+echo "hello" || && ls
+grep foo | || cat
+ls & & echo "test"
+echo "hello" | | wc
+cat file | | grep foo
+" | ls"
+"ls && "
+" || echo fail"
+ls && && echo "hello"
+||
+|
+&& ls
+|| echo "test"
+| grep foo
+ls &&
+echo "hi" ||
+cat file |
+ls || || echo "test"
+ls && && echo "test"
+ls | | wc -l
+ls && | wc
+echo "hi" || && ls
+grep foo | || cat
+ls & & echo "test"
+ls | | wc
+echo "hello" | | wc
+ls >
+echo "test" <
+ls > | wc
+echo "hi" &&; ls
+ls |; echo "done"
+echo "hello && ls
+echo 'hello ||
+ls && (echo "hello"
+ls | (echo foo
+ls &&  && echo "hello"
+ls ||  || echo "test"
+ls |  | wc
+&&
+||
+|
+echo "hello" &&  
+ls &&# echo "hello"
+echo "hello" &&* ls
+ls && @ wc -l
+echo hello | && ls
+ls || | echo "fail"
+cat file && || echo "done"
+echo "test" | && | wc -l
