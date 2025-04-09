@@ -6,7 +6,7 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/04/09 12:49:47 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/04/09 12:52:43 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ MFLAGS = -lreadline -lncurses
 TSRC = tests/ft_strjoin.c
 USRC = utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c
 ESRC =
-PSRC = parsing/tokenizer/qoutes.c parsing/tokenizer/parenthesis.c parsing/tokenizer/redirections.c parsing/tokenizer/syntax_error.c parsing/tokenizer/tokenizer.c  parsing/tokenizer/and_or.c
+PSRC = parsing/synatx_err/qoutes.c parsing/synatx_err/parenthesis.c parsing/synatx_err/redirections.c parsing/synatx_err/syntax_error.c parsing/tokenizer/tokenizer.c  parsing/synatx_err/and_or.c
 SRCS = $(PSRC) $(ESRC) $(USRC) $(TSRC) main.c 
 OBJECTS = $(SRCS:%.c=%.o)
 
