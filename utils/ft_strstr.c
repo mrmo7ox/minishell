@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tokenizer.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 15:05:32 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/09 13:28:06 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/04/09 14:20:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line)
+bool	ft_strstr(char *line, char *sp)
 {
-	char	**splited;
-	int		i;
 
-	(void)garbage;
-	(void)tokens;
-
-	if (!line)
-		return (false);
-	splited = ft_split(line, 0, 0);
-	for (i = 0; splited[i]; i++)
+	while(*sp != '\0' && *line != '\0'&& *sp == *line)
 	{
-		printf("[%d] :%s\n", i, splited[i]);
+		sp++;
+		line++;
 	}
-
-	return (true);
+	if (*sp == '\0')
+		return (true);
+	return (false);
 }
