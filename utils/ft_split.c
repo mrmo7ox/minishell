@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 16:37:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:48:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static int	strlen_mod(char *line)
 		{
 			while(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
 				{
-					printf("test\n");
 					if(line[i] == '(')
 					{
 						i++;
@@ -93,7 +92,6 @@ static int	strlen_mod(char *line)
 		while (!ft_chrstr(line[i], "<>|&) ") && line[i] != '\0')
 			i++;
 	}
-	printf("words number = %d\n", words);
 	return (words);
 }
 
