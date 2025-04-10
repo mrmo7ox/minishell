@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 10:10:50 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:34:14 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ bool	parenthesis(char *line, int *i, int depth, int count)
 	while (line[*i])
 	{
 		skip_qoutes(line, i);
+		skip(line, i);
 		if (line[*i] == '(')
 		{
 			if (!check_before(line, *i, count))

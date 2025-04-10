@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/10 13:17:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 14:46:37 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	mod_chrstr(char chr, char *str)
 	return (0);
 }
 
-static void	skip(char *line, int *i)
+void	skip(char *line, int *i)
 {
 	int	chr;
 
@@ -74,7 +74,6 @@ bool	and_or(char *line)
 	i = 0;
 	while (line[i])
 	{
-		skip(line, &i);
 		if (line[i] == '|')
 		{
 			if (!or(line, &i))
@@ -85,6 +84,7 @@ bool	and_or(char *line)
 			if (!and(line, &i))
 				return (false);
 		}
+		skip(line, &i);
 		i++;
 	}
 	return (true);
