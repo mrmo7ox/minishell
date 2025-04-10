@@ -6,11 +6,36 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/09 11:34:40 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 13:17:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+static int	mod_chrstr(char chr, char *str)
+{
+	while (*str != '\0')
+	{
+		if (chr == *str)
+			return (chr);
+		str++;
+	}
+	return (0);
+}
+
+static void	skip(char *line, int *i)
+{
+	int	chr;
+
+	chr = mod_chrstr(line[*i], "\"\'");
+	if (chr)
+	{
+		(*i)++;
+		while (line[*i] && line[*i] != chr)
+			(*i)++;
+		(*i)++;
+	}
+}
 
 static bool	or(char *line, int *i)
 {
@@ -49,6 +74,7 @@ bool	and_or(char *line)
 	i = 0;
 	while (line[i])
 	{
+		skip(line, &i);
 		if (line[i] == '|')
 		{
 			if (!or(line, &i))

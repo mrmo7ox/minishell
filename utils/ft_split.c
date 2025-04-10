@@ -6,25 +6,11 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 10:45:09 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:53:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h" 
-
-
-static void	ft_copy(char *dest, char *src, int len)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] && i < len)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-}
 
 static bool	special_cases(char *str)
 {
@@ -40,7 +26,7 @@ static bool	special_cases(char *str)
 		return (true);
 	else if ((ft_strstr(str, "|") || ft_strstr(str, "&")) && *str != '\0')
 		return (true);
-	else if (*str != '\0' && ft_strstr(str , "<"))
+	else if (*str != '\0' && ft_strstr(str, "<"))
 		return (true);
 	return (false);
 }
@@ -71,16 +57,13 @@ static int	strlen_mod(char *line)
 	return (words);
 }
 
-static char	**free_the_split(char **res, int words)
+static void	bs(int *num, char **res, char *line)
 {
-	while (words)
-	{
-		free (res[words]);
-		words--;
-	}
-	free(res);
-	return (NULL);
+	spc(line, &num[0]);
+	add_string(num, res, line);
+	num[2]++;
 }
+<<<<<<< HEAD
 
 void	add_string(int i, int j, char **res, int words, char *line)
 {
@@ -97,32 +80,35 @@ void	add_string(int i, int j, char **res, int words, char *line)
 }
 
 char	**ft_split(char *line, int i, int j)
+=======
+//0 i,1 j, 2 words
+
+char	**ft_split(char *line)
+>>>>>>> 9569a960daad3d1636abc6edea6ef8f09c53e9a9
 {
 	char	**res;
-	int		words;
+	int		num[3];
 
-	words = strlen_mod(line);
-	res = malloc(sizeof(char *) * (words + 1));
+	num[2] = strlen_mod(line);
+	res = malloc(sizeof(char *) * (num[2] + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
-	words = 0;
-	while (line[i])
+	num[0] = 0;
+	num[2] = 0;
+	while (line[num[0]])
 	{
-		while (line[i] != '\0' && ft_chrstr(line[i], " "))
-			i++;
-		j = i;
-		if (special_cases(line + i) && line[i] != '\0')
+		while (line[num[0]] != '\0' && ft_chrstr(line[num[0]], " "))
+			num[0]++;
+		num[1] = num[0];
+		if (special_cases(line + num[0]) && line[num[0]] != '\0')
 		{
-			spc(line, &i);
-			add_string(i, j, res, words, line);
-			words++;
+			bs(num, res, line);
 			continue ;
 		}
-		while (!ft_chrstr(line[i], "<>|&('\") ") && line[i] != '\0')
-			i++;
-		add_string(i, j, res, words, line);
-		words++;
+		while (!ft_chrstr(line[num[0]], "<>|&('\") ") && line[num[0]] != '\0')
+			num[0]++;
+		add_string(num, res, line);
+		num[2]++;
 	}
-	return (res[words] = NULL, res);
+	return (res[num[2]] = NULL, res);
 }
