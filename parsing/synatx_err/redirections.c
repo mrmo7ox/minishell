@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:19:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 13:14:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 10:11:24 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static bool	inthe_end(char *line)
 bool	redir_handler(char *line)
 {
 	if (!correct_count(line) || !correct_format(line)
-			|| !check_after(line))
+		|| !check_after(line))
 		return (false);
 	if (!inthe_end(line))
 		return (false);

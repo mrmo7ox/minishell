@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 17:36:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 10:10:50 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,39 +29,45 @@ static void	skip_qoutes(char *line, int *i)
 	}
 }
 
-bool	parenthesis(char *line, int *i, int depth)
+static bool	check_before(char *line, int i, int count)
 {
-	int	count;
-	int tmp;
+	if (count)
+	{
+		i--;
+		while (line[i] == ' ')
+			i--;
+		if (line[i] && !ft_chrstr(line[i], "|&<>"))
+			return (false);
+	}
+	return (true);
+}
 
-	count = 0;
+static bool	check_after(char *line, int *i)
+{
+	(*i)++;
+	while (line[*i] == ' ')
+		(*i)++;
+	if (line[*i] && !ft_chrstr(line[*i], "|&<>"))
+		return (false);
+	return (true);
+}
+
+bool	parenthesis(char *line, int *i, int depth, int count)
+{
 	while (line[*i])
 	{
 		skip_qoutes(line, i);
-		if (!line[*i])
-			break ;
 		if (line[*i] == '(')
 		{
-			if (count)
-			{
-				tmp = (*i) - 1;
-				while (line[tmp] == ' ')
-					tmp--;
-				if (line[tmp] && !ft_chrstr(line[tmp], "|&<>"))
-					return (false);
-			}
+			if (!check_before(line, *i, count))
+				return (false);
 			(*i)++;
-			if (!parenthesis(line, i, depth + 1))
+			if (!parenthesis(line, i, depth + 1, 0))
 				return (false);
 		}
 		else if (line[*i] == ')')
 		{
-			if (depth == 0 || !count)
-				return (false);
-			(*i)++;
-			while (line[*i] == ' ')
-				(*i)++;
-			if (line[*i] && !ft_chrstr(line[*i], "|&<>"))
+			if (depth == 0 || !count || !check_after(line, i))
 				return (false);
 			return (true);
 		}
