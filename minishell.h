@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 10:47:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/10 11:02:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ bool	parenthesis(char *line, int *i, int depth, int count);
 char	*formating(char *line);
 
 // utils
-char	**ft_split(char *str, int i, int j);
+char	**ft_split(char *str);
 void	spc(char *line, int *i);
 void	strlen_spc(char *line, int *i);
+void	add_string(int *num, char **res, char *line);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,13 +6,13 @@
 #    By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/04/10 10:20:34 by ihamani          ###   ########.fr        #
+#    Updated: 2025/04/10 11:44:39 by ihamani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 MFLAGS = -lreadline -lncurses
 TSRC = tests/ft_strjoin.c
 USRC = utils/ft_strstr.c utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c utils/ft_split_utils.c
