@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:28:06 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 14:20:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:47:08 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 bool	ft_strstr(char *line, char *sp)
 {
-
-	while(*sp != '\0' && *line != '\0'&& *sp == *line)
+	while (*sp != '\0' && *line != '\0' && *sp == *line)
 	{
 		sp++;
 		line++;

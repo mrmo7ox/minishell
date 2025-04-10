@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 17:48:15 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:45:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_copy(char *dest, char *src, int len)
 	dest[i] = '\0';
 }
 
-static bool special_cases(char *str)
+static bool	special_cases(char *str)
 {
 	if ((ft_strstr(str, "<<") || ft_strstr(str, ">>")) && *str != '\0')
 		return (true);
@@ -44,6 +44,7 @@ static bool special_cases(char *str)
 		return (true);
 	return (false);
 }
+
 static int	strlen_mod(char *line)
 {
 	int	i;
@@ -57,35 +58,10 @@ static int	strlen_mod(char *line)
 			i++;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			while(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
-				{
-					if(line[i] == '(')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != ')')
-							i++;
-						i++;
-					}
-					else if(line[i] == '\'')
-					{
-						i++;
-						i++;
-						while(line[i] != '\0' && line[i] != '\'')
-							i++;
-						i++;
-					}
-					else if(line[i] == '"')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != '"')
-							i++;
-						i++;
-					}
-					else
-						i++;
-				}
+			while (ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
+				strlen_spc(line, &i);
 			words++;
-			continue;
+			continue ;
 		}
 		else if (line[i] != ' ' && line[i] != '\0')
 			words++;
@@ -105,6 +81,7 @@ static char	**free_the_split(char **res, int words)
 	free(res);
 	return (NULL);
 }
+
 void	add_string(int i, int j, char **res, int words, char *line)
 {
 	if (i > j)
@@ -118,17 +95,18 @@ void	add_string(int i, int j, char **res, int words, char *line)
 		(ft_copy (res[words], &line[j], (i - j)), words++);
 	}
 }
+
 char	**ft_split(char *line, int i, int j)
 {
 	char	**res;
 	int		words;
-	
+
 	words = strlen_mod(line);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
-	words = 0;	
+	words = 0;
 	while (line[i])
 	{
 		while (line[i] != '\0' && ft_chrstr(line[i], " "))
@@ -136,39 +114,14 @@ char	**ft_split(char *line, int i, int j)
 		j = i;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			while(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
-				{
-					if(line[i] == '(')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != ')')
-							i++;
-						i++;
-					}
-					else if(line[i] == '\'')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != '\'')
-							i++;
-						i++;
-					}
-					else if(line[i] == '"')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != '"')
-							i++;
-						i++;
-					}
-					else
-						i++;
-				}
-			add_string(i, j , res, words, line);
+			spc(line, &i);
+			add_string(i, j, res, words, line);
 			words++;
-			continue;
+			continue ;
 		}
 		while (!ft_chrstr(line[i], "<>|&('\") ") && line[i] != '\0')
 			i++;
-		add_string(i, j , res, words, line);
+		add_string(i, j, res, words, line);
 		words++;
 	}
 	return (res[words] = NULL, res);

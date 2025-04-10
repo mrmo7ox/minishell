@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 16:25:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:46:37 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line)
 
 	(void)garbage;
 	(void)tokens;
-
 	if (!line)
 		return (false);
 	splited = ft_split(line, 0, 0);
@@ -27,6 +26,5 @@ bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line)
 	{
 		printf("[%d] :%s\n", i, splited[i]);
 	}
-
 	return (true);
 }

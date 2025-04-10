@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 15:05:23 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:47:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ bool	and_or(char *line);
 bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
-bool	parenthesis(char *line, int *i, int depth);
+bool	parenthesis(char *line, int *i, int depth, int count);
 char	*formating(char *line);
 
 // utils
 char	**ft_split(char *str, int i, int j);
+void	spc(char *line, int *i);
+void	strlen_spc(char *line, int *i);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -57,12 +59,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 bool	ft_whitespaces(char chr);
 bool	ft_strstr(char *line, char *sp);
 
-
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);
 void	ft_add_gc(t_gc **head, t_gc *new);
 void	free_garbage(t_gc **list);
-
 
 // for testing 
 size_t	ft_strlen(const char *s);
