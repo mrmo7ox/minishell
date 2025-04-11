@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   and_or.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 20:41:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/10 13:17:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/11 11:07:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-
-static int	mod_chrstr(char chr, char *str)
-{
-	while (*str != '\0')
-	{
-		if (chr == *str)
-			return (chr);
-		str++;
-	}
-	return (0);
-}
-
-static void	skip(char *line, int *i)
-{
-	int	chr;
-
-	chr = mod_chrstr(line[*i], "\"\'");
-	if (chr)
-	{
-		(*i)++;
-		while (line[*i] && line[*i] != chr)
-			(*i)++;
-		(*i)++;
-	}
-}
 
 static bool	or(char *line, int *i)
 {
@@ -74,7 +49,6 @@ bool	and_or(char *line)
 	i = 0;
 	while (line[i])
 	{
-		skip(line, &i);
 		if (line[i] == '|')
 		{
 			if (!or(line, &i))
@@ -85,6 +59,7 @@ bool	and_or(char *line)
 			if (!and(line, &i))
 				return (false);
 		}
+		skip(line, &i);
 		i++;
 	}
 	return (true);

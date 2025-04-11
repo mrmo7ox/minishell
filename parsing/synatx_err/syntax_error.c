@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 10:08:49 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/11 11:42:37 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ char	*formating(char *line)
 
 bool	syntax_error(char *line)
 {
-	int	i;
-	int	count;
+	// int	i;
+	// int	count;
 
-	i = 0;
-	count = 0;
+	// i = 0;
+	// count = 0;
 	if (!qoutes(line) || !and_or(line)
-		|| !parenthesis(line, &i, 0, count)
+		|| !parenthesis(line, 0, 0, 0)
 		|| !redir_handler(line))
 	{	
 		printf("syntax error\n");

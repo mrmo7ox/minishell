@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 11:02:30 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/11 11:42:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ bool	and_or(char *line);
 bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
-bool	parenthesis(char *line, int *i, int depth, int count);
+bool parenthesis(char *line, int open_count, int i, int j);
 char	*formating(char *line);
+int	mod_chrstr(char chr, char *str);
+void	skip(char *line, int *i);
 
 // utils
 char	**ft_split(char *str);
@@ -59,6 +61,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 bool	ft_whitespaces(char chr);
 bool	ft_strstr(char *line, char *sp);
+void	skip(char *line, int *i);
 
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);

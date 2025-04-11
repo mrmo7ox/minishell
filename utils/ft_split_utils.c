@@ -44,7 +44,13 @@ void	spc(char *line, int *i)
 		{
 			(*i)++;
 			while (line[*i] != '\0' && line[*i] != ')')
+			{
+				if(line[*i] != '(')
+				{
+					spc(line, i);
+				}
 				(*i)++;
+			}
 		}
 		else if (line[*i] == '\'')
 		{

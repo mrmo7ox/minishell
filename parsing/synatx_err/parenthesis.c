@@ -3,79 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   parenthesis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 10:10:50 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/11 12:21:12 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	skip_qoutes(char *line, int *i)
+bool is_operator(char c)
 {
-	char	quote;
-
-	if (!line || !line[*i])
-		return ;
-	while ((line[*i] == '\'' || line[*i] == '"'))
-	{
-		quote = line[*i];
-		(*i)++;
-		while (line[*i] && line[*i] != quote)
-			(*i)++;
-		if (line[*i] == quote)
-			(*i)++;
-	}
+    return (c == '|' || c == '&');
 }
 
-static bool	check_before(char *line, int i, int count)
+static void skip_quotes(char *line, int *i)
 {
-	if (count)
-	{
-		i--;
-		while (line[i] == ' ')
-			i--;
-		if (line[i] && !ft_chrstr(line[i], "|&<>"))
-			return (false);
-	}
-	return (true);
+    char quote;
+
+    if (!line || !line[*i])
+        return;
+    while (line[*i] == '\'' || line[*i] == '\"')
+    {
+        quote = line[*i];
+        (*i)++;
+        while (line[*i] && line[*i] != quote)
+            (*i)++;
+        if (line[*i] == quote)
+            (*i)++;
+    }
 }
 
-static bool	check_after(char *line, int *i)
+bool	is_operator_before(char *line, int *open_count, int *j , int *i)
 {
-	(*i)++;
-	while (line[*i] == ' ')
-		(*i)++;
-	if (line[*i] && !ft_chrstr(line[*i], "|&<>"))
+	(*j) = (*i) - 1;
+	while ((*j) >= 0 && ft_whitespaces(line[(*j)]))
+		(*j)--;
+	if ((*j) < 0 || (!is_operator(line[(*j)]) && line[(*j)] != '(')) 
 		return (false);
+	(*open_count)++;
 	return (true);
 }
 
-bool	parenthesis(char *line, int *i, int depth, int count)
+bool parenthesis(char *line, int open_count, int i, int j)
 {
-	while (line[*i])
-	{
-		skip_qoutes(line, i);
-		if (line[*i] == '(')
-		{
-			if (!check_before(line, *i, count))
+    while (line[i] != '\0') 
+    {
+        skip_quotes(line, &i);
+        if (line[i] == '(')
+        {
+			if (i == 0)
+			{
+				open_count++;
+				i++;
+				continue;
+			}
+			if(!is_operator_before(line, &open_count, &j, &i))
 				return (false);
-			(*i)++;
-			if (!parenthesis(line, i, depth + 1, 0))
-				return (false);
-		}
-		else if (line[*i] == ')')
-		{
-			if (depth == 0 || !count || !check_after(line, i))
-				return (false);
-			return (true);
-		}
-		else
-		{
-			(*i)++;
-			count++;
-		}
-	}
-	return (depth == 0);
+        }
+        else if (line[i] == ')')
+        {
+            if ((open_count == 0 ) || (line[i - 1] == '('))
+                return (false);
+            open_count--;
+        }
+        i++;
+    }
+    if (open_count > 0)
+        return (false);
+    return (true); 
 }

@@ -63,28 +63,9 @@ static void	bs(int *num, char **res, char *line)
 	add_string(num, res, line);
 	num[2]++;
 }
-<<<<<<< HEAD
-
-void	add_string(int i, int j, char **res, int words, char *line)
-{
-	if (i > j)
-	{
-		res[words] = malloc(sizeof(char) * ((i - j) + 1));
-		if (!res[words])
-		{
-			free_the_split(res, words);
-			exit(1);
-		}
-		(ft_copy (res[words], &line[j], (i - j)), words++);
-	}
-}
-
-char	**ft_split(char *line, int i, int j)
-=======
 //0 i,1 j, 2 words
 
 char	**ft_split(char *line)
->>>>>>> 9569a960daad3d1636abc6edea6ef8f09c53e9a9
 {
 	char	**res;
 	int		num[3];
