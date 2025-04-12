@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/11 11:42:06 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/12 10:00:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <readline/history.h>
 # include <errno.h>
 # include <signal.h>
+# include <unistd.h>
 
 typedef struct s_garbage
 {
@@ -47,14 +48,11 @@ bool	redir_handler(char *line);
 bool	qoutes(char *line);
 bool parenthesis(char *line, int open_count, int i, int j);
 char	*formating(char *line);
-int	mod_chrstr(char chr, char *str);
+int		mod_chrstr(char chr, char *str);
 void	skip(char *line, int *i);
 
 // utils
-char	**ft_split(char *str);
-void	spc(char *line, int *i);
-void	strlen_spc(char *line, int *i);
-void	add_string(int *num, char **res, char *line);
+char	**ft_split(char *line, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
