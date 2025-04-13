@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 11:34:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 14:58:26 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*ft_newtree(char *content)
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
-	node->content = content;
+	node->content = ft_minisplit(content, ' ', 0, 0);
 	node->priority = 0;
 	node->left = NULL;
 	node->right = NULL;

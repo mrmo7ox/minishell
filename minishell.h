@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 12:58:32 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 14:59:16 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_tokenizer
 
 typedef struct s_tree
 {
-	char	*content;
+	char	**content;
 	int		priority;
 	struct s_tree	*left;
 	struct s_tree	*right;
@@ -74,6 +74,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 bool	ft_whitespaces(char chr);
 bool	ft_strstr(char *line, char *sp);
 void	skip(char *line, int *i);
+char	**ft_minisplit(char *str, char c, int i, int j);
 
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);
