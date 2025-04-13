@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:05:44 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:09:22 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,6 @@ char	**ft_split(char *line, int i, int j)
 						count++;
 						while(line[i] != '\0' && count > 0)
 						{
-							printf("[%c]\n", line[i]);
 							if(line[i] == ')' && count > 0)
 								count--;
 							else if(line[i] == '(' && count > 0)
