@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 12:58:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:50:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ static int	strlen_mod(char *line)
 					{
 						i++;
 						count++;
+						printf("[%c]\n", line[i]);
 						while(line[i] != '\0' && count > 0)
 						{
+							printf("[%c]\n", line[i]);
 							if(line[i] == ')' && count > 0)
 								count--;
 							else if(line[i] == '(' && count > 0)
@@ -110,7 +112,7 @@ static int	strlen_mod(char *line)
 		}
 		else if (line[i] != ' ' && line[i] != '\0')
 			words++;
-		while (!ft_chrstr(line[i], "<>|&) ") && line[i] != '\0')
+		while (!ft_chrstr(line[i], "<>|&)") && line[i] != '\0')
 			i++;
 	}
 	return (words);
@@ -154,9 +156,9 @@ char	**ft_split(char *line, int i, int j)
 	int count = 0;
 	while (line[i])
 	{
+		j = i;
 		while (line[i] != '\0' && ft_chrstr(line[i], " "))
 			i++;
-		j = i;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
 			if(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
@@ -165,8 +167,10 @@ char	**ft_split(char *line, int i, int j)
 					{
 						i++;
 						count++;
+						printf("[%c]\n", line[i]);
 						while(line[i] != '\0' && count > 0)
 						{
+							printf("[%c]\n", line[i]);
 							if(line[i] == ')' && count > 0)
 								count--;
 							else if(line[i] == '(' && count > 0)
@@ -220,7 +224,7 @@ char	**ft_split(char *line, int i, int j)
 			words++;
 			continue ;
 		}
-		while (!ft_chrstr(line[i], "<>|&('\") ") && line[i] != '\0')
+		while (!ft_chrstr(line[i], "<>|&('\")") && line[i] != '\0')
 			i++;
 		add_string(i, j , res, words, line);
 		words++;
