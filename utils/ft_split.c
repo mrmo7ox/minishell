@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 13:56:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:59:36 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static bool	special_cases(char *str)
 {
 	if ((ft_strstr(str, "<<") || ft_strstr(str, ">>")) && *str != '\0')
 		return (true);
-	else if ((ft_strstr(str, "'") || ft_strstr(str, "\"")) && *str != '\0')
-		return (true);
+	// else if ((ft_strstr(str, "'") || ft_strstr(str, "\"")) && *str != '\0')
+	// 	return (true);
 	else if ((ft_strstr(str, "(") || ft_strstr(str, ")")) && *str != '\0')
 		return (true);
 	else if ((ft_strstr(str, "||") || ft_strstr(str, "&&")) && *str != '\0')
@@ -58,7 +58,7 @@ static int	strlen_mod(char *line)
 			i++;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			if(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
+			if(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
 				{
 					if(line[i] == '(')
 					{
@@ -75,21 +75,21 @@ static int	strlen_mod(char *line)
 							i++;
 						}
 					}
-					else if(line[i] == '\'')
-					{
-						i++;
-						i++;
-						while(line[i] != '\0' && line[i] != '\'')
-							i++;
-						i++;
-					}
-					else if(line[i] == '"')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != '"')
-							i++;
-						i++;
-					}
+					// else if(line[i] == '\'')
+					// {
+					// 	i++;
+					// 	i++;
+					// 	while(line[i] != '\0' && line[i] != '\'')
+					// 		i++;
+					// 	i++;
+					// }
+					// else if(line[i] == '"')
+					// {
+					// 	i++;
+					// 	while(line[i] != '\0' && line[i] != '"')
+					// 		i++;
+					// 	i++;
+					// }
 					else if(line[i] == '|')
 					{
 						i++;
@@ -161,7 +161,7 @@ char	**ft_split(char *line, int i, int j)
 			i++;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			if(ft_chrstr(line[i], "<>|&(\"'") && line[i] != '\0')
+			if(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
 				{
 					if(line[i] == '(')
 					{
@@ -179,20 +179,20 @@ char	**ft_split(char *line, int i, int j)
 						}
 						// i++;
 					}
-					else if(line[i] == '\'')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != '\'')
-							i++;
-						i++;
-					}
-					else if(line[i] == '"')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] != '"')
-							i++;
-						i++;
-					}
+					// else if(line[i] == '\'')
+					// {
+					// 	i++;
+					// 	while(line[i] != '\0' && line[i] != '\'')
+					// 		i++;
+					// 	i++;
+					// }
+					// else if(line[i] == '"')
+					// {
+					// 	i++;
+					// 	while(line[i] != '\0' && line[i] != '"')
+					// 		i++;
+					// 	i++;
+					// }
 					else if(line[i] == '|')
 					{
 						i++;
