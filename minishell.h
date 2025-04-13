@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/12 10:00:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 10:50:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	and_or(char *line);
 bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
-bool parenthesis(char *line, int open_count, int i, int j);
+bool	parenthesis(char *line, int open_count, int i, int j);
 char	*formating(char *line);
 int		mod_chrstr(char chr, char *str);
 void	skip(char *line, int *i);

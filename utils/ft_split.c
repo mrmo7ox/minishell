@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/12 10:18:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 10:48:44 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_copy(char *dest, char *src, int len)
 	dest[i] = '\0';
 }
 
-static bool special_cases(char *str)
+static bool	special_cases(char *str)
 {
 	if ((ft_strstr(str, "<<") || ft_strstr(str, ">>")) && *str != '\0')
 		return (true);
@@ -102,7 +102,7 @@ static int	strlen_mod(char *line)
 						i++;
 				}
 			words++;
-			continue;
+			continue ;
 		}
 		else if (line[i] != ' ' && line[i] != '\0')
 			words++;
@@ -196,7 +196,7 @@ char	**ft_split(char *line, int i, int j)
 				}
 			add_string(i, j , res, words, line);
 			words++;
-			continue;
+			continue ;
 		}
 		while (!ft_chrstr(line[i], "<>|&('\") ") && line[i] != '\0')
 			i++;
