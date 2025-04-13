@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 10:47:24 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:38:07 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static bool	is_operator_after(char *line, int *open_count, int *j, int *i)
 	(*j) = (*i) + 1;
 	while (line[*j] && ft_whitespaces(line[(*j)]))
 		(*j)++;
-	if (line[*j] && !ft_chrstr(line[*j], "|&<>"))
+	if (line[*j] && !ft_chrstr(line[*j], "|&<>)"))
 		return (false);
 	(*open_count)--;
 	return (true);
