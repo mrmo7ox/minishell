@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 13:50:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:56:11 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,7 +224,7 @@ char	**ft_split(char *line, int i, int j)
 			words++;
 			continue ;
 		}
-		while (!ft_chrstr(line[i], "<>|&('\")") && line[i] != '\0')
+		while (!ft_chrstr(line[i], "<>|&()") && line[i] != '\0')
 			i++;
 		add_string(i, j , res, words, line);
 		words++;
