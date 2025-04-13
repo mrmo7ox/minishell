@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/10 10:45:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:18:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 int main(void)
 {
 	char	*line;
-	t_gc	*garbage;
-	t_tk	*tokens;
+	t_gc	*garbage = NULL;
+	t_tk	*tokens = NULL;
+	t_node	*root = NULL;
 	
 	while (true)
 	{
@@ -27,7 +28,7 @@ int main(void)
 		add_history(line);
 		if (syntax_error(line))
 		{
-			tokenizer(&garbage, &tokens, line);
+			tokenizer(&garbage, &tokens, line , &root);
 		}
 
 		// if()

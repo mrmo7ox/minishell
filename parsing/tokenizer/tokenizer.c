@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:06:00 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:32:04 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,24 @@ void print_tree(t_node *node, int depth, int is_left)
     }
 }
 
+char *rm_parenthesis(char *line)
+{
+    int start;
+    int end;
 
-bool tokenizer(t_gc **garbage, t_tk **tokens, char *line)
+    start = 0;
+    end = ft_strlen(line);
+    if (line[start] == '(' && line[end - 1] == ')')
+        line = ft_substr(line,start + 1 , (end - 1) - 1);
+    printf("[%s>\n", line);
+    return (line);
+}
+
+bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
 {
     char **splited;
     int i;
-    t_node *main = NULL; 
+    *root = NULL;
     t_node *left = NULL; 
     t_node *right = NULL; 
 	t_node *operator_node;
@@ -81,16 +93,16 @@ bool tokenizer(t_gc **garbage, t_tk **tokens, char *line)
             printf(" Missing %s\n", splited[i]);
             break;
         }
-        operator_node = ft_newtree(splited[i]);
+        operator_node = ft_newtree(ft_split(rm_parenthesis(formating(splited[i])), 0, 0));
         if (!operator_node)
             return false;
 
-		if (main == NULL)
-			left = ft_newtree(splited[i - 1]);
+		if ((*root) == NULL)
+			left = ft_newtree(ft_split(rm_parenthesis(formating(splited[i - 1])), 0, 0));
 		else 
-        	left = main;
+        	left = (*root);
 
-        right = ft_newtree(splited[i + 1]);
+        right = ft_newtree(ft_split(rm_parenthesis(formating(splited[i + 1])), 0,0));
 
         if (!left || !right)
         {
@@ -100,10 +112,10 @@ bool tokenizer(t_gc **garbage, t_tk **tokens, char *line)
 
         ft_addtree_node(&operator_node, left, right);
 
-        main = operator_node;
+        (*root) = operator_node;
     }
 	printf("====[separator]====\n");
-    if (main)
-        print_tree(main, 0, 0);
+    if ((*root))
+        print_tree((*root), 0, 0);
     return true;
 }
