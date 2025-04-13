@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:02:12 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:06:00 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void print_tree(t_node *node, int depth, int is_left)
 
     for (int i = 0; node->content[i] ;  i++)
     {
-        printf("%s", node->content[i]);
+        printf("[%s]", node->content[i]);
         if(  node->content[i + 1] != NULL)
             printf(" "); 
     }

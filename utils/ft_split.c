@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 14:01:30 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 15:05:44 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static bool	special_cases(char *str)
 {
 	if ((ft_strstr(str, "<<") || ft_strstr(str, ">>")) && *str != '\0')
 		return (true);
-	// else if ((ft_strstr(str, "'") || ft_strstr(str, "\"")) && *str != '\0')
-	// 	return (true);
 	else if ((ft_strstr(str, "(") || ft_strstr(str, ")")) && *str != '\0')
 		return (true);
 	else if ((ft_strstr(str, "||") || ft_strstr(str, "&&")) && *str != '\0')
@@ -64,10 +62,8 @@ static int	strlen_mod(char *line)
 					{
 						i++;
 						count++;
-						printf("[%c]\n", line[i]);
 						while(line[i] != '\0' && count > 0)
 						{
-							printf("[%c]\n", line[i]);
 							if(line[i] == ')' && count > 0)
 								count--;
 							else if(line[i] == '(' && count > 0)
@@ -75,21 +71,6 @@ static int	strlen_mod(char *line)
 							i++;
 						}
 					}
-					// else if(line[i] == '\'')
-					// {
-					// 	i++;
-					// 	i++;
-					// 	while(line[i] != '\0' && line[i] != '\'')
-					// 		i++;
-					// 	i++;
-					// }
-					// else if(line[i] == '"')
-					// {
-					// 	i++;
-					// 	while(line[i] != '\0' && line[i] != '"')
-					// 		i++;
-					// 	i++;
-					// }
 					else if(line[i] == '|')
 					{
 						i++;
@@ -147,7 +128,6 @@ char	**ft_split(char *line, int i, int j)
 	int		words;
 	
 	words = strlen_mod(line);
-	printf("words count = %d\n", words);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
@@ -167,7 +147,6 @@ char	**ft_split(char *line, int i, int j)
 					{
 						i++;
 						count++;
-						printf("[%c]\n", line[i]);
 						while(line[i] != '\0' && count > 0)
 						{
 							printf("[%c]\n", line[i]);
@@ -177,22 +156,7 @@ char	**ft_split(char *line, int i, int j)
 								count++;
 							i++;
 						}
-						// i++;
 					}
-					// else if(line[i] == '\'')
-					// {
-					// 	i++;
-					// 	while(line[i] != '\0' && line[i] != '\'')
-					// 		i++;
-					// 	i++;
-					// }
-					// else if(line[i] == '"')
-					// {
-					// 	i++;
-					// 	while(line[i] != '\0' && line[i] != '"')
-					// 		i++;
-					// 	i++;
-					// }
 					else if(line[i] == '|')
 					{
 						i++;
