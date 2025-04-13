@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/12 10:18:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 10:12:24 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ static int	strlen_mod(char *line)
 	count = 0;
 	while (line[i] != '\0')
 	{
-	// 	sleep(1);
-	// 	printf("line[i]=%c\n i=%d\n len=%ld\n = words= %d\n",line[i],i, ft_strlen(line), words);
 		while (line[i] != '\0' && ft_chrstr(line[i], " "))
 			i++;
 		if (special_cases(line + i) && line[i] != '\0')
@@ -74,7 +72,6 @@ static int	strlen_mod(char *line)
 								count++;
 							i++;
 						}
-						// i++;
 					}
 					else if(line[i] == '\'')
 					{
@@ -95,6 +92,13 @@ static int	strlen_mod(char *line)
 					{
 						i++;
 						while(line[i] != '\0' && line[i] == '|')
+							i++;
+												
+					}
+					else if(line[i] == '&')
+					{
+						i++;
+						while(line[i] != '\0' && line[i] == '&')
 							i++;
 												
 					}
@@ -189,6 +193,24 @@ char	**ft_split(char *line, int i, int j)
 					{
 						i++;
 						while(line[i] != '\0' && line[i] == '|')
+							i++;
+					}
+					else if(line[i] == '&')
+					{
+						i++;
+						while(line[i] != '\0' && line[i] == '&')
+							i++;
+					}
+					else if(line[i] == '<')
+					{
+						i++;
+						while(line[i] != '\0' && line[i] == '<')
+							i++;
+					}
+					else if(line[i] == '>')
+					{
+						i++;
+						while(line[i] != '\0' && line[i] == '>')
 							i++;
 					}
 					else

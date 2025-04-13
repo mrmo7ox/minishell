@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/12 10:00:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:13:57 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,24 @@ typedef struct s_tokenizer
 	void	*prev;
 }			t_tk;
 
+typedef struct s_tree
+{
+	char	*content;
+	int		priority;
+	struct s_tree	*left;
+	struct s_tree	*right;
+	struct s_tree	*prev;
+}			t_node;
+
 // tokenizer
 bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line);
 t_tk	*ft_new_tk_node(void *content, void *token);
 void	ft_add_tk(t_tk **head, t_tk *new);
+
+//tree
+t_node	*ft_newtree(char *content);
+void	ft_addtree_node(t_node **node, t_node *left, t_node *right);
+
 
 // syntax_error
 bool	and_or(char *line);
