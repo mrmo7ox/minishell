@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:39:08 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/13 15:45:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_addtree_node(t_node **node, t_node *left, t_node *right)
 	(*node)->right = right;
 
 	if (left)
-        left->prev = (*node);
-    if (right)
-        right->prev = (*node);
+		left->prev = (*node);
+	if (right)
+		right->prev = (*node);
 }

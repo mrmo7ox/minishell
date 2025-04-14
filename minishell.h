@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:22:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:55:59 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,27 @@ typedef struct s_tokenizer
 
 typedef struct s_tree
 {
-	char	**content;
-	int		priority;
+	char			**content;
+	int				priority;
 	struct s_tree	*left;
 	struct s_tree	*right;
 	struct s_tree	*prev;
 }			t_node;
 
+typedef struct s_redr
+{
+	char	*type;
+	char	*file_name;
+	int		here_doc;
+	void	*next;
+}			t_redr;
+
 // tokenizer
 bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root);
 t_tk	*ft_new_tk_node(void *content, void *token);
 void	ft_add_tk(t_tk **head, t_tk *new);
+//rederction
+void	rederction(char *line, t_redr **redr, t_gc **gg);
 
 //tree
 t_node	*ft_newtree(char **content);
@@ -61,7 +71,7 @@ bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
 bool	parenthesis(char *line, int open_count, int i, int j);
-char	*formating(char *line);
+char	*formating(char *line, t_gc **gg);
 int		mod_chrstr(char chr, char *str);
 void	skip(char *line, int *i);
 
@@ -69,17 +79,20 @@ void	skip(char *line, int *i);
 char	**ft_split(char *line, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+// char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 bool	ft_whitespaces(char chr);
 bool	ft_strstr(char *line, char *sp);
 void	skip(char *line, int *i);
 char	**ft_minisplit(char *str, char c, int i, int j);
+void	ft_skip_wspaces(char *line, int *i);
+char	*ft_substr(char const *s, unsigned int start, size_t len, t_gc **gg);
 
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);
 void	ft_add_gc(t_gc **head, t_gc *new);
 void	free_garbage(t_gc **list);
+void	*ft_malloc(size_t size, t_gc **garbage);
 
 // for testing 
 size_t	ft_strlen(const char *s);

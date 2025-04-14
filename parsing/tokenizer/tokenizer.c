@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:32:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:03:44 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void print_tree(t_node *node, int depth, int is_left)
     }
 }
 
-char *rm_parenthesis(char *line)
+char *rm_parenthesis(char *line, t_gc **gg)
 {
     int start;
     int end;
@@ -56,9 +56,20 @@ char *rm_parenthesis(char *line)
     start = 0;
     end = ft_strlen(line);
     if (line[start] == '(' && line[end - 1] == ')')
-        line = ft_substr(line,start + 1 , (end - 1) - 1);
+        line = ft_substr(line,start + 1 , (end - 1) - 1, gg);
     printf("[%s>\n", line);
     return (line);
+}
+
+void	print_list(t_redr *redr)
+{
+	if (!redr)
+		printf("no redr\n");
+	while (redr)
+	{
+		printf("file_name : %s, type : %s, heredoc: %d\n", redr->file_name, redr->type, redr->here_doc);
+		redr = redr->next;
+	}
 }
 
 bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
@@ -69,40 +80,43 @@ bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
     t_node *left = NULL; 
     t_node *right = NULL; 
 	t_node *operator_node;
+	t_redr	*redr;
+	
+	(void)tokens;
 
-    (void)garbage;
-    (void)tokens;
+	if (!line)
+		return	false;
+	redr = NULL;
+	rederction(line, &redr, garbage);
+	print_list(redr);
 
-    if (!line)
-        return false;
+	splited = ft_split(line, 0, 0);
+	if (!splited)
+		return (false);
 
-    splited = ft_split(line, 0, 0);
-    if (!splited)
-        return false;
+	printf("Split tokens:\n");
+	for (int j = 0; splited[j]; j++)
+	{
+		printf("[%d]: %s\n", j, splited[j]);
+	}
 
-    printf("Split tokens:\n");
-    for (int j = 0; splited[j]; j++)
-    {
-        printf("[%d]: %s\n", j, splited[j]);
-    }
-
-    for (i = 1; splited[i] != NULL; i += 2) 
-    {
-        if (splited[i + 1] == NULL)
-        {
-            printf(" Missing %s\n", splited[i]);
-            break;
-        }
-        operator_node = ft_newtree(ft_split(rm_parenthesis(formating(splited[i])), 0, 0));
+	for (i = 1; splited[i] != NULL; i += 2) 
+	{
+		if (splited[i + 1] == NULL)
+		{
+			printf(" Missing %s\n", splited[i]);
+			break;
+		}
+		operator_node = ft_newtree(ft_split(rm_parenthesis(formating(splited[i], garbage), garbage), 0, 0));
         if (!operator_node)
-            return false;
+			return false;
 
 		if ((*root) == NULL)
-			left = ft_newtree(ft_split(rm_parenthesis(formating(splited[i - 1])), 0, 0));
+			left = ft_newtree(ft_split(rm_parenthesis(formating(splited[i - 1], garbage), garbage), 0, 0));
 		else 
-        	left = (*root);
+			left = (*root);
 
-        right = ft_newtree(ft_split(rm_parenthesis(formating(splited[i + 1])), 0,0));
+        right = ft_newtree(ft_split(rm_parenthesis(formating(splited[i + 1], garbage), garbage), 0,0));
 
         if (!left || !right)
         {

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/11 16:06:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:54:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char	*formating(char *line)
+char	*formating(char *line, t_gc **gg)
 {
 	int	start;
 	int	end;
@@ -25,7 +25,7 @@ char	*formating(char *line)
 		end--;
 	if (start <= end)
 	{
-		line = ft_substr(line, start, (end - start) + 1);
+		line = ft_substr(line, start, (end - start) + 1, gg);
 		if (!line)
 		{
 			printf("[KO] Malloc Failed\n");
