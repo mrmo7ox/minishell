@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:09:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:13:03 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ char	**ft_split(char *line, int i, int j)
 {
 	char	**res;
 	int		words;
-	
+
 	words = strlen_mod(line);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
