@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/04/14 17:00:00 by moel-oua         ###   ########.fr       */
-=======
-/*   Updated: 2025/04/14 13:13:03 by ihamani          ###   ########.fr       */
->>>>>>> 4242e81b26ae3674664de73ac603921c1e2125de
+/*   Updated: 2025/04/14 19:51:40 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +50,7 @@ bool	special_cases(char *str)
 }
 
 
-void	ft_split(t_tk **res, char *line, int i, int j)
+void	ft_split(t_tk **res, t_gc **garbage, char *line, int i, int j)
 {
 	int		words;
 	*res = NULL;
@@ -120,13 +116,13 @@ void	ft_split(t_tk **res, char *line, int i, int j)
 					else
 						i++;
 				}
-			ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count));
+			ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count, garbage));
 			words++;
 			continue ;
 		}
 		while (!ft_chrstr(line[i], "<>|&()") && line[i] != '\0')
 			i++;
-		ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count));
+		ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count, garbage));
 		words++;
 	}
 }

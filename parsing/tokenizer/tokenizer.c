@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:34:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:14:34 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,73 +24,46 @@ void print_tree(t_node *node, int depth, int is_left)
 {
     if (!node)
         return;
-    print_indentation(depth);
+
+    for (int i = 0; i < depth; i++)
+        printf("   ");
+
     if (depth > 0)
-    {
-        if (is_left)
-            printf("├── ");
-        else
-            printf("└── ");
-    }
+        printf("%s── ", is_left ? "┌" : "└");
 
-    for (int i = 0; node->content[i] ;  i++)
-    {
-        printf("[%s]", node->content[i]);
-        if(  node->content[i + 1] != NULL)
-            printf(" "); 
-    }
-    printf("\n");    
+    printf("[%s]\n", node->content);
 
-    if (node->left || node->right) 
-    {
-        print_tree(node->left, depth + 1, 1);  
-        print_tree(node->right, depth + 1, 0);
-    }
+    print_tree(node->left, depth + 1, 1);
+    print_tree(node->right, depth + 1, 0);
 }
 
-
-bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
+bool tokenizer(t_gc **garbage, char *line, t_node **root)
 {
     t_tk *splitted = NULL;
     t_tk *current = NULL;
     t_node *left = NULL;
     t_node *right = NULL;
     t_node *operator_node = NULL;
+    (void)garbage;
 
-	ft_split(splitted, line, 0, 0);
-	if (!splitted)
-		return (false);
-
-    // Allocate memory for the splitted tokens
-    splitted = malloc(sizeof(t_tk));
+    ft_split(&splitted, garbage,line, 0, 0);
     if (!splitted)
     {
-        printf("Memory allocation failed for splitted.\n");
+        printf("Error: Token splitting failed.\n");
         return false;
     }
 
     *root = NULL;
-
-    // Perform token splitting
-    ft_split(&splitted, line, 0, 0);
-    if (!splitted || !splitted->next) // Ensure splitting was successful
-    {
-        printf("Token splitting failed or no tokens found.\n");
-        free(splitted);
-        return false;
-    }
-
-    // Traverse the tokens and build the tree
-    current = splitted->next; // Skip the head node if it exists
+    current = splitted->next;
     while (current)
     {
         if (!current->next)
         {
             printf("Error: Missing token after '%s'.\n", current->token);
-            break; // Exit the loop as there are no more valid tokens
+            break;
         }
 
-        operator_node = ft_newtree(current->token); // Create operator node
+        operator_node = ft_newtree(current->token);
         if (!operator_node)
         {
             printf("Error: Failed to create operator node.\n");
@@ -98,31 +71,25 @@ bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
         }
 
         if (!(*root))
-            left = ft_newtree(current->prev->token); // Create left node if root is null
+            left = ft_newtree(current->prev->token);
         else
-            left = *root; // Use the existing tree as the left subtree
+            left = *root;
 
-        right = ft_newtree(current->next->token); // Create right node
-
+        right = ft_newtree(current->next->token);
         if (!left || !right)
         {
             printf("Error: Failed to create left or right node.\n");
             return false;
         }
 
-        ft_addtree_node(&operator_node, left, right); // Add operator node to the tree
-        *root = operator_node; // Update the root to the current operator node
+        ft_addtree_node(&operator_node, left, right);
+        *root = operator_node;
 
-        current = current->next->next; // Move to the next operator
+        current = current->next->next;
     }
 
-    // Print the tree if the root is valid
     if (*root)
         print_tree(*root, 0, 0);
-
-    // Free the splitted tokens if necessary
-    // Note: Ensure proper cleanup by freeing memory used for the tokens
-    ft_free_tokens(splitted);
 
     return true;
 }

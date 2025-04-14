@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   tree.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:45:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/14 19:38:42 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-t_node	*ft_newtree(char **content)
+t_node	*ft_newtree(char *content)
 {
 	t_node	*node;
 
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
-	ft_minisplit(content[0], ' ', 0, 0);
 	node->content = content;
 	node->priority = 0;
 	node->left = NULL;

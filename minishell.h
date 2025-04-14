@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:33:10 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:51:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_tokenizer
 
 typedef struct s_tree
 {
-	char			**content;
+	char			*content;
 	int				priority;
 	struct s_tree	*left;
 	struct s_tree	*right;
@@ -64,14 +64,14 @@ typedef struct s_redr
 }			t_redr;
 
 // tokenizer
-bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root);
-t_tk	*ft_new_tk_node(char *content, int priority);
+bool	tokenizer(t_gc **garbage, char *line, t_node **root);
+t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage);
 void	ft_add_tk(t_tk **head, t_tk *new);
 //rederction
 void	rederction(char *line, t_redr **redr, t_gc **gg);
 
 //tree
-t_node	*ft_newtree(char **content);
+t_node	*ft_newtree(char *content);
 void	ft_addtree_node(t_node **node, t_node *left, t_node *right);
 
 
@@ -84,9 +84,10 @@ bool	parenthesis(char *line, int open_count, int i, int j);
 char	*formating(char *line, t_gc **gg);
 int		mod_chrstr(char chr, char *str);
 void	skip(char *line, int *i);
+bool	special_cases(char *str);
 
 // utils
-void	ft_split(t_tk **res,char *line, int i, int j);
+void	ft_split(t_tk **res, t_gc **garbage, char *line, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 // char	*ft_substr(char const *s, unsigned int start, size_t len);
