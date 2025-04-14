@@ -6,12 +6,26 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:31:32 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:35:05 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
+void	printf_garbage(t_gc *garbage)
+ {
+ 	int i = 0;
+ 
+ 	if (!garbage)
+ 		printf("there's no garbage to clean! expet the dev\n");
+ 	while (garbage)
+ 	{
+ 		i++;
+ 		garbage = garbage->next;
+ 	}
+ 	if (i)
+ 		printf("there's %d addr in the garbage!\n", i);
+ }
 
 int main(void)
 {

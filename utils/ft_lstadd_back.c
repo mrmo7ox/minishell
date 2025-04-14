@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:46:28 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:20:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:35:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	ft_add_gc(t_gc **head, t_gc *new)
 	if (!head || !new)
 		return ;
 	last = *head;
+	if (!*head)
+	{
+		*head = new;
+		return ;
+	}
 	while (last->next)
 		last = last->next;
 	last->next = new;

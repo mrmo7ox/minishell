@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   empty.c                                            :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 10:19:24 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 10:23:21 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/13 16:51:55 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/13 16:55:43 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-bool    empty(char *line)
+void	*ft_malloc(size_t size, t_gc **garbage)
 {
-    char    *formated;
+	void	*addr;
 
-    formated = formating(line);
-    if(ft_strlen(formated) == 0)
-        return (true);
-    return (false);
+	addr = malloc(size);
+	if (!addr)
+		return (NULL);
+	ft_add_gc(garbage, ft_new_gc_node(addr));
+	return (addr);
 }

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:30:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:34:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,7 @@ void print_tree(t_node *node, int depth, int is_left)
     }
 }
 
-char *rm_parenthesis(char *line)
-{
-    int start;
-    int end;
 
-    start = 0;
-    end = ft_strlen(line);
-    if (line[start] == '(' && line[end - 1] == ')')
-        line = ft_substr(line,start + 1 , (end - 1) - 1);
-    return (line);
-}
 bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
 {
     t_tk *splitted = NULL;
@@ -67,8 +57,9 @@ bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
     t_node *right = NULL;
     t_node *operator_node = NULL;
 
-    if (!line)
-        return false;
+	ft_split(splitted, line, 0, 0);
+	if (!splitted)
+		return (false);
 
     // Allocate memory for the splitted tokens
     splitted = malloc(sizeof(t_tk));
