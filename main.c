@@ -6,26 +6,26 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 13:05:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/14 13:08:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
 void	printf_garbage(t_gc *garbage)
-{
-	int i = 0;
-
-	if (!garbage)
-		printf("there's no garbage to clean! expet the dev\n");
-	while (garbage)
-	{
-		i++;
-		garbage = garbage->next;
-	}
-	if (i)
-		printf("there's %d addr in the garbage!\n", i);
-}
+ {
+ 	int i = 0;
+ 
+ 	if (!garbage)
+ 		printf("there's no garbage to clean! expet the dev\n");
+ 	while (garbage)
+ 	{
+ 		i++;
+ 		garbage = garbage->next;
+ 	}
+ 	if (i)
+ 		printf("there's %d addr in the garbage!\n", i);
+ }
 
 int main(void)
 {
@@ -37,7 +37,7 @@ int main(void)
 	while (true)
 	{
 		line = readline("Minishell: ");
-		line = formating(line);
+		line = formating(line, &garbage);
 		if (!line)
 			exit(0);
 		add_history(line);
@@ -45,7 +45,7 @@ int main(void)
 		{
 			tokenizer(&garbage, &tokens, line , &root);
 		}
-
+		printf_garbage(garbage);
 		// if()
 		// {	
 		// 	// ft_add_gc(&garbage, ft_new_gc_node(line));
