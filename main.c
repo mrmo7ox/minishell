@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:18:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 11:03:08 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,13 @@ int main(void)
 	{
 		line = readline("Minishell: ");
 		line = formating(line);
-		if (!line)
-			exit(0);
+		if (!ft_strlen(line))
+			continue;
 		add_history(line);
 		if (syntax_error(line))
 		{
 			tokenizer(&garbage, &tokens, line , &root);
 		}
-
-		// if()
-		// {	
-		// 	// ft_add_gc(&garbage, ft_new_gc_node(line));
-		// 	// tokenizer(&garbage, &tokens, line);
-		// }
 		free(line);
 	}
 }
