@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/03/17 13:26:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:07:40 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,22 @@ t_gc	*ft_new_gc_node(void *content)
 	return (node);
 }
 
-t_tk	*ft_new_tk_node(void *content, void *token)
+t_tk	*ft_new_tk_node(char *content, int priority)
 {
 	t_tk	*node;
-
+	
 	node = malloc(sizeof(t_tk));
 	if (!node)
 		return (NULL);
-	node->str = content;
-	node->token = token;
+	node->token = formating(content);
+	node->priority = priority;
+	if (special_cases(content))
+		node->op = ft_strdup("🥊");
+	else
+		node->op = ft_strdup("⚽️");
+		
 	node->prev = NULL;
 	node->next = NULL;
+
 	return (node);
 }

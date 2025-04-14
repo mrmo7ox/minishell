@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:22:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:31:58 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
 # include <signal.h>
 # include <unistd.h>
 
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+
 typedef struct s_garbage
 {
 	void	*addr;
@@ -30,11 +39,12 @@ typedef struct s_garbage
 
 typedef struct s_tokenizer
 {
-	void	*str;
-	void	*token;
-	void	*next;
-	void	*prev;
-}			t_tk;
+	char				*token;
+	int					priority;
+	char				*op;
+	struct s_tokenizer	*next;
+	struct s_tokenizer	*prev;
+}						t_tk;
 
 typedef struct s_tree
 {
@@ -47,7 +57,7 @@ typedef struct s_tree
 
 // tokenizer
 bool	tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root);
-t_tk	*ft_new_tk_node(void *content, void *token);
+t_tk	*ft_new_tk_node(char *content, int priority);
 void	ft_add_tk(t_tk **head, t_tk *new);
 
 //tree
@@ -61,12 +71,12 @@ bool	syntax_error(char *line);
 bool	redir_handler(char *line);
 bool	qoutes(char *line);
 bool	parenthesis(char *line, int open_count, int i, int j);
-char	*formating(char *line);
+char	*formating(char *line, t_gc **garbage);
 int		mod_chrstr(char chr, char *str);
 void	skip(char *line, int *i);
 
 // utils
-char	**ft_split(char *line, int i, int j);
+void	ft_split(t_tk **res,char *line, int i, int j);
 int		ft_chrcount(char *str, char c);
 bool	ft_chrstr(char chr, char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -75,6 +85,7 @@ bool	ft_whitespaces(char chr);
 bool	ft_strstr(char *line, char *sp);
 void	skip(char *line, int *i);
 char	**ft_minisplit(char *str, char c, int i, int j);
+bool	special_cases(char *str);
 
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);

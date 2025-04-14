@@ -6,26 +6,33 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:09:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 17:00:00 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h" 
 
-static void	ft_copy(char *dest, char *src, int len)
+static char	*ft_copy( char *src, int len)
 {
 	int	i;
+	char	*dup;
 
 	i = 0;
+	if (!src || len == 0)
+		return (ft_strdup(""));
+	dup = malloc(len + 1);
+	if (!dup)
+		return (NULL);
 	while (src[i] && i < len)
 	{
-		dest[i] = src[i];
+		dup[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
+	dup[i] = '\0';
+	return (dup);
 }
 
-static bool	special_cases(char *str)
+bool	special_cases(char *str)
 {
 	if ((ft_strstr(str, "<<") || ft_strstr(str, ">>")) && *str != '\0')
 		return (true);
@@ -42,98 +49,15 @@ static bool	special_cases(char *str)
 	return (false);
 }
 
-static int	strlen_mod(char *line)
-{
-	int	i;
-	int	words;
-	int count;
-	i = 0;
-	words = 0;
-	count = 0;
-	while (line[i] != '\0')
-	{
-		while (line[i] != '\0' && ft_chrstr(line[i], " "))
-			i++;
-		if (special_cases(line + i) && line[i] != '\0')
-		{
-			if(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
-				{
-					if(line[i] == '(')
-					{
-						i++;
-						count++;
-						while(line[i] != '\0' && count > 0)
-						{
-							if(line[i] == ')' && count > 0)
-								count--;
-							else if(line[i] == '(' && count > 0)
-								count++;
-							i++;
-						}
-					}
-					else if(line[i] == '|')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] == '|')
-							i++;
-												
-					}
-					else if(line[i] == '&')
-					{
-						i++;
-						while(line[i] != '\0' && line[i] == '&')
-							i++;
-												
-					}
-					else
-						i++;
-				}
-			words++;
-			continue ;
-		}
-		else if (line[i] != ' ' && line[i] != '\0')
-			words++;
-		while (!ft_chrstr(line[i], "<>|&)") && line[i] != '\0')
-			i++;
-	}
-	return (words);
-}
 
-static char	**free_the_split(char **res, int words)
+void	ft_split(t_tk **res, char *line, int i, int j)
 {
-	while (words)
-	{
-		free (res[words]);
-		words--;
-	}
-	free(res);
-	return (NULL);
-}
-void	add_string(int i, int j, char **res, int words, char *line)
-{
-	if (i > j)
-	{
-		res[words] = malloc(sizeof(char) * ((i - j) + 1));
-		if (!res[words])
-		{
-			free_the_split(res, words);
-			exit(1);
-		}
-		(ft_copy (res[words], &line[j], (i - j)), words++);
-	}
-}
-char	**ft_split(char *line, int i, int j)
-{
-	char	**res;
 	int		words;
-	
-	words = strlen_mod(line);
-	res = malloc(sizeof(char *) * (words + 1));
-	if (!res)
-		return (NULL);
+	*res = NULL;
 	i = 0;
 	words = 0;
 	int count = 0;
+	
 	while (line[i])
 	{
 		j = i;
@@ -141,20 +65,29 @@ char	**ft_split(char *line, int i, int j)
 			i++;
 		if (special_cases(line + i) && line[i] != '\0')
 		{
-			if(ft_chrstr(line[i], "<>|&(") && line[i] != '\0')
+			if(ft_chrstr(line[i], "<>|&()") && line[i] != '\0')
 				{
 					if(line[i] == '(')
 					{
 						i++;
-						count++;
-						while(line[i] != '\0' && count > 0)
+						int x = i;
+						while(line[x] != ')' && line[x] != '\0')
 						{
-							if(line[i] == ')' && count > 0)
-								count--;
-							else if(line[i] == '(' && count > 0)
+							if (ft_chrstr(line[x], "|&><"))
+							{
 								count++;
-							i++;
+								break;
+							}
+							x++;				
 						}
+						continue;
+
+					}
+					else if(line[i] == ')')
+					{
+						i++;
+						count--;
+						continue;
 					}
 					else if(line[i] == '|')
 					{
@@ -183,14 +116,13 @@ char	**ft_split(char *line, int i, int j)
 					else
 						i++;
 				}
-			add_string(i, j , res, words, line);
+			ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count));
 			words++;
 			continue ;
 		}
 		while (!ft_chrstr(line[i], "<>|&()") && line[i] != '\0')
 			i++;
-		add_string(i, j , res, words, line);
+		ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count));
 		words++;
 	}
-	return (res[words] = NULL, res);
 }

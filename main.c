@@ -6,11 +6,12 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 11:03:08 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:31:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
+
 
 int main(void)
 {
@@ -22,17 +23,24 @@ int main(void)
 	while (true)
 	{
 		line = readline("Minishell: ");
-		line = formating(line);
-		if (!ft_strlen(line))
-			continue;
+		line = formating(line, &garbage);
+		if (!line)
+			exit(0);
 		add_history(line);
 		if (syntax_error(line))
 		{
 			tokenizer(&garbage, &tokens, line , &root);
 		}
+		printf_garbage(garbage);
+		// if()
+		// {	
+		// 	// ft_add_gc(&garbage, ft_new_gc_node(line));
+		// 	// tokenizer(&garbage, &tokens, line);
+		// }
 		free(line);
 	}
 }
+
 
 // for testing 
 // int main(int ac , char **dc)

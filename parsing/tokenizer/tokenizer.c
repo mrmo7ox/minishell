@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 15:32:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:30:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,65 +57,81 @@ char *rm_parenthesis(char *line)
     end = ft_strlen(line);
     if (line[start] == '(' && line[end - 1] == ')')
         line = ft_substr(line,start + 1 , (end - 1) - 1);
-    printf("[%s>\n", line);
     return (line);
 }
-
 bool tokenizer(t_gc **garbage, t_tk **tokens, char *line, t_node **root)
 {
-    char **splited;
-    int i;
-    *root = NULL;
-    t_node *left = NULL; 
-    t_node *right = NULL; 
-	t_node *operator_node;
-
-    (void)garbage;
-    (void)tokens;
+    t_tk *splitted = NULL;
+    t_tk *current = NULL;
+    t_node *left = NULL;
+    t_node *right = NULL;
+    t_node *operator_node = NULL;
 
     if (!line)
         return false;
 
-    splited = ft_split(line, 0, 0);
-    if (!splited)
-        return false;
-
-    printf("Split tokens:\n");
-    for (int j = 0; splited[j]; j++)
+    // Allocate memory for the splitted tokens
+    splitted = malloc(sizeof(t_tk));
+    if (!splitted)
     {
-        printf("[%d]: %s\n", j, splited[j]);
+        printf("Memory allocation failed for splitted.\n");
+        return false;
     }
 
-    for (i = 1; splited[i] != NULL; i += 2) 
+    *root = NULL;
+
+    // Perform token splitting
+    ft_split(&splitted, line, 0, 0);
+    if (!splitted || !splitted->next) // Ensure splitting was successful
     {
-        if (splited[i + 1] == NULL)
+        printf("Token splitting failed or no tokens found.\n");
+        free(splitted);
+        return false;
+    }
+
+    // Traverse the tokens and build the tree
+    current = splitted->next; // Skip the head node if it exists
+    while (current)
+    {
+        if (!current->next)
         {
-            printf(" Missing %s\n", splited[i]);
-            break;
+            printf("Error: Missing token after '%s'.\n", current->token);
+            break; // Exit the loop as there are no more valid tokens
         }
-        operator_node = ft_newtree(ft_split(rm_parenthesis(formating(splited[i])), 0, 0));
+
+        operator_node = ft_newtree(current->token); // Create operator node
         if (!operator_node)
+        {
+            printf("Error: Failed to create operator node.\n");
             return false;
+        }
 
-		if ((*root) == NULL)
-			left = ft_newtree(ft_split(rm_parenthesis(formating(splited[i - 1])), 0, 0));
-		else 
-        	left = (*root);
+        if (!(*root))
+            left = ft_newtree(current->prev->token); // Create left node if root is null
+        else
+            left = *root; // Use the existing tree as the left subtree
 
-        right = ft_newtree(ft_split(rm_parenthesis(formating(splited[i + 1])), 0,0));
+        right = ft_newtree(current->next->token); // Create right node
 
         if (!left || !right)
         {
-            printf("bad left or right \n");
+            printf("Error: Failed to create left or right node.\n");
             return false;
         }
 
-        ft_addtree_node(&operator_node, left, right);
+        ft_addtree_node(&operator_node, left, right); // Add operator node to the tree
+        *root = operator_node; // Update the root to the current operator node
 
-        (*root) = operator_node;
+        current = current->next->next; // Move to the next operator
     }
-	printf("====[separator]====\n");
-    if ((*root))
-        print_tree((*root), 0, 0);
+
+    // Print the tree if the root is valid
+    if (*root)
+        print_tree(*root, 0, 0);
+
+    // Free the splitted tokens if necessary
+    // Note: Ensure proper cleanup by freeing memory used for the tokens
+    ft_free_tokens(splitted);
+
     return true;
 }
