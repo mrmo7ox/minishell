@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 13:02:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/14 13:05:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(void)
 	while (true)
 	{
 		line = readline("Minishell: ");
-		line = formating(line, &garbage);
+		line = formating(line);
 		if (!line)
 			exit(0);
 		add_history(line);
@@ -45,7 +45,7 @@ int main(void)
 		{
 			tokenizer(&garbage, &tokens, line , &root);
 		}
-		printf_garbage(garbage);
+
 		// if()
 		// {	
 		// 	// ft_add_gc(&garbage, ft_new_gc_node(line));
