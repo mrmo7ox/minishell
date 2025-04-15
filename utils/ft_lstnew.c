@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:46:35 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:02:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,26 @@ t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage)
 	node->token = formating(content, garbage);
 	node->priority = priority;
 	if (special_cases(content))
-		node->op = ft_strdup("🥊");
+		node->op = ft_strdup("O");
 	else
-		node->op = ft_strdup("⚽️");
+		node->op = ft_strdup("C");
 		
+	node->prev = NULL;
+	node->next = NULL;
+
+	return (node);
+}
+
+t_ready	*ft_new_ready(char **content, int priority, t_gc **garbage)
+{
+	t_ready	*node;
+	
+	node = malloc(sizeof(t_tk));
+	ft_add_gc(garbage,ft_new_gc_node(node));
+	if (!node)
+		return (NULL);
+	node->tokens = content;
+	node->priority = priority;		
 	node->prev = NULL;
 	node->next = NULL;
 
