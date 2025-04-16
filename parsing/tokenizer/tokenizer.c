@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/15 16:06:47 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/16 10:06:45 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,13 +130,24 @@ void create_groups(t_tk **tokens, t_ready **groups, t_gc **garbage) {
     }
 }
 
+void	print_ll(t_redr *redr)
+{
+	while (redr)
+	{
+		printf("file_name: %s, type : %s,here_doc: %d\n",redr->file_name, redr->type, redr->here_doc);
+		redr = redr->next;
+	}
+}
+
 bool tokenizer(t_gc **garbage, char *line, t_node **root) {
     t_tk *splitted = NULL;
     t_tk *current = NULL;
     t_ready *groups = NULL;
     t_ready *group = NULL;
+	t_redr	*redr;
 
     (void)garbage;
+	redr = NULL;
     ft_split(&splitted, garbage, line, 0, 0);
     if (!splitted) {
         printf("Error: Token splitting failed.\n");
@@ -175,5 +186,8 @@ bool tokenizer(t_gc **garbage, char *line, t_node **root) {
         printf("}\n");
         group = group->next;
     }
+	rederction(line, &redr, garbage);
+
+	print_ll(redr);
     return true;
 }

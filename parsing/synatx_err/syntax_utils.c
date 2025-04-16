@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:06:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/13 10:23:38 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/16 10:29:32 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void	skip(char *line, int *i)
 	int	chr;
 
 	chr = mod_chrstr(line[*i], "\"\'");
-	if (chr)
+	if (chr && line[*i])
 	{
 		(*i)++;
 		while (line[*i] && line[*i] != chr)
 			(*i)++;
-		(*i)++;
+		if (line[*i])
+			(*i)++;
 	}
 }

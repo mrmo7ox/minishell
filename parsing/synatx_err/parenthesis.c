@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 13:06:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/16 10:28:42 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ bool	parenthesis(char *line, int open_count, int i, int j)
 				|| !is_operator_after(line, &open_count, &j, &i))
 				return (false);
 		}
-		i++;
+		if (line[i])
+			i++;
 	}
 	if (open_count > 0)
 		return (false);
