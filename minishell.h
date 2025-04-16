@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/15 15:44:38 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:05:18 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
 
+
 typedef struct s_garbage
 {
 	void	*addr;
@@ -42,9 +43,20 @@ typedef struct s_tokenizer
 	char				*token;
 	int					priority;
 	char				*op;
+	int					index;
 	struct s_tokenizer	*next;
 	struct s_tokenizer	*prev;
 }						t_tk;
+
+typedef struct s_redirections
+{
+	char					*content;
+	char					*op;
+	int						index;
+	struct s_redirections	*next;
+	struct s_redirections	*prev;
+}							t_redirections;
+
 typedef struct s_ready
 {
 	char			**tokens;
@@ -70,9 +82,16 @@ typedef struct s_redr
 	void	*next;
 }			t_redr;
 
+// history
+//remove when want to push this is for the history cmds
+#define HISTORY_FILE ".command_history"
+#define MAX_HISTORY_LENGTH 1000 
+void save_history();
+void load_history();
+
 // tokenizer
 bool	tokenizer(t_gc **garbage, char *line, t_node **root);
-t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage);
+t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage, int index);
 void	ft_add_tk(t_tk **head, t_tk *new);
 int		ft_lstsize(t_tk *head);
 
@@ -83,7 +102,8 @@ void    create_groups(t_tk **tokens, t_ready **groups, t_gc **garbage);
 
 //rederction
 void	rederction(char *line, t_redr **redr, t_gc **gg);
-
+t_redirections	*ft_new_redirection(char *content, char *op , int team);
+void	ft_add_t_redirections(t_redirections **head, t_redirections *new);
 //tree
 t_node	*ft_newtree(char *content);
 void	ft_addtree_node(t_node **node, t_node *left, t_node *right);

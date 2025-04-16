@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:37:26 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:06:14 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(void)
 	char	*line;
 	t_gc	*garbage = NULL;
 	t_node	*root = NULL;
-	
+	load_history();
 	while (true)
 	{
 		line = readline("Minishell: ");
@@ -40,6 +40,8 @@ int main(void)
 		if (!line)
 			exit(0);
 		add_history(line);
+		save_history();
+
 		if (syntax_error(line))
 		{
 			tokenizer(&garbage, line , &root);

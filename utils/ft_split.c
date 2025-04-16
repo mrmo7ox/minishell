@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 19:51:40 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/16 12:57:47 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,13 +116,13 @@ void	ft_split(t_tk **res, t_gc **garbage, char *line, int i, int j)
 					else
 						i++;
 				}
-			ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count, garbage));
+			ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count, garbage, words));
 			words++;
 			continue ;
 		}
 		while (!ft_chrstr(line[i], "<>|&()") && line[i] != '\0')
 			i++;
-		ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count, garbage));
+		ft_add_tk(res, ft_new_tk_node(ft_copy (&line[j], (i - j)), count, garbage, words));
 		words++;
 	}
 }

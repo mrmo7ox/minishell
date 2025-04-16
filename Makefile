@@ -6,19 +6,20 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/04/15 13:12:20 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/04/16 13:40:40 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = gcc
-CFLAGS = -Wall  -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall  -Wextra -Werror -g3 -fsanitize=address -Wno-unused-variable
 MFLAGS = -lreadline -lncurses
 TSRC = tests/ft_strjoin.c
 USRC = utils/ft_lstsize.c utils/minisplit.c utils/ft_strstr.c utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c utils/ft_malloc.c
 ESRC =
+HSRC = parsing/history/history.c
 PSRC = parsing/tokenizer/tree.c parsing/synatx_err/syntax_utils.c parsing/synatx_err/qoutes.c parsing/synatx_err/parenthesis.c parsing/synatx_err/redirections.c parsing/synatx_err/syntax_error.c parsing/tokenizer/tokenizer.c  parsing/synatx_err/and_or.c parsing/tokenizer/rederctions.c
-SRCS = $(PSRC) $(ESRC) $(USRC) $(TSRC) main.c 
+SRCS = $(PSRC) $(ESRC) $(USRC) $(TSRC) $(HSRC) main.c 
 OBJECTS = $(SRCS:%.c=%.o)
 
 NAME = minishell

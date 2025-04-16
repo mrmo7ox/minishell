@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/15 16:06:47 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/16 13:34:28 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,47 @@ bool    make_tree(t_tk  *current, t_node **root)
     //     print_tree(*root, 0, 0);
     return true;
 }
+
+void team_steup(t_tk **tokens)
+{
+    t_tk *current;
+    t_redirections *teams = NULL;
+    t_redirections *tmp;
+
+    current = (*tokens);
+    int i = 0;
+    
+    while(current)
+    {
+        if(ft_strstr(current->op,"O") && ft_strstr(current->token, "<"))
+        {
+            ft_add_t_redirections(&teams, ft_new_redirection(current->next->token, current->token, current->index));
+            current = current->next;
+            continue;
+        }
+        current = current->next;
+    }
+    tmp = teams;
+    if(!tmp)
+        return ;
+    while(tmp)
+    {
+        printf("[%d][%s][%s]\n", tmp->index, tmp ->op, tmp->content);
+        tmp = tmp -> next;
+    }
+    
+    
+}
+
 void create_groups(t_tk **tokens, t_ready **groups, t_gc **garbage) {
     int remaining_tokens = ft_lstsize(*tokens);
     t_tk *current = *tokens;
-
     while (current && remaining_tokens > 0) {
+
+        //for imad ; checking here if there is some << >> < to make them as a group
+        // int size = 0;
+ 
+
         char **group = malloc(sizeof(char *) * 4);
         if (!group) {
             fprintf(stderr, "Error: Memory allocation failed for group.\n");
@@ -130,13 +166,24 @@ void create_groups(t_tk **tokens, t_ready **groups, t_gc **garbage) {
     }
 }
 
+void	print_ll(t_redr *redr)
+{
+	while (redr)
+	{
+		printf("file_name: %s, type : %s,here_doc: %d\n",redr->file_name, redr->type, redr->here_doc);
+		redr = redr->next;
+	}
+}
+
 bool tokenizer(t_gc **garbage, char *line, t_node **root) {
     t_tk *splitted = NULL;
     t_tk *current = NULL;
     t_ready *groups = NULL;
     t_ready *group = NULL;
+	// t_redr	*redr;
 
     (void)garbage;
+	// redr = NULL;
     ft_split(&splitted, garbage, line, 0, 0);
     if (!splitted) {
         printf("Error: Token splitting failed.\n");
@@ -160,20 +207,24 @@ bool tokenizer(t_gc **garbage, char *line, t_node **root) {
 
     current = splitted;
     make_tree(current->next, root);
-    if (ft_lstsize(current) >= 3) {
-        create_groups(&splitted, &groups, garbage);
-    }
-    printf("Generated groups:\n");
-    group = groups;
-    while (group != NULL) {
-        int i = 0;
-        printf("<%i>{ ",group->priority);
-        while (group->tokens && group->tokens[i]) {
-            printf("[%s] ", group->tokens[i]);
-            i++;
-        }
-        printf("}\n");
-        group = group->next;
-    }
+    // if (ft_lstsize(current) >= 3) {
+    //     create_groups(&splitted, &groups, garbage);
+    // }
+    // printf("Generated groups:\n");
+    // group = groups;
+    // while (group != NULL) {
+    //     int i = 0;
+    //     printf("<%i>{ ",group->priority);
+    //     while (group->tokens && group->tokens[i]) {
+    //         printf("[%s] ", group->tokens[i]);
+    //         i++;
+    //     }
+    //     printf("}\n");
+    //     group = group->next;
+    // }
+	// rederction(line, &redr, garbage);
+
+	// print_ll(redr);
+    team_steup(&splitted);
     return true;
 }
