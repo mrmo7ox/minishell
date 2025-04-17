@@ -6,7 +6,7 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/04/17 18:06:14 by ihamani          ###   ########.fr        #
+#    Updated: 2025/04/17 18:14:04 by ihamani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NAME = minishell
 all: $(NAME)
 	make clean
 	clear
-	./minishell
+	bash ./test
 
 $(NAME):$(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) ${MFLAGS} -o $@
