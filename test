@@ -1,4 +1,0 @@
-while true; do
-    ft_lock
-done
-
