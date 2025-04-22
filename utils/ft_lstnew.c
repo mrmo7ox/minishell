@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 13:21:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/16 17:18:08 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage, int index)
 {
 	t_tk	*node;
 	
-	node = malloc(sizeof(t_tk));
+	node = ft_malloc((sizeof(t_tk)), garbage);
 	if (!node)
 		return (NULL);
 	node->token = formating(content, garbage);
@@ -49,7 +49,7 @@ t_ready	*ft_new_ready(char **content, int priority, t_gc **garbage)
 {
 	t_ready	*node;
 	
-	node = malloc(sizeof(t_tk));
+	node = ft_malloc((sizeof(t_tk)), garbage);
 	ft_add_gc(garbage,ft_new_gc_node(node));
 	if (!node)
 		return (NULL);

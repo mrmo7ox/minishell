@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 13:34:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/17 13:12:33 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,7 @@ void create_groups(t_tk **tokens, t_ready **groups, t_gc **garbage) {
 
         //for imad ; checking here if there is some << >> < to make them as a group
         // int size = 0;
- 
-
-        char **group = malloc(sizeof(char *) * 4);
+        char **group = ft_malloc((sizeof(char *) * 4), garbage);
         if (!group) {
             fprintf(stderr, "Error: Memory allocation failed for group.\n");
             return;

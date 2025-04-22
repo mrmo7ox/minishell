@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 14:05:18 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/22 13:18:12 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <errno.h>
 # include <signal.h>
 # include <unistd.h>
+# include <limits.h>
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -80,7 +81,7 @@ typedef struct s_redr
 	char	*file_name;
 	int		here_doc;
 	void	*next;
-}			t_redr;
+}			t_redr; 
 
 // history
 //remove when want to push this is for the history cmds
