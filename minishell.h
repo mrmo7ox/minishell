@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/22 13:18:12 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/23 14:25:59 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <signal.h>
 # include <unistd.h>
 # include <limits.h>
+#include <sys/wait.h>
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -133,6 +134,8 @@ void	skip(char *line, int *i);
 char	**ft_minisplit(char *str, char c, int i, int j);
 void	ft_skip_wspaces(char *line, int *i);
 char	*ft_substr(char const *s, unsigned int start, size_t len, t_gc **gg);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putstr_fd(char *str, int fd);
 
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);

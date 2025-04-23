@@ -1,0 +1,12 @@
+{
+    "environment_platform": {
+        "value": "ubuntu",
+        "timestamp": 1745425591,
+        "ttl": -1
+    },
+    "is_wsl": {
+        "value": "false",
+        "timestamp": 1745425591,
+        "ttl": -1
+    }
+}

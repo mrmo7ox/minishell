@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/22 15:44:12 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/23 17:25:12 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char *pwd()
+char *pwd(void)
 {
 	char *buff;
 
@@ -23,53 +23,61 @@ char *pwd()
 	// printf("%s\n", buff);
 	return (buff);
 }
-static void	ft_fill(char const *s1, char const *s2, char *str)
+
+size_t	args_len(char **args)
 {
-	size_t	i;
-	size_t	j;
+	int i;
 
 	i = 0;
-	while (s1[i])
-	{
-		str[i] = s1[i];
+	while (args[i])
 		i++;
-	}
-	j = 0;
-	while (s2[j])
-		str[i++] = s2[j++];
-	str[i] = '\0';
+	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	no_args(void)
 {
-	char	*str;
-	size_t	len1;
-	size_t	len2;
+	char	*home;
 
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
-	if (s1 == NULL)
-		return (strdup(s2));
-	else if (s2 == NULL)
-		return (strdup(s1));
-	len1 = strlen(s1);
-	len2 = strlen(s2);
-	str = (char *)malloc((len1 + len2 + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	ft_fill(s1, s2, str);
-	return (str);
+	home = getenv("HOME");
+	if (!home)
+		return ;
+	if (chdir(home) == -1)
+		ft_putstr_fd("somthing went wrong", 2);
+}
+
+void	cd(char **args)
+{
+	char	*buff;
+	char	*tmp;
+	size_t	len;
+
+	if (!args)
+		return ;
+	len = args_len(args);
+	if (len == 1)
+		no_args();
+	else if (len > 2)
+		ft_putstr_fd("too many argument\n", 2);
+	else if (len == 2)
+	{
+		buff = pwd();
+		tmp = buff;
+		buff = ft_strjoin(buff, "/");
+		free(tmp);
+		tmp = buff;
+		buff = ft_strjoin(buff, args[1]);
+		free(tmp);
+		if (chdir(buff) == -1)
+			ft_putstr_fd("no such directory found\n", 2);
+	}
 }
 
 int main(int ac, char **av)
 {
-	char *buff;
+	pid_t pid;
 
-	buff = pwd();
-	printf("%s\n", buff);
-	buff = ft_strjoin(buff, "/");
-	buff = ft_strjoin(buff, av[1]);
-	printf("%s\n", buff);
-	if (chdir(buff) == -1)
-		printf("no such directory\n");
+	cd(av);
+	char *tmp = pwd();
+	printf("%s", tmp);
+	free(tmp);
 }
