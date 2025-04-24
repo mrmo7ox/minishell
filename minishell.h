@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/23 14:25:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/24 10:13:14 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ void	ft_skip_wspaces(char *line, int *i);
 char	*ft_substr(char const *s, unsigned int start, size_t len, t_gc **gg);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_putstr_fd(char *str, int fd);
+size_t	args_len(char **args);
 
 // garbage collector
 t_gc	*ft_new_gc_node(void *content);
