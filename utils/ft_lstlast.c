@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 13:10:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 15:05:40 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/24 11:27:00 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/04/25 21:05:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	ft_lstsize(t_tk *head)
+t_tk *ft_lstlast(t_tk *root)
 {
-	int	i;
+    t_tk *last;
 
-	if (!head)
-		return (0);
-	i = 0;
-	while (head)
-	{
-		i++;
-		head = head->next;
-	}
-	return (i);
+    if (!root)
+        return (NULL);
+    last = root;
+    while (last->next)
+        last = last->next;
+    return (last);
+}
+
+t_redic *ft_lstlast_redic(t_redic *root)
+{
+    t_redic *last;
+
+    if (!root)
+        return (NULL);
+    last = root;
+    while (last->next)
+        last = last->next;
+    return (last);
 }

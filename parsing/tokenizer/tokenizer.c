@@ -1,230 +1,205 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   tokenizer.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 17:41:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 13:34:28 by moel-oua         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../minishell.h"
 
-void print_indentation(int depth)
+const char *token_type_to_str(e_type type)
 {
-    for (int i = 0; i < depth; i++)
+    switch (type)
     {
-        printf("    "); // 4 spaces per depth level
+    case COMMAND:
+        return "COMMAND";
+    default:
+        return "OPERATOR";
     }
 }
 
-void print_tree(t_node *node, int depth, int is_left)
-{
-    if (!node)
-        return;
+// // Recursive function to print the tree structure
+// void print_tree(t_leaf *node, int depth, int is_left)
+// {
+//     if (!node)
+//         return;
 
-    for (int i = 0; i < depth; i++)
-        printf("   ");
+//     for (int i = 0; i < depth; i++)
+//         printf("    ");
 
-    if (depth > 0)
-        printf("%s── ", is_left ? "┌" : "└");
+//     if (depth > 0)
+//         printf("%s── ", is_left ? "┌" : "└");
 
-    printf("[%s]\n", node->content);
+//     printf("[%s]\n", node->token->token);
+//     if (node->infile)
+//     {
+//         for (int i = 0; i < depth; i++)
+//             printf("    ");
+//         printf("    [IN][%s]\n", node->infile);
+//     }
+//     if (node->outfile)
+//     {
+//         for (int i = 0; i < depth; i++)
+//             printf("    ");
+//         printf("    [OUT][%s]\n", node->outfile);
+//     }
+//     if (node->delimiter)
+//     {
+//         for (int i = 0; i < depth; i++)
+//             printf("    ");
+//         printf("    [D][%s]\n", node->delimiter);
+//     }
 
-    print_tree(node->left, depth + 1, 1);
-    print_tree(node->right, depth + 1, 0);
-}
+//     if (node->left)
+//     {
+//         for (int i = 0; i < depth; i++)
+//             printf("    ");
+//         printf("    \n");
+//         print_tree(node->left, depth + 1, 1);
+//     }
 
+//     if (node->right)
+//     {
+//         for (int i = 0; i < depth; i++)
+//             printf("    ");
+//         printf("    \n");
+//         print_tree(node->right, depth + 1, 0);
+//     }
+// }
 
-bool    make_tree(t_tk  *current, t_node **root)
-{
-    t_node *left = NULL;
-    t_node *right = NULL;
-    t_node *operator_node = NULL;
-    *root= NULL;
-    while (current)
-    {
-        
-        if (!current->next)
-        {
-            printf("Error: Missing token after '%s'.\n", current->token);
-            break;
-        }
-    
-        operator_node = ft_newtree(current->token);
-        if (!operator_node)
-        {
-            printf("Error: Failed to create operator node.\n");
-            return false;
-        }
+// // Recursive descent parser for the AST
+// t_leaf *make_tree(t_tk *tokens)
+// {
+//     if (!tokens)
+//         return NULL;
 
-        if (!(*root))
-            left = ft_newtree(current->prev->token);
-        else
-            left = *root;
+//     t_leaf *root = NULL;
+//     t_tk *current = tokens;
 
-        right = ft_newtree(current->next->token);
-        if (!left || !right)
-        {
-            printf("Error: Failed to create left or right node.\n");
-            return false;
-        }
+//     // First pass: handle commands and operators
+//     while (current)
+//     {
+//         if (current->type == CMD)
+//         {
+//             t_leaf *cmd_leaf = new_leaf(current, COMMAND);
+//             if (!root)
+//                 root = cmd_leaf;
+//             else
+//             {
+//                 t_leaf *temp = root;
+//                 while (temp->right)
+//                     temp = temp->right;
+//                 temp->right = cmd_leaf;
+//             }
+//         }
+//         else if (current->type == INFILE || current->type == OUTFILE || current->type == APPEND || current->type == HEREDOC)
+//         {
+//             t_leaf *op_leaf = new_leaf(current, OPERATOR);
+//             if (!root)
+//                 root = op_leaf;
 
-        ft_addtree_node(&operator_node, left, right);
-        *root = operator_node;
+//             if (root->type == COMMAND)
+//             {
+//                 if (current->type == OUTFILE)
+//                 {
+//                     root->infile = current->next->token;
+//                     current = current->next;
+//                 }
+//                 else if (current->type == INFILE)
+//                 {
+//                     root->outfile = current->next->token;
+//                     current = current->next;
+//                 }
+//                 else if (current->type == HEREDOC)
+//                 {
+//                     root->infile = "heredoc";
+//                     root->delimiter = current->next->token;
+//                     current = current->next;
+//                 }
+//                 else if (current->type == APPEND)
+//                 {
+//                     root->outfile = current->next->token;
+//                     root->append = 1;
+//                     current = current->next;
+//                 }
+//             }
+//             else
+//             {
+//                 t_leaf *op_leaf = new_leaf(current, OPERATOR);
+//                 op_leaf->left = root;
+//                 root = op_leaf;
+//             }
+//         }
+//         else if (current->type == PIPE || current->type == AND || current->type == OR)
+//         {
+//             t_leaf *op_leaf = new_leaf(current, OPERATOR);
+//             if (!root)
+//                 root = op_leaf;
+//             else
+//             {
+//                 op_leaf->left = root;
+//                 root = op_leaf;
+//             }
+//         }
 
-        current = current->next->next;
-    }
-    // if(*root)
-    //     print_tree(*root, 0, 0);
-    return true;
-}
+//         current = current->next;
+//     }
 
-void team_steup(t_tk **tokens)
+//     return root;
+// }
+void adding_redirects(t_tk **head, t_gc **garbage)
 {
     t_tk *current;
-    t_redirections *teams = NULL;
-    t_redirections *tmp;
 
-    current = (*tokens);
-    int i = 0;
-    
-    while(current)
+    if (!head)
+        return;
+    current = (*head);
+    while (current)
     {
-        if(ft_strstr(current->op,"O") && ft_strstr(current->token, "<"))
+        current->redics = NULL;
+        if (current->type == COMMAND)
         {
-            ft_add_t_redirections(&teams, ft_new_redirection(current->next->token, current->token, current->index));
-            current = current->next;
-            continue;
+            t_redic *new = NULL;
+            ft_minisplit(&new, garbage, current, current->token, 0, 0);
+            current->redics = new;
         }
         current = current->next;
     }
-    tmp = teams;
-    if(!tmp)
-        return ;
-    while(tmp)
-    {
-        printf("[%d][%s][%s]\n", tmp->index, tmp ->op, tmp->content);
-        tmp = tmp -> next;
-    }
-    
-    
 }
 
-void create_groups(t_tk **tokens, t_ready **groups, t_gc **garbage) {
-    int remaining_tokens = ft_lstsize(*tokens);
-    t_tk *current = *tokens;
-    while (current && remaining_tokens > 0) {
-
-        //for imad ; checking here if there is some << >> < to make them as a group
-        // int size = 0;
- 
-
-        char **group = malloc(sizeof(char *) * 4);
-        if (!group) {
-            fprintf(stderr, "Error: Memory allocation failed for group.\n");
-            return;
-        }
-
-        group[0] = NULL;
-        group[1] = NULL;
-        group[2] = NULL;
-        group[3] = NULL;
-
-        int priority = current->priority;
-        int i = 0;
-        if(strcmp( "C", current->op))
-        {
-            group[0] =  current->token;
-            current = current->next;
-            i = 3;
-            group[1] = NULL;
-            remaining_tokens--;
-        }
-        while (i < 3 && current && remaining_tokens > 0 && priority ==current->priority ) {
-            group[i] = current->token;
-            current = current->next;
-            i++;
-            remaining_tokens--;
-        }
-        if( i == 2)
-        {
-            current = current->prev;
-            group[1] = NULL;
-            remaining_tokens--;
-            i--;
-
-        }
-        group[i] = NULL;
-        if (i > 0) {
-            ft_add_ready(groups, ft_new_ready(group, priority, garbage));
-        } else {
-            free(group);
-        }
-    }
-}
-
-void	print_ll(t_redr *redr)
+bool tokenizer(t_gc **garbage, char *line)
 {
-	while (redr)
-	{
-		printf("file_name: %s, type : %s,here_doc: %d\n",redr->file_name, redr->type, redr->here_doc);
-		redr = redr->next;
-	}
-}
-
-bool tokenizer(t_gc **garbage, char *line, t_node **root) {
     t_tk *splitted = NULL;
-    t_tk *current = NULL;
-    t_ready *groups = NULL;
-    t_ready *group = NULL;
-	// t_redr	*redr;
-
     (void)garbage;
-	// redr = NULL;
+
     ft_split(&splitted, garbage, line, 0, 0);
-    if (!splitted) {
-        printf("Error: Token splitting failed.\n");
+
+    int num_tokens = ft_lstsize(splitted);
+
+    if (num_tokens == 0)
+    {
+        printf("Error: No tokens found.\n");
         return false;
     }
+    printf("====[Tree Structure]====\n");
 
-    printf("Split tokens:\n");
-    current = splitted;
-    while (current) {
-        printf("%s[%s]%s", KBLU, current->op, KNRM);
-        printf("[%d] ", current->priority);
-        if (current->token) {
-            printf("[%s]\n", current->token);
-        } else {
-            printf("[NULL]\n");
+    adding_redirects(&splitted, garbage);
+
+    t_tk *current = splitted;
+    while (current)
+    {
+
+        printf("[%s]", current->token);
+        t_redic *redics = current->redics;
+        while (redics)
+        {
+            printf("{%s}", redics->content);
+            redics = redics->next;
         }
+        printf("\n");
+
         current = current->next;
     }
-
-    printf("====[separator]====\n");
-
-    current = splitted;
-    make_tree(current->next, root);
-    // if (ft_lstsize(current) >= 3) {
-    //     create_groups(&splitted, &groups, garbage);
+    // t_leaf *root = make_tree(splitted);
+    // if (!root)
+    // {
+    //     printf("Error: Failed to build tree.\n");
+    //     return false;
     // }
-    // printf("Generated groups:\n");
-    // group = groups;
-    // while (group != NULL) {
-    //     int i = 0;
-    //     printf("<%i>{ ",group->priority);
-    //     while (group->tokens && group->tokens[i]) {
-    //         printf("[%s] ", group->tokens[i]);
-    //         i++;
-    //     }
-    //     printf("}\n");
-    //     group = group->next;
-    // }
-	// rederction(line, &redr, garbage);
 
-	// print_ll(redr);
-    team_steup(&splitted);
+    // print_tree(root, 0, 0);
     return true;
 }

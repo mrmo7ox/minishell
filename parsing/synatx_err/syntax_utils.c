@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:06:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 10:29:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/24 11:55:21 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	mod_chrstr(char chr, char *str)
+int mod_chrstr(char chr, char *str)
 {
 	while (*str != '\0')
 	{
@@ -23,9 +23,9 @@ int	mod_chrstr(char chr, char *str)
 	return (0);
 }
 
-void	skip(char *line, int *i)
+void skip(char *line, int *i)
 {
-	int	chr;
+	int chr;
 
 	chr = mod_chrstr(line[*i], "\"\'");
 	if (chr && line[*i])
