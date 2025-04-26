@@ -22,7 +22,8 @@
 # include <signal.h>
 # include <unistd.h>
 # include <limits.h>
-#include <sys/wait.h>
+# include <sys/wait.h>
+# include "./env/env.h"
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
