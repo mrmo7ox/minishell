@@ -1,4 +1,16 @@
-#include "env.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env_op.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/26 15:30:27 by ihamani          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../minishell.h"
 
 void    env_init(char **env, t_env **ft_env)
 {
@@ -27,7 +39,21 @@ char    *ft_getenv(char *name, t_env **ft_env)
     t_env *head;
 
     head = *ft_env;
-    while (name != head->name)
+    while (head->next && strcmp(name, head->name))
         head = head->next;
-    return (head->value);
+	if (head->value)
+    	return (head->value);
+	return (NULL);
 }
+
+// char    *ft_getenv(char *name, t_env **ft_env)
+// {
+//     t_env *head;
+
+//     head = *ft_env;
+//     while (head->next && strcmp(name, head->name))
+//         head = head->next;
+// 	if (head->value)
+//     	return (head->value);
+// 	return (NULL);
+// }

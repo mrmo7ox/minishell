@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/24 10:13:14 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/26 14:04:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <limits.h>
 # include <sys/wait.h>
 # include "./env/env.h"
+# include "./execution/builtin/builtins.h"
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"

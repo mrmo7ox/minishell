@@ -6,25 +6,23 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/24 11:05:19 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/26 13:59:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "builtins.h"
 
-char *pwd(void)
+static char *pwd(void)
 {
 	char *buff;
 
 	buff = getcwd(NULL, 0);
 	if (!buff)
 		return (NULL);
-	// ft_add_gc(gg, ft_new_gc_node(buff));
-	// printf("%s\n", buff);
 	return (buff);
 }
 
-void	no_args(void)
+static void	no_args(void)
 {
 	char	*home;
 
@@ -38,7 +36,7 @@ void	no_args(void)
 		ft_putstr_fd("somthing went wrong", 2);
 }
 
-void	helper(char *str)
+static void	helper(char *str)
 {
 	char	*buff;
 	char	*tmp;

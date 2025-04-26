@@ -18,7 +18,9 @@
 		"initializer_list": "c",
 		"span": "c",
 		"text_encoding": "c",
-		"minishell": "c"
+		"minishell": "c",
+		"builtins.h": "c",
+		"env.h": "c"
 	},
 	"files.exclude": {
 		"**/.git": true,

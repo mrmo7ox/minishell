@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:32:10 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/23 09:28:26 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/26 16:30:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "builtins.h"
 
-bool check_op(char *str)
+static bool check_op(char *str)
 {
 	int i;
 
@@ -29,7 +29,7 @@ bool check_op(char *str)
 	return (false);
 }
 
-void echo(int ac, char **av)
+void	echo(int ac, char **av)
 {
 	int i;
 	int flag;
