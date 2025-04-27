@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
 void    env_init(char **env, t_env **ft_env)
 {
@@ -39,10 +39,13 @@ char    *ft_getenv(char *name, t_env **ft_env)
     t_env *head;
 
     head = *ft_env;
-    while (head->next && strcmp(name, head->name))
+    while (head && strcmp(name, head->name))
         head = head->next;
-	if (head->value)
-    	return (head->value);
+	if (head)
+    {
+        if (head->value)
+    	    return (head->value);
+    }
 	return (NULL);
 }
 

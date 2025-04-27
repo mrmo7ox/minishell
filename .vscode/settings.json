@@ -20,7 +20,8 @@
 		"text_encoding": "c",
 		"minishell": "c",
 		"builtins.h": "c",
-		"env.h": "c"
+		"env.h": "c",
+		"typeinfo": "c"
 	},
 	"files.exclude": {
 		"**/.git": true,

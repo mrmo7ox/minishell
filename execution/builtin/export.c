@@ -50,65 +50,84 @@ static void	no_args(t_env **env)
     }
 }
 
-static bool check_key(char *str)
+static int check_key(char *str)
 {
 	int i;
 
 	i = 0;
 	while(str[i])
 	{
-		if (ft_chrstr(str[i], "-!?"))
-			return (false);
+		if (i == 0 && (str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		if (ft_chrstr(str[i], "-!?$%@-#"))
+			return (0);
+		if (str[i] == '+' && str[i + 1])
+			return (0);
+		if (str[i] == '+' && !str[i + 1])
+			return (2);
 		i++;
 	}
-	return (true);
+	return (1);
+}
+
+static void	helper(char **args, t_env **ft_env)
+{
+	char	**tmp;
+	int		i;
+	char	*name;
+	char	*value;
+
+	i = 1;
+	while (args[i])
+	{
+		tmp = ft_minisplit(args[i], '=', 0, 0);
+		name = tmp[0];
+		value = tmp[1];
+		if (!check_key(name))
+		{
+			ft_putstr_fd("not a valid identifier\n", 2);
+			free(name);
+			free(tmp[1]);
+			free(tmp);
+			return ;
+		}
+		else if (check_key(name) == 2)
+			export_append(name, value, ft_env);
+		else
+		{
+			if (!ft_getenv(name, ft_env))
+				ft_putenv(name, value, ft_env);
+			else
+				ft_upenv(name, value, ft_env);
+			free(tmp);
+		}
+		i++;
+	}
 }
 
 void	export(char **args, t_env **ft_env)
 {
-	char *name;
-	char *value;
-	char **tmp;
-	int i;
-	int len;
+	int		len;
 
 	len = args_len(args);
 	if (!syntax(args))
 	{
 		ft_putstr_fd("bad args sysntax\n", 2);
-		return;
+		return ;
 	}
 	if (len == 1)
 		no_args(ft_env);
 	else if (len >= 2)
 	{
-		i = 1;
-		while (args[i])
-		{
-			tmp = ft_minisplit(args[i], '=', 0, 0);
-			name = tmp[0];
-			if (!check_key(name))
-			{
-				ft_putstr_fd("not a valid identifier\n", 2);
-				free(name);
-				free(tmp[1]);
-				free(tmp);
-				return ;
-			}
-			value = tmp[1];
-			if (!ft_getenv(name, ft_env))
-				ft_putenv(name, value, ft_env);
-			free(tmp);
-			i++;
-		}
+		helper(args, ft_env);
 	}
 }
 
-// int main(int ac, char **av, char **env)
-// {
-// 	t_env *ft_env = NULL;
+ int main(int ac, char **av, char **env)
+ {
+ 	t_env	*ft_env = NULL;
 
-// 	env_init(env, &ft_env);
-// 	export(av, &ft_env);
-// 	// no_args(&ft_env);
-// }
+ 	env_init(env, &ft_env);
+ 	export(av, &ft_env);
+ 	no_args(&ft_env);
+ }

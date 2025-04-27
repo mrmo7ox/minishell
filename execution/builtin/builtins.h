@@ -21,6 +21,8 @@ void	cd(char **args);
 void	echo(int ac, char **av);
 void    cmd_env(char **args, t_env **env);
 void	export(char **args, t_env **ft_env);
+void    export_append(char *name, char *value, t_env **ft_env);
+void    ft_upenv(char *name, char *value, t_env **ft_env);
 // char	*pwd(t_gc **gc);
 
 #endif

@@ -12,6 +12,20 @@
 
 #include "../minishell.h"
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	if (s == NULL)
+		return (0);
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
 static void	ft_fill(char const *s1, char const *s2, char *str)
 {
 	size_t	i;
