@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/28 10:29:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/28 12:37:40 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	export(char **args, t_env **ft_env)
 		ft_putstr_fd("bad args sysntax\n", 2);
 		return ;
 	}
+	export_sort(ft_env);
 	if (len == 1)
 		no_args(ft_env);
 	else if (len >= 2)
@@ -96,5 +97,5 @@ void	export(char **args, t_env **ft_env)
 
 //  	env_init(env, &ft_env);
 //  	export(av, &ft_env);
-//  	no_args(&ft_env);
-//  }
+//  	// no_args(&ft_env);
+// }

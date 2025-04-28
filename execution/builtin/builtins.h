@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:57:06 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/28 10:08:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/28 11:44:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	export(char **args, t_env **ft_env);
 void	export_append(char *name, char *value, t_env **ft_env);
 void	ft_upenv(char *name, char *value, t_env **ft_env);
 void	ext_export(char *name, char *value, t_env **ft_env, char **tmp);
+void	export_sort(t_env **ft_env);
 // char	*pwd(t_gc **gc);
 
 #endif
