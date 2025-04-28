@@ -1,54 +1,108 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/28 10:28:33 by ihamani          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
-static  char    *helper(char *name)
+static char	*helper(char *name)
 {
-    char    *new;
-    int     len;
-    int     i;
+	char	*new;
+	int		len;
+	int		i;
 
-    len = ft_strlen(name);
-    i = 0;
-    new = (char *)malloc(len * sizeof(char));
-    while (i < len - 1)
-    {
-        new[i] = name[i];
-        i++;
-    }
-    free(name);
-    return (new);
+	len = ft_strlen(name);
+	i = 0;
+	new = (char *)malloc(len * sizeof(char));
+	while (i < len - 1)
+	{
+		new[i] = name[i];
+		i++;
+	}
+	free(name);
+	return (new);
 }
 
-void    export_append(char *name, char *value, t_env **ft_env)
+void	export_append(char *name, char *value, t_env **ft_env)
 {
-    char *tmp;
-    t_env *head;
+	char	*tmp;
+	t_env	*head;
 
-    name =  helper(name);
-    head = *ft_env;
-    while (head && strcmp(name, head->name))
-        head = head->next;
-    if (head)
-    {
-        tmp = head->value;
-        head->value = ft_strjoin(head->value, value);
-        free(tmp);
-    }
-    else 
-        ft_putenv(name, value, ft_env);
+	name = helper(name);
+	head = *ft_env;
+	while (head && strcmp(name, head->name))
+		head = head->next;
+	if (head)
+	{
+		tmp = head->value;
+		head->value = ft_strjoin(head->value, value);
+		free(tmp);
+	}
+	else
+		ft_putenv(name, value, ft_env);
 }
 
-void    ft_upenv(char *name, char *value, t_env **ft_env)
+void	ft_upenv(char *name, char *value, t_env **ft_env)
 {
-    char    *tmp;
-    t_env   *head;
+	char	*tmp;
+	t_env	*head;
 
-    head = *ft_env;
-    while (head && strcmp(name, head->name))
-        head = head->next;
-    if (head)
-    {
-        tmp = head->value;
-        head->value = value;
-        free(tmp);
-    }
+	head = *ft_env;
+	while (head && strcmp(name, head->name))
+		head = head->next;
+	if (head && value)
+	{
+		tmp = head->value;
+		head->value = value;
+		free(tmp);
+	}
+}
+
+static int	check_key(char *str, char *value)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (i == 0 && (str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		if (ft_chrstr(str[i], "-!?$%@-#"))
+			return (0);
+		if (str[i] == '+' && str[i + 1])
+			return (0);
+		if (str[i] == '+' && !str[i + 1] && value)
+			return (2);
+		if (str[i] == '+' && !str[i + 1] && !value)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	ext_export(char *name, char *value, t_env **ft_env, char **tmp)
+{
+	if (!check_key(name, value))
+	{
+		ft_putstr_fd("not a valid identifier\n", 2);
+		free(name);
+		free(tmp[1]);
+		return ;
+	}
+	else if (check_key(name, value) == 2)
+		export_append(name, value, ft_env);
+	else
+	{
+		if (!ft_getenv(name, ft_env))
+			ft_putenv(name, value, ft_env);
+		else
+			ft_upenv(name, value, ft_env);
+	}
 }
