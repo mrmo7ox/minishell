@@ -6,17 +6,17 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 13:11:54 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 15:12:03 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void export_sort(t_env **ft_env)
+void	export_sort(t_env **ft_env)
 {
-	char *tmp;
-	t_env *head;
-	t_env *head2;
+	char	*tmp;
+	t_env	*head;
+	t_env	*head2;
 
 	head = *ft_env;
 	while (head)

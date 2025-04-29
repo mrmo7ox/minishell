@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/26 14:23:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 15:13:12 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ t_env	*ft_new_env(char *name, char *value)
 	if (!node)
 		return (NULL);
 	node->name = name;
-    node->value = value;
+	node->value = value;
 	node->next = NULL;
 	return (node);
 }
-
