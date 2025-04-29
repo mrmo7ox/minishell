@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/13 16:51:55 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:53 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/29 09:42:34 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/29 09:43:12 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	*ft_malloc(size_t size, t_gc **garbage)
+char	*ft_strdup(const char *source, t_gc **gg)
 {
-	void	*addr;
+	char	*dup;
+	int		len;
 
-	addr = malloc(size);
-	if (!addr)
+	if (!source)
 		return (NULL);
-	ft_add_gc(garbage, ft_new_gc_node(addr));
-	return (addr);
+	len = ft_strlen(source);
+	dup = (char *)ft_malloc((sizeof(char) * (len + 1)), gg);
+	if (dup == NULL)
+		return (NULL);
+	ft_memcpy (dup, source, len);
+	dup[len] = '\0';
+	return (dup);
 }

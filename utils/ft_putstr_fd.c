@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   garbage_collector.c                                :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 12:34:17 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:05 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/23 14:16:12 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/23 14:19:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	free_garbage(t_gc **list)
+void	ft_putstr_fd(char *str, int fd)
 {
-	t_gc	*tmp;
-	t_gc	*t;
-
-	if (!*list || !list)
-		return ;
-	tmp = *list;
-	while (tmp)
+	while (*str)
 	{
-		free(tmp->addr);
-		t = tmp;
-		tmp = tmp->next;
-		free(t);
+		write(fd, str, 1);
+		str++;
 	}
-	*list = NULL;
 }

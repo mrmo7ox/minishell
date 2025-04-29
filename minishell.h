@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 10:58:34 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:30:52 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define MINISHELL_H
 
 # include <errno.h>
+# include <limits.h>
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <signal.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
+# include <sys/wait.h>
 # include <unistd.h>
 
 # define HISTORY_FILE ".command_history"
@@ -75,6 +78,7 @@ typedef struct s_tokenizer
 	struct s_tokenizer		*next;
 	struct s_tokenizer		*prev;
 }							t_tk;
+
 
 typedef struct leaf
 {

@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   garbage_collector.c                                :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 12:34:17 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:05 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/29 11:09:36 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-void	free_garbage(t_gc **list)
+char *pwd(t_gc **gg)
 {
-	t_gc	*tmp;
-	t_gc	*t;
+	char *buff;
 
-	if (!*list || !list)
-		return ;
-	tmp = *list;
-	while (tmp)
-	{
-		free(tmp->addr);
-		t = tmp;
-		tmp = tmp->next;
-		free(t);
-	}
-	*list = NULL;
+	buff = getcwd(NULL, 0);
+	if (!buff)
+		return (NULL);
+	ft_add_gc(gg, ft_new_gc_node(buff));
+	printf("%s\n", buff);
+	return (buff);
 }

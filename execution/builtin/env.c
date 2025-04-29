@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/26 13:50:35 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/29 11:10:59 by ihamani          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../minishell.h"
+
+void cmd_env(char **args, t_env **env)
+{
+	t_env *head;
+	(void)args;
+	head = *env;
+	while (head->next)
+	{
+		printf("%s=", head->name);
+		if (head->value)
+			printf("\"%s\"\n", head->value);
+		else
+			printf("\n");
+		head = head->next;
+	}
+}
+
+// int main(int ac, char **av, char **env)
+// {
+//     t_env *ft_env = NULL;
+
+//     env_init(env, &ft_env);
+//     cmd_env(av, &ft_env);
+// }

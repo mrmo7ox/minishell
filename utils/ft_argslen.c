@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   garbage_collector.c                                :+:      :+:    :+:   */
+/*   ft_argslen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 12:34:17 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:05 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/24 10:12:47 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/24 10:13:04 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	free_garbage(t_gc **list)
+size_t	args_len(char **args)
 {
-	t_gc	*tmp;
-	t_gc	*t;
+	int	i;
 
-	if (!*list || !list)
-		return ;
-	tmp = *list;
-	while (tmp)
-	{
-		free(tmp->addr);
-		t = tmp;
-		tmp = tmp->next;
-		free(t);
-	}
-	*list = NULL;
+	i = 0;
+	while (args[i])
+		i++;
+	return (i);
 }
