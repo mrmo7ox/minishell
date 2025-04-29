@@ -6,85 +6,98 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/25 11:01:36 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:00:12 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char *ft_copy(char *src, int len)
+static void	skip_spaces(char *line, int *i)
 {
-	char *dup = malloc(len + 1);
-	if (!dup)
-		return (NULL);
-
-	for (int i = 0; i < len; i++)
-		dup[i] = src[i];
-
-	dup[len] = '\0';
-	return (dup);
+	while (line[*i] && ft_chrstr(line[*i], " \t"))
+		(*i)++;
 }
 
-e_type special_cases(char *str)
+static int	handle_parentheses(char *line, int *i, int *priority)
 {
-
-	if (str && ft_strstr(str, "||"))
-		return (OPERATOR);
-	else if (str && ft_strstr(str, "&&"))
-		return (OPERATOR);
-	else if (str && ft_strstr(str, "|"))
-		return (OPERATOR);
-	return (COMMAND);
-}
-
-void ft_split(t_tk **res, t_gc **garbage, char *line, int i, int j)
-{
-	int priority = 0;
-	int index = 0;
-
-	while (line[i])
+	if (line[*i] == '(')
 	{
-		while (line[i] && ft_chrstr(line[i], " \t"))
-			i++;
-		j = i;
+		(*priority)++;
+		(*i)++;
+		return (1);
+	}
+	else if (line[*i] == ')')
+	{
+		(*priority)--;
+		(*i)++;
+		return (1);
+	}
+	return (0);
+}
 
-		if (ft_chrstr(line[i], "|&()"))
+static int	handle_operator(t_tk **res, t_gc **garbage, char *line,
+		t_split_utils *utils)
+{
+	char	*token;
+
+	if ((line[utils->i] == '|' && line[utils->i + 1] == '|')
+		|| (line[utils->i] == '&' && line[utils->i + 1] == '&'))
+		(utils->i) += 2;
+	else if (line[utils->i] == '|' || line[utils->i] == '&')
+		(utils->i)++;
+	token = ft_copy(&line[utils->j], utils->i - utils->j, garbage);
+	if (!token)
+		return (0);
+	(utils->index)++;
+	(utils->type) = special_cases(token);
+	ft_add_tk(res, ft_new_tk_node(token, garbage, utils));
+	return (1);
+}
+
+static int	handle_word(t_tk **res, t_gc **garbage, char *line,
+		t_split_utils *utils)
+{
+	char	*token;
+
+	while (line[utils->i] && !ft_chrstr(line[utils->i], "|&()"))
+	{
+		if ((line[utils->i] == '"' || line[utils->i] == '\'')
+			&& ft_skip_quates(&(utils->i), line))
+			continue ;
+		(utils->i)++;
+	}
+	if (utils->i > utils->j)
+	{
+		token = ft_copy(&line[utils->j], utils->i - utils->j, garbage);
+		if (!token)
+			return (0);
+		(utils->index)++;
+		(utils->type) = special_cases(token);
+		ft_add_tk(res, ft_new_tk_node(token, garbage, utils));
+	}
+	return (1);
+}
+
+void	ft_split(t_tk **res, t_gc **garbage, char *line)
+{
+	t_split_utils	utils;
+
+	utils.i = 0;
+	utils.index = 0;
+	utils.priority = 0;
+	while (line[utils.i])
+	{
+		skip_spaces(line, &utils.i);
+		utils.j = utils.i;
+		if (ft_chrstr(line[utils.i], "|&()"))
 		{
-			if (line[i] == '(')
-			{
-				priority++;
-				i++;
-				continue;
-			}
-			else if (line[i] == ')')
-			{
-				priority--;
-				i++;
-				continue;
-			}
-			else if ((line[i] == '|' && line[i + 1] == '|') ||
-					 (line[i] == '&' && line[i + 1] == '&'))
-			{
-				i += 2;
-			}
-			else
-				i += 1;
-
-			char *token = ft_copy(&line[j], i - j);
-			if (!token)
-				return;
-			ft_add_tk(res, ft_new_tk_node(token, priority, garbage, index++, special_cases(token)));
-			continue;
+			if (handle_parentheses(line, &utils.i, &utils.priority))
+				continue ;
+			if (!handle_operator(res, garbage, line, &utils))
+				return ;
+			continue ;
 		}
-		while (line[i] && !ft_chrstr(line[i], "|&()\t"))
-			i++;
-
-		if (i > j)
-		{
-			char *token = ft_copy(&line[j], i - j);
-			if (!token)
-				return;
-			ft_add_tk(res, ft_new_tk_node(token, priority, garbage, index++, special_cases(token)));
-		}
+		if (!handle_word(res, garbage, line, &utils))
+			return ;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parenthesis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:21:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 10:28:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 10:06:01 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ bool	parenthesis(char *line, int open_count, int i, int j)
 				|| !is_operator_after(line, &open_count, &j, &i))
 				return (false);
 		}
-		if (line[i])
-			i++;
+		move_next(line, &i);
 	}
 	if (open_count > 0)
 		return (false);

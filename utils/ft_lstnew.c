@@ -6,15 +6,15 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/25 21:39:48 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:48:19 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_gc *ft_new_gc_node(void *content)
+t_gc	*ft_new_gc_node(void *content)
 {
-	t_gc *node;
+	t_gc	*node;
 
 	node = malloc(sizeof(t_gc));
 	if (!node)
@@ -24,35 +24,33 @@ t_gc *ft_new_gc_node(void *content)
 	return (node);
 }
 
-t_tk *ft_new_tk_node(char *content, int priority, t_gc **garbage, int index, e_type type)
+t_tk	*ft_new_tk_node(char *content, t_gc **garbage, t_split_utils *utils)
 {
-	t_tk *node;
+	t_tk	*node;
 
-	node = malloc(sizeof(t_tk));
+	node = ft_malloc(sizeof(t_tk), garbage);
 	if (!node)
 		return (NULL);
 	node->token = formating(content, garbage);
-	node->priority = priority;
-	node->index = index;
-	node->type = type;
+	node->priority = utils->priority;
+	node->index = utils->index;
+	node->type = utils->type;
 	node->prev = NULL;
 	node->next = NULL;
 	node->redics = NULL;
-
 	return (node);
 }
 
-void *ft_new_redic_node(t_gc **garbage, char *content)
+void	*ft_new_redic_node(t_gc **garbage, char *content)
 {
-	t_redic *node;
+	t_redic	*node;
 
-	node = malloc(sizeof(t_redic));
+	node = ft_malloc(sizeof(t_redic), garbage);
 	if (!node)
 		return (NULL);
 	node->content = formating(content, garbage);
 	node->type = special_cases_redic(content);
 	node->prev = NULL;
 	node->next = NULL;
-
 	return (node);
 }

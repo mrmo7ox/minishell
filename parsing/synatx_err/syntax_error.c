@@ -6,16 +6,16 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/24 11:48:58 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/28 20:49:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char *formating(char *line, t_gc **gg)
+char	*formating(char *line, t_gc **gg)
 {
-	int start;
-	int end;
+	int	start;
+	int	end;
 
 	start = 0;
 	end = ft_strlen(line) - 1;
@@ -35,9 +35,10 @@ char *formating(char *line, t_gc **gg)
 	return (line);
 }
 
-bool syntax_error(char *line)
+bool	syntax_error(char *line)
 {
-	if (!qoutes(line) || !and_or(line) || !parenthesis(line, 0, 0, 0) || !redir_handler(line))
+	if (!qoutes(line) || !and_or(line) || !parenthesis(line, 0, 0, 0)
+		|| !redir_handler(line))
 	{
 		printf("syntax error\n");
 		return (false);

@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   split_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 11:27:00 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 21:22:24 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/28 21:12:51 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/04/29 10:46:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_tk	*ft_lstlast(t_tk *root)
+char	*ft_copy(char *src, int len, t_gc **garbage)
 {
-	t_tk	*last;
+	char	*dup;
+	int		i;
 
-	if (!root)
+	i = 0;
+	dup = ft_malloc(len + 1, garbage);
+	if (!dup)
 		return (NULL);
-	last = root;
-	while (last->next)
-		last = last->next;
-	return (last);
+	while (i < len)
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[len] = '\0';
+	return (dup);
 }
 
-t_redic	*ft_lstlast_redic(t_redic *root)
+t_type	special_cases(char *str)
 {
-	t_redic	*last;
-
-	if (!root)
-		return (NULL);
-	last = root;
-	while (last->next)
-		last = last->next;
-	return (last);
+	if (str && ft_strstr(str, "||"))
+		return (OPERATOR);
+	else if (str && ft_strstr(str, "&&"))
+		return (OPERATOR);
+	else if (str && ft_strstr(str, "|"))
+		return (OPERATOR);
+	return (COMMAND);
 }

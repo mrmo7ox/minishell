@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 11:27:00 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 21:22:24 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/28 10:21:33 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/04/29 10:44:39 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_tk	*ft_lstlast(t_tk *root)
+char	**ft_realloc(char **buffer, int plus, t_gc **garbage)
 {
-	t_tk	*last;
+	char	**new;
+	int		old_size;
+	int		i;
+	int		new_size;
 
-	if (!root)
+	old_size = 0;
+	i = 0;
+	if (!buffer)
 		return (NULL);
-	last = root;
-	while (last->next)
-		last = last->next;
-	return (last);
-}
-
-t_redic	*ft_lstlast_redic(t_redic *root)
-{
-	t_redic	*last;
-
-	if (!root)
+	while (buffer[old_size])
+		old_size++;
+	new_size = old_size + plus;
+	new = ft_malloc(sizeof(char *) * (new_size + 1), garbage);
+	if (!new)
 		return (NULL);
-	last = root;
-	while (last->next)
-		last = last->next;
-	return (last);
+	while (i < old_size)
+	{
+		new[i] = ft_strdup(buffer[i]);
+		i++;
+	}
+	new[i] = NULL;
+	free(buffer);
+	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 12:33:52 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/09 12:50:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:46:01 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,30 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, t_gc **garbage)
 {
 	int		len_s1;
 	int		len_s2;
 	char	*new;
 
 	if (!s1)
-		return (ft_strdup(s2));
+		return (ft_strdup(s2, garbage));
 	if (!s2)
-		return (ft_strdup(s1));
+		return (ft_strdup(s1, garbage));
 	if (!s2 && !s1)
 		return (NULL);
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
-	new = (char *)malloc(sizeof(char) * (1 + len_s1 + len_s2));
+	new = (char *)ft_malloc(sizeof(char) * (1 + len_s1 + len_s2), garbage);
 	if (new == NULL)
 		return (NULL);
-	ft_memcpy (new, s1, len_s1);
-	ft_memcpy (new + len_s1, s2, len_s2);
+	ft_memcpy(new, s1, len_s1);
+	ft_memcpy(new + len_s1, s2, len_s2);
 	new[len_s1 + len_s2] = '\0';
 	return (new);
 }
 
-char	*ft_strdup(const char *source)
+char	*ft_strdup(const char *source, t_gc **garbage)
 {
 	char	*dup;
 	int		len;
@@ -57,10 +57,10 @@ char	*ft_strdup(const char *source)
 	if (!source)
 		return (NULL);
 	len = ft_strlen(source);
-	dup = (char *) malloc(sizeof(char) * (len + 1));
+	dup = (char *)ft_malloc(sizeof(char) * (len + 1), garbage);
 	if (dup == NULL)
 		return (NULL);
-	ft_memcpy (dup, source, len);
+	ft_memcpy(dup, source, len);
 	dup[len] = '\0';
 	return (dup);
 }

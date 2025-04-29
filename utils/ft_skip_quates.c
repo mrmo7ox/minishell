@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   syntax_utils.c                                     :+:      :+:    :+:   */
+/*   ft_skip_quates.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 11:06:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 20:49:08 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/04/28 16:19:07 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/04/28 21:00:22 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-int	mod_chrstr(char chr, char *str)
+int	ft_skip_quates(int *i, char *line)
 {
-	while (*str != '\0')
-	{
-		if (chr == *str)
-			return (chr);
-		str++;
-	}
-	return (0);
-}
-
-void	skip(char *line, int *i)
-{
-	int	chr;
-
-	chr = mod_chrstr(line[*i], "\"\'");
-	if (chr && line[*i])
+	if (line[*i] == '"')
 	{
 		(*i)++;
-		while (line[*i] && line[*i] != chr)
+		while (line[*i] != '\0' && line[*i] != '"')
 			(*i)++;
-		if (line[*i])
+		if (line[*i] == '"')
 			(*i)++;
 	}
+	if (line[*i] == '\'')
+	{
+		(*i)++;
+		while (line[*i] != '\0' && line[*i] != '\'')
+			(*i)++;
+		if (line[*i] == '\'')
+			(*i)++;
+	}
+	return (*i);
 }

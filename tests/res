@@ -1,0 +1,3157 @@
+
+==========================
+output : No history file found. Starting fresh.
+Minishell: #!/bin/bash
+====[Tree Structure]====
+[#!/bin/bash]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: mkdir Repositories/
+====[Tree Structure]====
+[mkdir Repositories/]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: cd Repositories
+====[Tree Structure]====
+[cd Repositories]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git
+====[Tree Structure]====
+[git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/xmendez/wfuzz.git
+====[Tree Structure]====
+[git clone https://github.com/xmendez/wfuzz.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/fuzzdb-project/fuzzdb.git
+====[Tree Structure]====
+[git clone https://github.com/fuzzdb-project/fuzzdb.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/minimaxir/big-list-of-naughty-strings.git
+====[Tree Structure]====
+[git clone https://github.com/minimaxir/big-list-of-naughty-strings.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/foospidy/payloads.git
+====[Tree Structure]====
+[git clone https://github.com/foospidy/payloads.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/danielmiessler/RobotsDisallowed.git
+====[Tree Structure]====
+[git clone https://github.com/danielmiessler/RobotsDisallowed.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: git clone https://github.com/danielmiessler/SecLists.git
+====[Tree Structure]====
+[git clone https://github.com/danielmiessler/SecLists.git]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: )%20or%20('x'='x
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %20or%201=1
+====[Tree Structure]====
+[%20or%201=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; execute immediate 'sel' || 'ect us' || 'er'
+====[Tree Structure]====
+[; execute immediate 'sel']
+[||]
+['ect us']
+[||]
+['er']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: update
+====[Tree Structure]====
+[update]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ";waitfor delay '0:0:__TIME__'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1) or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ||(elt(-3+5,bin(15),ord(10),hex(char(45))))
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: "hi"") or (""a""=""a"
+====[Tree Structure]====
+["hi"") or (""a""=""a"]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: delete
+====[Tree Structure]====
+[delete]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: like
+====[Tree Structure]====
+[like]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or sleep(__TIME__)#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: *(|(objectclass=*))
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @q nvarchar (200) 0x730065006c00650063 ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 0=0 #
+====[Tree Structure]====
+[or 0=0 #]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: insert
+====[Tree Structure]====
+[insert]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1) or sleep(__TIME__)#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ) or ('a'='a
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; exec xp_regread
+====[Tree Structure]====
+[; exec xp_regread]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: *|
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: @var select @var as var into temp end --
+====[Tree Structure]====
+[@var select @var as var into temp end --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)) or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: asc
+====[Tree Structure]====
+[asc]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: (||6)
+====[Tree Structure]====
+[||]
+[6]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: "a"" or 3=3--"
+====[Tree Structure]====
+["a"" or 3=3--"]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: # from wapiti
+====[Tree Structure]====
+[# from wapiti]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 0=0 --
+====[Tree Structure]====
+[or 0=0 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 waitfor delay '0:0:10'--
+====[Tree Structure]====
+[1 waitfor delay '0:0:10'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 'a'='a
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: hi or 1=1 --"
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or a = a
+====[Tree Structure]====
+[or a = a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  UNION ALL SELECT
+====[Tree Structure]====
+[UNION ALL SELECT]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ) or sleep(__TIME__)='
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: )) or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: hi' or 'a'='a
+====[Tree Structure]====
+[hi' or 'a'='a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 0
+====[Tree Structure]====
+[0]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 21 %
+====[Tree Structure]====
+[21 %]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: limit
+====[Tree Structure]====
+[limit]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1=1
+====[Tree Structure]====
+[or 1=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 2 > 1
+====[Tree Structure]====
+[or 2]{> 1}
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ")) or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: PRINT
+====[Tree Structure]====
+[PRINT]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: hi') or ('a'='a
+====[Tree Structure]====
+[hi') or ('a'='a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 3=3
+====[Tree Structure]====
+[or 3=3]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ));waitfor delay '0:0:__TIME__'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' waitfor delay '0:0:10'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1;(load_file(char(47,101,116,99,47,112,97,115, ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or%201=1
+====[Tree Structure]====
+[or%201=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 or sleep(__TIME__)#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 1=1
+====[Tree Structure]====
+[or 1=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  and 1 in (select var from temp)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or '7659'='7659
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 'text' = n'text'
+====[Tree Structure]====
+[or 'text' = n'text']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  --
+====[Tree Structure]====
+[--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1=1 or ''='
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @s varchar (200) select @s = 0x73656c6 ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: exec xp
+====[Tree Structure]====
+[exec xp]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; exec master..xp_cmdshell 'ping 172.10.1.255'--
+====[Tree Structure]====
+[; exec master..xp_cmdshell 'ping 172.10.1.255'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 3.10E+17
+====[Tree Structure]====
+[3.10E+17]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: x' AND email IS NULL; --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: &
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: admin' or '
+====[Tree Structure]====
+[admin' or ']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 'unusual' = 'unusual'
+====[Tree Structure]====
+[or 'unusual' = 'unusual']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: //
+====[Tree Structure]====
+[//]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: truncate
+====[Tree Structure]====
+[truncate]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1) or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: \x27UNION SELECT
+====[Tree Structure]====
+[\x27UNION SELECT]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @s varchar(200) select @s = 0x77616974 ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: tz_offset
+====[Tree Structure]====
+[tz_offset]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: sqlvuln
+====[Tree Structure]====
+[sqlvuln]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: "));waitfor delay '0:0:__TIME__'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ||6
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or%201=1 --
+====[Tree Structure]====
+[or%201=1 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %2A%28%7C%28objectclass%3D%2A%29%29
+====[Tree Structure]====
+[%2A%28%7C%28objectclass%3D%2A%29%29]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or a=a
+====[Tree Structure]====
+[or a=a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ) union select * from information_schema.tables;
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: PRINT @@variable
+====[Tree Structure]====
+[PRINT @@variable]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or isNULL(1/0) /*
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 26 %
+====[Tree Structure]====
+[26 %]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or "a"="a
+====[Tree Structure]====
+[" or "a"="a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: (sqlvuln)
+====[Tree Structure]====
+[sqlvuln]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: x' AND members.email IS NULL; --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1=1--
+====[Tree Structure]====
+[or 1=1--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  and 1=( if((load_file(char(110,46,101,120,11 ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 0x770061006900740066006F0072002000640065006C00 ...
+====[Tree Structure]====
+[0x770061006900740066006F0072002000640065006C00 ...]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %20'sleep%2050'
+====[Tree Structure]====
+[%20'sleep%2050']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: as
+====[Tree Structure]====
+[as]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)) or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: /**/or/**/1/**/=/**/1
+====[Tree Structure]====
+[/**/or/**/1/**/=/**/1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  union all select @@version--
+====[Tree Structure]====
+[union all select @@version--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ,@variable
+====[Tree Structure]====
+[,@variable]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: (sqlattempt2)
+====[Tree Structure]====
+[sqlattempt2]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or (EXISTS)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: t'exec master..xp_cmdshell 'nslookup www.googl ...
+====[Tree Structure]====
+[t'exec master..xp_cmdshell 'nslookup www.googl ...]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %20$(sleep%2050)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %20or%20''='
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ||UTL_HTTP.REQUEST
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: hi' or 'x'='x';
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ") or sleep(__TIME__)="
+====[Tree Structure]====
+[") or sleep(__TIME__)="]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 'whatever' in ('whatever')
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; begin declare @var varchar(8000) set @var=' ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  union select 1,load_file('/etc/passwd'),1,1,1;
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 0x77616974666F722064656C61792027303A303A313027 ...
+====[Tree Structure]====
+[0x77616974666F722064656C61792027303A303A313027 ...]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: exec(@s)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ) or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  union select
+====[Tree Structure]====
+[union select]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or sleep(__TIME__)#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  select * from information_schema.tables--
+====[Tree Structure]====
+[select * from information_schema.tables--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 1=1--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 'a' = 'a
+====[Tree Structure]====
+[a' or 'a' = 'a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @s varchar(22) select @s =
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 2 between 1 and 3
+====[Tree Structure]====
+[or 2 between 1 and 3]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or a=a--
+====[Tree Structure]====
+[or a=a--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or '1'='1
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: |
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or sleep(__TIME__)='
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1 --'
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 0=0 #"
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: having
+====[Tree Structure]====
+[having]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or isNULL(1/0) /*
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @s varchar (8000) select @s = 0x73656c ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: â or 1=1 --
+====[Tree Structure]====
+[â or 1=1 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: char%4039%41%2b%40SELECT
+====[Tree Structure]====
+[char%4039%41%2b%40SELECT]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: order by
+====[Tree Structure]====
+[order by]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: bfilename
+====[Tree Structure]====
+[bfilename]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  having 1=1--
+====[Tree Structure]====
+[having 1=1--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ) or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or username like char(37);
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ;waitfor delay '0:0:__TIME__'--
+====[Tree Structure]====
+[;waitfor delay '0:0:__TIME__'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or 1=1--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: x' AND userid IS NULL; --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: */*
+====[Tree Structure]====
+[*/*]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 'text' > 't'
+====[Tree Structure]====
+[or 'text']{> 't'}
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  (select top 1
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ");waitfor delay '0:0:__TIME__'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 3=3--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  -- &password=
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  group by userid having 1=1--
+====[Tree Structure]====
+[group by userid having 1=1--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or ''='
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; exec master..xp_cmdshell
+====[Tree Structure]====
+[; exec master..xp_cmdshell]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %20or%20x=x
+====[Tree Structure]====
+[%20or%20x=x]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: select
+====[Tree Structure]====
+[select]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ")) or sleep(__TIME__)="
+====[Tree Structure]====
+[")) or sleep(__TIME__)="]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 0x730065006c0065006300740020004000400076006500 ...
+====[Tree Structure]====
+[0x730065006c0065006300740020004000400076006500 ...]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: hi' or 1=1 --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ") or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %20or%20'x'='x
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 'something' = 'some'+'thing'
+====[Tree Structure]====
+[or 'something' = 'some'+'thing']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: exec sp
+====[Tree Structure]====
+[exec sp]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 29 %
+====[Tree Structure]====
+[29 %]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: (
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: Ã½ or 1=1 --
+====[Tree Structure]====
+[Ã½ or 1=1 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 0 or 1=1
+====[Tree Structure]====
+[0 or 1=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ) or (a=a
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: uni/**/on sel/**/ect
+====[Tree Structure]====
+[uni/**/on sel/**/ect]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: replace
+====[Tree Structure]====
+[replace]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %27%20or%201=1
+====[Tree Structure]====
+[%27%20or%201=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: )) or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %7C
+====[Tree Structure]====
+[%7C]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: x' AND 1=(SELECT COUNT(*) FROM tabname); --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: &apos;%20OR
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; or '1'='1'
+====[Tree Structure]====
+[; or '1'='1']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @q nvarchar (200) select @q = 0x770061 ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 or 1=1
+====[Tree Structure]====
+[1 or 1=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ; exec ('sel' + 'ect us' + 'er')
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 23 OR 1=1
+====[Tree Structure]====
+[23 OR 1=1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: /
+====[Tree Structure]====
+[/]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: anything' OR 'x'='x
+====[Tree Structure]====
+[anything' OR 'x'='x]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @q nvarchar (4000) select @q =
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 0=0 --
+====[Tree Structure]====
+[or 0=0 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: desc
+====[Tree Structure]====
+[desc]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ||'6
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: )
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)) or sleep(__TIME__)#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 0=0 #
+====[Tree Structure]====
+[or 0=0 #]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  select name from syscolumns where id = (sele ...
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: hi or a=a
+====[Tree Structure]====
+[hi or a=a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: *(|(mail=*))
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: password:*/=1--
+====[Tree Structure]====
+[password:*/=1--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: distinct
+====[Tree Structure]====
+[distinct]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: );waitfor delay '0:0:__TIME__'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: to_timestamp_tz
+====[Tree Structure]====
+[to_timestamp_tz]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ") or benchmark(10000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  UNION SELECT
+====[Tree Structure]====
+[UNION SELECT]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %2A%28%7C%28mail%3D%2A%29%29
+====[Tree Structure]====
+[%2A%28%7C%28mail%3D%2A%29%29]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: +sqlvuln
+====[Tree Structure]====
+[+sqlvuln]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1=1 /*
+====[Tree Structure]====
+[or 1=1 /*]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: )) or sleep(__TIME__)='
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 1=1 or ""=
+====[Tree Structure]====
+[or 1=1 or ""=]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1 in (select @@version)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: sqlvuln;
+====[Tree Structure]====
+[sqlvuln;]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  union select * from users where login = char ...
+====[Tree Structure]====
+[union select * from users where login = char ...]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: x' or 1=1 or 'x'='y
+====[Tree Structure]====
+[x' or 1=1 or 'x'='y]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 28 %
+====[Tree Structure]====
+[28 %]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: â or 3=3 --
+====[Tree Structure]====
+[â or 3=3 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: @variable
+====[Tree Structure]====
+[@variable]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or '1'='1'--
+====[Tree Structure]====
+[or '1'='1'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: "a"" or 1=1--"
+====[Tree Structure]====
+["a"" or 1=1--"]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: //*
+====[Tree Structure]====
+[//*]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %2A%7C
+====[Tree Structure]====
+[%2A%7C]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: " or 0=0 --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ")) or pg_sleep(__TIME__)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ?
+====[Tree Structure]====
+[?]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1/*
+====[Tree Structure]====
+[or 1/*]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: !
+====[Tree Structure]====
+[!]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or a = a
+====[Tree Structure]====
+[or a = a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @q nvarchar (200) select @q = 0x770061006900740066006F0072002000640065006C00610079002000270030003A0030003A0031003000270000 exec(@q)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @s varchar(200) select @s = 0x77616974666F722064656C61792027303A303A31302700 exec(@s) 
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @q nvarchar (200) 0x730065006c00650063007400200040004000760065007200730069006f006e00 exec(@q)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: declare @s varchar (200) select @s = 0x73656c65637420404076657273696f6e exec(@s)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 1=1
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 1=1 --
+====[Tree Structure]====
+[or 1=1 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: x' OR full_name LIKE '%Bob%
+====[Tree Structure]====
+[x' OR full_name LIKE '%Bob%]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '; exec master..xp_cmdshell 'ping 172.10.1.255'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '%20or%20''='
+====[Tree Structure]====
+['%20or%20''=']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '%20or%20'x'='x
+====[Tree Structure]====
+['%20or%20'x'='x]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ')%20or%20('x'='x
+====[Tree Structure]====
+[')%20or%20('x'='x]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 0=0 --
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 0=0 #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 0=0 #"
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 1=1--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or '1'='1'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 1 --'
+====[Tree Structure]====
+[' or 1 --']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 1=1--
+====[Tree Structure]====
+[or 1=1--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 1=1 or ''='
+====[Tree Structure]====
+[' or 1=1 or ''=']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or 1=1 or ""=
+====[Tree Structure]====
+[or 1=1 or ""=]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or a=a--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell:  or a=a
+====[Tree Structure]====
+[or a=a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ') or ('a'='a
+====[Tree Structure]====
+[') or ('a'='a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 'hi' or 'x'='x';
+====[Tree Structure]====
+['hi' or 'x'='x';]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or
+====[Tree Structure]====
+[or]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: procedure
+====[Tree Structure]====
+[procedure]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: handler
+====[Tree Structure]====
+[handler]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or username like '%
+====[Tree Structure]====
+[' or username like '%]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or uname like '%
+====[Tree Structure]====
+[' or uname like '%]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or userid like '%
+====[Tree Structure]====
+[' or userid like '%]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or uid like '%
+====[Tree Structure]====
+[' or uid like '%]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %df
+====[Tree Structure]====
+[%df]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %df'
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or user like '%
+====[Tree Structure]====
+[' or user like '%]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '; exec master..xp_cmdshell
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '; exec xp_regread
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: t'exec master..xp_cmdshell 'nslookup www.google.com'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: --sp_password
+====[Tree Structure]====
+[--sp_password]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' UNION SELECT
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' UNION ALL SELECT
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or (EXISTS)
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' (select top 1
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '||UTL_HTTP.REQUEST
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1;SELECT%20*
+====[Tree Structure]====
+[1;SELECT%20*]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: <>"'%;)(&+
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: '%20or%201=1
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 'sqlattempt1
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %28
+====[Tree Structure]====
+[%28]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %29
+====[Tree Structure]====
+[%29]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %26
+====[Tree Structure]====
+[%26]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: %21
+====[Tree Structure]====
+[%21]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or ''='
+====[Tree Structure]====
+[' or ''=']
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ' or 3=3
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: or 3=3 --
+====[Tree Structure]====
+[or 3=3 --]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2 and 456=678
+====[Tree Structure]====
+[2 and 456=678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2 or 345=345
+====[Tree Structure]====
+[2 or 345=345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2 order by 9999
+====[Tree Structure]====
+[2 order by 9999]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2 order by 1
+====[Tree Structure]====
+[2 order by 1]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2/0 and 456=678
+====[Tree Structure]====
+[2/0 and 456=678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2/1 or 345=345
+====[Tree Structure]====
+[2/1 or 345=345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2/*f*/and/*f*/456=678
+====[Tree Structure]====
+[2/*f*/and/*f*/456=678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 2/*f*/or/*f*/345=345
+====[Tree Structure]====
+[2/*f*/or/*f*/345=345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and '456'='678
+====[Tree Structure]====
+[a' and '456'='678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or '345'='345
+====[Tree Structure]====
+[a' or '345'='345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and 'fghi'='fghj'-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 'dfth'='dfth'-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 9999-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 1-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'and/*g*/456=678-- # #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'or/*g*/345=345-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and '456'='678
+====[Tree Structure]====
+[a' and '456'='678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or '345'='345
+====[Tree Structure]====
+[a' or '345'='345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and 'fghi'='fghj'#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 'dfth'='dfth'#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 9999#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 1#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'||/**/456=678#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'||/**/345=345#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and '456'='678
+====[Tree Structure]====
+[a' and '456'='678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or '345'='345
+====[Tree Structure]====
+[a' or '345'='345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and 'fghi'='fghj'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 'dfth'='dfth'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 9999--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 1--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'and/*d*/456=678--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'or/*d*/345=345--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and '456'='678
+====[Tree Structure]====
+[a' and '456'='678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or '345'='345
+====[Tree Structure]====
+[a' or '345'='345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' and 'fghi'='fghj'-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' or 'dfth'='dfth'-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 9999-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a' order by 1-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'and/*g*/456=678-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a'or/*g*/345=345-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 345'%5d|//*|/a%5b'a
+====[Tree Structure]====
+[345'%5d|//*|/a%5b'a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 456'%5d|//a|/a%5b'a
+====[Tree Structure]====
+[456'%5d|//a|/a%5b'a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 345')%5d|//*|/a%5bcontains(a,'b
+====[Tree Structure]====
+[345')%5d|//*|/a%5bcontains(a,'b]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 456')%5d|//a|/a%5bcontains(a,'b
+====[Tree Structure]====
+[456')%5d|//a|/a%5bcontains(a,'b]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a" and "456"="678
+====[Tree Structure]====
+[a" and "456"="678]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a" or "345"="345
+====[Tree Structure]====
+[a" or "345"="345]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a" and "fghi"="fghj"-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a" or "dfth"="dfth"-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a" order by 9999-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a" order by 1-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a"and/*g*/456=678-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: a"or/*g*/345=345-- #
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 345"%5d|//*|/a%5b"a
+====[Tree Structure]====
+[345"%5d|//*|/a%5b"a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 456"%5d|//a|/a%5b"a
+====[Tree Structure]====
+[456"%5d|//a|/a%5b"a]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 345")%5d|//*|/a%5bcontains(a,"b
+====[Tree Structure]====
+[345")%5d|//*|/a%5bcontains(a,"b]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 456")%5d|//a|/a%5bcontains(a,"b
+====[Tree Structure]====
+[456")%5d|//a|/a%5bcontains(a,"b]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 waitfor delay '0:0:X'--
+====[Tree Structure]====
+[1 waitfor delay '0:0:X'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1; waitfor delay '0:0:X'--
+====[Tree Structure]====
+[1; waitfor delay '0:0:X'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1'; waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1'); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1')); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1' or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1) or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1') or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)) or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1')) or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1/(select UTL_INADDR.get_host_address('n0where329.z0m') from dual)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1' AND 1=UTL_INADDR.get_host_address('n0where329.z0m')--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 waitfor delay '0:0:X'--
+====[Tree Structure]====
+[1 waitfor delay '0:0:X'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1; waitfor delay '0:0:X'--
+====[Tree Structure]====
+[1; waitfor delay '0:0:X'--]
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1'; waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1'); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1')); waitfor delay '0:0:X'--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1 or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1' or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1) or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1') or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1)) or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1')) or benchmark(100000000,MD5(1))#
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1/(select UTL_INADDR.get_host_address('n0where329.z0m') from dual)--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 1' AND 1=UTL_INADDR.get_host_address('n0where329.z0m')--
+syntax error
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: 
+Error: No tokens found.
+
+==========================
+output : Minishell: ࡱ;[K

@@ -6,101 +6,86 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 11:13:35 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/25 21:37:47 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 10:59:07 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char *ft_copy(char *src, int len)
+static void	skip_to_closing_quote(char *line, int *i, char quote)
 {
-    char *dup = malloc(len + 1);
-    if (!dup)
-        return (NULL);
-
-    for (int i = 0; i < len; i++)
-        dup[i] = src[i];
-
-    dup[len] = '\0';
-    return (dup);
+	(*i)++;
+	while (line[*i] && line[*i] != quote)
+		(*i)++;
+	if (line[*i] == quote)
+		(*i)++;
 }
 
-e_redic special_cases_redic(char *str)
+static int	handle_quotes(char *line, int *i)
 {
-    if (str && ft_strstr(str, "<<"))
-        return (HEREDOC);
-    else if (str && ft_strstr(str, ">>"))
-        return (APPEND);
-    else if (str && ft_strstr(str, "<"))
-        return (IN);
-    else if (str && ft_strstr(str, ">"))
-        return (OUT);
-    return (CMD);
+	if (line[*i] == '"')
+		skip_to_closing_quote(line, i, '"');
+	else if (line[*i] == '\'')
+		skip_to_closing_quote(line, i, '\'');
+	else
+		return (0);
+	return (1);
 }
-void ft_minisplit(t_redic **res, t_gc **garbage, t_tk *token, char *line, int i, int j)
+
+static int	handle_word_concat(char **new_line, t_mini *m_utils, t_gc **garbage)
 {
-    char *new_line = NULL;
-    *res = NULL;
+	char	*word;
+	char	*tmp;
 
-    while (line[i])
-    {
-        while (line[i] && ft_chrstr(line[i], " \t"))
-            i++;
-        if (!line[i])
-            break;
+	word = ft_copy(&m_utils->line[m_utils->j], m_utils->i - m_utils->j,
+			garbage);
+	if (!word)
+		return (0);
+	if (!*new_line)
+		*new_line = ft_strdup(word, garbage);
+	else
+	{
+		tmp = ft_strjoin(*new_line, " ", garbage);
+		free(*new_line);
+		*new_line = ft_strjoin(tmp, word, garbage);
+		free(tmp);
+	}
+	free(word);
+	return (1);
+}
 
-        // Check for redirection operator
-        if (ft_chrstr(line[i], "<>"))
-        {
-            j = i;
-            while (line[i] && ft_chrstr(line[i], "<>"))
-                i++;
-            char *redir = ft_copy(&line[j], i - j);
-            if (!redir)
-                return;
+static int	process_word(char **new_line, t_mini *m_utils, t_gc **garbage)
+{
+	m_utils->j = m_utils->i;
+	while (m_utils->line[m_utils->i] && !ft_chrstr(m_utils->line[m_utils->i],
+			" \t<>"))
+	{
+		if (handle_quotes(m_utils->line, &m_utils->i))
+			continue ;
+		m_utils->i++;
+	}
+	return (handle_word_concat(new_line, m_utils, garbage));
+}
 
-            // Skip space after redirection
-            while (line[i] && ft_chrstr(line[i], " \t"))
-                i++;
+void	ft_minisplit(t_redic **res, t_gc **garbage, t_tk *token, t_mini m_utils)
+{
+	char	*new_line;
 
-            j = i;
-            while (line[i] && !ft_chrstr(line[i], " \t<>"))
-                i++;
-            char *file = ft_copy(&line[j], i - j);
-            if (!file)
-                return;
-
-            // Join redir + file into one string, like: ">> filename"
-            char *full = ft_strjoin(redir, " ");
-            char *combined = ft_strjoin(full, file);
-            free(redir);
-            free(file);
-            free(full);
-
-            ft_add_redic(res, ft_new_redic_node(garbage, combined));
-            free(combined);
-            continue;
-        }
-
-        // Handle normal word
-        j = i;
-        while (line[i] && !ft_chrstr(line[i], " \t<>"))
-            i++;
-        char *word = ft_copy(&line[j], i - j);
-        if (!word)
-            return;
-
-        if (!new_line)
-            new_line = ft_strdup(word);
-        else
-        {
-            char *tmp = ft_strjoin(new_line, " ");
-            free(new_line);
-            new_line = ft_strjoin(tmp, word);
-            free(tmp);
-        }
-        free(word);
-    }
-
-    token->token = new_line;
+	new_line = NULL;
+	*res = NULL;
+	while (m_utils.line[m_utils.i])
+	{
+		skip_spaces_minisplit(m_utils.line, &(m_utils.i));
+		if (!m_utils.line[m_utils.i])
+			break ;
+		if (ft_chrstr(m_utils.line[m_utils.i], "<>"))
+		{
+			if (!handle_redirection(res, garbage, m_utils.line, &(m_utils.i)))
+				return ;
+			continue ;
+		}
+		if (!process_word(&new_line, &m_utils, garbage))
+			return ;
+	}
+	token->token = new_line;
 }
