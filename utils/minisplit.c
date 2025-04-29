@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 14:57:52 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/14 16:00:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/28 14:12:37 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,11 @@ char	**ft_minisplit(char *str, char c, int i, int j)
 	words = 0;
 	while (str[i])
 	{
-		while (str[i] && str[i] == c)
+		if (str[i] && str[i] == c)
 			i++;
 		j = i;
+		while (str[i] && str[i] == c)
+			i++;
 		while (str[i] && str[i] != c)
 			i++;
 		if (i > j)

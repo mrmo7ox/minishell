@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/26 13:58:43 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 11:09:36 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../../minishell.h"
 
-char	*pwd(t_gc **gc)
+char *pwd(t_gc **gg)
 {
 	char *buff;
 

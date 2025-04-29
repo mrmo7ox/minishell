@@ -6,37 +6,29 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/28 12:37:40 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 11:09:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	syntax(char **args)
+static bool syntax(char **args)
 {
-	int	i;
-	int	j;
+	int i;
 
 	i = 1;
 	while (args[i])
 	{
-		j = 0;
 		if (!args[i][0])
 			return (false);
-		while (args[i][j])
-		{
-			if (args[i][j] == '=' && j == 0)
-				return (false);
-			j++;
-		}
 		i++;
 	}
 	return (true);
 }
 
-static void	no_args(t_env **env)
+static void no_args(t_env **env)
 {
-	t_env	*head;
+	t_env *head;
 
 	head = *env;
 	while (head)
@@ -44,7 +36,7 @@ static void	no_args(t_env **env)
 		if (!strcmp(head->name, "_"))
 		{
 			head = head->next;
-			continue ;
+			continue;
 		}
 		printf("declare -x %s", head->name);
 		if (head->value)
@@ -55,47 +47,47 @@ static void	no_args(t_env **env)
 	}
 }
 
-static void	helper(char **args, t_env **ft_env)
+static void helper(char **args, t_env **ft_env, t_gc **gg)
 {
-	char	**tmp;
-	int		i;
-	char	*name;
-	char	*value;
+	char **tmp;
+	int i;
+	char *name;
+	char *value;
 
 	i = 1;
 	while (args[i])
 	{
-		tmp = ft_minisplit(args[i], '=', 0, 0);
+		if (ft_chrstr('=', args[i]) && ft_strlen(args[i]) == 1)
+		{
+			ft_putstr_fd("not a valid identifier\n", 2);
+			i++;
+			continue;
+		}
+		tmp = export_split(args[i], gg);
 		name = tmp[0];
-		value = tmp[1];
-		ext_export(name, value, ft_env, tmp);
-		free(tmp);
+		if (ft_chrstr('=', args[i]) && !tmp[1])
+			value = ft_strdup("", gg);
+		else
+			value = tmp[1];
+		ext_export(name, value, ft_env, gg);
 		i++;
 	}
 }
 
-void	export(char **args, t_env **ft_env)
+void export(char **args, t_env **ft_env, t_gc **gg)
 {
-	int		len;
+	int len;
 
 	len = args_len(args);
 	if (!syntax(args))
 	{
 		ft_putstr_fd("bad args sysntax\n", 2);
-		return ;
+		return;
 	}
 	export_sort(ft_env);
 	if (len == 1)
 		no_args(ft_env);
 	else if (len >= 2)
-		helper(args, ft_env);
+		helper(args, ft_env, gg);
 }
-// TODO sort env before printing
-// int main(int ac, char **av, char **env)
-//  {
-//  	t_env	*ft_env = NULL;
-
-//  	env_init(env, &ft_env);
-//  	export(av, &ft_env);
-//  	// no_args(&ft_env);
-// }
+// TODO handle : test=hh=

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/16 17:18:08 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 09:59:43 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_gc	*ft_new_gc_node(void *content)
 t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage, int index)
 {
 	t_tk	*node;
-	
+
 	node = ft_malloc((sizeof(t_tk)), garbage);
 	if (!node)
 		return (NULL);
@@ -35,10 +35,9 @@ t_tk	*ft_new_tk_node(char *content, int priority, t_gc **garbage, int index)
 	node->priority = priority;
 	node->index= index;
 	if (special_cases(content))
-		node->op = ft_strdup("O");
+		node->op = ft_strdup("O" , garbage);
 	else
-		node->op = ft_strdup("C");
-		
+		node->op = ft_strdup("C", garbage);
 	node->prev = NULL;
 	node->next = NULL;
 

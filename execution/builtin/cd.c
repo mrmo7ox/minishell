@@ -6,11 +6,11 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/26 13:59:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 11:11:18 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "builtins.h"
+#include "../../minishell.h"
 
 static char *pwd(void)
 {
@@ -22,24 +22,24 @@ static char *pwd(void)
 	return (buff);
 }
 
-static void	no_args(void)
+static void no_args(void)
 {
-	char	*home;
+	char *home;
 
 	home = getenv("HOME");
 	if (!home)
 	{
 		ft_putstr_fd("HOME not set\n", 2);
-		return ;
+		return;
 	}
 	if (chdir(home) == -1)
 		ft_putstr_fd("somthing went wrong", 2);
 }
 
-static void	helper(char *str)
+static void helper(char *str)
 {
-	char	*buff;
-	char	*tmp;
+	char *buff;
+	char *tmp;
 
 	buff = pwd();
 	if (!buff)
@@ -58,12 +58,12 @@ static void	helper(char *str)
 	free(buff);
 }
 
-void	cd(char **args)
+void cd(char **args)
 {
-	size_t	len;
+	size_t len;
 
 	if (!args)
-		return ;
+		return;
 	len = args_len(args);
 	if (len == 1)
 		no_args();
