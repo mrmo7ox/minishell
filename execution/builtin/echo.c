@@ -6,15 +6,15 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:32:10 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:11:13 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 14:33:57 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool check_op(char *str)
+static bool	check_op(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-')
@@ -29,30 +29,29 @@ static bool check_op(char *str)
 	return (false);
 }
 
-void echo(int ac, char **av)
+void	echo(char **args)
 {
-	int i;
-	int flag;
-	int count;
+	int	i;
+	int	flag;
+	int	count;
 
 	flag = 0;
 	i = 1;
 	count = 0;
-	while (i < ac)
+	while (args[i])
 	{
-		if (i == 1 && check_op(av[i]))
+		if (i == 1 && check_op(args[i]))
 		{
 			flag = 1;
-			while (i < ac && check_op(av[i]))
+			while (args[i] && check_op(args[i]))
 				i++;
 		}
 		else
 		{
 			if (count > 0)
 				printf(" ");
-			printf("%s", av[i]);
+			printf("%s", args[i++]);
 			count++;
-			i++;
 		}
 	}
 	if (!flag)

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 14:19:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 14:38:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ int	main(int ac, char **av, char **env)
 		tmp = ft_split_test(line, ' ');
 		if (!ft_strcmp(tmp[0], "export"))
 			export(tmp, &ft_env, &garbage);
+		else if (!ft_strcmp(tmp[0], "cd"))
+			cd(tmp, &garbage);
+		else if (!ft_strcmp(tmp[0], "echo"))
+			echo(tmp);
+		else if (!ft_strcmp(tmp[0], "pwd"))
+			ft_pwd(tmp, &garbage);
 		printf_garbage(garbage);
 		free(line);
 	}

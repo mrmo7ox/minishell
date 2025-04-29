@@ -6,16 +6,23 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:35 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:10:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 14:30:49 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void cmd_env(char **args, t_env **env)
+void	cmd_env(char **args, t_env **env)
 {
-	t_env *head;
-	(void)args;
+	t_env	*head;
+	int		len;
+
+	len = args_len(args);
+	if (len > 1)
+	{
+		ft_putstr_fd("too many arguments", 2);
+		return ;
+	}
 	head = *env;
 	while (head->next)
 	{

@@ -6,15 +6,15 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 14:25:30 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 14:48:37 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool syntax(char **args)
+static bool	syntax(char **args)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (args[i])
@@ -33,7 +33,7 @@ static void	no_args(t_env **env)
 	head = *env;
 	while (head)
 	{
-		if (!strcmp(head->name, "_"))
+		if (!ft_strcmp(head->name, "_"))
 		{
 			head = head->next;
 			continue ;
@@ -59,7 +59,7 @@ static void	helper(char **args, t_env **ft_env, t_gc **gg)
 	{
 		if (ft_chrstr('=', args[i]) && ft_strlen(args[i]) == 1)
 		{
-			ft_putstr_fd(args[i] , 2);
+			ft_putstr_fd(args[i], 2);
 			ft_putstr_fd(": not a valid identifier\n", 2);
 			i++;
 			continue ;
@@ -93,4 +93,4 @@ void	export(char **args, t_env **ft_env, t_gc **gg)
 		helper(args, ft_env, gg);
 	}
 }
-// TODO handle : test=hh= +=
+// TODO handle : test=hh=->done +=->done
