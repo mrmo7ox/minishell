@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:11:18 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 11:40:31 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static char *pwd(void)
+static char	*pwd(void)
 {
-	char *buff;
+	char	*buff;
 
 	buff = getcwd(NULL, 0);
 	if (!buff)
@@ -22,24 +22,24 @@ static char *pwd(void)
 	return (buff);
 }
 
-static void no_args(void)
+static void	no_args(void)
 {
-	char *home;
+	char	*home;
 
 	home = getenv("HOME");
 	if (!home)
 	{
 		ft_putstr_fd("HOME not set\n", 2);
-		return;
+		return ;
 	}
 	if (chdir(home) == -1)
 		ft_putstr_fd("somthing went wrong", 2);
 }
 
-static void helper(char *str)
+static void	helper(char *str, t_gc **gg)
 {
-	char *buff;
-	char *tmp;
+	char	*buff;
+	char	*tmp;
 
 	buff = pwd();
 	if (!buff)
@@ -48,22 +48,22 @@ static void helper(char *str)
 			ft_putstr_fd("somthing went wrong\n", 2);
 	}
 	tmp = buff;
-	buff = ft_strjoin(buff, "/");
+	buff = ft_strjoin(buff, "/", gg);
 	free(tmp);
 	tmp = buff;
-	buff = ft_strjoin(buff, str);
+	buff = ft_strjoin(buff, str, gg);
 	free(tmp);
 	if (chdir(buff) == -1)
 		ft_putstr_fd("no such directory found\n", 2);
 	free(buff);
 }
 
-void cd(char **args)
+void	cd(char **args, t_gc **gg)
 {
-	size_t len;
+	size_t	len;
 
 	if (!args)
-		return;
+		return ;
 	len = args_len(args);
 	if (len == 1)
 		no_args();
@@ -77,7 +77,7 @@ void cd(char **args)
 				ft_putstr_fd("no such directory found\n", 2);
 		}
 		else
-			helper(args[1]);
+			helper(args[1], gg);
 	}
 }
 

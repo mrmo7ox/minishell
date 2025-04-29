@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:30:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:42:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ typedef struct s_tokenizer
 	struct s_tokenizer		*prev;
 }							t_tk;
 
-
 typedef struct leaf
 {
 	t_type					type;
@@ -105,8 +104,34 @@ typedef struct s_mini
 	t_retypes				type;
 }							t_mini;
 
-// history
+// env
+typedef struct s_env
+{
+	char					*name;
+	char					*value;
+	void					*next;
+}							t_env;
 
+void						ft_add_env(t_env **head, t_env *new);
+t_env						*ft_new_env(char *name, char *value);
+void						env_init(char **env, t_env **ft_env, t_gc **gc);
+void						ft_putenv(char *name, char *value, t_env **ft_env);
+char						*ft_getenv(char *name, t_env **ft_env);
+
+// builtin
+
+void						cd(char **args, t_gc **gg);
+void						echo(int ac, char **av);
+void						cmd_env(char **args, t_env **env);
+void						export(char **args, t_env **ft_env, t_gc **gg);
+void						export_append(char *name, char *value,
+								t_env **ft_env, t_gc **gg);
+void						ft_upenv(char *name, char *value, t_env **ft_env);
+void						ext_export(char *name, char *value, t_env **ft_env,
+								t_gc **gg);
+void						export_sort(t_env **ft_env);
+char						**export_split(char *str, t_gc **gg);
+// history
 void						save_history(void);
 void						load_history(void);
 // redic
@@ -147,16 +172,15 @@ void						move_next(char *line, int *i);
 // utils
 void						ft_split(t_tk **res, t_gc **garbage, char *line);
 char						*ft_copy(char *src, int len, t_gc **garbage);
-
 t_type						special_cases(char *str);
-
+size_t						args_len(char **args);
 int							ft_chrcount(char *str, char c);
 bool						ft_chrstr(char chr, char *str);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
 bool						ft_whitespaces(char chr);
 bool						ft_strstr(char *line, char *sp);
 void						skip(char *line, int *i);
-
+void						ft_putstr_fd(char *str, int fd);
 void						ft_skip_wspaces(char *line, int *i);
 char						*ft_substr(char const *s, unsigned int start,
 								size_t len, t_gc **gg);

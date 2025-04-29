@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:10:40 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 11:39:29 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static char *helper(char *name)
+static char	*helper(char *name)
 {
-	char *new;
-	int len;
-	int i;
+	char	*new;
+	int		len;
+	int		i;
 
 	len = ft_strlen(name);
 	i = 0;
@@ -30,12 +30,12 @@ static char *helper(char *name)
 	return (new);
 }
 
-void export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
+void	export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
 {
-	char *tmp;
-	t_env *head;
-	(void)gg;
+	char	*tmp;
+	t_env	*head;
 
+	(void)gg;
 	name = helper(name);
 	head = *ft_env;
 	while (head && strcmp(name, head->name))
@@ -43,17 +43,17 @@ void export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
 	if (head)
 	{
 		tmp = head->value;
-		head->value = ft_strjoin(head->value, value);
+		head->value = ft_strjoin(head->value, value, gg);
 		free(tmp);
 	}
 	else
 		ft_putenv(name, value, ft_env);
 }
 
-void ft_upenv(char *name, char *value, t_env **ft_env)
+void	ft_upenv(char *name, char *value, t_env **ft_env)
 {
-	char *tmp;
-	t_env *head;
+	char	*tmp;
+	t_env	*head;
 
 	head = *ft_env;
 	while (head && strcmp(name, head->name))
@@ -66,9 +66,9 @@ void ft_upenv(char *name, char *value, t_env **ft_env)
 	}
 }
 
-static int check_key(char *str, char *value)
+static int	check_key(char *str, char *value)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -88,12 +88,12 @@ static int check_key(char *str, char *value)
 	return (1);
 }
 
-void ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
+void	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 {
 	if (!check_key(name, value))
 	{
 		ft_putstr_fd("not a valid identifier\n", 2);
-		return;
+		return ;
 	}
 	else if (check_key(name, value) == 2)
 		export_append(name, value, ft_env, gg);
