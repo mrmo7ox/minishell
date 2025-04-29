@@ -3,29 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:39:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:26:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static char	*helper(char *name)
+static char	*helper(char *name, t_gc **gc)
 {
 	char	*new;
-	int		len;
-	int		i;
 
-	len = ft_strlen(name);
-	i = 0;
-	new = (char *)malloc(len * sizeof(char));
-	while (i < len - 1)
-	{
-		new[i] = name[i];
-		i++;
-	}
+	new = ft_substr(name, 0, ft_strlen(name) - 1, gc);
 	free(name);
 	return (new);
 }
@@ -36,9 +27,9 @@ void	export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
 	t_env	*head;
 
 	(void)gg;
-	name = helper(name);
+	name = helper(name, gg);
 	head = *ft_env;
-	while (head && strcmp(name, head->name))
+	while (head && ft_strcmp(name, head->name))
 		head = head->next;
 	if (head)
 	{
@@ -56,7 +47,7 @@ void	ft_upenv(char *name, char *value, t_env **ft_env)
 	t_env	*head;
 
 	head = *ft_env;
-	while (head && strcmp(name, head->name))
+	while (head && ft_strcmp(name, head->name))
 		head = head->next;
 	if (head && value)
 	{
@@ -92,14 +83,15 @@ void	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 {
 	if (!check_key(name, value))
 	{
-		ft_putstr_fd("not a valid identifier\n", 2);
+		ft_putstr_fd(name, 2);
+		ft_putstr_fd(": not a valid identifier\n", 2);
 		return ;
 	}
 	else if (check_key(name, value) == 2)
 		export_append(name, value, ft_env, gg);
 	else
 	{
-		if (!ft_getenv(name, ft_env))
+		if (!check_name_env(name, ft_env))
 			ft_putenv(name, value, ft_env);
 		else
 			ft_upenv(name, value, ft_env);

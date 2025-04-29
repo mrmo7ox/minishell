@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:10:19 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 13:11:54 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void export_sort(t_env **ft_env)
 		head2 = head->next;
 		while (head2)
 		{
-			if (strcmp(head2->name, head->name) < 0)
+			if (ft_strcmp(head2->name, head->name) < 0)
 			{
 				tmp = head->name;
 				head->name = head2->name;
@@ -39,14 +39,14 @@ void export_sort(t_env **ft_env)
 	}
 }
 
-char **export_split(char *str, t_gc **gg)
+char	**export_split(char *str, t_gc **gg)
 {
-	size_t i;
-	size_t pos;
-	char **args;
+	size_t	i;
+	size_t	pos;
+	char	**args;
 
 	i = 0;
-	while (str[i] != '=')
+	while (str[i] && str[i] != '=')
 		i++;
 	pos = i;
 	if (pos == ft_strlen(str))
@@ -59,7 +59,7 @@ char **export_split(char *str, t_gc **gg)
 	{
 		args = ft_malloc((3 * sizeof(char *)), gg);
 		args[0] = ft_substr(str, 0, pos, gg);
-		args[1] = ft_substr(str, pos, (strlen(str) - pos), gg);
+		args[1] = ft_substr(str, pos + 1, (strlen(str) - pos), gg);
 		args[2] = NULL;
 	}
 	return (args);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:48:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:19:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,18 @@ void	printf_garbage(t_gc *garbage)
 		printf("there's %d addr in the garbage!\n", i);
 }
 
-int	main(void)
+int	main(int ac, char **av, char **env)
 {
 	char	*line;
+	char	**tmp;
 	t_gc	*garbage;
+	t_env	*ft_env;
 
+	(void)ac;
+	(void)av;
 	garbage = NULL;
-	load_history();
+	ft_env = NULL;
+	env_init(env, &ft_env, &garbage);
 	while (true)
 	{
 		line = readline("Minishell: ");
@@ -43,10 +48,13 @@ int	main(void)
 			exit(0);
 		add_history(line);
 		save_history();
-		if (syntax_error(line))
-		{
-			tokenizer(&garbage, line);
-		}
+		// if (syntax_error(line))
+		// {
+		// 	tokenizer(&garbage, line);
+		// }
+		tmp = ft_split_test(line, ' ');
+		if (!ft_strcmp(tmp[0], "export"))
+			export(tmp, &ft_env, &garbage);
 		printf_garbage(garbage);
 		free(line);
 	}

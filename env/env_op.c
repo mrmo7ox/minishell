@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:42:57 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 13:20:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_getenv(char *name, t_env **ft_env)
 	t_env	*head;
 
 	head = *ft_env;
-	while (head && strcmp(name, head->name))
+	while (head && ft_strcmp(name, head->name))
 	{
 		head = head->next;
 	}
@@ -49,6 +49,21 @@ char	*ft_getenv(char *name, t_env **ft_env)
 			return (head->value);
 	}
 	return (NULL);
+}
+
+bool	check_name_env(char *name, t_env **ft_env)
+{
+	t_env	*head;
+
+	head = *ft_env;
+	while (head && ft_strcmp(name, head->name))
+		head = head->next;
+	if (head)
+	{
+		if (head->name)
+			return (true);
+	}
+	return (false);
 }
 
 // char    *ft_getenv(char *name, t_env **ft_env)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:42:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 13:19:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void						ext_export(char *name, char *value, t_env **ft_env,
 								t_gc **gg);
 void						export_sort(t_env **ft_env);
 char						**export_split(char *str, t_gc **gg);
+bool						check_name_env(char *name, t_env **ft_env);
 // history
 void						save_history(void);
 void						load_history(void);
@@ -216,5 +217,8 @@ t_leaf						*make_tree(t_tk *tokens, t_gc **garbage);
 void						add_cmd(t_leaf *cmd_leaf, t_leaf **root);
 void						add_op(t_leaf *op_leaf, t_leaf **root);
 void						print_tree(t_leaf *node, int depth, int is_left);
+
+//test
+char	**ft_split_test(char const *str, char c);
 
 #endif
