@@ -61,6 +61,8 @@ int	main(int ac, char **av, char **env)
 			echo(tmp);
 		else if (!ft_strcmp(tmp[0], "pwd"))
 			ft_pwd(tmp, &garbage);
+		else if (!ft_strcmp(tmp[0], "unset"))
+			ft_unset(tmp, &ft_env);
 		printf_garbage(garbage);
 		free(line);
 	}

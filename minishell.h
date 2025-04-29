@@ -132,6 +132,8 @@ void						export_sort(t_env **ft_env);
 char						**export_split(char *str, t_gc **gg);
 bool						check_name_env(char *name, t_env **ft_env);
 char						*ft_pwd(char **args, t_gc **gg);
+void						ft_unset(char **args, t_env **env);
+
 // history
 void						save_history(void);
 void						load_history(void);
