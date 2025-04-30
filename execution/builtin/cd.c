@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 11:40:31 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/30 13:42:05 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	no_args(void)
 		return ;
 	}
 	if (chdir(home) == -1)
-		ft_putstr_fd("somthing went wrong", 2);
+		perror("cd ");
 }
 
 static void	helper(char *str, t_gc **gg)
@@ -54,7 +54,7 @@ static void	helper(char *str, t_gc **gg)
 	buff = ft_strjoin(buff, str, gg);
 	free(tmp);
 	if (chdir(buff) == -1)
-		ft_putstr_fd("no such directory found\n", 2);
+		perror("cd ");
 	free(buff);
 }
 
@@ -74,7 +74,7 @@ void	cd(char **args, t_gc **gg)
 		if (args[1][0] == '/')
 		{
 			if (chdir(args[1]) == -1)
-				ft_putstr_fd("no such directory found\n", 2);
+				perror("cd ");
 		}
 		else
 			helper(args[1], gg);
