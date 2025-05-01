@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/30 14:54:52 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:36:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ int	main(int ac, char **av, char **env)
 			ft_pwd(tmp, &garbage);
 		else if (!ft_strcmp(tmp[0], "unset"))
 			ft_unset(tmp, &ft_env);
+		else if (!ft_strcmp(tmp[0], "env"))
+			cmd_env(tmp, &ft_env);
 		printf_garbage(garbage);
+		// free_garbage(&garbage); TODO CLEAR DOUBLE-FREE
 		free(line);
 	}
 	return (0);

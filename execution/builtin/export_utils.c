@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/30 15:58:29 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:43:13 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ static int	check_key(char *str, char *value)
 
 void	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 {
+	if (!ft_strcmp(name, "_"))
+		return ;
 	if (!check_key(name, value))
 	{
 		ft_putstr_fd(name, 2);

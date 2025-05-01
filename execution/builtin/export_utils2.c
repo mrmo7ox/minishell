@@ -6,11 +6,24 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 15:12:03 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:21:42 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+void	clone_env(t_env **ft_env, t_env **tmp, t_gc **gc)
+{
+	t_env	*head;
+
+	head = *ft_env;
+	while (head)
+	{
+		ft_add_env(tmp, ft_new_env(ft_strdup(head->name, gc),
+				ft_strdup(head->value, gc)));
+		head = head->next;
+	}
+}
 
 void	export_sort(t_env **ft_env)
 {

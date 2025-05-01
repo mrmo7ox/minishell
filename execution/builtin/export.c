@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/30 16:01:18 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:43:44 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,30 @@ static bool	syntax(char **args)
 	return (true);
 }
 
-static void	no_args(t_env **env)
+static void	free_tmp(t_env **tmp)
 {
 	t_env	*head;
+	void	*nt;
 
-	head = *env;
+	head = *tmp;
+	while (head)
+	{
+		nt = head->next;
+		free(head);
+		head = nt;
+	}
+	*tmp = NULL;
+}
+
+static void	no_args(t_env **ft_env, t_gc **gc)
+{
+	t_env	*head;
+	t_env	*tmp;
+
+	tmp = NULL;
+	clone_env(ft_env, &tmp, gc);
+	export_sort(&tmp);
+	head = tmp;
 	while (head)
 	{
 		if (!ft_strcmp(head->name, "_"))
@@ -45,9 +64,10 @@ static void	no_args(t_env **env)
 			printf("\n");
 		head = head->next;
 	}
+	free_tmp(&tmp);
 }
 
-static void	helper(char **args, t_env **ft_env, t_gc **gg)
+static void	helper(char **args, t_env **ft_env, t_gc **gc)
 {
 	char	**tmp;
 	int		i;
@@ -65,25 +85,24 @@ static void	helper(char **args, t_env **ft_env, t_gc **gg)
 			i++;
 			continue ;
 		}
-		tmp = export_split(args[i], gg);
+		tmp = export_split(args[i], gc);
 		name = tmp[0];
 		if (ft_chrstr('=', args[i]) && !tmp[1])
-			value = ft_strdup("", gg);
+			value = ft_strdup("", gc);
 		else
 			value = tmp[1];
-		ext_export(name, value, ft_env, gg);
+		ext_export(name, value, ft_env, gc);
 		i++;
 	}
 }
 
-void	export(char **args, t_env **ft_env, t_gc **gg)
+void	export(char **args, t_env **ft_env, t_gc **gc)
 {
 	int	len;
 
-	export_sort(ft_env);
 	len = args_len(args);
 	if (len == 1)
-		no_args(ft_env);
+		no_args(ft_env, gc);
 	else if (len >= 2)
 	{
 		if (!syntax(args))
@@ -91,6 +110,6 @@ void	export(char **args, t_env **ft_env, t_gc **gg)
 			ft_putstr_fd("bad args sysntax\n", 2);
 			return ;
 		}
-		helper(args, ft_env, gg);
+		helper(args, ft_env, gc);
 	}
 }

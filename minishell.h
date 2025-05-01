@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 14:38:22 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:19:21 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ char						**export_split(char *str, t_gc **gg);
 bool						check_name_env(char *name, t_env **ft_env);
 char						*ft_pwd(char **args, t_gc **gg);
 void						ft_unset(char **args, t_env **env);
+void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
 
 // history
 void						save_history(void);
