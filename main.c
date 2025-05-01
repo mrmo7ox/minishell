@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:21:26 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:38:48 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,39 @@ void	printf_garbage(t_gc *garbage)
 		printf("there's %d addr in the garbage!\n", i);
 }
 
+void	start(char *line, t_leaf **root, t_gc **garbage)
+{
+	add_history(line);
+	save_history();
+	if (syntax_error(line))
+	{
+		if (tokenizer(root, garbage, line))
+			linker(root, expander);
+	}
+}
+
 int	main(int ac, char **av, char **env)
 {
-	char	*line;
-	t_gc	*garbage;
-	t_env	*ft_env;
+	t_container	container;
 
 	(void)ac;
 	(void)av;
-	garbage = NULL;
-	ft_env = NULL;
-	env_init(env, &ft_env, &garbage);
+	container.line = NULL;
+	container.garbage = NULL;
+	container.ft_env = NULL;
+	container.root = NULL;
+	env_init(env, &container.ft_env, &container.garbage);
 	load_history();
 	while (true)
 	{
-		line = readline("Minishell: ");
-		if (!line)
+		container.line = readline("Minishell: ");
+		if (!container.line)
 			exit(0);
-		line = formating(line, &garbage);
-		if (!line[0])
+		container.line = formating(container.line, &container.garbage);
+		if (!container.line[0])
 			continue ;
-		add_history(line);
-		save_history();
-		if (syntax_error(line))
-		{
-			tokenizer(&garbage, line);
-		}
-		free(line);
+		start(container.line, &(container.root), &(container.garbage));
+		free(container.line);
 	}
 	return (0);
 }

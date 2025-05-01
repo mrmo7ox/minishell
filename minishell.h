@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:22:35 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:39:07 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,14 @@ typedef struct s_env
 	void					*next;
 }							t_env;
 
+typedef struct s_container
+{
+	char					*line;
+	t_gc					*garbage;
+	t_env					*ft_env;
+	t_leaf					*root;
+}							t_container;
+
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
 void						env_init(char **env, t_env **ft_env, t_gc **gc);
@@ -145,7 +153,8 @@ void						ft_add_redic(t_redic **head, t_redic *new);
 void						*ft_new_redic_node(t_gc **garbage, char *content);
 
 // tokenizer
-bool						tokenizer(t_gc **garbage, char *line);
+bool						tokenizer(t_leaf **root, t_gc **garbage,
+								char *line);
 t_tk						*ft_new_tk_node(char *content, t_gc **garbage,
 								t_split_utils *utils);
 void						ft_add_tk(t_tk **head, t_tk *new);

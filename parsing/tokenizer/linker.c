@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:26:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:19:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:26:41 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	linker(t_leaf **root, void (*applyme)(t_tk *token))
 				expander(tmp->right->token);
 		}
 		else
-			linker(&(tmp->right));
+			linker(&(tmp->right), applyme);
 	}
 	if (tmp->left)
 	{
@@ -37,6 +37,6 @@ void	linker(t_leaf **root, void (*applyme)(t_tk *token))
 				expander(tmp->left->token);
 		}
 		else
-			linker(&(tmp->left));
+			linker(&(tmp->left), applyme);
 	}
 }
