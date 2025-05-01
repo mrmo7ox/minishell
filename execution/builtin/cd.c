@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/30 13:42:05 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:27:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,3 @@ void	cd(char **args, t_gc **gg)
 			helper(args[1], gg);
 	}
 }
-
-// int main(int ac, char **av)
-// {
-// 	pid_t pid;
-
-// 	cd(av);
-// 	char *tmp = pwd();
-// 	printf("%s\n", tmp);
-// 	free(tmp);
-// }

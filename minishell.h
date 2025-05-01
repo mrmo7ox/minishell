@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:17:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:22:35 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ char						**export_split(char *str, t_gc **gg);
 bool						check_name_env(char *name, t_env **ft_env);
 char						*ft_pwd(char **args, t_gc **gg);
 void						ft_unset(char **args, t_env **env);
+void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
 
 // history
 void						save_history(void);
@@ -220,7 +221,7 @@ int							handle_redirection(t_redic **res, t_gc **garbage,
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
-void						linker(t_leaf **root);
+void						linker(t_leaf **root, void (*applyme)(t_tk *token));
 
 // expanding
 void						expander(t_tk *token);

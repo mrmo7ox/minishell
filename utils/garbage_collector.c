@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   garbage_collector.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:34:17 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:05 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 10:33:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	free_garbage(t_gc **list)
 {
 	t_gc	*tmp;
-	t_gc	*t;
+	void	*next;
 
 	if (!*list || !list)
 		return ;
 	tmp = *list;
 	while (tmp)
 	{
+		next = tmp->next;
 		free(tmp->addr);
-		t = tmp;
-		tmp = tmp->next;
-		free(t);
+		free(tmp);
+		tmp = next;
 	}
 	*list = NULL;
 }
