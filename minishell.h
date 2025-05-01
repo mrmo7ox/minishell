@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:39:07 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 12:01:16 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,14 @@ typedef struct s_mini
 	char					*line;
 	t_retypes				type;
 }							t_mini;
+
+typedef struct s_expander
+{
+	char					*target;
+	bool					expandable;
+	int						start;
+	int						end;
+}							t_expander;
 
 // env
 typedef struct s_env
@@ -230,9 +238,11 @@ int							handle_redirection(t_redic **res, t_gc **garbage,
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
-void						linker(t_leaf **root, void (*applyme)(t_tk *token));
+void						linker(t_leaf **root, void (*applyme)(t_tk *token),
+								t_gc **garbage);
 
 // expanding
 void						expander(t_tk *token);
+t_expander					*split_expand(char *line, t_gc **garbage);
 
 #endif

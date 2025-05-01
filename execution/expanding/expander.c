@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:25:18 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:53:00 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	expander(t_tk *token)
 {
-	printf("%s\n", token->token);
+	if (token && token->token)
+		split_expand(token->token);
 }

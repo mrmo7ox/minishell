@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:38:48 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 12:01:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	start(char *line, t_leaf **root, t_gc **garbage)
 	if (syntax_error(line))
 	{
 		if (tokenizer(root, garbage, line))
-			linker(root, expander);
+			linker(root, expander, garbage);
 	}
 }
 
