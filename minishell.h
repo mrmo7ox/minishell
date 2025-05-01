@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 10:19:21 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 10:45:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_tokenizer
 	t_redic					*redics;
 	char					*token;
 	int						priority;
+	int						subshell;
 	int						index;
 	struct s_tokenizer		*next;
 	struct s_tokenizer		*prev;
@@ -91,6 +92,7 @@ typedef struct s_split_utils
 {
 	int						i;
 	int						j;
+	int						subshell;
 	int						priority;
 	int						index;
 	t_type					type;
@@ -190,6 +192,7 @@ char						*ft_substr(char const *s, unsigned int start,
 								size_t len, t_gc **gg);
 int							ft_strcmp(const char *s1, const char *s2);
 int							ft_skip_quates(int *i, char *line);
+int							ft_priority(char *token);
 
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
@@ -216,12 +219,11 @@ int							handle_redirection(t_redic **res, t_gc **garbage,
 
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
-t_leaf						*make_tree(t_tk *tokens, t_gc **garbage);
-void						add_cmd(t_leaf *cmd_leaf, t_leaf **root);
-void						add_op(t_leaf *op_leaf, t_leaf **root);
-void						print_tree(t_leaf *node, int depth, int is_left);
+void						simulate_execution_with_subshell(t_leaf *root,
+								int subshell_id);
+t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
-//test
-char	**ft_split_test(char const *str, char c);
+// test
+char						**ft_split_test(char const *str, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:05:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:35:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:48:50 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ bool	tokenizer(t_gc **garbage, char *line)
 	if (ft_lstsize(splitted) == 0)
 		return (false);
 	adding_redirects(&splitted, garbage);
-	root = make_tree(splitted, garbage);
+	root = build_ast(splitted, garbage);
 	if (!root)
 		return (false);
-	print_tree(root, 0, 0);
+	// simulate_execution_with_subshell(root, root->token->subshell);
 	return (true);
 }

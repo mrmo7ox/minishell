@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:09:14 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ static void	skip_spaces(char *line, int *i)
 		(*i)++;
 }
 
-static int	handle_parentheses(char *line, int *i, int *priority)
+static int	handle_parentheses(char *line, t_split_utils *utils)
 {
-	if (line[*i] == '(')
+	if (line[utils->i] == '(')
 	{
-		(*priority)++;
-		(*i)++;
+		utils->subshell++;
+		(utils->i)++;
 		return (1);
 	}
-	else if (line[*i] == ')')
+	else if (line[utils->i] == ')')
 	{
-		(*priority)--;
-		(*i)++;
+		utils->subshell--;
+		(utils->i)++;
 		return (1);
 	}
 	return (0);
@@ -50,6 +50,7 @@ static int	handle_operator(t_tk **res, t_gc **garbage, char *line,
 		return (0);
 	(utils->index)++;
 	(utils->type) = special_cases(token);
+	(utils->priority) = ft_priority(token);
 	ft_add_tk(res, ft_new_tk_node(token, garbage, utils));
 	return (1);
 }
@@ -62,7 +63,7 @@ static int	handle_word(t_tk **res, t_gc **garbage, char *line,
 	while (line[utils->i] && !ft_chrstr(line[utils->i], "|&()"))
 	{
 		if ((line[utils->i] == '"' || line[utils->i] == '\'')
-			&& ft_skip_quates(&(utils->i), line))
+				&& ft_skip_quates(&(utils->i), line))
 			continue ;
 		(utils->i)++;
 	}
@@ -73,6 +74,7 @@ static int	handle_word(t_tk **res, t_gc **garbage, char *line,
 			return (0);
 		(utils->index)++;
 		(utils->type) = special_cases(token);
+		(utils->priority) = ft_priority(token);
 		ft_add_tk(res, ft_new_tk_node(token, garbage, utils));
 	}
 	return (1);
@@ -85,13 +87,14 @@ void	ft_split(t_tk **res, t_gc **garbage, char *line)
 	utils.i = 0;
 	utils.index = 0;
 	utils.priority = 0;
+	utils.subshell = 0;
 	while (line[utils.i])
 	{
 		skip_spaces(line, &utils.i);
 		utils.j = utils.i;
 		if (ft_chrstr(line[utils.i], "|&()"))
 		{
-			if (handle_parentheses(line, &utils.i, &utils.priority))
+			if (handle_parentheses(line, &utils))
 				continue ;
 			if (!handle_operator(res, garbage, line, &utils))
 				return ;

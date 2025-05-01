@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 21:12:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 10:46:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:09:03 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ char	*ft_copy(char *src, int len, t_gc **garbage)
 t_type	special_cases(char *str)
 {
 	if (str && ft_strstr(str, "||"))
-		return (OPERATOR);
+		return (OR);
 	else if (str && ft_strstr(str, "&&"))
-		return (OPERATOR);
+		return (AND);
 	else if (str && ft_strstr(str, "|"))
-		return (OPERATOR);
+		return (PIPE);
 	return (COMMAND);
 }

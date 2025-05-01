@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:59 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:07:58 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_tk	*ft_new_tk_node(char *content, t_gc **garbage, t_split_utils *utils)
 	node->priority = utils->priority;
 	node->index = utils->index;
 	node->type = utils->type;
+	node->subshell = utils->subshell;
 	node->prev = NULL;
 	node->next = NULL;
 	node->redics = NULL;
