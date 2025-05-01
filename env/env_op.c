@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 10:35:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/01 13:10:01 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	env_init(char **env, t_env **ft_env, t_gc **gc)
 		if (!tmp)
 			return ;
 		ft_add_env(ft_env, ft_new_env(tmp[0], tmp[1]));
-		free(tmp);
+		// free(tmp);
 		i++;
 	}
 }
