@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 14:38:27 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/29 15:43:55 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ void	printf_garbage(t_gc *garbage)
 int	main(int ac, char **av, char **env)
 {
 	char	*line;
-	char	**tmp;
 	t_gc	*garbage;
 	t_env	*ft_env;
 
+	// char	**tmp;
 	(void)ac;
 	(void)av;
 	garbage = NULL;
 	ft_env = NULL;
 	env_init(env, &ft_env, &garbage);
+	load_history();
 	while (true)
 	{
 		line = readline("Minishell: ");
@@ -48,19 +49,19 @@ int	main(int ac, char **av, char **env)
 			exit(0);
 		add_history(line);
 		save_history();
-		// if (syntax_error(line))
-		// {
-		// 	tokenizer(&garbage, line);
-		// }
-		tmp = ft_split_test(line, ' ');
-		if (!ft_strcmp(tmp[0], "export"))
-			export(tmp, &ft_env, &garbage);
-		else if (!ft_strcmp(tmp[0], "cd"))
-			cd(tmp, &garbage);
-		else if (!ft_strcmp(tmp[0], "echo"))
-			echo(tmp);
-		else if (!ft_strcmp(tmp[0], "pwd"))
-			ft_pwd(tmp, &garbage);
+		if (syntax_error(line))
+		{
+			tokenizer(&garbage, line);
+		}
+		// tmp = ft_split_test(line, ' ');
+		// if (!ft_strcmp(tmp[0], "export"))
+		// 	export(tmp, &ft_env, &garbage);
+		// else if (!ft_strcmp(tmp[0], "cd"))
+		// 	cd(tmp, &garbage);
+		// else if (!ft_strcmp(tmp[0], "echo"))
+		// 	echo(tmp);
+		// else if (!ft_strcmp(tmp[0], "pwd"))
+		// 	ft_pwd(tmp, &garbage);
 		printf_garbage(garbage);
 		free(line);
 	}

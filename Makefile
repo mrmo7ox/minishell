@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+         #
+#    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/04/29 13:08:24 by ihamani          ###   ########.fr        #
+#    Updated: 2025/04/30 10:12:45 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = gcc
-CFLAGS = -Wall  -Wextra -Werror -g3 -fsanitize=address  #-Wno-unused-variable #-fsanitize=leak 
+CFLAGS = -Wall  -Wextra -Werror -g3 -fsanitize=address  -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-but-set-variable
 MFLAGS = -lreadline -lncurses
 TSRC = 
-USRC = utils/ft_minisplit_utils.c utils/ft_strjoin.c  utils/ft_minisplit.c utils/ft_argslen.c utils/ft_putstr_fd.c utils/ft_lstsize.c utils/ft_strstr.c utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c utils/ft_malloc.c utils/ft_strcmp.c
+USRC = utils/ft_priority.c utils/ft_minisplit_utils.c utils/ft_strjoin.c  utils/ft_minisplit.c utils/ft_argslen.c utils/ft_putstr_fd.c utils/ft_lstsize.c utils/ft_strstr.c utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c utils/ft_malloc.c utils/ft_strcmp.c
 ESRC = execution/builtin/pwd.c execution/builtin/export.c execution/builtin/export_utils2.c execution/builtin/export_utils.c execution/builtin/env.c execution/builtin/echo.c execution/builtin/cd.c env/utils.c env/env_op.c 
 HSRC = parsing/history/history.c  ./ft_split_test.c
 esrc = ./env/en_op.c ./env/utils.c
