@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/30 14:35:33 by ihamani          ###   ########.fr       */
+/*   Created: 2025/04/30 13:40:54 by ihamani           #+#    #+#             */
+/*   Updated: 2025/04/30 13:42:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char	*ft_pwd(char **args, t_gc **gg)
+static void	remove_node(char *name, t_env **ft_env)
 {
-	char	*buff;
+	t_env	*head;
+	t_env	*prev;
 
-	(void)args;
-	buff = getcwd(NULL, 0);
-	if (!buff)
-		return (NULL);
-	ft_add_gc(gg, ft_new_gc_node(buff));
-	printf("%s\n", buff);
-	return (buff);
+	head = *ft_env;
+	prev = NULL;
+	while (head && ft_strcmp(head->name, name))
+	{
+		prev = head;
+		head = head->next;
+	}
+	if (head)
+		prev->next = head->next;
+}
+
+void	ft_unset(char **args, t_env **ft_env)
+{
+	int	i;
+
+	i = 1;
+	while (args[i])
+		remove_node(args[i++], ft_env);
 }

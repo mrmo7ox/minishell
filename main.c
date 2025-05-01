@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 15:43:55 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 10:12:50 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	main(int ac, char **av, char **env)
 	while (true)
 	{
 		line = readline("Minishell: ");
-		line = formating(line, &garbage);
 		if (!line)
 			exit(0);
+		line = formating(line, &garbage);
+		if (!line[0])
+			continue ;
 		add_history(line);
 		save_history();
 		if (syntax_error(line))
@@ -62,6 +64,21 @@ int	main(int ac, char **av, char **env)
 		// 	echo(tmp);
 		// else if (!ft_strcmp(tmp[0], "pwd"))
 		// 	ft_pwd(tmp, &garbage);
+		// if (syntax_error(line))
+		// {
+		// 	tokenizer(&garbage, line);
+		// }
+		tmp = ft_split_test(line, ' ');
+		if (!ft_strcmp(tmp[0], "export"))
+			export(tmp, &ft_env, &garbage);
+		else if (!ft_strcmp(tmp[0], "cd"))
+			cd(tmp, &garbage);
+		else if (!ft_strcmp(tmp[0], "echo"))
+			echo(tmp);
+		else if (!ft_strcmp(tmp[0], "pwd"))
+			ft_pwd(tmp, &garbage);
+		else if (!ft_strcmp(tmp[0], "unset"))
+			ft_unset(tmp, &ft_env);
 		printf_garbage(garbage);
 		free(line);
 	}

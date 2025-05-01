@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 14:48:37 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/04/30 16:01:18 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ static void	helper(char **args, t_env **ft_env, t_gc **gg)
 	i = 1;
 	while (args[i])
 	{
-		if (ft_chrstr('=', args[i]) && ft_strlen(args[i]) == 1)
+		if ((ft_chrstr('=', args[i]) && ft_strlen(args[i]) == 1)
+			|| args[i][0] == '=')
 		{
 			ft_putstr_fd(args[i], 2);
 			ft_putstr_fd(": not a valid identifier\n", 2);
@@ -93,4 +94,3 @@ void	export(char **args, t_env **ft_env, t_gc **gg)
 		helper(args, ft_env, gg);
 	}
 }
-// TODO handle : test=hh=->done +=->done
