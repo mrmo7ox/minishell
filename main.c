@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 10:12:50 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 10:59:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	main(int ac, char **av, char **env)
 	t_gc	*garbage;
 	t_env	*ft_env;
 
-	// char	**tmp;
 	(void)ac;
 	(void)av;
 	garbage = NULL;
@@ -55,31 +54,6 @@ int	main(int ac, char **av, char **env)
 		{
 			tokenizer(&garbage, line);
 		}
-		// tmp = ft_split_test(line, ' ');
-		// if (!ft_strcmp(tmp[0], "export"))
-		// 	export(tmp, &ft_env, &garbage);
-		// else if (!ft_strcmp(tmp[0], "cd"))
-		// 	cd(tmp, &garbage);
-		// else if (!ft_strcmp(tmp[0], "echo"))
-		// 	echo(tmp);
-		// else if (!ft_strcmp(tmp[0], "pwd"))
-		// 	ft_pwd(tmp, &garbage);
-		// if (syntax_error(line))
-		// {
-		// 	tokenizer(&garbage, line);
-		// }
-		tmp = ft_split_test(line, ' ');
-		if (!ft_strcmp(tmp[0], "export"))
-			export(tmp, &ft_env, &garbage);
-		else if (!ft_strcmp(tmp[0], "cd"))
-			cd(tmp, &garbage);
-		else if (!ft_strcmp(tmp[0], "echo"))
-			echo(tmp);
-		else if (!ft_strcmp(tmp[0], "pwd"))
-			ft_pwd(tmp, &garbage);
-		else if (!ft_strcmp(tmp[0], "unset"))
-			ft_unset(tmp, &ft_env);
-		printf_garbage(garbage);
 		free(line);
 	}
 	return (0);

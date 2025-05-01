@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_priority.c                                      :+:      :+:    :+:   */
+/*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 16:10:17 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:02:00 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/01 11:17:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-int	ft_priority(char *token)
+void	expander(t_tk *token)
 {
-	if (token && ft_strstr(token, "||"))
-		return (3);
-	else if (token && ft_strstr(token, "&&"))
-		return (2);
-	else if (token && ft_strstr(token, "|"))
-		return (1);
-	return (0);
 }

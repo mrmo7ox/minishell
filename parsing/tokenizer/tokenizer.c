@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:05:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/30 14:48:50 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:15:34 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ bool	tokenizer(t_gc **garbage, char *line)
 	root = build_ast(splitted, garbage);
 	if (!root)
 		return (false);
-	// simulate_execution_with_subshell(root, root->token->subshell);
+	linker(&root);
 	return (true);
 }

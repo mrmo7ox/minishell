@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_priority.c                                      :+:      :+:    :+:   */
+/*   ft_strinstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 16:10:17 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:02:00 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/01 10:30:33 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/01 10:57:36 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	ft_priority(char *token)
+bool	ft_strinstr(char *haystack, char *needle)
 {
-	if (token && ft_strstr(token, "||"))
-		return (3);
-	else if (token && ft_strstr(token, "&&"))
-		return (2);
-	else if (token && ft_strstr(token, "|"))
-		return (1);
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!haystack)
+		return (false);
+	while (haystack[i])
+	{
+		j = 0;
+		while (needle[j] && haystack[i] && needle[j] == haystack[i])
+		{
+			j++;
+			i++;
+		}
+		if (needle[j] == '\0')
+			return (true);
+		i++;
+	}
+	return (false);
 }

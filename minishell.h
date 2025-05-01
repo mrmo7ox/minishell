@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/30 11:50:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 11:17:29 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ char						*ft_substr(char const *s, unsigned int start,
 int							ft_strcmp(const char *s1, const char *s2);
 int							ft_skip_quates(int *i, char *line);
 int							ft_priority(char *token);
+bool						ft_strinstr(char *haystack, char *needle);
 
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
@@ -218,11 +219,10 @@ int							handle_redirection(t_redic **res, t_gc **garbage,
 
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
-void						simulate_execution_with_subshell(t_leaf *root,
-								int subshell_id);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
+void						linker(t_leaf **root);
 
-// test
-char						**ft_split_test(char const *str, char c);
+// expanding
+void						expander(t_tk *token);
 
 #endif

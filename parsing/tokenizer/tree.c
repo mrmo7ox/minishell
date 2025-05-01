@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/30 14:48:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 10:57:30 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,3 @@ t_leaf	*build_ast(t_tk *tokens, t_gc **garbage)
 	}
 	return (root);
 }
-// void	simulate_execution_with_subshell(t_leaf *root, int subshell_id)
-// {
-// 	if (!root)
-// 		return ;
-// 	if (root->type == root->)
-// }
