@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expander.c                                         :+:      :+:    :+:   */
+/*   ft_chrindex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 10:57:05 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/02 10:47:47 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/02 11:11:26 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	expander(t_tk *token, t_gc **garbage)
+int ft_chrindex(char *line, char chr)
 {
-	t_expander res;
+	int	i;
 
-	if (token && token->token)
+	i = 0;
+	while (line[i])
 	{
-		res = split_expand(token->token, garbage);
-		t_part *curr;
-
-		curr = res.result;
-		while (curr)
-		{
-			printf("[%s][%d]\n", curr->content, curr->expandable);
-			curr = curr->next;
-		}
+		if (line[i] == chr)
+			return (i);
+		i++;
 	}
+	return (-1);
 }

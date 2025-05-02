@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expander.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 10:57:05 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/02 10:31:15 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/02 10:36:05 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	expander(t_tk *token, t_gc **garbage)
+int	ft_isalpha(int c)
 {
-	t_expander res;
-
-	if (token && token->token)
-	{
-		res = split_expand(token->token, garbage);
-		t_part *curr;
-
-		curr = res.result;
-		while (curr)
-		{
-			printf("[%s][%d]\n", curr->content, curr->expandable);
-			curr = curr->next;
-		}
-	}
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

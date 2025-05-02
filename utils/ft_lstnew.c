@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 16:07:58 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/02 11:12:10 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,33 @@ t_tk	*ft_new_tk_node(char *content, t_gc **garbage, t_split_utils *utils)
 	node->prev = NULL;
 	node->next = NULL;
 	node->redics = NULL;
+	return (node);
+}
+
+t_part	*ft_new_part(char *line, int start, int len, t_gc **garbage)
+{
+	t_part	*node;
+
+	node = ft_malloc(sizeof(t_part), garbage);
+	if (!node)
+		return (NULL);
+	if (len == 0)
+	{
+		node->content = ft_strdup(" ", garbage);
+		node->expandable = 0;
+	}
+	else
+	{
+		node->content = ft_copy(line + start, len, garbage);
+		if (ft_chrindex(node->content, '$') != -1)
+		{
+			node->expandable = is_expandable(node->content,
+					ft_chrindex(node->content, '$'));
+		}
+		else
+			node->expandable = 0;
+	}
+	node->next = NULL;
 	return (node);
 }
 

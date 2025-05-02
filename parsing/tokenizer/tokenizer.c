@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:05:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:28:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/01 14:06:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,4 @@ bool	tokenizer(t_leaf **root, t_gc **garbage, char *line)
 		return (false);
 	return (true);
 }
+// sadasdasdsasd

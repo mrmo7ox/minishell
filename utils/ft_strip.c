@@ -1,37 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strip.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 11:27:00 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 15:40:51 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/01 14:31:21 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/01 14:56:24 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_tk	*ft_lstlast(t_tk *root)
+static int	buffer_size(char chr, char *line)
 {
-	t_tk	*last;
+	int	len;
+	int	i;
 
-	if (!root)
-		return (NULL);
-	last = root;
-	while (last->next)
-		last = last->next;
-	return (last);
+	len = 0;
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != chr)
+		{
+			len++;
+		}
+		i++;
+	}
+	return (len);
 }
 
-t_redic	*ft_lstlast_redic(t_redic *root)
+char	*ft_strip(char chr, char *line, t_gc **garbage)
 {
-	t_redic	*last;
+	int i;
+	int j;
+	char *new;
 
-	if (!root)
+	i = 0;
+	j = 0;
+	new = ft_malloc((buffer_size(chr, line) + 1), garbage);
+	if (!new)
 		return (NULL);
-	last = root;
-	while (last->next)
-		last = last->next;
-	return (last);
+	while (line[i])
+	{
+		if (line[i] != chr)
+		{
+			new[j] = line[i];
+			j++;
+		}
+		i++;
+	}
+	new[j] = '\0';
+	return (new);
 }

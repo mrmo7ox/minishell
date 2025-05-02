@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 12:01:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/02 11:11:35 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,22 @@ typedef struct s_mini
 	t_retypes				type;
 }							t_mini;
 
+typedef struct t_parts
+{
+	char					*content;
+	int						expandable;
+	struct t_parts			*next;
+}							t_part;
+
 typedef struct s_expander
 {
 	char					*target;
 	bool					expandable;
 	int						start;
 	int						end;
+	int						i;
+	int						j;
+	t_part					*result;
 }							t_expander;
 
 // env
@@ -195,6 +205,8 @@ void						move_next(char *line, int *i);
 // utils
 void						ft_split(t_tk **res, t_gc **garbage, char *line);
 char						*ft_copy(char *src, int len, t_gc **garbage);
+int							ft_isalpha(int c);
+int							ft_isalnum(int c);
 t_type						special_cases(char *str);
 size_t						args_len(char **args);
 int							ft_chrcount(char *str, char c);
@@ -211,6 +223,8 @@ int							ft_strcmp(const char *s1, const char *s2);
 int							ft_skip_quates(int *i, char *line);
 int							ft_priority(char *token);
 bool						ft_strinstr(char *haystack, char *needle);
+char						*ft_strip(char chr, char *line, t_gc **garbage);
+int							ft_chrindex(char *line, char chr);
 
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
@@ -238,11 +252,16 @@ int							handle_redirection(t_redic **res, t_gc **garbage,
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
-void						linker(t_leaf **root, void (*applyme)(t_tk *token),
-								t_gc **garbage);
+void						linker(t_leaf **root, void (*applyme)(t_tk *token,
+									t_gc **garbage), t_gc **garbage);
 
 // expanding
-void						expander(t_tk *token);
-t_expander					*split_expand(char *line, t_gc **garbage);
-
+void						expander(t_tk *token, t_gc **garbage);
+t_expander					split_expand(char *line, t_gc **garbage);
+t_part						*ft_new_part(char *line, int start, int len,
+								t_gc **garbage);
+t_part						*ft_new_part(char *line, int start, int len,
+								t_gc **garbage);
+void						ft_add_part(t_part **head, t_part *new);
+int							is_expandable(const char *line, int pos);
 #endif
