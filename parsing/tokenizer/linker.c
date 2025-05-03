@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:26:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 14:08:34 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 10:32:11 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	linker(t_leaf **root, void (*applyme)(t_tk *token, t_gc **garbage),
 	if (!root || !(*root))
 		return ;
 	tmp = *root;
+	if (tmp->type == COMMAND)
+		applyme(tmp->token, garbage);
 	if (tmp->right)
 	{
 		if (tmp->right->type == COMMAND)

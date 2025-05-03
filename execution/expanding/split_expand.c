@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 15:43:57 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 10:21:11 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	handle_literal(char *line, t_expander *u, t_part **head, t_gc **g,
 		ft_add_part(head, ft_new_part(line, start, u->i - start, g));
 }
 
-void	handle_segment(char *line, t_expander *u, t_part **head, t_gc **g)
+void	handle_parts(char *line, t_expander *u, t_part **head, t_gc **g)
 {
 	int	start;
 
@@ -116,7 +116,7 @@ t_expander	split_expand(char *line, t_gc **garbage)
 	t_part *head = NULL;
 
 	while (line[u.i])
-		handle_segment(line, &u, &head, garbage);
+		handle_parts(line, &u, &head, garbage);
 	u.result = head;
 	return (u);
 }
