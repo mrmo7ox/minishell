@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:31:15 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 10:36:05 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 09:51:58 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	ft_isalpha(int c)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	if (c >= 'a' && c <= 'z')
+		return (true);
+	else if (c >= 'A' && c <= 'Z')
+		return (true);
+	return (false);
 }

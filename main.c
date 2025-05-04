@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 11:31:52 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 11:32:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	main(int ac, char **av, char **env)
 			args++;
 		}
 		free_garbage(&container.garbage);
-		// free(container.line);
 	}
 	return (0);
 }

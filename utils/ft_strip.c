@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:31:21 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 11:28:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 09:52:24 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	buffer_size(char chr, char *line)
 
 char	*ft_strip(char chr, char *line, t_gc **garbage)
 {
-	int i;
-	int j;
-	char *new;
+	int		i;
+	int		j;
+	char	*new;
 
 	i = 0;
 	j = 0;

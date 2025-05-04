@@ -6,124 +6,63 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 14:08:07 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:12:19 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	is_expandable(const char *line, int pos)
+void	handle_expandable(t_expander *u, t_gc **g)
 {
-	int	in_single;
-	int	i;
-
-	i = pos;
-	if (line[pos] != '$' || line[0] == '\'')
-		return (0);
-	in_single = 0;
-	while (i >= 0)
-	{
-		if (line[i] == '\'')
-			in_single = !in_single;
-		else if (line[i] == '"')
-			break ;
-		i--;
-	}
-	if (in_single)
-		return (0);
-	// if (!ft_isalpha(line[pos + 1]) && line[pos + 1] != '_')
-	// 	return (0);
-	return (1);
-}
-
-void	handle_single_quote(char *line, t_expander *u, t_part **head, t_gc **g)
-{
-	int	start;
-
-	start = u->i++;
-	while (line[u->i] && line[u->i] != '\'')
-		u->i++;
-	u->i++;
-	ft_add_part(head, ft_new_part(line, start, u->i - start, g));
-}
-
-void	handle_double_quote(char *line, t_expander *u, t_part **head, t_gc **g)
-{
-	int	start;
-
-	start = u->i++;
-	while (line[u->i] && line[u->i] != '"')
-	{
-		if (line[u->i] == '$')
-		{
-			if (u->i > start)
-				ft_add_part(head, ft_new_part(line, start, u->i - start, g));
-			start = u->i++;
-			while (ft_isalpha(line[u->i]) || ft_isalnum(line[u->i])
-				|| line[u->i] == '_')
-				u->i++;
-			ft_add_part(head, ft_new_part(line, start, u->i - start, g));
-			start = u->i;
-		}
-		else
-			u->i++;
-	}
-	u->i++;
-	if (u->i > start)
-		ft_add_part(head, ft_new_part(line, start, u->i - start, g));
-}
-
-void	handle_expandable(char *line, t_expander *u, t_part **head, t_gc **g,
-		int start)
-{
-	if (u->i > start)
-		ft_add_part(head, ft_new_part(line, start, u->i - start, g));
-	start = u->i++;
-	if (ft_isalnum(line[u->i]) || !ft_isalpha(line[u->i]) || line[u->i] == '_')
+	if (u->i > u->start)
+		ft_add_part(&(u->head), ft_new_part(u->line, u->start, u->i - u->start,
+				g));
+	u->start = u->i++;
+	if (ft_isalnum(u->line[u->i]) || !ft_isalpha(u->line[u->i])
+		|| u->line[u->i] == '_')
 		u->i++;
 	else
 	{
-		while (ft_isalpha(line[u->i]) || ft_isalnum(line[u->i])
-			|| line[u->i] == '_')
+		while (ft_isalpha(u->line[u->i]) || ft_isalnum(u->line[u->i])
+			|| u->line[u->i] == '_')
 			u->i++;
 	}
-	ft_add_part(head, ft_new_part(line, start, u->i - start, g));
+	ft_add_part(&(u->head), ft_new_part(u->line, u->start, u->i - u->start, g));
 }
 
-void	handle_literal(char *line, t_expander *u, t_part **head, t_gc **g,
-		int start)
+void	handle_word(t_expander *u, t_gc **g)
 {
-	while (line[u->i] && line[u->i] != '$' && line[u->i] != '"'
-		&& line[u->i] != '\'')
+	while (u->line[u->i] && u->line[u->i] != '$' && u->line[u->i] != '"'
+		&& u->line[u->i] != '\'')
 		u->i++;
-	if (u->i > start)
-		ft_add_part(head, ft_new_part(line, start, u->i - start, g));
+	if (u->i > u->start)
+		ft_add_part(&(u->head), ft_new_part((u->line), u->start, u->i
+				- u->start, g));
 }
 
-void	handle_parts(char *line, t_expander *u, t_part **head, t_gc **g)
+void	handle_parts(t_expander *u, t_gc **g)
 {
-	int	start;
-
-	start = u->i;
-	if (line[u->i] == '\'')
-		handle_single_quote(line, u, head, g);
-	else if (line[u->i] == '"')
-		handle_double_quote(line, u, head, g);
-	else if (line[u->i] == '$')
-		handle_expandable(line, u, head, g, start);
+	u->start = u->i;
+	if (u->line[u->i] == '\'')
+		handle_single_quote(u, g);
+	else if (u->line[u->i] == '"')
+		handle_double_quote(u, g);
+	else if (u->line[u->i] == '$')
+		handle_expandable(u, g);
 	else
-		handle_literal(line, u, head, g, start);
+		handle_word(u, g);
 }
 
 t_expander	split_expand(char *line, t_gc **garbage)
 {
-	t_expander u;
+	t_expander	u;
+
 	u.i = 0;
 	u.result = NULL;
-	t_part *head = NULL;
-
+	u.line = line;
+	u.head = NULL;
 	while (line[u.i])
-		handle_parts(line, &u, &head, garbage);
-	u.result = head;
+		handle_parts(&u, garbage);
+	u.result = u.head;
 	return (u);
 }
