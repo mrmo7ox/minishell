@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 10:33:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 10:49:14 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ char	*check_cmd(char **args, t_env **ft_env, t_gc **gc)
 	int		i;
 
 	path = ft_strdup(ft_getenv("PATH", ft_env), gc);
+	if (!path)
+	{
+		ft_putstr_fd(args[0], 2);
+		ft_putstr_fd(" : command not found", 2);
+		exit(127);
+	}
 	cmd = ft_strjoin("/", args[0], gc);
 	paths = ft_vanilla_split(path, ':', 0, 0);
 	i = 0;
@@ -111,16 +117,16 @@ void	exe_cmd(char **args, t_env **ft_env, t_gc **gc)
 		exe_builtin(args, ft_env, gc);
 	else
 	{
-		env = dp_env(ft_env, gc);
-		if (args[0][0] == '/' || ft_strinstr(args[0], "./"))
-			path = args[0];
-		else
-			path = check_cmd(args, ft_env, gc);
 		pid = fork();
 		if (pid == -1)
 			perror("Fork");
 		if (!pid)
 		{
+			env = dp_env(ft_env, gc);
+			if (args[0][0] == '/' || ft_strinstr(args[0], "./"))
+				path = args[0];
+			else
+				path = check_cmd(args, ft_env, gc);
 			if (execve(path, args, env) == -1)
 				perror("Execve");
 		}

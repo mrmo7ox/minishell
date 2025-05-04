@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 10:40:21 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 11:31:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int	main(int ac, char **av, char **env)
 		// start(container.line, &(container.root), &(container.garbage));
 		args = ft_vanilla_split(container.line, ' ', 0, 0);
 		exe_cmd(args, &container.ft_env, &container.garbage);
+		while (*args)
+		{
+			free(*args);
+			args++;
+		}
 		free_garbage(&container.garbage);
 		// free(container.line);
 	}

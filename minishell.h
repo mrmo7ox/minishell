@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 10:40:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 10:45:26 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,8 @@ char						*ft_cut(char const *s, unsigned int start,
 								size_t len);
 char						*ft_strdupnofree(const char *source);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
+char						**ft_vanilla_split(char *str, char c, int i, int j);
+int							ft_envsize(t_env *head);
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);

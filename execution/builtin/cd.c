@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 10:27:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 10:51:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	no_args(void)
 static void	helper(char *str, t_gc **gg)
 {
 	char	*buff;
-	char	*tmp;
 
 	buff = pwd();
 	if (!buff)
@@ -47,15 +46,10 @@ static void	helper(char *str, t_gc **gg)
 		if (chdir("/") == -1)
 			ft_putstr_fd("somthing went wrong\n", 2);
 	}
-	tmp = buff;
 	buff = ft_strjoin(buff, "/", gg);
-	free(tmp);
-	tmp = buff;
 	buff = ft_strjoin(buff, str, gg);
-	free(tmp);
 	if (chdir(buff) == -1)
 		perror("cd ");
-	free(buff);
 }
 
 void	cd(char **args, t_gc **gg)
