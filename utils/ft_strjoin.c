@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 12:33:52 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 10:24:20 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 11:36:49 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ char	*ft_strjoin(char const *s1, char const *s2, t_gc **garbage)
 	new[len_s1 + len_s2] = '\0';
 	return (new);
 }
-
