@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 11:32:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 11:50:50 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	printf_garbage(t_gc *garbage)
 
 void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 {
+	char	**args;
+
 	add_history(line);
 	save_history();
 	if (syntax_error(line))
@@ -37,6 +39,16 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 		if (tokenizer(root, garbage, line))
 		{
 			linker(root, expander, garbage, ft_env);
+			if (!(*root)->left && !(*root)->right)
+			{
+				args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
+				exe_cmd(args, ft_env, garbage);
+				while (*args)
+				{
+					free(*args);
+					args++;
+				}
+			}
 		}
 	}
 }
@@ -44,7 +56,6 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 int	main(int ac, char **av, char **env)
 {
 	t_container	container;
-	char	**args;
 
 	(void)ac;
 	(void)av;
@@ -63,14 +74,8 @@ int	main(int ac, char **av, char **env)
 		container.line = formating(container.line, &container.garbage);
 		if (!container.line[0])
 			continue ;
-		// start(container.line, &(container.root), &(container.garbage));
-		args = ft_vanilla_split(container.line, ' ', 0, 0);
-		exe_cmd(args, &container.ft_env, &container.garbage);
-		while (*args)
-		{
-			free(*args);
-			args++;
-		}
+		start(container.line, &(container.root), &(container.garbage),
+			&container.ft_env);
 		free_garbage(&container.garbage);
 	}
 	return (0);

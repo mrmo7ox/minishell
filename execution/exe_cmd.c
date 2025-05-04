@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 10:49:14 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 11:38:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-bool	is_builtin(char	*str)
+bool	is_builtin(char *str)
 {
 	if (!ft_strcmp(str, "env"))
 		return (true);
@@ -56,7 +56,7 @@ static char	**dp_env(t_env **ft_env, t_gc **gc)
 	i = 0;
 	len = ft_envsize(*ft_env);
 	head = *ft_env;
-	res = ft_malloc((len + 1 )* sizeof(char *), gc);
+	res = ft_malloc((len + 1) * sizeof(char *), gc);
 	while (i < len || head)
 	{
 		res[i] = ft_strjoin(head->name, "=", gc);
@@ -103,9 +103,8 @@ char	*check_cmd(char **args, t_env **ft_env, t_gc **gc)
 	}
 	ft_putstr_fd(args[0], 2);
 	ft_putstr_fd(" : command not found", 2);
-	exit(127);//free_paths
+	exit(127);
 }
-
 
 void	exe_cmd(char **args, t_env **ft_env, t_gc **gc)
 {
