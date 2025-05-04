@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 10:49:14 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 12:27:19 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	exe_builtin(char **args, t_env **ft_env, t_gc **gc)
 	else if (!ft_strcmp(args[0], "echo"))
 		echo(args);
 	else if (!ft_strcmp(args[0], "cd"))
-		cd(args, gc);
+		cd(args, gc, ft_env);
 	else if (!ft_strcmp(args[0], "unset"))
 		ft_unset(args, ft_env);
 }

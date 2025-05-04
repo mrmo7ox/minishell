@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 10:51:51 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 12:27:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static char	*pwd(void)
 	return (buff);
 }
 
-static void	no_args(void)
+static void	no_args(t_env **ft_env)
 {
 	char	*home;
 
-	home = getenv("HOME");
+	home = ft_getenv("HOME", ft_env);
 	if (!home)
 	{
 		ft_putstr_fd("HOME not set\n", 2);
@@ -52,7 +52,7 @@ static void	helper(char *str, t_gc **gg)
 		perror("cd ");
 }
 
-void	cd(char **args, t_gc **gg)
+void	cd(char **args, t_gc **gg, t_env **ft_env)
 {
 	size_t	len;
 
@@ -60,7 +60,7 @@ void	cd(char **args, t_gc **gg)
 		return ;
 	len = args_len(args);
 	if (len == 1)
-		no_args();
+		no_args(ft_env);
 	else if (len > 2)
 		ft_putstr_fd("too many argument\n", 2);
 	else if (len == 2)
