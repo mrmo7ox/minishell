@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:31:21 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 14:56:24 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 11:28:04 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*ft_strip(char chr, char *line, t_gc **garbage)
 
 	i = 0;
 	j = 0;
+	if (!line)
+		return (NULL);
 	new = ft_malloc((buffer_size(chr, line) + 1), garbage);
 	if (!new)
 		return (NULL);

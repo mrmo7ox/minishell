@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strinstr.c                                      :+:      :+:    :+:   */
+/*   ft_strdupnofree.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 10:30:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 13:30:16 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/03 11:01:26 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/03 11:06:14 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-bool	ft_strinstr(char *haystack, char *needle)
+char	*ft_strdupnofree(const char *source)
 {
-	int	i;
-	int	j;
+	char	*dup;
+	int		len;
 
-	i = 0;
-	if (!haystack)
-		return (false);
-	while (haystack[i])
-	{
-		j = 0;
-		while (needle[j] && haystack[i] && needle[j] == haystack[i])
-		{
-			j++;
-			i++;
-		}
-		if (needle[j] == '\0')
-			return (true);
-		if (haystack[i])
-			i++;
-	}
-	return (false);
+	if (!source)
+		return (NULL);
+	len = ft_strlen(source);
+	dup = (char *)malloc((sizeof(char) * (len + 1)));
+	if (dup == NULL)
+		return (NULL);
+	ft_memcpy(dup, source, len);
+	dup[len] = '\0';
+	return (dup);
 }

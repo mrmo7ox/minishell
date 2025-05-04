@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 10:21:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/03 11:04:26 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	export_sort(t_env **ft_env)
 	}
 }
 
-char	**export_split(char *str, t_gc **gg)
+char	**export_split(char *str)
 {
 	size_t	i;
 	size_t	pos;
@@ -64,15 +64,15 @@ char	**export_split(char *str, t_gc **gg)
 	pos = i;
 	if (pos == ft_strlen(str))
 	{
-		args = ft_malloc((2 * sizeof(char *)), gg);
-		args[0] = ft_strdup(str, gg);
+		args = malloc((2 * sizeof(char *)));
+		args[0] = ft_strdupnofree(str);
 		args[1] = NULL;
 	}
 	else
 	{
-		args = ft_malloc((3 * sizeof(char *)), gg);
-		args[0] = ft_substr(str, 0, pos, gg);
-		args[1] = ft_substr(str, pos + 1, (strlen(str) - pos), gg);
+		args = malloc((3 * sizeof(char *)));
+		args[0] = ft_cut(str, 0, pos);
+		args[1] = ft_cut(str, pos + 1, (ft_strlen(str) - pos));
 		args[2] = NULL;
 	}
 	return (args);

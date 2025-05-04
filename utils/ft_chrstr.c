@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:24:02 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 20:48:47 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 11:28:25 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 bool	ft_chrstr(char chr, char *str)
 {
+	if (!str)
+		return (false);
 	while (*str != '\0')
 	{
 		if (chr == *str)

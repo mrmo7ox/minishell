@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 10:21:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 14:08:07 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	is_expandable(const char *line, int pos)
 	}
 	if (in_single)
 		return (0);
-	if (!ft_isalpha(line[pos + 1]) && line[pos + 1] != '_')
-		return (0);
+	// if (!ft_isalpha(line[pos + 1]) && line[pos + 1] != '_')
+	// 	return (0);
 	return (1);
 }
 
@@ -59,7 +59,8 @@ void	handle_double_quote(char *line, t_expander *u, t_part **head, t_gc **g)
 			if (u->i > start)
 				ft_add_part(head, ft_new_part(line, start, u->i - start, g));
 			start = u->i++;
-			while (ft_isalnum(line[u->i]) || line[u->i] == '_')
+			while (ft_isalpha(line[u->i]) || ft_isalnum(line[u->i])
+				|| line[u->i] == '_')
 				u->i++;
 			ft_add_part(head, ft_new_part(line, start, u->i - start, g));
 			start = u->i;
@@ -78,8 +79,14 @@ void	handle_expandable(char *line, t_expander *u, t_part **head, t_gc **g,
 	if (u->i > start)
 		ft_add_part(head, ft_new_part(line, start, u->i - start, g));
 	start = u->i++;
-	while (ft_isalnum(line[u->i]) || line[u->i] == '_')
+	if (ft_isalnum(line[u->i]) || !ft_isalpha(line[u->i]) || line[u->i] == '_')
 		u->i++;
+	else
+	{
+		while (ft_isalpha(line[u->i]) || ft_isalnum(line[u->i])
+			|| line[u->i] == '_')
+			u->i++;
+	}
 	ft_add_part(head, ft_new_part(line, start, u->i - start, g));
 }
 

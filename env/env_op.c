@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 10:36:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 10:41:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char	**env_split(char *str, t_gc **gg)
 	return (args);
 }
 
-void	env_init(char **env, t_env **ft_env, t_gc **gc)
+void	env_init(char **env, t_env **ft_env)
 {
 	int		i;
 	char	**tmp;
@@ -46,11 +46,10 @@ void	env_init(char **env, t_env **ft_env, t_gc **gc)
 	i = 0;
 	while (env[i])
 	{
-		tmp = export_split(env[i], gc);
+		tmp = export_split(env[i]);
 		if (!tmp)
 			return ;
 		ft_add_env(ft_env, ft_new_env(tmp[0], tmp[1]));
-		// free(tmp);
 		i++;
 	}
 }
