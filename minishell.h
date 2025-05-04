@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 11:11:35 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:32:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,9 @@ int							ft_priority(char *token);
 bool						ft_strinstr(char *haystack, char *needle);
 char						*ft_strip(char chr, char *line, t_gc **garbage);
 int							ft_chrindex(char *line, char chr);
+char						**ft_realloc(char **buffer, int plus, t_gc **gc);
+char						**ft_vanilla_split(char *str, char c, int i, int j);
+int							ft_envsize(t_env *head);
 
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
@@ -264,4 +267,8 @@ t_part						*ft_new_part(char *line, int start, int len,
 								t_gc **garbage);
 void						ft_add_part(t_part **head, t_part *new);
 int							is_expandable(const char *line, int pos);
+
+//exe
+void						exe_cmd(char **args, t_env **ft_env, t_gc **gc);
+
 #endif

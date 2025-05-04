@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:40:54 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/30 13:42:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 09:46:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void	remove_node(char *name, t_env **ft_env)
 		prev = head;
 		head = head->next;
 	}
-	if (head)
+	if (!prev)
+		*ft_env = (*ft_env)->next;
+	else if (head)
 		prev->next = head->next;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 12:33:52 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/29 11:33:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:24:20 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,3 @@ char	*ft_strjoin(char const *s1, char const *s2, t_gc **garbage)
 	return (new);
 }
 
-char	*ft_strdup(const char *source, t_gc **garbage)
-{
-	char	*dup;
-	int		len;
-
-	if (!source)
-		return (NULL);
-	len = ft_strlen(source);
-	dup = (char *)ft_malloc(sizeof(char) * (len + 1), garbage);
-	if (dup == NULL)
-		return (NULL);
-	ft_memcpy(dup, source, len);
-	dup[len] = '\0';
-	return (dup);
-}

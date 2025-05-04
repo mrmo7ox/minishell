@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 15:41:23 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:23:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	start(char *line, t_leaf **root, t_gc **garbage)
 int	main(int ac, char **av, char **env)
 {
 	t_container	container;
+	char	**args;
 
 	(void)ac;
 	(void)av;
@@ -61,7 +62,9 @@ int	main(int ac, char **av, char **env)
 		container.line = formating(container.line, &container.garbage);
 		if (!container.line[0])
 			continue ;
-		start(container.line, &(container.root), &(container.garbage));
+		// start(container.line, &(container.root), &(container.garbage));
+		args = ft_vanilla_split(container.line, ' ', 0, 0);
+		exe_cmd(args, &container.ft_env, &container.garbage);
 		free_garbage(&container.garbage);
 		// free(container.line);
 	}

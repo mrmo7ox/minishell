@@ -6,11 +6,37 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 13:10:01 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 10:36:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+static char	**env_split(char *str, t_gc **gg)
+{
+	size_t	i;
+	size_t	pos;
+	char	**args;
+
+	i = 0;
+	while (str[i] && str[i] != '=')
+		i++;
+	pos = i;
+	if (pos == ft_strlen(str))
+	{
+		args = ft_malloc((2 * sizeof(char *)), gg);
+		args[0] = ft_strdup(str, gg);
+		args[1] = NULL;
+	}
+	else
+	{
+		args = ft_malloc((3 * sizeof(char *)), gg);
+		args[0] = ft_substr(str, 0, pos, gg);
+		args[1] = ft_substr(str, pos + 1, (strlen(str) - pos), gg);
+		args[2] = NULL;
+	}
+	return (args);
+}
 
 void	env_init(char **env, t_env **ft_env, t_gc **gc)
 {
