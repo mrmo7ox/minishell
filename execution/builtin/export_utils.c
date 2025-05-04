@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 10:43:13 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 13:19:32 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_upenv(char *name, char *value, t_env **ft_env)
 	if (head && value)
 	{
 		tmp = head->value;
-		head->value = value;
+		head->value = ft_strdupnofree(value);
 		free(tmp);
 	}
 }

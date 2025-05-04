@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 11:37:58 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 13:29:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,21 @@ bool	check_name_env(char *name, t_env **ft_env)
 	return (false);
 }
 
-// char    *ft_getenv(char *name, t_env **ft_env)
-// {
-//     t_env *head;
+void	ft_free_env(t_env **ft_env)
+{
+	t_env	*tmp;
+	void	*next;
 
-//     head = *ft_env;
-//     while (head->next && strcmp(name, head->name))
-//         head = head->next;
-// 	if (head->value)
-//     	return (head->value);
-// 	return (NULL);
-// }
+	if (!*ft_env || !ft_env)
+		return ;
+	tmp = *ft_env;
+	while (tmp)
+	{
+		next = tmp->next;
+		free(tmp->name);
+		free(tmp->value);
+		free(tmp);
+		tmp = next;
+	}
+	*ft_env = NULL;
+}

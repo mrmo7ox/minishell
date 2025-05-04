@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 12:26:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 13:26:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ t_env						*ft_new_env(char *name, char *value);
 void						env_init(char **env, t_env **ft_env);
 void						ft_putenv(char *name, char *value, t_env **ft_env);
 char						*ft_getenv(char *name, t_env **ft_env);
+void						ft_free_env(t_env **ft_env);
 
 // builtin
 void						cd(char **args, t_gc **gg, t_env **ft_env);
