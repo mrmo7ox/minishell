@@ -6,14 +6,14 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:26:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 10:32:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 10:42:38 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	linker(t_leaf **root, void (*applyme)(t_tk *token, t_gc **garbage),
-		t_gc **garbage)
+void	linker(t_leaf **root, void (*applyme)(t_tk *token, t_gc **garbage,
+			t_env **ft_env), t_gc **garbage, t_env **ft_env)
 {
 	t_leaf	*tmp;
 
@@ -21,27 +21,27 @@ void	linker(t_leaf **root, void (*applyme)(t_tk *token, t_gc **garbage),
 		return ;
 	tmp = *root;
 	if (tmp->type == COMMAND)
-		applyme(tmp->token, garbage);
+		applyme(tmp->token, garbage, ft_env);
 	if (tmp->right)
 	{
 		if (tmp->right->type == COMMAND)
 		{
 			if (tmp->right->token && ft_strinstr(tmp->right->token->token, "$"))
 			{
-				applyme(tmp->right->token, garbage);
+				applyme(tmp->right->token, garbage, ft_env);
 			}
 		}
 		else
-			linker(&(tmp->right), applyme, garbage);
+			linker(&(tmp->right), applyme, garbage, ft_env);
 	}
 	if (tmp->left)
 	{
 		if (tmp->left->type == COMMAND)
 		{
 			if (tmp->left->token && ft_strinstr(tmp->left->token->token, "$"))
-				applyme(tmp->left->token, garbage);
+				applyme(tmp->left->token, garbage, ft_env);
 		}
 		else
-			linker(&(tmp->left), applyme, garbage);
+			linker(&(tmp->left), applyme, garbage, ft_env);
 	}
 }

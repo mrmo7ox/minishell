@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   env_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 13:10:01 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/03 11:03:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	env_init(char **env, t_env **ft_env, t_gc **gc)
+void	env_init(char **env, t_env **ft_env)
 {
 	int		i;
 	char	**tmp;
@@ -20,11 +20,10 @@ void	env_init(char **env, t_env **ft_env, t_gc **gc)
 	i = 0;
 	while (env[i])
 	{
-		tmp = export_split(env[i], gc);
+		tmp = export_split(env[i]);
 		if (!tmp)
 			return ;
 		ft_add_env(ft_env, ft_new_env(tmp[0], tmp[1]));
-		// free(tmp);
 		i++;
 	}
 }

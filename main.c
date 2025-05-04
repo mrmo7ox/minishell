@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 15:41:23 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 11:05:35 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	printf_garbage(t_gc *garbage)
 		printf("there's %d addr in the garbage!\n", i);
 }
 
-void	start(char *line, t_leaf **root, t_gc **garbage)
+void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 {
 	add_history(line);
 	save_history();
@@ -36,7 +36,7 @@ void	start(char *line, t_leaf **root, t_gc **garbage)
 	{
 		if (tokenizer(root, garbage, line))
 		{
-			linker(root, expander, garbage);
+			linker(root, expander, garbage, ft_env);
 		}
 	}
 }
@@ -51,7 +51,8 @@ int	main(int ac, char **av, char **env)
 	container.garbage = NULL;
 	container.ft_env = NULL;
 	container.root = NULL;
-	env_init(env, &container.ft_env, &container.garbage);
+	container.ft_env = NULL;
+	env_init(env, &container.ft_env);
 	load_history();
 	while (true)
 	{
@@ -61,7 +62,8 @@ int	main(int ac, char **av, char **env)
 		container.line = formating(container.line, &container.garbage);
 		if (!container.line[0])
 			continue ;
-		start(container.line, &(container.root), &(container.garbage));
+		start(container.line, &(container.root), &(container.garbage),
+			&(container.ft_env));
 		free_garbage(&container.garbage);
 		// free(container.line);
 	}

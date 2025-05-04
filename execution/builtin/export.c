@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/01 10:43:44 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/03 11:04:59 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	helper(char **args, t_env **ft_env, t_gc **gc)
 			i++;
 			continue ;
 		}
-		tmp = export_split(args[i], gc);
+		tmp = export_split(args[i]);
 		name = tmp[0];
 		if (ft_chrstr('=', args[i]) && !tmp[1])
 			value = ft_strdup("", gc);

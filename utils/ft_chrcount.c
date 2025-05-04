@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:58:35 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 20:48:48 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/03 11:40:55 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_chrcount(char *str, char c)
 
 	i = 0;
 	count = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == c)
