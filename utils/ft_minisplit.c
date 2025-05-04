@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minisplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 11:13:35 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 13:12:58 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 09:52:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,8 @@ static int	handle_word_concat(char **new_line, t_mini *m_utils, t_gc **garbage)
 	else
 	{
 		tmp = ft_strjoin(*new_line, " ", garbage);
-		// free(*new_line);
 		*new_line = ft_strjoin(tmp, word, garbage);
-		// free(tmp);
 	}
-	// free(word);
 	return (1);
 }
 

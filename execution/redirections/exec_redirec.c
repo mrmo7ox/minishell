@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   exec_redirec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 10:31:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 09:52:18 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/04 09:47:41 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-int	ft_isalnum(int c)
+bool	exec_redirec(t_tk *token)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
 }

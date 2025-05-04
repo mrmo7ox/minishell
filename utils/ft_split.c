@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 11:00:32 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:47:59 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	handle_word(t_tk **res, t_gc **garbage, char *line,
 	while (line[utils->i] && !ft_chrstr(line[utils->i], "|&()"))
 	{
 		if ((line[utils->i] == '"' || line[utils->i] == '\'')
-				&& ft_skip_quates(&(utils->i), line))
+			&& ft_skip_quates(&(utils->i), line))
 			continue ;
 		(utils->i)++;
 	}

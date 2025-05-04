@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 11:06:40 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 10:46:40 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,12 +115,11 @@ typedef struct t_parts
 
 typedef struct s_expander
 {
-	char					*target;
+	char					*line;
 	bool					expandable;
 	int						start;
-	int						end;
+	t_part					*head;
 	int						i;
-	int						j;
 	t_part					*result;
 }							t_expander;
 
@@ -269,4 +268,9 @@ t_part						*ft_new_part(char *line, int start, int len,
 								t_gc **garbage);
 void						ft_add_part(t_part **head, t_part *new);
 int							is_expandable(const char *line, int pos);
+void						handle_single_quote(t_expander *u, t_gc **g);
+void						handle_double_quote(t_expander *u, t_gc **g);
+void						remove_double_quotes(t_part **curr, t_gc **garbage);
+void						remove_single_quotes(t_part **curr, t_gc **garbage);
+
 #endif

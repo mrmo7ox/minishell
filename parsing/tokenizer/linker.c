@@ -6,14 +6,34 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:26:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/03 10:42:38 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 11:11:45 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	linker(t_leaf **root, void (*applyme)(t_tk *token, t_gc **garbage,
-			t_env **ft_env), t_gc **garbage, t_env **ft_env)
+void	handle_command_node(t_leaf *node, void (*applyme)(t_tk *, t_gc **,
+			t_env **), t_gc **garbage, t_env **ft_env)
+{
+	if (!node || node->type != COMMAND)
+		return ;
+	if (node->token && ft_strinstr(node->token->token, "$"))
+		applyme(node->token, garbage, ft_env);
+}
+
+void	traverse_child(t_leaf *child, void (*applyme)(t_tk *, t_gc **,
+			t_env **), t_gc **garbage, t_env **ft_env)
+{
+	if (!child)
+		return ;
+	if (child->type == COMMAND)
+		handle_command_node(child, applyme, garbage, ft_env);
+	else
+		linker(&child, applyme, garbage, ft_env);
+}
+
+void	linker(t_leaf **root, void (*applyme)(t_tk *, t_gc **, t_env **),
+		t_gc **garbage, t_env **ft_env)
 {
 	t_leaf	*tmp;
 
@@ -22,26 +42,6 @@ void	linker(t_leaf **root, void (*applyme)(t_tk *token, t_gc **garbage,
 	tmp = *root;
 	if (tmp->type == COMMAND)
 		applyme(tmp->token, garbage, ft_env);
-	if (tmp->right)
-	{
-		if (tmp->right->type == COMMAND)
-		{
-			if (tmp->right->token && ft_strinstr(tmp->right->token->token, "$"))
-			{
-				applyme(tmp->right->token, garbage, ft_env);
-			}
-		}
-		else
-			linker(&(tmp->right), applyme, garbage, ft_env);
-	}
-	if (tmp->left)
-	{
-		if (tmp->left->type == COMMAND)
-		{
-			if (tmp->left->token && ft_strinstr(tmp->left->token->token, "$"))
-				applyme(tmp->left->token, garbage, ft_env);
-		}
-		else
-			linker(&(tmp->left), applyme, garbage, ft_env);
-	}
+	traverse_child(tmp->right, applyme, garbage, ft_env);
+	traverse_child(tmp->left, applyme, garbage, ft_env);
 }

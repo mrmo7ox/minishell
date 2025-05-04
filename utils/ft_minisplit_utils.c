@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minisplit_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:36:48 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 13:13:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 09:52:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,6 @@ int	handle_redirection(t_redic **res, t_gc **garbage, char *line, int *i)
 		return (free(redir), 0);
 	temp = ft_strjoin(redir, " ", garbage);
 	combined = ft_strjoin(temp, file, garbage);
-	// free(redir);
-	// free(file);
-	// free(temp);
 	ft_add_redic(res, ft_new_redic_node(garbage, combined));
-	// free(combined);
 	return (1);
 }

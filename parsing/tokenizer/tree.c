@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/01 10:57:30 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 09:55:24 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_leaf	*new_leaf(t_tk *token, t_type type, t_gc **garbage)
 	new->right = NULL;
 	return (new);
 }
+
 int	get_precedence(t_type type)
 {
 	if (type == OR)
