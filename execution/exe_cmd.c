@@ -6,52 +6,11 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 14:42:26 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:03:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
-bool	is_builtin(char *str)
-{
-	if (!ft_strcmp(str, "env"))
-		return (true);
-	else if (!ft_strcmp(str, "export"))
-		return (true);
-	else if (!ft_strcmp(str, "pwd"))
-		return (true);
-	else if (!ft_strcmp(str, "echo"))
-		return (true);
-	else if (!ft_strcmp(str, "cd"))
-		return (true);
-	else if (!ft_strcmp(str, "unset"))
-		return (true);
-	else if (!ft_strcmp(str, "exit"))
-		return (true);
-	else
-		return (false);
-}
-
-void	exe_builtin(char **args, t_env **ft_env, t_gc **gc)
-{
-	if (!ft_strcmp(args[0], "env"))
-		cmd_env(args, ft_env);
-	else if (!ft_strcmp(args[0], "export"))
-		export(args, ft_env, gc);
-	else if (!ft_strcmp(args[0], "pwd"))
-		ft_pwd(args, gc);
-	else if (!ft_strcmp(args[0], "echo"))
-		echo(args);
-	else if (!ft_strcmp(args[0], "cd"))
-		cd(args, gc, ft_env);
-	else if (!ft_strcmp(args[0], "unset"))
-		ft_unset(args, ft_env);
-	else if (!ft_strcmp(args[0], "exit"))
-	{
-		ft_free_env(ft_env);
-		exit(0);
-	}
-}
 
 static char	**dp_env(t_env **ft_env, t_gc **gc)
 {
@@ -75,87 +34,83 @@ static char	**dp_env(t_env **ft_env, t_gc **gc)
 	return (res);
 }
 
-char	*check_cmd(char **args, t_env **ft_env, t_gc **gc)
+void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 {
-	char	*path;
-	char	**paths;
-	char	*cmd;
-	int		i;
+	int	i;
 
-	path = ft_strdup(ft_getenv("PATH", ft_env), gc);
-	if (!path)
+	i = 0;
+	if (path && !access(path, F_OK))
+	{
+		if (access(path, X_OK))
+		{
+			while (args[i])
+				free(args[i++]);
+			free(args);
+			ft_putstr_fd(path, 2);
+			ft_putstr_fd(" : permission denied\n", 2);
+			exit_exe(ft_env, gc, 126);
+		}
+	}
+	else
 	{
 		ft_putstr_fd(args[0], 2);
-		ft_putstr_fd(" : command not found", 2);
-		exit(127);
+		ft_putstr_fd(" : command not found\n", 2);
+		while (args[i])
+			free(args[i++]);
+		free(args);
+		exit_exe(ft_env, gc, 127);
 	}
-	cmd = ft_strjoin("/", args[0], gc);
-	paths = ft_vanilla_split(path, ':', 0, 0);
-	i = 0;
-	while (paths[i])
-	{
-		path = ft_strjoin(paths[i], cmd, gc);
-		if (!access(path, F_OK))
-		{
-			if (!access(path, X_OK))
-				return (path);
-			else
-			{
-				ft_putstr_fd(args[0], 2);
-				ft_putstr_fd(" : permission denied", 2);
-				exit(126);
-			}
-		}
-		i++;
-	}
-	ft_putstr_fd(args[0], 2);
-	ft_putstr_fd(" : command not found", 2);
-	exit(127);
 }
 
-void	exe_cmd(char **args, t_env **ft_env, t_gc **gc)
+char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 {
-	char	**env;
-	pid_t	pid;
 	char	*path;
 
-	if (!args)
-		return ;
+	if (ft_chrstr('/', args[0]))
+	{
+		path = ft_strdup(args[0], gc);
+		check_path(args, path, ft_env, gc);
+	}
+	else
+	{
+		path = get_path(args, ft_env, gc);
+		check_path(args, path, ft_env, gc);
+	}
+	return (path);
+}
+
+void	child(char **args, t_env **ft_env, t_gc **gc)
+{
+	char	**env;
+	char	*path;
+
+	path = resolve_path(args, ft_env, gc);
+	env = dp_env(ft_env, gc);
+	if (execve(path, args, env) == -1)
+	{
+		if (access(path, X_OK) != -1)
+			exit(0);
+		perror("execve");
+	}
+}
+
+int	exe_cmd(char **args, t_env **ft_env, t_gc **gc)
+{
+	pid_t	pid;
+	int		status;
+
+	status = 0;
 	if (is_builtin(args[0]))
-		exe_builtin(args, ft_env, gc);
+		return (exe_builtin(args, ft_env, gc));
 	else
 	{
 		pid = fork();
 		if (pid == -1)
 			perror("Fork");
 		if (!pid)
-		{
-			env = dp_env(ft_env, gc);
-			if (ft_chrstr('/', args[0]))
-			{
-				path = args[0];
-				if (!access(path, F_OK))
-				{
-					if (access(path, X_OK))
-					{
-						ft_putstr_fd(args[0], 2);
-						ft_putstr_fd(" : permission denied", 2);
-						exit(126);
-					}
-				}
-				else
-				{
-					ft_putstr_fd(args[0], 2);
-					ft_putstr_fd(" : command not found", 2);
-					exit(127);
-				}
-			}
-			else
-				path = check_cmd(args, ft_env, gc);
-			if (execve(path, args, env) == -1)
-				perror("Execve");
-		}
+			child(args, ft_env, gc);
 		else if (pid)
-			waitpid(pid, NULL, 0);
+			waitpid(pid, &status, 0);
 	}
+	return (WEXITSTATUS(status));
 }

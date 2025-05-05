@@ -6,30 +6,17 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 17:35:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:03:31 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-void	printf_garbage(t_gc *garbage)
-{
-	int	i;
-
-	i = 0;
-	if (!garbage)
-		printf("there's no garbage to clean! expet the dev\n");
-	while (garbage)
-	{
-		i++;
-		garbage = garbage->next;
-	}
-	if (i)
-		printf("there's %d addr in the garbage!\n", i);
-}
-
 void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 {
+	char	**args;
+	int		status;
+
 	add_history(line);
 	save_history();
 	if (syntax_error(line))
@@ -38,18 +25,12 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 		{
 			linker(root, expander, garbage, ft_env);
 			remove_qoutes_tree(root, garbage);
-			init_redirection(root, garbage);
-			// if (!(*root)->left && !(*root)->right && root
-			// 	&& (*root)->token->token)
-			// {
-			// 	args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
-			// 	exe_cmd(args, ft_env, garbage);
-			// 	while (*args)
-			// 	{
-			// 		free(*args);
-			// 		args++;
-			// 	}
-			// }
+			if (!(*root)->left && !(*root)->right)
+			{
+				args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
+				status = exe_cmd(args, ft_env, garbage);
+				printf("%d\n", status);
+			}
 		}
 	}
 }
