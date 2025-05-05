@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vanilla_split.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:48:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 10:23:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/04 14:41:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	**free_the_split(char **res, int words)
 {
 	while (words)
 	{
-		free (res[words]);
+		free(res[words]);
 		words--;
 	}
 	free(res);
@@ -60,6 +60,8 @@ char	**ft_vanilla_split(char *str, char c, int i, int j)
 	char	**res;
 	int		words;
 
+	if (!str)
+		return (NULL);
 	words = strlen_mod(str, c);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)

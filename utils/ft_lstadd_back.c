@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:46:28 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/02 09:54:51 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 13:37:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,6 @@ void	ft_add_tk(t_tk **head, t_tk *new)
 		last = last->next;
 	last->next = new;
 	new->prev = last;
-}
-
-void	ft_add_part(t_part **head, t_part *new)
-{
-	t_part	*last;
-
-	if (!(head) || !new)
-		return ;
-	if (!(*head))
-	{
-		(*head) = new;
-		return ;
-	}
-	last = *head;
-	while (last->next)
-		last = last->next;
-	last->next = new;
 }
 
 void	ft_add_redic(t_redic **head, t_redic *new)

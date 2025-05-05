@@ -6,15 +6,22 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:31:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 09:52:18 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 15:12:51 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	ft_isalnum(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+int	ft_isalnum(int c)
+{
+	if ((c >= '0' && c <= '9') || ft_isalpha(c))
 		return (1);
 	return (0);
 }

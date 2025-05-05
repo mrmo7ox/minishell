@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 11:50:50 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:35:22 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	printf_garbage(t_gc *garbage)
 
 void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 {
-	char	**args;
-
 	add_history(line);
 	save_history();
 	if (syntax_error(line))
@@ -39,16 +37,19 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 		if (tokenizer(root, garbage, line))
 		{
 			linker(root, expander, garbage, ft_env);
-			if (!(*root)->left && !(*root)->right)
-			{
-				args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
-				exe_cmd(args, ft_env, garbage);
-				while (*args)
-				{
-					free(*args);
-					args++;
-				}
-			}
+			remove_qoutes_tree(root, garbage);
+			init_redirection(root, garbage);
+			// if (!(*root)->left && !(*root)->right && root
+			// 	&& (*root)->token->token)
+			// {
+			// 	args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
+			// 	exe_cmd(args, ft_env, garbage);
+			// 	while (*args)
+			// 	{
+			// 		free(*args);
+			// 		args++;
+			// 	}
+			// }
 		}
 	}
 }

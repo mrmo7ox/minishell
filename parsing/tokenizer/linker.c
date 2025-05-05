@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:26:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 11:11:45 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:36:19 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	handle_command_node(t_leaf *node, void (*applyme)(t_tk *, t_gc **,
+static void	handle_command_node(t_leaf *node, void (*applyme)(t_tk *, t_gc **,
 			t_env **), t_gc **garbage, t_env **ft_env)
 {
 	if (!node || node->type != COMMAND)
@@ -21,7 +21,7 @@ void	handle_command_node(t_leaf *node, void (*applyme)(t_tk *, t_gc **,
 		applyme(node->token, garbage, ft_env);
 }
 
-void	traverse_child(t_leaf *child, void (*applyme)(t_tk *, t_gc **,
+static void	traverse_child(t_leaf *child, void (*applyme)(t_tk *, t_gc **,
 			t_env **), t_gc **garbage, t_env **ft_env)
 {
 	if (!child)

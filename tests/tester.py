@@ -5,7 +5,7 @@ import subprocess
 def run_minishell_with_input(input_text):
     with open('res', "a+") as file:  # Open the file for appending
         minishell_process = subprocess.Popen(
-            '/home/moel-oua/moel-oua/Desktop/cercle_4/minishell/minishell',  # Replace with the path to your minishell executable
+            '/home/moel-oua/Desktop/minishell/minishell',  # Replace with the path to your minishell executable
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -48,8 +48,9 @@ def read_combined_text(file_path):
 
 # Main function
 def main():
-    combined_text_file = '/home/moel-oua/goinfre/combine.txt'  # Path to your combined text file
+    combined_text_file = '/home/moel-oua/Desktop/minishell/tests/l'  # Path to your combined text file
     input_lines = read_combined_text(combined_text_file)
+    print(input_lines)
     run_minishell_with_input(input_lines)
 
 if __name__ == "__main__":

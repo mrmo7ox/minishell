@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 11:35:04 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/05 17:51:19 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,23 +106,6 @@ typedef struct s_mini
 	t_retypes				type;
 }							t_mini;
 
-typedef struct t_parts
-{
-	char					*content;
-	int						expandable;
-	struct t_parts			*next;
-}							t_part;
-
-typedef struct s_expander
-{
-	char					*line;
-	bool					expandable;
-	int						start;
-	t_part					*head;
-	int						i;
-	t_part					*result;
-}							t_expander;
-
 // env
 typedef struct s_env
 {
@@ -130,6 +113,17 @@ typedef struct s_env
 	char					*value;
 	void					*next;
 }							t_env;
+
+typedef struct s_expander
+{
+	char					*line;
+	int						double_open;
+	bool					expandable;
+	int						start;
+	int						i;
+	t_env					**env;
+	char					*result;
+}							t_expander;
 
 typedef struct s_container
 {
@@ -144,9 +138,10 @@ t_env						*ft_new_env(char *name, char *value);
 void						env_init(char **env, t_env **ft_env);
 void						ft_putenv(char *name, char *value, t_env **ft_env);
 char						*ft_getenv(char *name, t_env **ft_env);
+void						ft_free_env(t_env **ft_env);
 
 // builtin
-void						cd(char **args, t_gc **gg);
+void						cd(char **args, t_gc **gg, t_env **ft_env);
 void						echo(char **args);
 void						cmd_env(char **args, t_env **env);
 void						export(char **args, t_env **ft_env, t_gc **gg);
@@ -205,6 +200,7 @@ void						move_next(char *line, int *i);
 void						ft_split(t_tk **res, t_gc **garbage, char *line);
 char						*ft_copy(char *src, int len, t_gc **garbage);
 int							ft_isalpha(int c);
+int							ft_isdigit(int c);
 int							ft_isalnum(int c);
 t_type						special_cases(char *str);
 size_t						args_len(char **args);
@@ -263,19 +259,17 @@ void						linker(t_leaf **root, void (*applyme)(t_tk *token,
 // expanding
 void						expander(t_tk *token, t_gc **garbage,
 								t_env **ft_env);
-t_expander					split_expand(char *line, t_gc **garbage);
-t_part						*ft_new_part(char *line, int start, int len,
-								t_gc **garbage);
-t_part						*ft_new_part(char *line, int start, int len,
-								t_gc **garbage);
-void						ft_add_part(t_part **head, t_part *new);
-int							is_expandable(const char *line, int pos);
+t_expander					split_expand(char *line, t_gc **garbage,
+								t_env **ft_env);
+// remove quotes
+char						*remove_qoutes(char *line, t_gc **garbage);
+void						remove_qoutes_tree(t_leaf **root, t_gc **garbage);
 
-//exe
+// exe
 void						exe_cmd(char **args, t_env **ft_env, t_gc **gc);
-void						handle_single_quote(t_expander *u, t_gc **g);
-void						handle_double_quote(t_expander *u, t_gc **g);
-void						remove_double_quotes(t_part **curr, t_gc **garbage);
-void						remove_single_quotes(t_part **curr, t_gc **garbage);
+
+// hadnling redections
+bool						exec_redirec(t_tk *token, t_gc **garbage);
+void						init_redirection(t_leaf **root, t_gc **garbage);
 
 #endif
