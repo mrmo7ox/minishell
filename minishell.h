@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 13:26:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/05 15:38:33 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,9 +147,9 @@ char						*ft_getenv(char *name, t_env **ft_env);
 void						ft_free_env(t_env **ft_env);
 
 // builtin
-void						cd(char **args, t_gc **gg, t_env **ft_env);
-void						echo(char **args);
-void						cmd_env(char **args, t_env **env);
+int							cd(char **args, t_gc **gg, t_env **ft_env);
+int							echo(char **args);
+int							cmd_env(char **args, t_env **env);
 void						export(char **args, t_env **ft_env, t_gc **gg);
 void						export_append(char *name, char *value,
 								t_env **ft_env, t_gc **gg);
@@ -159,8 +159,8 @@ void						ext_export(char *name, char *value, t_env **ft_env,
 void						export_sort(t_env **ft_env);
 char						**export_split(char *str);
 bool						check_name_env(char *name, t_env **ft_env);
-char						*ft_pwd(char **args, t_gc **gg);
-void						ft_unset(char **args, t_env **env);
+int							ft_pwd(char **args, t_gc **gg);
+int							ft_unset(char **args, t_env **env);
 void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
 
 // history
@@ -273,10 +273,14 @@ void						ft_add_part(t_part **head, t_part *new);
 int							is_expandable(const char *line, int pos);
 
 //exe
-void						exe_cmd(char **args, t_env **ft_env, t_gc **gc);
+int							exe_cmd(char **args, t_env **ft_env, t_gc **gc);
 void						handle_single_quote(t_expander *u, t_gc **g);
 void						handle_double_quote(t_expander *u, t_gc **g);
 void						remove_double_quotes(t_part **curr, t_gc **garbage);
 void						remove_single_quotes(t_part **curr, t_gc **garbage);
+void						exit_exe(t_env **ft_env, t_gc **gc, int err);
+int							exe_builtin(char **args, t_env **ft_env, t_gc **gc);
+char						*get_path(char **args, t_env **ft_env, t_gc **gc);
+bool						is_builtin(char *str);
 
 #endif

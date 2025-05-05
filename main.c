@@ -6,31 +6,16 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 13:33:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/05 15:20:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-void	printf_garbage(t_gc *garbage)
-{
-	int	i;
-
-	i = 0;
-	if (!garbage)
-		printf("there's no garbage to clean! expet the dev\n");
-	while (garbage)
-	{
-		i++;
-		garbage = garbage->next;
-	}
-	if (i)
-		printf("there's %d addr in the garbage!\n", i);
-}
-
 void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 {
 	char	**args;
+	int		status;
 
 	add_history(line);
 	save_history();
@@ -42,12 +27,8 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 			if (!(*root)->left && !(*root)->right)
 			{
 				args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
-				exe_cmd(args, ft_env, garbage);
-				while (*args)
-				{
-					free(*args);
-					args++;
-				}
+				status = exe_cmd(args, ft_env, garbage);
+				printf("%d\n", status);
 			}
 		}
 	}

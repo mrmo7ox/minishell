@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 12:27:52 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/05 15:37:34 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	no_args(t_env **ft_env)
 		perror("cd ");
 }
 
-static void	helper(char *str, t_gc **gg)
+static int	helper(char *str, t_gc **gg)
 {
 	char	*buff;
 
@@ -44,33 +44,41 @@ static void	helper(char *str, t_gc **gg)
 	if (!buff)
 	{
 		if (chdir("/") == -1)
+		{
 			ft_putstr_fd("somthing went wrong\n", 2);
+			return (1);
+		}
 	}
 	buff = ft_strjoin(buff, "/", gg);
 	buff = ft_strjoin(buff, str, gg);
 	if (chdir(buff) == -1)
 		perror("cd ");
+	return (0);
 }
 
-void	cd(char **args, t_gc **gg, t_env **ft_env)
+int	cd(char **args, t_gc **gg, t_env **ft_env)
 {
 	size_t	len;
 
 	if (!args)
-		return ;
+		return (1);
 	len = args_len(args);
 	if (len == 1)
 		no_args(ft_env);
 	else if (len > 2)
+	{
 		ft_putstr_fd("too many argument\n", 2);
+		return (1);
+	}
 	else if (len == 2)
 	{
 		if (args[1][0] == '/')
 		{
 			if (chdir(args[1]) == -1)
-				perror("cd ");
+				return (perror("cd "), 1);
 		}
 		else
-			helper(args[1], gg);
+			return (helper(args[1], gg));
 	}
+	return (0);
 }

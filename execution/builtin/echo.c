@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:32:10 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/29 14:33:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/05 15:36:10 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static bool	check_op(char *str)
 	return (false);
 }
 
-void	echo(char **args)
+int	echo(char **args)
 {
 	int	i;
 	int	flag;
@@ -56,4 +56,5 @@ void	echo(char **args)
 	}
 	if (!flag)
 		printf("\n");
+	return (0);
 }
