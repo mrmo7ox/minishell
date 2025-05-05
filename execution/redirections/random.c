@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expanding_utils.c                                  :+:      :+:    :+:   */
+/*   random.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 09:56:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 17:26:47 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/05 20:09:20 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/05 20:23:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	remove_qoute(char *line)
+long	get_random(void)
 {
-	int i;
-
-	i = 0;
-	while (line[i])
-	{
-		i++;
-	}
+	int local;
+	return ((long)&local) ^ ((long)&get_random);
 }

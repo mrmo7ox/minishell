@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:25:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 19:01:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:58:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	handle_command_node(t_leaf *node, t_gc **garbage)
 		return ;
 	if (node->token)
 	{
-		node->token->token = remove_qoutes(node->token->token, garbage);
+		if (node->token->token)
+			node->token->token = remove_qoutes(node->token->token, garbage);
 	}
 }
 

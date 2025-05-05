@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 19:03:12 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:24:10 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINISHELL_H
 
 # include <errno.h>
+# include <fcntl.h>
 # include <limits.h>
 # include <readline/history.h>
 # include <readline/readline.h>
@@ -63,6 +64,7 @@ typedef struct s_garbage
 typedef struct s_redirection
 {
 	char					*content;
+	int						fd;
 	t_retypes				type;
 	struct s_redirection	*next;
 	struct s_redirection	*prev;
@@ -226,6 +228,8 @@ char						*ft_strdupnofree(const char *source);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
 char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
+char						*ft_itoa(long n, t_gc **garbage);
+long						get_random(void);
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);
