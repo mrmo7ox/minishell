@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/06 11:07:18 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:22:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,6 +228,7 @@ char						*ft_cut(char const *s, unsigned int start,
 								size_t len);
 char						*ft_strdupnofree(const char *source);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
+char						**ft_args_split(char *str, t_gc **gc, int i, int j);
 char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);

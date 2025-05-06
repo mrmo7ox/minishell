@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   remove_qoute.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:25:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/06 10:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:25:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*remove_qoutes(char *line, t_gc **garbage)
 			u.start = u.i;
 			while (u.line[u.i] && u.line[u.i] != quote)
 				u.i++;
-			u.double_open = (quote == '\"') ? 1 : 2;
+			u.double_open = (quote == '\"') ? 1 : 2;//forbiden
 			add_to_res(&u, garbage);
 			if (u.line[u.i] == quote)
 				u.i++;

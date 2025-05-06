@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/06 11:58:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:24:26 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 	args = NULL;
 	if (node->token->token)
 	{
-		args = ft_vanilla_split(node->token->token, ' ', garbage);
+		args = ft_args_split(node->token->token, garbage, 0, 0);
 		while (args)
 			if (!args)
 			{
 				exec_redirec(node->token, garbage);
-				return ;
+				return (true);
 			}
 		exec_redirec(node->token, garbage);
-		exe_cmd(args, node->token, ft_env, garbage)
+		exe_cmd(args, node->token, ft_env, garbage);
 	}
+	return (true);
 }
 
 int	exec(t_leaf **root, t_env **ft_env, t_gc **garbage)

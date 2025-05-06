@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/06 11:49:26 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 13:57:38 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int	exe_cmd(char **args, t_tk *token, t_env **ft_env, t_gc **gc)
 	pid_t	pid;
 	int		status;
 
+	(void)token;
 	status = 0;
 	if (is_builtin(args[0]))
 		return (exe_builtin(args, ft_env, gc));
