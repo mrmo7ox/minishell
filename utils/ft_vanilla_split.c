@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:48:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/05 19:03:50 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:58:42 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ static char	**free_the_split(char **res, int words)
 	return (NULL);
 }
 
-char	**ft_vanilla_split(char *str, char c, int i, int j)
+char	**ft_vanilla_split(char *str, t_gc **garbage, int i, int j)
 {
 	char	**res;
 	int		words;
 
 	if (!str)
 		return (NULL);
-	words = strlen_mod(str, c);
+	words = strlen_mod(str, ' ');
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
@@ -70,17 +70,18 @@ char	**ft_vanilla_split(char *str, char c, int i, int j)
 	words = 0;
 	while (str[i])
 	{
-		while (str[i] && str[i] == c)
+		while (str[i] && str[i] == ' ')
 			i++;
 		j = i;
-		while (str[i] && str[i] != c)
+		while (str[i] && str[i] != ' ')
 			i++;
 		if (i > j)
 		{
 			res[words] = malloc(sizeof(char) * ((i - j) + 1));
 			if (!res[words])
 				return (free_the_split(res, words));
-			(ft_vanilla_copy(res[words], &str[j], (i - j)), words++);
+			(ft_vanilla_copy(remove_qoutes(res[words], garbage), &str[j], (i
+						- j)), words++);
 		}
 	}
 	return (res[words] = NULL, res);

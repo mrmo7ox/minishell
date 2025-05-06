@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 20:31:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:58:21 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 {
-	char	**args;
-	int		status;
-
 	add_history(line);
 	save_history();
 	if (syntax_error(line))
@@ -24,16 +21,7 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 		if (tokenizer(root, garbage, line))
 		{
 			linker(root, expander, garbage, ft_env);
-			remove_qoutes_tree(root, garbage);
-			init_redirection(root, garbage);
-			if (!(*root)->left && !(*root)->right)
-			{
-				if (!(*root)->token->token)
-					return ;
-				args = ft_vanilla_split((*root)->token->token, ' ', 0, 0);
-				status = exe_cmd(args, ft_env, garbage);
-				printf("%d\n", status);
-			}
+			exec(root, ft_env, garbage);
 		}
 	}
 }

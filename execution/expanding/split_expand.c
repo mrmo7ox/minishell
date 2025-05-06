@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 18:11:47 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:53:46 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	add_to_res(t_expander *u, t_gc **garbage, bool expand_it)
 
 void	handle_expandable(t_expander *u, t_gc **garbage, bool from_double)
 {
+	(void)from_double;
 	add_to_res(u, garbage, false);
 	if (u->line[u->i] == '$')
 	{

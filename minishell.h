@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 20:24:10 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:07:18 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef struct s_tokenizer
 	t_type					type;
 	t_redic					*redics;
 	char					*token;
+	int						in;
+	int						out;
 	int						priority;
 	int						subshell;
 	int						index;
@@ -270,7 +272,8 @@ char						*remove_qoutes(char *line, t_gc **garbage);
 void						remove_qoutes_tree(t_leaf **root, t_gc **garbage);
 
 // exe
-int							exe_cmd(char **args, t_env **ft_env, t_gc **gc);
+int							exe_cmd(char **args, t_tk *token, t_env **ft_env,
+								t_gc **gc);
 void						handle_single_quote(t_expander *u, t_gc **g);
 void						handle_double_quote(t_expander *u, t_gc **g);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
@@ -279,6 +282,9 @@ char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
 
 // redics
-void						init_redirection(t_leaf **root, t_gc **garbage);
+bool						exec_redirec(t_tk *token, t_gc **garbage);
+
+// exec part me
+int							exec(t_leaf **root, t_env **ft_env, t_gc **garbage);
 
 #endif

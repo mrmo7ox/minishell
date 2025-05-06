@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/05 19:15:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/06 11:49:26 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	child(char **args, t_env **ft_env, t_gc **gc)
 	}
 }
 
-int	exe_cmd(char **args, t_env **ft_env, t_gc **gc)
+int	exe_cmd(char **args, t_tk *token, t_env **ft_env, t_gc **gc)
 {
 	pid_t	pid;
 	int		status;
