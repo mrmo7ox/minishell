@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/06 15:22:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/07 09:14:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,7 @@ bool						is_builtin(char *str);
 bool						exec_redirec(t_tk *token, t_gc **garbage);
 
 // exec part me
-int							exec(t_leaf **root, t_env **ft_env, t_gc **garbage);
+int							execc(t_leaf **root, t_env **ft_env,
+								t_gc **garbage);
 
 #endif

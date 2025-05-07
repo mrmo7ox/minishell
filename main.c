@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/06 11:58:21 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 09:10:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 		if (tokenizer(root, garbage, line))
 		{
 			linker(root, expander, garbage, ft_env);
-			exec(root, ft_env, garbage);
+			execc(root, ft_env, garbage);
 		}
 	}
 }
@@ -49,6 +49,7 @@ int	main(int ac, char **av, char **env)
 			continue ;
 		start(container.line, &(container.root), &(container.garbage),
 			&container.ft_env);
+		// printf("======[TEST]======\n");
 		free_garbage(&container.garbage);
 	}
 	return (0);

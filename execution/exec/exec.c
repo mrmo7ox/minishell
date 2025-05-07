@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/06 15:24:26 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/07 09:15:16 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
+static bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 {
 	char	**args;
 
@@ -20,19 +20,18 @@ bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 	if (node->token->token)
 	{
 		args = ft_args_split(node->token->token, garbage, 0, 0);
-		while (args)
-			if (!args)
-			{
-				exec_redirec(node->token, garbage);
-				return (true);
-			}
-		exec_redirec(node->token, garbage);
+		if (!args)
+		{
+			exec_redirec(node->token, garbage);
+			return (false);
+		}
+		// exec_redirec(node->token, garbage);
 		exe_cmd(args, node->token, ft_env, garbage);
 	}
 	return (true);
 }
 
-int	exec(t_leaf **root, t_env **ft_env, t_gc **garbage)
+int	execc(t_leaf **root, t_env **ft_env, t_gc **garbage)
 {
 	t_leaf	*node;
 
