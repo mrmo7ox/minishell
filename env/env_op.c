@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/07 10:06:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:02:50 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ char	*ft_getenv(char *name, t_env **ft_env)
 
 	head = *ft_env;
 	while (head && ft_strcmp(name, head->name))
-	{
 		head = head->next;
-	}
 	if (head)
 	{
 		if (head->value)
