@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 11:59:32 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 12:33:30 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,11 @@ void	handle_single_quote(t_expander *u, t_gc **garbage)
 void	handle_word(t_expander *u, t_gc **garbage)
 {
 	add_to_res(u, garbage, false);
-	if (u->line[u->i] && !ft_chrstr(u->line[u->i], "$'\""))
+	printf("[%s]\n", u->line);
+	if (u->line[u->i] && !ft_chrstr(u->line[u->i], "$'\"\0"))
 	{
 		u->start = u->i;
-		while (u->line[u->i] && !ft_chrstr(u->line[u->i], "$'\""))
+		while (u->line[u->i] != '\0' && !ft_chrstr(u->line[u->i], "$'\""))
 			u->i++;
 		add_to_res(u, garbage, false);
 	}
@@ -118,9 +119,9 @@ void	handle_word(t_expander *u, t_gc **garbage)
 
 void	loop_and_replace(t_expander *u, t_gc **garbage)
 {
-	while (u->line[u->i])
+	while (u->line[u->i] != '\0')
 	{
-		printf("[%s]\n", u->line);
+		printf("[%c]\n", u->line[u->i]);
 		if (u->line[u->i] == '"')
 			handle_double_quote(u, garbage);
 		else if (u->line[u->i] == '\'')
@@ -128,7 +129,9 @@ void	loop_and_replace(t_expander *u, t_gc **garbage)
 		else if (u->line[u->i] == '$')
 			handle_expandable(u, garbage, false);
 		else
+		{
 			handle_word(u, garbage);
+		}
 	}
 }
 
@@ -143,11 +146,11 @@ t_expander	split_expand(char **line, t_gc **garbage, t_env **ft_env)
 	u.start = 0;
 	u.result = &res;
 	u.env = ft_env;
+	u.line = NULL;
 	if (!line)
 		return (u);
 	for (int i = 0; line[i]; i++)
 	{
-		printf("[%s]\n", line[i]);
 		u.line = line[i];
 		if (u.line)
 			loop_and_replace(&u, garbage);
