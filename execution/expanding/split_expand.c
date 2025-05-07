@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 20:53:46 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 11:59:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	add_to_res(t_expander *u, t_gc **garbage, bool expand_it)
 {
 	char	*new;
+	bool	allowed;
 
 	if (u->start < u->i)
 	{
@@ -22,8 +23,11 @@ void	add_to_res(t_expander *u, t_gc **garbage, bool expand_it)
 		if (expand_it)
 		{
 			new = ft_getenv(ft_strip('$', new, garbage), u->env);
+			allowed = true;
 		}
-		u->result = ft_strjoin(u->result, new, garbage);
+		else
+			allowed = false;
+		ft_add_node(u->result, ft_new_node(new, allowed));
 		u->start = u->i;
 	}
 }
@@ -116,6 +120,7 @@ void	loop_and_replace(t_expander *u, t_gc **garbage)
 {
 	while (u->line[u->i])
 	{
+		printf("[%s]\n", u->line);
 		if (u->line[u->i] == '"')
 			handle_double_quote(u, garbage);
 		else if (u->line[u->i] == '\'')
@@ -127,18 +132,25 @@ void	loop_and_replace(t_expander *u, t_gc **garbage)
 	}
 }
 
-t_expander	split_expand(char *line, t_gc **garbage, t_env **ft_env)
+t_expander	split_expand(char **line, t_gc **garbage, t_env **ft_env)
 {
+	t_list		*res;
 	t_expander	u;
 
+	res = NULL;
 	u.i = 0;
 	u.env = 0;
 	u.start = 0;
-	u.result = NULL;
-	u.line = line;
+	u.result = &res;
 	u.env = ft_env;
 	if (!line)
 		return (u);
-	loop_and_replace(&u, garbage);
+	for (int i = 0; line[i]; i++)
+	{
+		printf("[%s]\n", line[i]);
+		u.line = line[i];
+		if (u.line)
+			loop_and_replace(&u, garbage);
+	}
 	return (u);
 }

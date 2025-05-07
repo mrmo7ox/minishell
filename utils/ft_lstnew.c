@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 13:37:45 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 11:40:40 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ t_gc	*ft_new_gc_node(void *content)
 	if (!node)
 		return (NULL);
 	node->addr = content;
+	node->next = NULL;
+	return (node);
+}
+
+t_list	*ft_new_node(void *content, bool allowed)
+{
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->line = content;
+	node->allowed = allowed;
 	node->next = NULL;
 	return (node);
 }

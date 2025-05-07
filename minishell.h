@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 09:14:06 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 11:43:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,15 +118,23 @@ typedef struct s_env
 	void					*next;
 }							t_env;
 
-typedef struct s_expander
+typedef struct s_list
 {
 	char					*line;
+	bool					allowed;
+	struct s_list			*next;
+	struct s_list			*prev;
+}							t_list;
+
+typedef struct s_expander
+{
 	int						double_open;
 	bool					expandable;
 	int						start;
 	int						i;
+	char					*line;
 	t_env					**env;
-	char					*result;
+	t_list					**result;
 }							t_expander;
 
 typedef struct s_container
@@ -233,6 +241,8 @@ char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);
 long						get_random(void);
+void						ft_add_node(t_list **head, t_list *new);
+t_list						*ft_new_node(void *content, bool allowed);
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);
@@ -266,10 +276,10 @@ void						linker(t_leaf **root, void (*applyme)(t_tk *token,
 // expanding
 void						expander(t_tk *token, t_gc **garbage,
 								t_env **ft_env);
-t_expander					split_expand(char *line, t_gc **garbage,
+t_expander					split_expand(char **line, t_gc **garbage,
 								t_env **ft_env);
 // remove quotes
-char						*remove_qoutes(char *line, t_gc **garbage);
+t_expander					remove_qoutes(char *line, t_gc **garbage);
 void						remove_qoutes_tree(t_leaf **root, t_gc **garbage);
 
 // exe

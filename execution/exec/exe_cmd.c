@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/07 09:32:17 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 11:41:41 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,6 @@ int	exe_cmd(char **args, t_tk *token, t_env **ft_env, t_gc **gc)
 
 	(void)token;
 	status = 0;
-	for (int i = 0; args[i]; i++)
-	{
-		if (!ft_strstr(args[i], "="))
-			args[i] = remove_qoutes(args[i], gc);
-	}
 	if (is_builtin(args[0]))
 		return (exe_builtin(args, ft_env, gc));
 	else

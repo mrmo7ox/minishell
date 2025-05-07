@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 09:15:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 10:30:00 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 			exec_redirec(node->token, garbage);
 			return (false);
 		}
-		// exec_redirec(node->token, garbage);
 		exe_cmd(args, node->token, ft_env, garbage);
 	}
 	return (true);
