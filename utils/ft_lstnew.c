@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 13:41:29 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/08 14:32:20 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	*ft_new_redic_node(t_gc **garbage, char *content)
 	return (node);
 }
 
-t_pipe	new_pip(int fd, int status, t_gc **gc)
+t_pipe	*new_pip(int fd, int status, t_gc **gc)
 {
-	t_pip	*new;
+	t_pipe	*new;
 
 	new = ft_malloc(sizeof(t_pipe), gc);
 	new->fd = -1;
