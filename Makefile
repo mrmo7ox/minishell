@@ -6,13 +6,13 @@
 #    By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/05/07 11:50:40 by moel-oua         ###   ########.fr        #
+#    Updated: 2025/05/08 12:00:04 by moel-oua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
-CC = gcc
-CFLAGS = -Wall  -Wextra -Werror -g3 -fsanitize=address  -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-but-set-variable
+CC = cc
+CFLAGS = -Wall  -Wextra -Werror -g3 -fsanitize=address # -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-but-set-variable
 MFLAGS = -lreadline -lncurses
 TSRC = 
 USRC = utils/ft_itoa.c execution/redirections/random.c utils/ft_strdup.c utils/ft_args_split.c utils/ft_vanilla_split.c utils/ft_strdupnofree.c utils/ft_cut.c utils/ft_chrindex.c utils/ft_isalpha.c utils/ft_isalnum.c utils/ft_strip.c  utils/ft_priority.c utils/ft_strinstr.c utils/ft_minisplit_utils.c utils/ft_strjoin.c  utils/ft_minisplit.c utils/ft_argslen.c utils/ft_putstr_fd.c utils/ft_lstsize.c utils/ft_strstr.c utils/ft_whitespace.c utils/ft_substr.c  utils/ft_chrstr.c utils/ft_chrcount.c utils/ft_lstadd_back.c utils/ft_lstnew.c utils/ft_split.c utils/garbage_collector.c utils/ft_malloc.c utils/ft_strcmp.c
