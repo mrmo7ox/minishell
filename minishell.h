@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 12:27:18 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/08 12:37:30 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,14 @@ typedef struct s_list
 	t_expand				**expand;
 }							t_list;
 
+typedef struct s_pipe
+{
+	int						fd;
+	int						status;
+	int						p_fd[2];
+	pid_t					pid;
+}							t_pipe;
+
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
 void						env_init(char **env, t_env **ft_env);
@@ -256,7 +264,7 @@ char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);
 long						get_random(void);
-
+t_pipe						*new_pip(int fd, int status, t_gc **gc);
 // garbage collector
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);

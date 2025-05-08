@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 10:30:00 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:43:01 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	execc(t_leaf **root, t_env **ft_env, t_gc **garbage)
 	if (node->type == COMMAND)
 		return (exe_cmd_hundler(node, ft_env, garbage));
 	// if (node->type == PIPE)
-	// 	return (exec_pipe(node->left, node->right, garbage, ft_env));
+	// 		return (exec_pipe(node->left, node->right, garbage, ft_env));
 	// if (node->type == AND)
 	// {
 	// 	if (exec(node->left, ft_env, garbage) == 0)
