@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 17:56:01 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/08 18:03:03 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 		if (tokenizer(root, garbage, line))
 		{
 			linker(root, expander, garbage, ft_env);
-			// execc(root, ft_env, garbage);
 		}
 	}
 }

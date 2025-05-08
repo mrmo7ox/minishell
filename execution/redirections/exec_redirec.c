@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 10:27:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/08 12:00:34 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	heredoc(t_redic *redics, char *path, t_gc **garbage)
 	pid_t	pid;
 	int		status;
 
+	status = 0;
 	line = NULL;
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), garbage), garbage);
 	redics->fd = open(formating(tmp, garbage), O_WRONLY | O_CREAT | O_APPEND,

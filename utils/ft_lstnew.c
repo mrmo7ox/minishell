@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/05/08 14:32:20 by ihamani          ###   ########.fr       */
+=======
+/*   Updated: 2025/05/08 12:37:40 by moel-oua         ###   ########.fr       */
+>>>>>>> 4490d71141c75792fa09800c74bf39751053ecd5
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +28,35 @@ t_gc	*ft_new_gc_node(void *content)
 	return (node);
 }
 
-t_list	*ft_new_node(void *content, bool allowed)
+t_qoutes	*ft_new_node(int open, int close, t_qtype type, t_gc **garbage)
 {
-	t_list	*node;
+	t_qoutes	*node;
 
-	node = malloc(sizeof(t_list));
+	node = malloc(sizeof(t_qoutes));
 	if (!node)
 		return (NULL);
-	node->line = content;
-	node->allowed = allowed;
+	(void)garbage;
+	node->open_index = open;
+	node->close_index = close;
+	node->type = type;
 	node->next = NULL;
+	node->prev = NULL;
+	return (node);
+}
+
+t_expand	*ft_new_expand(int start, int end, bool expand, t_gc **garbage)
+{
+	t_expand	*node;
+
+	node = malloc(sizeof(t_expand));
+	if (!node)
+		return (NULL);
+	(void)garbage;
+	node->start = start;
+	node->end = end;
+	node->expand = expand;
+	node->next = NULL;
+	node->prev = NULL;
 	return (node);
 }
 
@@ -74,7 +97,7 @@ t_pipe	*new_pip(int fd, int status, t_gc **gc)
 	t_pipe	*new;
 
 	new = ft_malloc(sizeof(t_pipe), gc);
-	new->fd = -1;
-	new->status = 0;
+	new->fd = fd;
+	new->status = status;
 	return (new);
 }

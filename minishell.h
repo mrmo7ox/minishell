@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 17:46:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/08 18:03:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef enum e_type
 	OR,
 	AND
 }							t_type;
+
+typedef enum e_qoute_type
+{
+	DQOUTE,
+	SQOUTE,
+}							t_qtype;
 
 typedef enum e_redic
 {
@@ -118,25 +124,6 @@ typedef struct s_env
 	void					*next;
 }							t_env;
 
-typedef struct s_list
-{
-	char					*line;
-	bool					allowed;
-	struct s_list			*next;
-	struct s_list			*prev;
-}							t_list;
-
-typedef struct s_expander
-{
-	int						double_open;
-	bool					expandable;
-	int						start;
-	int						i;
-	char					*line;
-	t_env					**env;
-	t_list					**result;
-}							t_expander;
-
 typedef struct s_container
 {
 	char					*line;
@@ -145,13 +132,41 @@ typedef struct s_container
 	t_leaf					*root;
 }							t_container;
 
+// expanding
+typedef struct s_qoutes
+{
+	int						open_index;
+	int						close_index;
+	t_qtype					type;
+	struct s_qoutes			*next;
+	struct s_qoutes			*prev;
+}							t_qoutes;
+
+typedef struct s_expand
+{
+	int						start;
+	int						end;
+	bool					expand;
+	struct s_expand			*next;
+	struct s_expand			*prev;
+}							t_expand;
+
+typedef struct s_list
+{
+	int						i;
+	int						j;
+	char					*line;
+	t_qoutes				**qoutes;
+	t_expand				**expand;
+}							t_list;
+
 typedef struct s_pipe
 {
-	int		fd;
-	int		status;
-	int		p_fd[2];
-	pid_t	pid;
-}					t_pipe;
+	int						fd;
+	int						status;
+	int						p_fd[2];
+	pid_t					pid;
+}							t_pipe;
 
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
@@ -288,17 +303,19 @@ void						linker(t_leaf **root, void (*applyme)(t_tk *token,
 // expanding
 void						expander(t_tk *token, t_gc **garbage,
 								t_env **ft_env);
-t_expander					split_expand(char **line, t_gc **garbage,
+t_list						split_expand(char *line, t_gc **garbage,
 								t_env **ft_env);
 // remove quotes
-t_expander					remove_qoutes(char *line, t_gc **garbage);
-void						remove_qoutes_tree(t_leaf **root, t_gc **garbage);
+void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
+void						ft_add_expand(t_expand **head, t_expand *new);
+t_qoutes					*ft_new_node(int open, int close, t_qtype type,
+								t_gc **garbage);
+t_expand					*ft_new_expand(int start, int end, bool expand,
+								t_gc **garbage);
 
 // exe
 int							exe_cmd(char **args, t_tk *token, t_env **ft_env,
 								t_gc **gc);
-void						handle_single_quote(t_expander *u, t_gc **g);
-void						handle_double_quote(t_expander *u, t_gc **g);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
 int							exe_builtin(char **args, t_env **ft_env, t_gc **gc);
 char						*get_path(char **args, t_env **ft_env, t_gc **gc);
