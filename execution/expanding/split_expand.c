@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 12:33:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/08 13:12:57 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,54 +54,66 @@ void	get_qoute_index(t_list *u, t_gc **garbage)
 	}
 }
 
-void	get_expand_index(t_list *u, t_gc **garbage)
+t_list	get_expand_index(char *line, t_gc **garbage)
 {
-	while (u->line[u->i])
+	t_list		y;
+	t_expand	*expander;
+
+	expander = NULL;
+	y.i = 0;
+	y.j = 0;
+	y.line = line;
+	y.expand = &expander;
+	while (y.line[y.i])
 	{
-		if (u->line[u->i] == '$')
+		if (y.line[y.i] == '$')
 		{
-			u->j = u->i;
-			u->i++;
-			if (u->line[u->i] && (ft_isdigit(u->line[u->i])
-					|| ft_chrstr(u->line[u->i], "@#$?%!-_")))
+			y.j = y.i;
+			y.i++;
+			if (y.line[y.i] && (ft_isdigit(y.line[y.i])
+					|| ft_chrstr(y.line[y.i], "@#$?%!-_")))
 			{
-				add_to_expand_list(u, true, garbage);
-				if (u->line[u->i] != '\0')
-					u->i++;
+				add_to_expand_list(&y, true, garbage);
+				if (y.line[y.i] != '\0')
+					y.i++;
 			}
-			else if (ft_isalpha(u->line[u->i]))
+			else if (ft_isalpha(y.line[y.i]))
 			{
-				while (ft_isalpha(u->line[u->i]) || ft_isdigit(u->line[u->i]))
-					u->i++;
-				add_to_expand_list(u, true, garbage);
-				if (u->line[u->i] != '\0')
-					u->i++;
+				while (ft_isalpha(y.line[y.i]) || ft_isdigit(y.line[y.i])
+					|| y.line[y.i] == '_')
+					y.i++;
+				if (!ft_isalpha(y.line[y.i]) || !ft_isdigit(y.line[y.i])
+					|| y.line[y.i] == '_')
+				{
+					y.i--;
+					add_to_expand_list(&y, true, garbage);
+				}
+				if (y.line[y.i] != '\0')
+					y.i++;
 			}
 			else
-				u->i++;
+				y.i++;
 		}
 		else
-			u->i++;
+			y.i++;
 	}
+	return (y);
 }
 
 t_list	split_expand(char *line, t_gc **garbage, t_env **ft_env)
 {
 	t_list		u;
-	t_expand	*expand;
+	t_list		y;
 	t_qoutes	*qoutes;
 
-	expand = NULL;
 	qoutes = NULL;
 	(void)ft_env;
 	u.i = 0;
 	u.j = 0;
 	u.line = line;
 	u.qoutes = &qoutes;
-	u.expand = &expand;
 	get_qoute_index(&u, garbage);
-	u.i = 0;
-	u.j = 0;
-	// get_expand_index(&u, garbage);
-	return (u);
+	y = get_expand_index(line, garbage);
+	y.qoutes = u.qoutes;
+	return (y);
 }
