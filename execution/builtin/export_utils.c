@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 13:19:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 17:25:36 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
 	if (head)
 	{
 		tmp = head->value;
-		head->value = ft_strjoin(head->value, value, gg);
+		head->value = ft_strdupnofree(ft_strjoin(head->value, value, gg));
 		free(tmp);
 	}
 	else

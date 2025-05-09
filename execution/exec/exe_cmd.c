@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 10:54:48 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:31:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,12 @@ void	child(char **args, t_env **ft_env, t_gc **gc)
 	}
 }
 
-int	exe_cmd(char **args, t_tk *token, t_env **ft_env, t_gc **gc)
+void	exe_cmd(char **args, int *status, t_env **ft_env, t_gc **gc)
 {
 	pid_t	pid;
-	int		status;
 
-	(void)token;
-	status = 0;
 	if (is_builtin(args[0]))
-		return (exe_builtin(args, ft_env, gc));
+		*status = exe_builtin(args, ft_env, gc, status);
 	else
 	{
 		pid = fork();
@@ -105,7 +102,9 @@ int	exe_cmd(char **args, t_tk *token, t_env **ft_env, t_gc **gc)
 		if (!pid)
 			child(args, ft_env, gc);
 		else if (pid)
-			waitpid(pid, &status, 0);
+		{
+			waitpid(pid, status, 0);
+			*status = WEXITSTATUS(*status);
+		}
 	}
-	return (WEXITSTATUS(status));
 }

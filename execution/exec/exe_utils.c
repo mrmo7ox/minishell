@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 11:08:06 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:13:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	is_builtin(char *str)
 		return (false);
 }
 
-int	exe_builtin(char **args, t_env **ft_env, t_gc **gc)
+int	exe_builtin(char **args, t_env **ft_env, t_gc **gc, int *status)
 {
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, ft_env));
@@ -47,17 +47,13 @@ int	exe_builtin(char **args, t_env **ft_env, t_gc **gc)
 	else if (!ft_strcmp(args[0], "unset"))
 		return (ft_unset(args, ft_env));
 	else if (!ft_strcmp(args[0], "exit"))
-	{
-		ft_free_env(ft_env);
-		exit(0);
-	}
+		return (!ft_exit(args, ft_env, gc, *status));
 	return (0);
 }
 
 void	exit_exe(t_env **ft_env, t_gc **gc, int err)
 {
 	(void)ft_env;
-	// ft_free_env(ft_env);
 	free_garbage(gc);
 	exit(err);
 }

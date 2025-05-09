@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 13:50:39 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:15:04 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
+static bool	exe_cmd_hundler(t_leaf *node, int *status, t_env **ft_env, t_gc **garbage)
 {
 	char	**args;
 	int		o[2];
@@ -28,7 +28,7 @@ static bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 			args[i] = expander(args[i], garbage, ft_env, o);
 		}
 		exec_redirec(node->token, garbage, ft_env);
-		exe_cmd(args, node->token, ft_env, garbage);
+		exe_cmd(args, status, ft_env, garbage);
 	}
 	else
 	{
@@ -38,7 +38,7 @@ static bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 	return (true);
 }
 
-int	execc(t_leaf **root, t_env **ft_env, t_gc **garbage)
+int	execc(t_leaf **root, int *status, t_env **ft_env, t_gc **garbage)
 {
 	t_leaf	*node;
 
@@ -48,7 +48,7 @@ int	execc(t_leaf **root, t_env **ft_env, t_gc **garbage)
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
 	if (node->type == COMMAND)
-		return (exe_cmd_hundler(node, ft_env, garbage));
+		return (exe_cmd_hundler(node, status, ft_env, garbage));
 	// if (node->type == PIPE)
 	// 		return (exec_pipe(node->left, node->right, garbage, ft_env));
 	// if (node->type == AND)

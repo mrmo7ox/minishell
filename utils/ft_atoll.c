@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/26 13:50:35 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 16:27:44 by ihamani          ###   ########.fr       */
+/*   Created: 2025/05/09 13:12:44 by ihamani           #+#    #+#             */
+/*   Updated: 2025/05/09 16:59:05 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-int	cmd_env(char **args, t_env **env)
+long long	ft_atoll(char *str)
 {
-	t_env	*head;
-	int		len;
+	unsigned long long	result;
+	int					sign;
 
-	len = args_len(args);
-	if (len > 1)
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		ft_putstr_fd("too many arguments\n", 2);
-		return (1);
+		if (*str++ == '-')
+			sign = -1;
 	}
-	head = *env;
-	while (head)
+	while (*str >= '0' && *str <= '9')
 	{
-		if (head->value)
-			printf("%s=%s\n", head->name, head->value);
-		head = head->next;
+		if (result > (ULONG_MAX - (*str - '0')) / 10)
+			return (0);
+		result = result * 10 + (*str - '0');
+		str++;
 	}
-	return (0);
+	return (result * sign);
 }
