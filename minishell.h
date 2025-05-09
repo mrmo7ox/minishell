@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 16:15:48 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 16:26:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -341,7 +341,7 @@ t_list						*get_expand_index(t_list *u, t_gc **garbage);
 
 //************************************************************** */
 // exe
-int							exe_cmd(char **args, int *status, t_env **ft_env,
+void							exe_cmd(char **args, int *status, t_env **ft_env,
 								t_gc **gc);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
 int							exe_builtin(char **args, t_env **ft_env, t_gc **gc,
