@@ -6,30 +6,31 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 09:45:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 09:55:14 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 10:44:27 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-t_qoutes	*is_dollar_in_quotes(t_qoutes **quotes, int index)
+bool	is_dollar_in_quotes(t_qoutes **quotes, int index)
 {
 	t_qoutes	*curr;
 
 	if (!quotes || !*quotes)
-		return (NULL);
+		return (true);
 	curr = *quotes;
+	(void)index;
 	while (curr)
 	{
 		if (curr->type == DQOUTE && index > curr->open_index
 			&& index < curr->close_index)
-			return (curr);
+			return (true);
 		else if (curr->type == SQOUTE && index > curr->open_index
 			&& index < curr->close_index)
-			return (NULL);
+			return (false);
 		curr = curr->next;
 	}
-	return (*quotes);
+	return (true);
 }
 
 t_qoutes	*is_im_quotes(t_qoutes **quotes, int index)

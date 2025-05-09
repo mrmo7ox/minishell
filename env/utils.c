@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/08 17:45:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 10:19:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ t_env	*ft_new_env(char *name, char *value)
 
 void	no_env(t_env **ft_env, t_gc **gc)
 {
-	char	*pwd;
-
-	ft_add_env(ft_env, ft_new_env(ft_strdupnofree("PWD"),
-			getcwd(NULL, 0)));
+	ft_add_env(ft_env, ft_new_env(ft_strdupnofree("PWD"), getcwd(NULL, 0)));
 	shlvl(ft_env, gc);
 	ft_add_env(ft_env, ft_new_env(ft_strdupnofree("_"),
 			ft_strdupnofree("/usr/bin/env")));
@@ -67,7 +64,7 @@ static bool	check_valid(char *str)
 	return (true);
 }
 
-void	shlvl(t_env	**ft_env, t_gc **gc)
+void	shlvl(t_env **ft_env, t_gc **gc)
 {
 	char	*old;
 	int		lvl;

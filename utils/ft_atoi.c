@@ -3,46 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:28:54 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/08 16:58:22 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 10:18:13 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-bool	check_overflow(long long r, long long t, int s)
+static int	overflow(int sign)
 {
-	return ((s == 1 && (r < t || r > INT_MAX))
-		|| (s == -1 && ((s * r) > (s * t) || (s * r) < INT_MIN)));
+	if (sign == 1)
+		return (-1);
+	else
+		return (0);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int					i;
-	int					s;
-	long long			r;
-	long long			t;
+	unsigned long long	result;
+	int					sign;
+	unsigned long long	max;
 
-	i = 0;
-	r = 0;
-	s = 1;
-	t = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	result = 0;
+	sign = 1;
+	max = 9223372036854775807;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		if (str[i] == '-')
-			s *= -1;
-		i++;
+		if (*str++ == '-')
+			sign = -1;
 	}
-	while ((str[i] >= '0' && str[i] <= '9'))
+	while (*str >= '0' && *str <= '9')
 	{
-		r = (r * 10) + (str[i++] - '0');
-		if (check_overflow(r, t, s))
-			return (0);
-		t = r;
+		if (result > (max - (*str - '0')) / 10)
+			return (overflow(sign));
+		result = result * 10 + (*str - '0');
+		str++;
 	}
-	return (r * s);
+	return (result * sign);
 }
