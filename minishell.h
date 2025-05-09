@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 13:00:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 10:10:27 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,6 @@ typedef struct s_container
 	t_leaf					*root;
 }							t_container;
 
-// expanding
 typedef struct s_qoutes
 {
 	int						open_index;
@@ -158,7 +157,29 @@ typedef struct s_list
 	char					*line;
 	t_qoutes				**qoutes;
 	t_expand				**expand;
+	t_env					**env;
 }							t_list;
+
+typedef struct s_new_string
+{
+	int						i;
+	int						len;
+	size_t					pos;
+	char					*holder;
+	char					*temp;
+	t_expand				*start_end;
+}							t_new;
+
+typedef struct s_size
+{
+	int						i;
+	int						len;
+	char					*holder;
+	char					*temp;
+	t_expand				*start_end;
+	size_t					new_size;
+
+}							t_size;
 
 typedef struct s_pipe
 {
@@ -265,13 +286,11 @@ int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);
 long						get_random(void);
 t_pipe						*new_pip(int fd, int status, t_gc **gc);
-// garbage collector
+void						*ft_memset(void *s, int c, size_t n);
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);
 void						free_garbage(t_gc **list);
 void						*ft_malloc(size_t size, t_gc **garbage);
-
-// for testing
 size_t						ft_strlen(const char *s);
 char						*ft_strjoin(char const *s1, char const *s2,
 								t_gc **garbage);
@@ -287,6 +306,7 @@ char						*extract_file(char *line, int *i, int *j,
 								t_gc **garbage);
 int							handle_redirection(t_redic **res, t_gc **garbage,
 								char *line, int *i);
+char						*ft_strcpy(char *dest, const char *src);
 
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
@@ -295,19 +315,26 @@ void						linker(t_leaf **root, void (*applyme)(t_tk *token,
 									t_gc **garbage, t_env **ft_env),
 								t_gc **garbage, t_env **ft_env);
 
-// expanding
+//************************************************************** */
 void						expander(t_tk *token, t_gc **garbage,
 								t_env **ft_env);
-t_list						split_expand(char *line, t_gc **garbage,
-								t_env **ft_env);
-// remove quotes
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,
 								t_gc **garbage);
 t_expand					*ft_new_expand(int start, int end, bool expand,
 								t_gc **garbage);
+t_qoutes					*is_dollar_in_quotes(t_qoutes **quotes, int index);
+t_qoutes					*is_im_quotes(t_qoutes **quotes, int index);
+t_expand					*is_index_on_dollar(t_expand **dollars, int index);
+void						add_to_quote_list(t_list *u, t_gc **garbage,
+								char quote);
+void						get_quote_index(t_list *u, t_gc **garbage);
+void						add_to_expand_list(t_list *u, bool expand_s,
+								t_gc **garbage);
+t_list						*get_expand_index(t_list *u, t_gc **garbage);
 
+//************************************************************** */
 // exe
 int							exe_cmd(char **args, t_tk *token, t_env **ft_env,
 								t_gc **gc);
