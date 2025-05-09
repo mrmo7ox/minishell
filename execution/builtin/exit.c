@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:53:38 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 16:30:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 16:57:06 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static bool	is_valid(char *str)
 
 	i = 0;
 	len = ft_strlen(str);
+	if (!len)
+		return (false);
 	if (len == 1 && (str[i] == '-' || str[i] == '+'))
 		return (false);
 	while (str[i])
@@ -56,8 +58,11 @@ static bool	check_long(char *str)
 		i++;
 		len++;
 	}
-	if (len >= 19 && !ft_atoll(str))
+	if (len >= 20 && !ft_atoll(str))
+	{
+		printf("%lld\n", ft_atoll(str));
 		return (true);
+	}
 	return (false);
 }
 
@@ -70,7 +75,10 @@ static int	exit_args(char **args, t_env **ft_env, t_gc **gc, int status)
 	{
 		if (!is_valid(args[1]) || check_long(args[1]))
 		{
-			ft_putstr_fd(args[1], 2);
+			if (args[1][0])
+				ft_putstr_fd(args[1], 2);
+			else
+				ft_putstr_fd("\"\"", 2);
 			ft_putstr_fd(": numeric argument required\n", 2);
 			helper(ft_env, gc, 2);
 		}
