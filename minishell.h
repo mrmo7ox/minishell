@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 13:47:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:25:48 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ typedef struct s_garbage
 typedef struct s_redirection
 {
 	char					*content;
+	int						out;
+	int						in;
+	int						fd;
 	t_retypes				type;
 	struct s_redirection	*next;
 	struct s_redirection	*prev;
