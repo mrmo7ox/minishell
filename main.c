@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/07 17:02:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/08 18:03:03 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int ac, char **av, char **env)
 	container.ft_env = NULL;
 	container.root = NULL;
 	container.ft_env = NULL;
-	env_init(env, &container.ft_env);
+	env_init(env, &container.ft_env, &(container.garbage));
 	load_history();
 	while (true)
 	{

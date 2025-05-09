@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 10:10:27 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 10:12:36 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ typedef struct s_pipe
 
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
-void						env_init(char **env, t_env **ft_env);
+void						env_init(char **env, t_env **ft_env, t_gc **gc);
 void						ft_putenv(char *name, char *value, t_env **ft_env);
 char						*ft_getenv(char *name, t_env **ft_env);
 void						ft_free_env(t_env **ft_env);
@@ -204,6 +204,7 @@ void						export(char **args, t_env **ft_env, t_gc **gg);
 void						export_append(char *name, char *value,
 								t_env **ft_env, t_gc **gg);
 void						ft_upenv(char *name, char *value, t_env **ft_env);
+void						no_env(t_env **ft_env, t_gc **gc);
 void						ext_export(char *name, char *value, t_env **ft_env,
 								t_gc **gg);
 void						export_sort(t_env **ft_env);
@@ -285,8 +286,16 @@ char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);
 long						get_random(void);
+void						ft_add_node(t_list **head, t_list *new);
+t_list						*ft_new_node(void *content, bool allowed);
 t_pipe						*new_pip(int fd, int status, t_gc **gc);
+<<<<<<< HEAD
 void						*ft_memset(void *s, int c, size_t n);
+=======
+int							ft_atoi(char *str);
+void						shlvl(t_env **ft_env, t_gc **gc);
+// garbage collector
+>>>>>>> 4ecce8377c5f1fa95ef96508a77d2cb500b3d914
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);
 void						free_garbage(t_gc **list);

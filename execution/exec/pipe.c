@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/07 17:44:19 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/08 16:13:33 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static void	child(char **args, t_pipe *pip, t_env **ft_env, t_gc **gc)
 
 	if (pip->fd != -1)
 	{
-		if (dup2(pip->fd, 0) == -1)
+		if (dup2(pip->fd, 1) == -1)
 			dup_protect(pip);
 		close(pip->fd);
 	}
-	if (dup2(pip->p_fd[1], 1) == -1)
+	if (dup2(pip->p_fd[1], 0) == -1)
 		dup_protect(pip);
 	pip->fd = pipe->p_fd[0];
 	if (is_builtin(args[0]))
@@ -81,17 +81,19 @@ static void	exe_pipe(char **args, t_pipe *pip, t_env **ft_env, t_gc **gc)
 	}
 }
 
-void	pipe_handle(t_leaf **root, t_pipe *pip, t_env **ft_env, t_gc **gc)
+t_leaf	*pipe_handle(t_leaf **root, t_pipe *pip, t_env **ft_env, t_gc **gc)
 {
 	t_leaf	*node;
 
 	node = *root;
 	if (!pip)
 		new_pip(-1, 0, gc);
-	if (t_leaf->right)
+	if (node->right)
 		pip->fd = exe_pipe(node->token->token, pip, ft_env, gc);
-	if (pip-> status == 0 && node->type == PIPE)
-		pipe_handle(t_leaf->left, pip, ft_env, gc);
-	else if (pip-> status == 0 && t_leaf->left)
+	if (pip-> status == 0 && node->left->type == PIPE)
+		pipe_handle(node->left, pip, ft_env, gc);
+	else if (pip-> status == 0 && node->left->type == COMMAND)
 		pip->fd = exe_pipe(node->token->token, pip, ft_env, gc);
+	else
+		return (node->left);
 }
