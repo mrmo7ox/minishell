@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 13:55:37 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 15:12:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ typedef struct s_garbage
 typedef struct s_redirection
 {
 	char					*content;
-	int						fd;
 	t_retypes				type;
 	struct s_redirection	*next;
 	struct s_redirection	*prev;
@@ -154,6 +153,8 @@ typedef struct s_list
 {
 	int						i;
 	int						j;
+	bool					r;
+	bool					e;
 	char					*line;
 	t_qoutes				**qoutes;
 	t_expand				**expand;
@@ -320,7 +321,7 @@ t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
 //************************************************************** */
 char						*expander(char *line, t_gc **garbage,
-								t_env **ft_env);
+								t_env **ft_env, int *o);
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,
