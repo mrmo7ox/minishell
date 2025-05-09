@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 12:37:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:50:39 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 static bool	exe_cmd_hundler(t_leaf *node, t_env **ft_env, t_gc **garbage)
 {
 	char	**args;
+	int		o[2];
 
+	o[0] = 1;
+	o[1] = 1;
 	args = NULL;
 	if (node->token->token)
 	{
 		args = ft_args_split(node->token->token, garbage, 0, 0);
 		for (int i = 0; args[i]; i++)
 		{
-			args[i] = expander(args[i], garbage, ft_env);
+			args[i] = expander(args[i], garbage, ft_env, o);
 		}
 		exec_redirec(node->token, garbage, ft_env);
 		exe_cmd(args, node->token, ft_env, garbage);

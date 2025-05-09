@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 10:49:58 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:45:39 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **gc)
 	while (line[size_utils.i])
 	{
 		size_utils.start_end = is_index_on_dollar(utils->expand, size_utils.i);
-		if (size_utils.start_end && is_dollar_in_quotes(utils->qoutes,
-				size_utils.i))
+		if ((utils->e && size_utils.start_end) || (size_utils.start_end
+				&& is_dollar_in_quotes(utils->qoutes, size_utils.i)))
 		{
 			size_utils.len = size_utils.start_end->end
 				- size_utils.start_end->start + 1;
@@ -33,7 +33,7 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **gc)
 				size_utils.new_size += ft_strlen(size_utils.temp);
 			size_utils.i += size_utils.len;
 		}
-		else if (!is_im_quotes(utils->qoutes, size_utils.i))
+		else if (utils->r && !is_im_quotes(utils->qoutes, size_utils.i))
 			size_utils.new_size++, size_utils.i++;
 		else
 			size_utils.i++;
@@ -41,7 +41,7 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **gc)
 	return (size_utils.new_size);
 }
 
-static void	fill_new_string(char *line, char *new, t_list *utils, t_gc **gc)
+static void	fill_new_string(char *line, char *new, t_list *u, t_gc **gc)
 {
 	t_new	s;
 
@@ -49,12 +49,13 @@ static void	fill_new_string(char *line, char *new, t_list *utils, t_gc **gc)
 	s.pos = 0;
 	while (line[s.i])
 	{
-		s.start_end = is_index_on_dollar(utils->expand, s.i);
-		if (s.start_end && is_dollar_in_quotes(utils->qoutes, s.i))
+		s.start_end = is_index_on_dollar(u->expand, s.i);
+		if ((u->e && s.start_end) || (s.start_end
+				&& is_dollar_in_quotes(u->qoutes, s.i)))
 		{
 			s.len = s.start_end->end - s.start_end->start + 1;
 			s.holder = ft_substr(line, s.start_end->start + 1, s.len - 1, gc);
-			s.temp = ft_getenv(s.holder, utils->env);
+			s.temp = ft_getenv(s.holder, u->env);
 			if (s.temp)
 			{
 				ft_strcpy(new + s.pos, s.temp);
@@ -62,7 +63,7 @@ static void	fill_new_string(char *line, char *new, t_list *utils, t_gc **gc)
 			}
 			s.i += s.len;
 		}
-		else if (!is_im_quotes(utils->qoutes, s.i))
+		else if (u->r && !is_im_quotes(u->qoutes, s.i))
 			new[s.pos++] = line[s.i++];
 		else
 			s.i++;
@@ -86,7 +87,7 @@ char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **gc)
 	return (new);
 }
 
-char	*expander(char *line, t_gc **gc, t_env **ft_env)
+char	*expander(char *line, t_gc **gc, t_env **ft_env, int *o)
 {
 	t_list		u;
 	char		*new;
@@ -103,6 +104,8 @@ char	*expander(char *line, t_gc **gc, t_env **ft_env)
 	u.qoutes = &quotes;
 	u.expand = &expand_res;
 	u.env = ft_env;
+	u.r = o[0];
+	u.e = o[1];
 	get_quote_index(&u, gc);
 	get_expand_index(&u, gc);
 	new = remove_quotes_and_expand(line, &u, gc);
