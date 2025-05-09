@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:48:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/07 11:56:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:57:14 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,11 @@ char	**ft_args_split(char *str, t_gc **garbage, int i, int j)
 		if (ft_chrstr(str[i], "\'\""))
 		{
 			quote = str[i];
-			i++; // move past opening quote
+			i++;
 			while (str[i] && str[i] != quote)
 				i++;
 			if (str[i] == quote)
-				i++; // include closing quote
+				i++;
 		}
 		else
 		{

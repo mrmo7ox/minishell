@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/05 19:15:10 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:08:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	exe_builtin(char **args, t_env **ft_env, t_gc **gc)
 
 void	exit_exe(t_env **ft_env, t_gc **gc, int err)
 {
-	ft_free_env(ft_env);
+	(void)ft_env;
+	// ft_free_env(ft_env);
 	free_garbage(gc);
 	exit(err);
 }

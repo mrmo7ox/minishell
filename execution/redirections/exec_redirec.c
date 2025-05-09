@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 12:00:34 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 12:47:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,13 @@ bool	append_files(t_redic *redics, char *path, t_gc **garbage)
 	}
 }
 
-int	heredoc(t_redic *redics, char *path, t_gc **garbage)
+int	heredoc(t_redic *redics, char *path, t_gc **garbage, t_env **ft_env)
 {
 	char	*tmp;
 	char	*line;
 	pid_t	pid;
 	int		status;
+	bool	qoutes;
 
 	status = 0;
 	line = NULL;
@@ -68,12 +69,21 @@ int	heredoc(t_redic *redics, char *path, t_gc **garbage)
 			perror("fork");
 		else if (pid == 0)
 		{
-			while (ft_strcmp(formating(path, garbage), line))
+			if (!ft_chrstr('\'', path) && !ft_chrstr('\"', path))
+				qoutes = true;
+			else
+				qoutes = false;
+			path = formating(path, garbage);
+			while (ft_strcmp(, line))
 			{
 				line = readline("heredoc>");
+				if (qoutes)
+				{
+					line = expander(line, garbage, ft_env);
+					printf("[%s]\n", line);
+				}
 				write(redics->fd, line, ft_strlen(line));
 			}
-			exit(0);
 		}
 		else
 			waitpid(pid, &status, 0);
@@ -81,7 +91,7 @@ int	heredoc(t_redic *redics, char *path, t_gc **garbage)
 	}
 }
 
-bool	exec_redirec(t_tk *token, t_gc **garbage)
+bool	exec_redirec(t_tk *token, t_gc **garbage, t_env **ft_env)
 {
 	t_redic	*curr;
 	char	**parts;
@@ -112,7 +122,8 @@ bool	exec_redirec(t_tk *token, t_gc **garbage)
 		}
 		else if (curr->type == HEREDOC)
 		{
-			if (!heredoc(curr, ft_strip('<', curr->content, garbage), garbage))
+			if (!heredoc(curr, ft_strip('<', curr->content, garbage), garbage,
+					ft_env))
 				return (false);
 		}
 		curr = curr->next;

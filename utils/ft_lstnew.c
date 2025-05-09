@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 10:15:41 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 11:07:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,9 @@ t_expand	*ft_new_expand(int start, int end, bool expand, t_gc **garbage)
 {
 	t_expand	*node;
 
-	node = malloc(sizeof(t_expand));
+	node = ft_malloc(sizeof(t_expand), garbage);
 	if (!node)
 		return (NULL);
-	(void)garbage;
 	node->start = start;
 	node->end = end;
 	node->expand = expand;

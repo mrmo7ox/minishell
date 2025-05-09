@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 10:46:21 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 10:49:58 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **gc)
 	return (new);
 }
 
-void	expander(t_tk *token, t_gc **gc, t_env **ft_env)
+char	*expander(char *line, t_gc **gc, t_env **ft_env)
 {
 	t_list		u;
 	char		*new;
@@ -96,23 +96,15 @@ void	expander(t_tk *token, t_gc **gc, t_env **ft_env)
 	new = NULL;
 	quotes = NULL;
 	expand_res = NULL;
-	if (!token || !token->token || !gc || !ft_env)
-		return ;
+	if (!line || !gc || !ft_env)
+		return (NULL);
 	ft_memset(&u, 0, sizeof(t_list));
-	u.line = token->token;
+	u.line = line;
 	u.qoutes = &quotes;
 	u.expand = &expand_res;
 	u.env = ft_env;
 	get_quote_index(&u, gc);
 	get_expand_index(&u, gc);
-	// while (expand_res)
-	// {
-	// 	printf("[%d][%d]\n", expand_res->start, expand_res->end);
-	// 	expand_res = expand_res->next;
-	// }
-	new = remove_quotes_and_expand(token->token, &u, gc);
-	if (new)
-	{
-		token->token = new;
-	}
+	new = remove_quotes_and_expand(line, &u, gc);
+	return (new);
 }

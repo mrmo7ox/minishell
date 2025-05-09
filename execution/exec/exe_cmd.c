@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/07 11:41:41 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 10:54:48 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 	{
 		if (access(path, X_OK))
 		{
-			while (args[i])
-				free(args[i++]);
-			free(args);
 			ft_putstr_fd(path, 2);
 			ft_putstr_fd(" : permission denied\n", 2);
 			exit_exe(ft_env, gc, 126);
@@ -55,9 +52,6 @@ void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 	{
 		ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(" : command not found\n", 2);
-		while (args[i])
-			free(args[i++]);
-		free(args);
 		exit_exe(ft_env, gc, 127);
 	}
 }
