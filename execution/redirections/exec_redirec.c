@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_redirec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 12:47:33 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:56:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	heredoc(t_redic *redics, char *path, t_gc **garbage, t_env **ft_env)
 			else
 				qoutes = false;
 			path = formating(path, garbage);
-			while (ft_strcmp(, line))
+			while (ft_strcmp("ls", line))
 			{
 				line = readline("heredoc>");
 				if (qoutes)

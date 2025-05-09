@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 12:38:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 13:55:37 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,8 @@ int							ft_pwd(char **args, t_gc **gg);
 int							ft_unset(char **args, t_env **env);
 void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
 void						shlvl(t_env **ft_env, t_gc **gc);
+int							ft_exit(char **args, t_env **ft_env,
+								t_gc **gc, int prev);
 
 // history
 void						save_history(void);
@@ -310,6 +312,7 @@ int							handle_redirection(t_redic **res, t_gc **garbage,
 								char *line, int *i);
 char						*ft_strcpy(char *dest, const char *src);
 int							ft_atoi(const char *str);
+long long					ft_atoll(char *str);
 
 // tree
 t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
@@ -339,7 +342,8 @@ t_list						*get_expand_index(t_list *u, t_gc **garbage);
 int							exe_cmd(char **args, t_tk *token, t_env **ft_env,
 								t_gc **gc);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
-int							exe_builtin(char **args, t_env **ft_env, t_gc **gc);
+int							exe_builtin(char **args, t_env **ft_env, t_gc **gc,
+								int status);
 char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
 

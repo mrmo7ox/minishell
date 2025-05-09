@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 11:44:17 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 15:10:33 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,30 @@ void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
 	}
 }
 
+static void	minishell_init(t_container *container, int ac, char **av,
+				char **env)
+{
+	if (ac > 1)
+	{
+		(void)av;
+		ft_putstr_fd("too many arguments\n", 2);
+		exit(1);
+	}
+	if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
+		exit(1);
+	container->line = NULL;
+	container->garbage = NULL;
+	container->ft_env = NULL;
+	container->root = NULL;
+	container->ft_env = NULL;
+	env_init(env, &container->ft_env, &(container->garbage));
+}
+
 int	main(int ac, char **av, char **env)
 {
 	t_container	container;
 
-	(void)ac;
-	(void)av;
-	container.line = NULL;
-	container.garbage = NULL;
-	container.ft_env = NULL;
-	container.root = NULL;
-	container.ft_env = NULL;
-	env_init(env, &container.ft_env, &(container.garbage));
+	minishell_init(&container, ac, av, env);
 	load_history();
 	while (true)
 	{
