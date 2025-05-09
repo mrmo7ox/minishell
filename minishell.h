@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 15:12:09 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 16:15:48 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ typedef struct s_container
 	t_gc					*garbage;
 	t_env					*ft_env;
 	t_leaf					*root;
+	int						status;
 }							t_container;
 
 typedef struct s_qoutes
@@ -340,11 +341,11 @@ t_list						*get_expand_index(t_list *u, t_gc **garbage);
 
 //************************************************************** */
 // exe
-int							exe_cmd(char **args, t_tk *token, t_env **ft_env,
+int							exe_cmd(char **args, int *status, t_env **ft_env,
 								t_gc **gc);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
 int							exe_builtin(char **args, t_env **ft_env, t_gc **gc,
-								int status);
+								int *status);
 char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
 
@@ -353,7 +354,7 @@ bool						exec_redirec(t_tk *token, t_gc **garbage,
 								t_env **ft_env);
 
 // exec part me
-int							execc(t_leaf **root, t_env **ft_env,
-								t_gc **garbage);
+int							execc(t_leaf **root, int *status,
+								t_env **ft_env, t_gc **garbage);
 
 #endif

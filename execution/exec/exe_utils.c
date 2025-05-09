@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 13:56:21 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 16:13:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	is_builtin(char *str)
 		return (false);
 }
 
-int	exe_builtin(char **args, t_env **ft_env, t_gc **gc, int status)
+int	exe_builtin(char **args, t_env **ft_env, t_gc **gc, int *status)
 {
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, ft_env));
@@ -47,7 +47,7 @@ int	exe_builtin(char **args, t_env **ft_env, t_gc **gc, int status)
 	else if (!ft_strcmp(args[0], "unset"))
 		return (ft_unset(args, ft_env));
 	else if (!ft_strcmp(args[0], "exit"))
-		return (!ft_exit(args, ft_env, gc, status));
+		return (!ft_exit(args, ft_env, gc, *status));
 	return (0);
 }
 

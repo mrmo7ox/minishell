@@ -6,21 +6,22 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 15:10:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 16:16:58 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-void	start(char *line, t_leaf **root, t_gc **garbage, t_env **ft_env)
+void	start(char *line, t_container *container,
+			t_gc **garbage, t_env **ft_env)
 {
 	add_history(line);
 	save_history();
 	if (syntax_error(line))
 	{
-		if (tokenizer(root, garbage, line))
+		if (tokenizer(&container->root, garbage, line))
 		{
-			execc(root, ft_env, garbage);
+			execc(&container->root, &container->status, ft_env, garbage);
 		}
 	}
 }
@@ -41,6 +42,7 @@ static void	minishell_init(t_container *container, int ac, char **av,
 	container->ft_env = NULL;
 	container->root = NULL;
 	container->ft_env = NULL;
+	container->status = 0;
 	env_init(env, &container->ft_env, &(container->garbage));
 }
 
@@ -58,7 +60,7 @@ int	main(int ac, char **av, char **env)
 		container.line = formating(container.line, &container.garbage);
 		if (!container.line[0])
 			continue ;
-		start(container.line, &(container.root), &(container.garbage),
+		start(container.line, &container, &(container.garbage),
 			&container.ft_env);
 		free_garbage(&container.garbage);
 	}
