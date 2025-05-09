@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 11:47:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 13:12:32 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:26:49 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	add_to_expand_list(t_list *u, bool expand_s, t_gc **garbage)
 static void	handle_simple_dollar_cases(t_list *u, t_gc **garbage)
 {
 	if (u->line[u->i] && (ft_isdigit(u->line[u->i]) || ft_chrstr(u->line[u->i],
-				"'@#$?%!-_\"")))
+				"@#?%!-_")))
 	{
 		add_to_expand_list(u, true, garbage);
 		if (u->line[u->i] != '\0')
