@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/08 17:46:24 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 17:33:31 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	env_init(char **env, t_env **ft_env, t_gc **gc)
 {
 	int		i;
 	char	**tmp;
-
 
 	if (!(*env))
 		no_env(ft_env, gc);

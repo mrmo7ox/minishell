@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 17:30:27 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:04:39 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,9 +129,9 @@ typedef struct s_env
 typedef struct s_container
 {
 	char					*line;
-	t_gc					*garbage;
-	t_env					*ft_env;
-	t_leaf					*root;
+	t_gc					**garbage;
+	t_env					**ft_env;
+	t_leaf					**root;
 	int						status;
 }							t_container;
 
@@ -324,8 +324,7 @@ t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
 //************************************************************** */
-char						*expander(char *line, t_gc **garbage,
-								t_env **ft_env, int *o);
+char						*expander(char *line, t_container *c, int *o);
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,
@@ -353,11 +352,9 @@ char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
 
 // redics
-bool						exec_redirec(t_tk *token, t_gc **garbage,
-								t_env **ft_env);
+bool						exec_redirec(t_tk *token, t_container *c);
 
 // exec part me
-int							execc(t_leaf **root, int *status, t_env **ft_env,
-								t_gc **garbage);
+int							execc(t_container *c);
 
 #endif
