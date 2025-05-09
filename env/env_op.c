@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/08 17:46:24 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 17:38:12 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	env_init(char **env, t_env **ft_env, t_gc **gc)
 			tmp = export_split(env[i]);
 			if (!tmp)
 				return ;
-			ft_add_env(ft_env, ft_new_env(ft_strdupnofree(tmp[0]),
-					ft_strdupnofree(tmp[1])));
+			ft_add_env(ft_env, ft_new_env(tmp[0],
+					tmp[1]));
 			free(tmp[0]);
 			free(tmp[1]);
 			free(tmp);
