@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 10:57:50 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:26:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ t_env	*ft_new_env(char *name, char *value)
 	node = malloc(sizeof(t_env));
 	if (!node)
 		return (NULL);
-	node->name = name;
-	node->value = value;
+	node->name = ft_strdupnofree(name);
+	node->value = ft_strdupnofree(value);
 	node->next = NULL;
 	return (node);
 }

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:53:38 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 16:57:06 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/09 17:00:24 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ static bool	check_long(char *str)
 		len++;
 	}
 	if (len >= 20 && !ft_atoll(str))
-	{
-		printf("%lld\n", ft_atoll(str));
 		return (true);
-	}
 	return (false);
 }
 

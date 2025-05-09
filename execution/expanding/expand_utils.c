@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 09:45:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 10:44:27 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:09:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_qoutes	*is_im_quotes(t_qoutes **quotes, int index)
 
 t_expand	*is_index_on_dollar(t_expand **dollars, int index)
 {
-	t_expand *curr;
+	t_expand	*curr;
 
 	if (!dollars || !*dollars)
 		return (NULL);
