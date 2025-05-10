@@ -6,21 +6,40 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/05 15:36:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 10:36:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	ft_pwd(char **args, t_gc **gg)
+char	*pwd_update(t_env **ft_env, int flag)
 {
-	char	*buff;
+	static char	*old;
+	char		*tmp;
 
-	(void)args;
-	buff = getcwd(NULL, 0);
-	if (!buff)
-		return (1);
-	ft_add_gc(gg, ft_new_gc_node(buff));
-	printf("%s\n", buff);
+	if (!flag)
+	{
+		tmp = old;
+		old = getcwd(NULL, 0);
+		if (!old)
+			old = tmp;
+		else
+			free(tmp);
+		if (check_name_env("PWD", ft_env))
+			ft_upenv("PWD", old, ft_env);
+		else
+			ft_putenv("PWD", old, ft_env);
+	}
+	else if (flag == 1)
+	{
+		free(old);
+		old = NULL;
+	}
+	return (old);
+}
+
+int	ft_pwd(t_env **ft_env)
+{
+	printf("%s\n", pwd_update(ft_env, 0));
 	return (0);
 }

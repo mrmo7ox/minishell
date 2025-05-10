@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 17:38:19 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 10:36:26 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	exe_builtin(char **args, t_env **ft_env, t_gc **gc, int *status)
 	else if (!ft_strcmp(args[0], "export"))
 		export(args, ft_env, gc);
 	else if (!ft_strcmp(args[0], "pwd"))
-		return (ft_pwd(args, gc));
+		return (ft_pwd(ft_env));
 	else if (!ft_strcmp(args[0], "echo"))
 		return (echo(args));
 	else if (!ft_strcmp(args[0], "cd"))

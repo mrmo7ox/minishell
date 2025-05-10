@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 11:52:05 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 12:36:22 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	minishell_init(t_container *container, int ac, char **av,
 	// 	exit(1);
 	container->status = 0;
 	env_init(env, container->ft_env, container->garbage);
+	pwd_update(container->ft_env, 0);
 }
 
 int	main(int ac, char **av, char **env)
@@ -50,16 +51,17 @@ int	main(int ac, char **av, char **env)
 	gc = NULL;
 	root = NULL;
 	ft_env = NULL;
-	(container.root) = &root;
-	(container.ft_env) = &ft_env;
-	(container.garbage) = &gc;
+	container.root = &root;
+	container.ft_env = &ft_env;
+	container.garbage = &gc;
 	minishell_init(&container, ac, av, env);
 	load_history();
 	while (true)
 	{
 		container.line = readline("Minishell: ");
 		if (!container.line)
-			exit(0);
+			ft_exit(NULL, container.ft_env, container.garbage,
+				container.status);
 		container.line = formating(container.line, container.garbage);
 		if (!container.line[0])
 			continue ;
