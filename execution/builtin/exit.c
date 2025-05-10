@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:53:38 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 17:00:24 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 10:46:58 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static bool	is_valid(char *str)
 static void	helper(t_env **ft_env, t_gc **gc, int status)
 {
 	free_garbage(gc);
+	pwd_update(ft_env, 1);
 	ft_free_env(ft_env);
 	exit(status);
 }
@@ -96,6 +97,8 @@ int	ft_exit(char **args, t_env **ft_env, t_gc **gc, int prev)
 	int	tmp;
 
 	printf("exit\n");
+	if (!args)
+		helper(ft_env, gc, prev % 256);
 	if (args_len(args) == 1)
 		helper(ft_env, gc, prev);
 	status = prev;

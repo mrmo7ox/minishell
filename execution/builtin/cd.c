@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 11:21:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 10:43:22 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*pwd(void)
 static void	no_args(t_env **ft_env)
 {
 	char	*home;
-	
+
 	home = ft_getenv("HOME", ft_env);
 	if (!home)
 	{
@@ -36,17 +36,10 @@ static void	no_args(t_env **ft_env)
 	perror("cd ");
 }
 
-static void	update_pwd(t_env **ft_env)
-{
-	if (check_name_env("PWD", ft_env))
-		ft_upenv("PWD", getcwd(NULL, 0), ft_env);
-	else
-		ft_putenv("PWD", getcwd(NULL, 0), ft_env);
-}
-
 static int	helper(char *str, t_gc **gg, t_env **ft_env)
 {
 	char	*buff;
+	char	*tmp;
 
 	buff = pwd();
 	if (!buff)
@@ -57,11 +50,13 @@ static int	helper(char *str, t_gc **gg, t_env **ft_env)
 			return (1);
 		}
 	}
+	tmp = buff;
 	buff = ft_strjoin(buff, "/", gg);
+	free(tmp);
 	buff = ft_strjoin(buff, str, gg);
 	if (chdir(buff) == -1)
 		perror("cd ");
-	update_pwd(ft_env);
+	pwd_update(ft_env, 0);
 	return (0);
 }
 

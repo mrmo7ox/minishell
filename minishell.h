@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 17:30:27 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 10:36:13 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,12 +215,13 @@ void						ext_export(char *name, char *value, t_env **ft_env,
 void						export_sort(t_env **ft_env);
 char						**export_split(char *str);
 bool						check_name_env(char *name, t_env **ft_env);
-int							ft_pwd(char **args, t_gc **gg);
+int							ft_pwd(t_env **ft_env);
 int							ft_unset(char **args, t_env **env);
 void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
 void						shlvl(t_env **ft_env, t_gc **gc);
 int							ft_exit(char **args, t_env **ft_env, t_gc **gc,
 								int prev);
+char						*pwd_update(t_env **ft_env, int flag);
 
 // history
 void						save_history(void);
