@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 13:45:39 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:11:30 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **gc)
 				- size_utils.start_end->start + 1;
 			size_utils.holder = ft_substr(line, size_utils.start_end->start + 1,
 					size_utils.len - 1, gc);
+			printf("[%s]\n", size_utils.holder);
 			size_utils.temp = ft_getenv(size_utils.holder, utils->env);
 			if (size_utils.temp)
 				size_utils.new_size += ft_strlen(size_utils.temp);
@@ -87,7 +88,7 @@ char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **gc)
 	return (new);
 }
 
-char	*expander(char *line, t_gc **gc, t_env **ft_env, int *o)
+char	*expander(char *line, t_container *c, int *o)
 {
 	t_list		u;
 	char		*new;
@@ -97,17 +98,17 @@ char	*expander(char *line, t_gc **gc, t_env **ft_env, int *o)
 	new = NULL;
 	quotes = NULL;
 	expand_res = NULL;
-	if (!line || !gc || !ft_env)
+	if (!line || !c->garbage || !c->ft_env)
 		return (NULL);
 	ft_memset(&u, 0, sizeof(t_list));
 	u.line = line;
 	u.qoutes = &quotes;
 	u.expand = &expand_res;
-	u.env = ft_env;
+	u.env = c->ft_env;
 	u.r = o[0];
 	u.e = o[1];
-	get_quote_index(&u, gc);
-	get_expand_index(&u, gc);
-	new = remove_quotes_and_expand(line, &u, gc);
+	get_quote_index(&u, c->garbage);
+	get_expand_index(&u, c->garbage);
+	new = remove_quotes_and_expand(line, &u, c->garbage);
 	return (new);
 }
