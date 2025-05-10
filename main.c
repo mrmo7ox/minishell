@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 15:14:11 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 16:21:58 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	main(int ac, char **av, char **env)
 	// load_history();
 	while (true)
 	{
-		printf("%d\n", container.status);
 		container.line = readline("Minishell: ");
 		if (!container.line)
 			ft_exit(NULL, container.ft_env, container.garbage,

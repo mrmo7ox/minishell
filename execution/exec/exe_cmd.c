@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 17:41:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:21:31 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 	}
 	else
 	{
-		ft_putstr_fd(args[0], 2);
+		if (!args[0][0])
+			ft_putstr_fd("\'\'", 2);
+		else
+			ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(" : command not found\n", 2);
 		exit_exe(ft_env, gc, 127);
 	}
@@ -60,7 +63,7 @@ char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 {
 	char	*path;
 
-	if (ft_chrstr('/', args[0]))
+	if (ft_chrstr('/', args[0]) || !args[0][0])
 	{
 		path = ft_strdup(args[0], gc);
 		check_path(args, path, ft_env, gc);
@@ -73,13 +76,25 @@ char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 	return (path);
 }
 
-void	child(char **args, t_env **ft_env, t_gc **gc)
+void	child(char **args, t_container *c)
 {
 	char	**env;
 	char	*path;
+	t_leaf	*tmp;
 
-	path = resolve_path(args, ft_env, gc);
-	env = dp_env(ft_env, gc);
+	tmp = *(c->root);
+	if (tmp->token->in)
+	{
+		if (dup2(tmp->token->in, 0) == -1)
+			exit_exe(c->ft_env, c->garbage, 1);
+	}
+	if (tmp->token->out)
+	{
+		if (dup2(tmp->token->out, 1) == -1)
+			exit_exe(c->ft_env, c->garbage, 1);
+	}
+	path = resolve_path(args, c->ft_env, c->garbage);
+	env = dp_env(c->ft_env, c->garbage);
 	if (execve(path, args, env) == -1)
 	{
 		if (access(path, X_OK) != -1)
@@ -88,23 +103,23 @@ void	child(char **args, t_env **ft_env, t_gc **gc)
 	}
 }
 
-void	exe_cmd(char **args, int *status, t_env **ft_env, t_gc **gc)
+void	exe_cmd(char **args, t_container *c)
 {
 	pid_t	pid;
 
 	if (is_builtin(args[0]))
-		*status = exe_builtin(args, ft_env, gc, status);
+		c->status = exe_builtin(args, c->ft_env, c->garbage, &c->status);
 	else
 	{
 		pid = fork();
 		if (pid == -1)
 			perror("Fork");
 		if (!pid)
-			child(args, ft_env, gc);
+			child(args, c);
 		else if (pid)
 		{
-			waitpid(pid, status, 0);
-			*status = WEXITSTATUS(*status);
+			waitpid(pid, &c->status, 0);
+			c->status = WEXITSTATUS(c->status);
 		}
 	}
 }

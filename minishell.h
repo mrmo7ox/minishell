@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 14:48:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:21:04 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -353,8 +353,7 @@ char						*h_expander(char *line, t_container *c);
 
 //************************************************************** */
 // exe
-void						exe_cmd(char **args, int *status, t_env **ft_env,
-								t_gc **gc);
+void						exe_cmd(char **args, t_container *c);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
 int							exe_builtin(char **args, t_env **ft_env, t_gc **gc,
 								int *status);

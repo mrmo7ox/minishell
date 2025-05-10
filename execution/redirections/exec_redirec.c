@@ -3,79 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   exec_redirec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 15:10:42 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:21:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-bool	in_files(t_tk *token, char *path, t_container *c)
+bool in_files(t_tk *token, char *path, t_container *c)
 {
+	char *tmp;
+
+	tmp = expander(formating(path, c->garbage), c);
 	if (token->in)
 		close(token->in);
-	token->in = open(expander(formating(path, c->garbage), c), O_RDONLY);
+	token->in = open(tmp, O_RDONLY);
 	if (token->in == -1)
+	{
+		perror(tmp);
 		return (false);
+	}
 	else
 	{
 		return (true);
 	}
 }
 
-bool	out_files(t_tk *token, char *path, t_container *c)
+bool out_files(t_tk *token, char *path, t_container *c)
 {
+	char *tmp;
+
+	tmp = expander(formating(path, c->garbage), c);
 	if (token->out)
 		close(token->out);
-	printf("before[%s]\n", path);
-	printf("[%s]\n", expander(formating(path, c->garbage), c));
-	token->out = open(expander(formating(path, c->garbage), c),
-			O_WRONLY | O_CREAT, 0644);
+	token->out = open(tmp,
+					  O_WRONLY | O_CREAT, 0644);
 	if (token->out == -1)
+	{
+		perror(tmp);
 		return (false);
+	}
 	else
 	{
 		return (true);
 	}
 }
 
-bool	append_files(t_tk *token, char *path, t_container *c)
+bool append_files(t_tk *token, char *path, t_container *c)
 {
+	char *tmp;
+
+	tmp = expander(formating(path, c->garbage), c);
 	if (token->in)
 		close(token->in);
-	token->in = open(expander(formating(path, c->garbage), c),
-			O_WRONLY | O_CREAT | O_APPEND, 0644);
+	token->in = open(tmp,
+					 O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (token->in == -1)
-		return (false);
-	else
 	{
-		return (true);
+		perror(tmp);
+		return (false);
 	}
+	else
+		return (true);
 }
 
-int	heredoc(t_tk *token, char *path, t_container *c)
+bool heredoc(t_tk *token, char *path, t_container *c)
 {
-	char	*tmp;
-	char	*line;
-	pid_t	pid;
-	int		status;
-	bool	qoutes;
+	char *tmp;
+	char *line;
+	pid_t pid;
+	bool qoutes;
 
-	status = 0;
 	line = NULL;
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), c->garbage), c->garbage);
-	token->in = open(formating(tmp, c->garbage), O_WRONLY | O_CREAT | O_APPEND,
-			0644);
-	unlink(tmp);
+	token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND,
+					 0644);
 	if (token->in == -1)
-		return (1);
+	{
+		perror("heredoc");
+		return (false);
+	}
 	else
 	{
 		pid = fork();
 		if (pid == -1)
+		{
 			perror("fork");
+			return (false);
+		}
 		else if (pid == 0)
 		{
 			if (!ft_chrstr('\'', path) && !ft_chrstr('\"', path))
@@ -83,29 +100,29 @@ int	heredoc(t_tk *token, char *path, t_container *c)
 			else
 				qoutes = false;
 			path = expander(formating(path, c->garbage), c);
-			printf("[%s]\n", path);
 			while (1)
 			{
-				line = readline("heredoc>");
+				line = readline("> ");
 				if (!ft_strcmp(path, line))
-					break ;
+					break;
 				if (qoutes)
-				{
 					line = h_expander(line, c);
-					printf("[%s]\n", line);
-				}
-				write(token->in, line, ft_strlen(line));
+				if (write(token->in, line, ft_strlen(line)) == -1)
+					perror("write");
 			}
 		}
 		else
-			waitpid(pid, &status, 0);
-		return (WEXITSTATUS(status));
+			waitpid(pid, &c->status, 0);
+		close(token->in);
+		token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND, 0644);
+		unlink(tmp);
+		return (true);
 	}
 }
 
-bool	exec_redirec(t_tk *token, t_container *c)
+bool exec_redirec(t_tk *token, t_container *c)
 {
-	t_redic	*curr;
+	t_redic *curr;
 
 	curr = token->redics;
 	token->in = 0;
@@ -125,7 +142,7 @@ bool	exec_redirec(t_tk *token, t_container *c)
 		else if (curr->type == APPEND)
 		{
 			if (!append_files(token, ft_strip('>', curr->content, c->garbage),
-					c))
+							  c))
 				return (false);
 		}
 		else if (curr->type == HEREDOC)
