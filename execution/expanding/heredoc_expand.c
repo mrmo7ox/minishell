@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expander.c                                         :+:      :+:    :+:   */
+/*   heredoc_expand.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 14:31:44 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/10 14:43:50 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/10 15:00:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	cases(char *holder, t_dollar mode, int i)
+static bool	cases(char *holder)
 {
-	// if (mode == INSIDED)
-	// {
-	// 	printf("[INSIDED][%d]\n", i);
-	// }
-	// else if (mode == INSIDES)
-	// {
-	// 	printf("[INSIDES][%d]\n", i);
-	// }
-	// else if (mode == OUTSIDE)
-	// {
-	// 	printf("[OUTSIDE][%d]\n", i);
-	// }
-	if ((!ft_strcmp(holder, "'") || !ft_strcmp(holder, "\""))
-				&& mode == INSIDED)
+	if ((!ft_strcmp(holder, "'") || !ft_strcmp(holder, "\"")))
 	{
 		return (true);
 	}
@@ -36,7 +23,6 @@ static bool	cases(char *holder, t_dollar mode, int i)
 		return (false);
 	}
 }
-
 static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
 {
 	t_size	u;
@@ -46,13 +32,12 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
 	while (line[u.i])
 	{
 		u.start_end = is_index_on_dollar(utils->expand, u.i);
-		if (u.start_end && (is_dollar_in_quotes(utils->qoutes, u.i) == OUTSIDE
-				|| is_dollar_in_quotes(utils->qoutes, u.i) == INSIDED))
+		if (u.start_end)
 		{
 			u.len = u.start_end->end - u.start_end->start + 1;
 			u.holder = ft_substr(line, u.start_end->start + 1, u.len - 1,
 					garbage);
-			if (cases(u.holder, is_dollar_in_quotes(utils->qoutes, u.i), u.i))
+			if (cases(u.holder))
 			{
 				u.new_size++, u.i++;
 				continue ;
@@ -65,10 +50,11 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
 				u.new_size += ft_strlen(u.temp);
 			u.i += u.len;
 		}
-		else if (!is_im_quotes(utils->qoutes, u.i))
-			u.new_size++, u.i++;
 		else
+		{
+			u.new_size++;
 			u.i++;
+		}
 	}
 	return (u.new_size);
 }
@@ -83,13 +69,12 @@ static void	fill_new_string(char *line, char *new, t_list *utils,
 	while (line[s.i])
 	{
 		s.start_end = is_index_on_dollar(utils->expand, s.i);
-		if (s.start_end && (is_dollar_in_quotes(utils->qoutes, s.i) == OUTSIDE
-				|| is_dollar_in_quotes(utils->qoutes, s.i) == INSIDED))
+		if (s.start_end)
 		{
 			s.len = s.start_end->end - s.start_end->start + 1;
 			s.holder = ft_substr(line, s.start_end->start + 1, s.len - 1,
 					garbage);
-			if (cases(s.holder, is_dollar_in_quotes(utils->qoutes, s.i), s.i))
+			if (cases(s.holder))
 			{
 				new[s.pos++] = line[s.i++];
 				continue ;
@@ -105,15 +90,13 @@ static void	fill_new_string(char *line, char *new, t_list *utils,
 			}
 			s.i += s.len;
 		}
-		else if (!is_im_quotes(utils->qoutes, s.i))
-			new[s.pos++] = line[s.i++];
 		else
-			s.i++;
+			new[s.pos++] = line[s.i++];
 	}
 	new[s.pos] = '\0';
 }
 
-char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **garbage)
+char	*expand_only(char *line, t_list *utils, t_gc **garbage)
 {
 	char	*new;
 	size_t	new_size;
@@ -129,7 +112,7 @@ char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **garbage)
 	return (new);
 }
 
-char	*expander(char *line, t_container *c)
+char	*h_expander(char *line, t_container *c)
 {
 	t_list u;
 	char *new;
@@ -149,12 +132,6 @@ char	*expander(char *line, t_container *c)
 	u.status = c->status;
 	get_quote_index(&u, c->garbage);
 	get_expand_index(&u, c->garbage);
-	// t_expand *tmp = *u.expand;
-	// while (tmp)
-	// {
-	// 	printf("[%d][%d]\n", tmp->start, tmp->end);
-	// 	tmp = tmp->next;
-	// }
-	new = remove_quotes_and_expand(line, &u, c->garbage);
+	new = expand_only(line, &u, c->garbage);
 	return (new);
 }

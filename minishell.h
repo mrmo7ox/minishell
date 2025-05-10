@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 10:48:19 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 14:48:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ typedef enum e_type
 	OR,
 	AND
 }							t_type;
+
+typedef enum e_dollar
+{
+	INSIDED,
+	OUTSIDE,
+	INSIDES,
+}							t_dollar;
 
 typedef enum e_qoute_type
 {
@@ -163,6 +170,7 @@ typedef struct s_list
 	t_qoutes				**qoutes;
 	t_expand				**expand;
 	t_env					**env;
+	int						status;
 }							t_list;
 
 typedef struct s_new_string
@@ -325,14 +333,14 @@ t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
 //************************************************************** */
-char						*expander(char *line, t_container *c, int *o);
+char						*expander(char *line, t_container *c);
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,
 								t_gc **garbage);
 t_expand					*ft_new_expand(int start, int end, bool expand,
 								t_gc **garbage);
-bool						is_dollar_in_quotes(t_qoutes **quotes, int index);
+t_dollar					is_dollar_in_quotes(t_qoutes **quotes, int index);
 t_qoutes					*is_im_quotes(t_qoutes **quotes, int index);
 t_expand					*is_index_on_dollar(t_expand **dollars, int index);
 void						add_to_quote_list(t_list *u, t_gc **garbage,
@@ -341,6 +349,7 @@ void						get_quote_index(t_list *u, t_gc **garbage);
 void						add_to_expand_list(t_list *u, bool expand_s,
 								t_gc **garbage);
 t_list						*get_expand_index(t_list *u, t_gc **garbage);
+char						*h_expander(char *line, t_container *c);
 
 //************************************************************** */
 // exe

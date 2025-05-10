@@ -1,7546 +1,980 @@
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-[$@ls]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-[$@ls]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: run
-[run]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: 'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'ls
-['$'ls]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'" '$ls'
-["'ls'" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'" '$ls'
-["''" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-[$'HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-[$'HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$HOME"
-[ls dfd sf "/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'home'"
-["$'home'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: '$HOME'
-['$HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$"HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'''"
-["/home/moel-oua'''"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'''"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME''"'
-['"$HOME''"']
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $$HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $$$HOME
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: $HOME$
-[/home/moel-oua$]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1H2OME
-[H2OME]
-
-==========================
-output : Minishell: 
-Minishell: $H2OME
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $?HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: "HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME"
-["'$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME
-['$'HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"'HOME'"
-[$"'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $"'"HOME"'"
-[$"'"HOME"'"]
-
-==========================
-output : Minishell: 
-Minishell: $'"'HOME'"'
-[$'"'HOME'"']
-
-==========================
-output : Minishell: 
-Minishell: '$'"'HOME'"
-['$'"'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $%HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $ls1HOME
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls1HOME'"
-["$'ls1HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls%HOME'"
-["$'ls%HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-[$'ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'lsHOME'
-[$'lsHOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-[$'HOME']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"ls%HOME"
-[$"ls%HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-[$'ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $%home$HOME$$whaat
-[home/home/moel-ouawhaat]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$1HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "1HOME"
-["1HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ";$HOME"
-[";/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$''HOME"'
-['"$''HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-[(null)]
-[ls]
-[ls]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$']
-[ls]
-['']
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$']
-[ls]
-['']
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["]
-[$]
-['ls'"]
-[ hi]
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["]
-[$]
-['ls'"]
-[ hi]
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["]
-[$]
-['ls'"]
-[ hi]
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: run
-[run]
-[run]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["]
-[$]
-[   'ls'"]
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["]
-[$]
-[   'ls'"]
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: 'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-[$]
-['ls']
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-[$]
-['ls']
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-[$]
-['ls']
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-[$]
-['ls']
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-[$]
-['ls']
-[ls fdsf $'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'ls
-['$']
-[ls]
-['$'ls]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'" '$ls'
-["'ls'"]
-[ ]
-['$ls']
-["'ls'" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'" '$ls'
-["']
-[(null)]
-['"]
-[ ]
-['$ls']
-["''" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-[$]
-['ls']
-[$'ls']
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-[$]
-['HOME']
-[$'HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-[$]
-['HOME']
-[$'HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$HOME"
-[ls dfd sf ]
-["]
-[/home/moel-oua]
-["]
-[ls dfd sf "/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'home'"
-["]
-[$]
-['home'"]
-["$'home'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: '$HOME'
-['$HOME']
-['$HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["']
-[/home/moel-oua]
-["]
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$"HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'''"
-["]
-[/home/moel-oua]
-['''"]
-["/home/moel-oua'''"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'''"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME''"'
-['"$HOME']
-['"']
-['"$HOME''"']
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$]
-["HOME"]
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $$HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $$$HOME
-[(null)]
-[/home/moel-oua]
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: $HOME$
-[/home/moel-oua]
-[$]
-[/home/moel-oua$]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1H2OME
-[(null)]
-[H2OME]
-[H2OME]
-
-==========================
-output : Minishell: 
-Minishell: $H2OME
-[(null)]
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $?HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: "HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME"
-["']
-[$]
-['HOME"]
-["'$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME
-['$']
-[HOME]
-['$'HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$]
-["HOME"]
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"'HOME'"
-[$]
-["'HOME'"]
-[$"'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $"'"HOME"'"
-[$]
-["'"]
-[HOME]
-["'"]
-[$"'"HOME"'"]
-
-==========================
-output : Minishell: 
-Minishell: $'"'HOME'"'
-[$]
-['"']
-[HOME]
-['"']
-[$'"'HOME'"']
-
-==========================
-output : Minishell: 
-Minishell: '$'"'HOME'"
-['$']
-["'HOME'"]
-['$'"'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $%HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$]
-["1"]
-[HOME]
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$]
-["1"]
-[HOME]
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $ls1HOME
-[(null)]
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls1HOME'"
-["]
-[$]
-['ls1HOME'"]
-["$'ls1HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls%HOME'"
-["]
-[$]
-['ls%HOME'"]
-["$'ls%HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-[$]
-['ls%HOME']
-[$'ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'lsHOME'
-[$]
-['lsHOME']
-[$'lsHOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-[$]
-['HOME']
-[$'HOME']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$]
-["HOME"]
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"ls%HOME"
-[$]
-["ls%HOME"]
-[$"ls%HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-[$]
-['ls%HOME']
-[$'ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $%home$HOME$$whaat
-[(null)]
-[home]
-[/home/moel-oua]
-[(null)]
-[whaat]
-[home/home/moel-ouawhaat]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$]
-["HOME"]
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-[$]
-["HOME"]
-[$"HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["']
-[(null)]
-[HOME'"]
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["']
-[(null)]
-[HOME'"]
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$1HOME"
-["]
-[(null)]
-[HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "1HOME"
-["1HOME"]
-["1HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ";$HOME"
-[";]
-[/home/moel-oua]
-["]
-[";/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["']
-[/home/moel-oua]
-["]
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$''HOME"'
-['"$']
-['HOME"']
-['"$''HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$]
-["1"]
-[HOME]
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$]
-["1"]
-[HOME]
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$]
-["1"]
-[HOME]
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-[$]
-["1"]
-[HOME]
-[$"1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-[(null)]
-[ls]
-[ls]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$']
-[ls]
-['']
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$']
-[ls]
-['']
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["]
-[$]
-['ls'"]
-[ hi]
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["]
-[$]
-['ls'"]
-[ hi]
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["]
-[$]
-['ls'"]
-[ hi]
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: run
-[run]
-[run]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["]
-[$]
-[   'ls'"]
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["]
-[$]
-[   'ls'"]
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: 'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-['ls']
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-['ls']
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-['ls']
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-['ls']
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf ]
-['ls']
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'ls
-['$']
-[ls]
-['$'ls]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["]
-[$]
-['ls'"]
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'" '$ls'
-["'ls'"]
-[ ]
-['$ls']
-["'ls'" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'" '$ls'
-["']
-[(null)]
-['"]
-[ ]
-['$ls']
-["''" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["']
-[(null)]
-['"]
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-['HOME']
-['HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-['HOME']
-['HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$HOME"
-[ls dfd sf ]
-["]
-[/home/moel-oua]
-["]
-[ls dfd sf "/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf ]
-["]
-[$]
-[     'HOME'"]
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf ]
-["]
-[$]
-['HOME'"]
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf ]
-["']
-[/home/moel-oua]
-['"]
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'home'"
-["]
-[$]
-['home'"]
-["$'home'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["]
-[/home/moel-oua]
-['"]
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: '$HOME'
-['$HOME']
-['$HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-["]
-[(null)]
-["]
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["']
-[/home/moel-oua]
-["]
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$"HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'''"
-["]
-[/home/moel-oua]
-['''"]
-["/home/moel-oua'''"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'''"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME''"'
-['"$HOME']
-['"']
-['"$HOME''"']
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["]
-[$]
-['HOME'"]
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $$HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $$$HOME
-[(null)]
-[/home/moel-oua]
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: $HOME$
-[/home/moel-oua]
-[$]
-[/home/moel-oua$]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1H2OME
-[(null)]
-[H2OME]
-[H2OME]
-
-==========================
-output : Minishell: 
-Minishell: $H2OME
-[(null)]
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $?HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: "HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME"
-["']
-[$]
-['HOME"]
-["'$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME
-['$']
-[HOME]
-['$'HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"'HOME'"
-["'HOME'"]
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $"'"HOME"'"
-["'"]
-[HOME]
-["'"]
-["'"HOME"'"]
-
-==========================
-output : Minishell: 
-Minishell: $'"'HOME'"'
-['"']
-[HOME]
-['"']
-['"'HOME'"']
-
-==========================
-output : Minishell: 
-Minishell: '$'"'HOME'"
-['$']
-["'HOME'"]
-['$'"'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $%HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[(null)]
-[HOME]
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"]
-[HOME]
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"]
-[HOME]
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $ls1HOME
-[(null)]
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls1HOME'"
-["]
-[$]
-['ls1HOME'"]
-["$'ls1HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls%HOME'"
-["]
-[$]
-['ls%HOME'"]
-["$'ls%HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-['ls%HOME']
-['ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'lsHOME'
-['lsHOME']
-['lsHOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-['HOME']
-['HOME']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"ls%HOME"
-["ls%HOME"]
-["ls%HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-['ls%HOME']
-['ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $%home$HOME$$whaat
-[(null)]
-[home]
-[/home/moel-oua]
-[(null)]
-[whaat]
-[home/home/moel-ouawhaat]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["']
-[(null)]
-[HOME'"]
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["']
-[(null)]
-[HOME'"]
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$1HOME"
-["]
-[(null)]
-[HOME"]
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "1HOME"
-["1HOME"]
-["1HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ";$HOME"
-[";]
-[/home/moel-oua]
-["]
-[";/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["']
-[/home/moel-oua]
-["]
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["']
-[/home/moel-oua]
-['"]
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["]
-[/home/moel-oua]
-["]
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$''HOME"'
-['"$']
-['HOME"']
-['"$''HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"]
-[HOME]
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"]
-[HOME]
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"]
-[HOME]
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"]
-[HOME]
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["]
-[$]
-['HOME"]
-["$'HOME"]
-
-==========================
-output : No history file found. Starting fresh.
-Minishell: $@ls
-[ls]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls''
-['$'ls'']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'" hi
-["$'ls'" hi]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: run
-[run]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: clear
-[clear]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$ls"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "$   'ls'"
-["$   'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: 'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: ls fdsf $'ls'
-[ls fdsf 'ls']
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: '$ls'
-['$ls']
-
-==========================
-output : Minishell: 
-Minishell: '$'ls'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'ls
-['$'ls]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls'"
-["$'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'ls'" '$ls'
-["'ls'" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'" '$ls'
-["''" '$ls']
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls'
-['ls']
-
-==========================
-output : Minishell: 
-Minishell: "'ls'"
-["'ls'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$ls'"
-["''"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-['HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-['HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$HOME"
-[ls dfd sf "/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$     'HOME'"
-[ls dfd sf "$     'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "$'HOME'"
-[ls dfd sf "$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: ls dfd sf "'$HOME'"
-[ls dfd sf "'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'home'"
-["$'home'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'"
-["/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: '$HOME'
-['$HOME']
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HI"
-[""]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$"HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME'''"
-["/home/moel-oua'''"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'''"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME''"'
-['"$HOME''"']
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME'"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME'"
-["$'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'HOME
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $$HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $$$HOME
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: $HOME$
-[/home/moel-oua$]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1H2OME
-[H2OME]
-
-==========================
-output : Minishell: 
-Minishell: $H2OME
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $?HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: "HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: "'$'HOME"
-["'$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME"
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '$'HOME
-['$'HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"'HOME'"
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $"'"HOME"'"
-["'"HOME"'"]
-
-==========================
-output : Minishell: 
-Minishell: $'"'HOME'"'
-['"'HOME'"']
-
-==========================
-output : Minishell: 
-Minishell: '$'"'HOME'"
-['$'"'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $%HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $1HOME
-[HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $ls1HOME
-[(null)]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls1HOME'"
-["$'ls1HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$'ls%HOME'"
-["$'ls%HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-['ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $'lsHOME'
-['lsHOME']
-
-==========================
-output : Minishell: 
-Minishell: $'HOME'
-['HOME']
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"ls%HOME"
-["ls%HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $'ls%HOME'
-['ls%HOME']
-
-==========================
-output : Minishell: 
-Minishell: $%home$HOME$$whaat
-[home/home/moel-ouawhaat]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "'$1HOME'"
-["'HOME'"]
-
-==========================
-output : Minishell: 
-Minishell: "$1HOME"
-["HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "1HOME"
-["1HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: ";$HOME"
-[";/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME"
-["'/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "'$HOME'"
-["'/home/moel-oua'"]
-
-==========================
-output : Minishell: 
-Minishell: $HOME
-[/home/moel-oua]
-
-==========================
-output : Minishell: 
-Minishell: "$HOME"
-["/home/moel-oua"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$''HOME"'
-['"$''HOME"']
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: $"1"HOME
-["1"HOME]
-
-==========================
-output : Minishell: 
-Minishell: '"$'HOME"'
-syntax error
-
-==========================
-output : Minishell: 
-Minishell: '"$HOME"'
-['"$HOME"']
-
-==========================
-output : Minishell: 
-Minishell: "$'HOME"
-["$'HOME"]
+$@ls:[ls]:[ls][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+'$'ls'':[$ls]:[$ls][✅]
+----------------------------------------
+'$'ls'':[$ls]:[$ls][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+'$ls':[$ls]:[$ls][✅]
+----------------------------------------
+'$ls':[$ls]:[$ls][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'" hi:[$'ls' hi]:[$'ls' hi][✅]
+----------------------------------------
+"$'ls'" hi:[$'ls' hi]:[$'ls' hi][✅]
+----------------------------------------
+"$'ls'" hi:[$'ls' hi]:[$'ls' hi][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+run:[run]:[run][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"'ls'":['ls']:['ls'][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"$ls":[]:[][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"$ls":[]:[][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"$   'ls'":[$   'ls']:[$   'ls'][✅]
+----------------------------------------
+"$   'ls'":[$   'ls']:[$   'ls'][✅]
+----------------------------------------
+'ls':[ls]:[ls][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
+----------------------------------------
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
+----------------------------------------
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
+----------------------------------------
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
+----------------------------------------
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+'$ls':[$ls]:[$ls][✅]
+----------------------------------------
+'$'ls':[syntax error]:[syntax error][✅]
+----------------------------------------
+'$'ls:[$ls]:[$ls][✅]
+----------------------------------------
+"$'ls'":[$'ls']:[$'ls'][✅]
+----------------------------------------
+"'ls'":['ls']:['ls'][✅]
+----------------------------------------
+"'ls'" '$ls':['ls' $ls]:['ls' $ls][✅]
+----------------------------------------
+"'$ls'" '$ls':['' $ls]:['' $ls][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+"'ls'":['ls']:['ls'][✅]
+----------------------------------------
+"'$ls'":['']:[''][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+$'HOME':[HOME]:[HOME][✅]
+----------------------------------------
+$'HOME':[HOME]:[HOME][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
+----------------------------------------
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
+----------------------------------------
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
+----------------------------------------
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
+----------------------------------------
+dfd sf "$HOME":[dfd sf /home/moel-oua]:[dfd sf /home/moel-oua][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
+----------------------------------------
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'home'":[$'home']:[$'home'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
+----------------------------------------
+'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"$HI":[]:[][✅]
+----------------------------------------
+"$HI":[]:[][✅]
+----------------------------------------
+"$HI":[]:[][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME":['/home/moel-oua]:['/home/moel-oua][✅]
+----------------------------------------
+"$"HOME":[syntax error]:[syntax error][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+"$HOME'''":[/home/moel-oua''']:[/home/moel-oua'''][✅]
+----------------------------------------
+'"$HOME'''"':[syntax error]:[syntax error][✅]
+----------------------------------------
+'"$HOME''"':["$HOME"]:["$HOME"][✅]
+----------------------------------------
+'"$HOME'"':[syntax error]:[syntax error][✅]
+----------------------------------------
+'"$HOME"':["$HOME"]:["$HOME"][✅]
+----------------------------------------
+$"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+$'HOME:[syntax error]:[syntax error][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+$$HOME:[$/home/moel-oua]:[593884HOME][❌]
+----------------------------------------
+$$$HOME:[$$/home/moel-oua]:[593886/home/moel-oua][❌]
+----------------------------------------
+$HOME$:[/home/moel-oua$]:[/home/moel-oua$][✅]
+----------------------------------------
+$1HOME:[HOME]:[HOME][✅]
+----------------------------------------
+$1HOME:[HOME]:[HOME][✅]
+----------------------------------------
+$1H2OME:[H2OME]:[H2OME][✅]
+----------------------------------------
+$H2OME:[]:[][✅]
+----------------------------------------
+$1HOME:[HOME]:[HOME][✅]
+----------------------------------------
+$?HOME:[0HOME]:[0HOME][✅]
+----------------------------------------
+"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+'"$HOME"':["$HOME"]:["$HOME"][✅]
+----------------------------------------
+"'$'HOME':[syntax error]:[syntax error][✅]
+----------------------------------------
+"'$'HOME":['$'HOME]:['$'HOME][✅]
+----------------------------------------
+'$'HOME":[syntax error]:[syntax error][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+$"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+$"'HOME'":['HOME']:['HOME'][✅]
+----------------------------------------
+$"'"HOME"'":['HOME']:['HOME'][✅]
+----------------------------------------
+$'"'HOME'"':["HOME"]:["HOME"][✅]
+----------------------------------------
+'$'"'HOME'":[$'HOME']:[$'HOME'][✅]
+----------------------------------------
+$%HOME:[$%HOME]:[$%HOME][✅]
+----------------------------------------
+$1HOME:[HOME]:[HOME][✅]
+----------------------------------------
+$"1"HOME:[1HOME]:[1HOME][✅]
+----------------------------------------
+$"1"HOME:[1HOME]:[1HOME][✅]
+----------------------------------------
+$ls1HOME:[]:[][✅]
+----------------------------------------
+"$'ls1HOME'":[$'ls1HOME']:[$'ls1HOME'][✅]
+----------------------------------------
+"$'ls%HOME'":[$'ls%HOME']:[$'ls%HOME'][✅]
+----------------------------------------
+$'ls%HOME':[ls%HOME]:[ls%HOME][✅]
+----------------------------------------
+$'lsHOME':[lsHOME]:[lsHOME][✅]
+----------------------------------------
+$'HOME':[HOME]:[HOME][✅]
+----------------------------------------
+$"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+$"ls%HOME":[ls%HOME]:[ls%HOME][✅]
+----------------------------------------
+$'ls%HOME':[ls%HOME]:[ls%HOME][✅]
+----------------------------------------
+$%home$HOME$$whaat:[$%home/home/moel-oua$]:[$%home/home/moel-oua593952whaat][❌]
+----------------------------------------
+$"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+$"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$1HOME'":['HOME']:['HOME'][✅]
+----------------------------------------
+"'$1HOME'":['HOME']:['HOME'][✅]
+----------------------------------------
+"$1HOME":[HOME]:[HOME][✅]
+----------------------------------------
+"1HOME":[1HOME]:[1HOME][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+";$HOME":[;/home/moel-oua]:[;/home/moel-oua][✅]
+----------------------------------------
+"'$HOME":['/home/moel-oua]:['/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+'"$HOME"':["$HOME"]:["$HOME"][✅]
+----------------------------------------
+'"$'HOME"':[syntax error]:[syntax error][✅]
+----------------------------------------
+'"$''HOME"':["$HOME"]:["$HOME"][✅]
+----------------------------------------
+'"$'HOME"':[syntax error]:[syntax error][✅]
+----------------------------------------
+$"1"HOME:[1HOME]:[1HOME][✅]
+----------------------------------------
+$"1"HOME:[1HOME]:[1HOME][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+$"1"HOME:[1HOME]:[1HOME][✅]
+----------------------------------------
+$"1"HOME:[1HOME]:[1HOME][✅]
+----------------------------------------
+'"$'HOME"':[syntax error]:[syntax error][✅]
+----------------------------------------
+'"$HOME"':["$HOME"]:["$HOME"][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+"$ls":[]:[][✅]
+----------------------------------------
+"$ls":[]:[][✅]
+----------------------------------------
+"$ls":[]:[][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME   ":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME   " 'home':[/home/moel-oua    home]:[/home/moel-oua    home][✅]
+----------------------------------------
+"$HOME   " 'home':[/home/moel-oua    home]:[/home/moel-oua    home][✅]
+----------------------------------------
+"$HOME'   " 'home':[/home/moel-oua'    home]:[/home/moel-oua'    home][✅]
+----------------------------------------
+"$HOME'   " 'home':[/home/moel-oua'    home]:[/home/moel-oua'    home][✅]
+----------------------------------------
+"' -la":[' -la]:[' -la][✅]
+----------------------------------------
+"' -la":[' -la]:[' -la][✅]
+----------------------------------------
+"' -la'":[' -la']:[' -la'][✅]
+----------------------------------------
+"""' -la":[' -la]:[' -la][✅]
+----------------------------------------
+""" -la''":[-la'']:[-la''][✅]
+----------------------------------------
+"'$a'":[''']:['''][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME''''":['/home/moel-oua'''']:['/home/moel-oua''''][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME1":[']:['][✅]
+----------------------------------------
+"'$1HOME":['HOME]:['HOME][✅]
+----------------------------------------
+"'$HOME""":['/home/moel-oua]:['/home/moel-oua][✅]
+----------------------------------------
+"'$HOME""SD":['/home/moel-ouaSD]:['/home/moel-ouaSD][✅]
+----------------------------------------
+a="'$HOME'":[a='/home/moel-oua']:[a='/home/moel-oua'][✅]
+----------------------------------------
+$A:[]:[][✅]
+----------------------------------------
+$a:[']:['][✅]
+----------------------------------------
+$a:[']:['][✅]
+----------------------------------------
+"$a":[']:['][✅]
+----------------------------------------
+"$a" a:[' a]:[' a][✅]
+----------------------------------------
+"$a":[']:['][✅]
+----------------------------------------
+"$a":[']:['][✅]
+----------------------------------------
+$a:[']:['][✅]
+----------------------------------------
+'$a':[$a]:[$a][✅]
+----------------------------------------
+'$a':[$a]:[$a][✅]
+----------------------------------------
+$a:[']:['][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
+----------------------------------------
+"$HOME'" '$HOME':[/home/moel-oua' $HOME]:[/home/moel-oua' $HOME][✅]
+----------------------------------------
+"$HOME'" '"$HOME"':[/home/moel-oua' "$HOME"]:[/home/moel-oua' "$HOME"][✅]
+----------------------------------------
+"$HOME'" "'"$HOME"'":[/home/moel-oua' '/home/moel-oua']:[/home/moel-oua' '/home/moel-oua'][✅]
+----------------------------------------
+"'"$HOME"'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'"$HOME"'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+$"":[]:[][✅]
+----------------------------------------
+$"dfsdsf":[dfsdsf]:[dfsdsf][✅]
+----------------------------------------
+$"dfsdsf":[dfsdsf]:[dfsdsf][✅]
+----------------------------------------
+"ddddd":[ddddd]:[ddddd][✅]
+----------------------------------------
+"$ddddd":[]:[][✅]
+----------------------------------------
+"'$ddddd'":['']:[''][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$HOME'" $HOME:['/home/moel-oua' /home/moel-oua]:['/home/moel-oua' /home/moel-oua][✅]
+----------------------------------------
+"'$HOME'" '$HOME':['/home/moel-oua' $HOME]:['/home/moel-oua' $HOME][✅]
+----------------------------------------
+"'$HOME'" '$HOME''':['/home/moel-oua' $HOME]:['/home/moel-oua' $HOME][✅]
+----------------------------------------
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
+----------------------------------------
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
+----------------------------------------
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
+----------------------------------------
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
+----------------------------------------
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
+----------------------------------------
+"$HOME$":[/home/moel-oua$]:[/home/moel-oua$][✅]
+----------------------------------------
+$HOME$:[/home/moel-oua$]:[/home/moel-oua$][✅]
+----------------------------------------
+"$HOME$":[/home/moel-oua$]:[/home/moel-oua$][✅]
+----------------------------------------
+"$'HOME$":[$'HOME$]:[$'HOME$][✅]
+----------------------------------------
+"$'home$":[$'home$]:[$'home$][✅]
+----------------------------------------
+"$home$":[$]:[$][✅]
+----------------------------------------
+"$home$":[$]:[$][✅]
+----------------------------------------
+"$home$":[$]:[$][✅]
+----------------------------------------
+"home$":[home$]:[home$][✅]
+----------------------------------------
+$"home$":[home$]:[home$][✅]
+----------------------------------------
+$"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+$'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+"a$":[a$]:[a$][✅]
+----------------------------------------
+$'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+$"zbi"$:[zbi$]:[zbi$][✅]
+----------------------------------------
+"$'zbi'$":[$'zbi'$]:[$'zbi'$][✅]
+----------------------------------------
+$'zbi'$:[zbi$]:[zbi$][✅]
+----------------------------------------
+$ll'zbi'$:[zbi$]:[zbi$][✅]
+----------------------------------------
+$""'zbi'$:[zbi$]:[zbi$][✅]
+----------------------------------------
+$""'zbi'$:[zbi$]:[zbi$][✅]
+----------------------------------------
+$ls:[]:[][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$:[$]:[$][✅]
+----------------------------------------
+$fdsfdsfds:[]:[][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$?fdsfdsf:[0fdsfdsf]:[0fdsfdsf][✅]
+----------------------------------------
+$?fdsfdsf:[0fdsfdsf]:[0fdsfdsf][✅]
+----------------------------------------
+$?fdsfdsf:[0fdsfdsf]:[0fdsfdsf][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$holder:[]:[][✅]
+----------------------------------------
+"$holder":[]:[][✅]
+----------------------------------------
+$"holde:[syntax error]:[syntax error][✅]
+----------------------------------------
+$"holde":[holde]:[holde][✅]
+----------------------------------------
+$"holde":[holde]:[holde][✅]
+----------------------------------------
+$"holde":[holde]:[holde][✅]
+----------------------------------------
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
+----------------------------------------
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
+----------------------------------------
+"'holde'" $HOME:['holde' /home/moel-oua]:['holde' /home/moel-oua][✅]
+----------------------------------------
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
+----------------------------------------
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
+----------------------------------------
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
+----------------------------------------
+$'holde' $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+$'holde' $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+$'holde' $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
+----------------------------------------
+'$'holde'' $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
+----------------------------------------
+"$"holde'' $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
+----------------------------------------
+"$"holde $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
+----------------------------------------
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
+----------------------------------------
+"$"holde $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
+----------------------------------------
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$'HOME'":['$'HOME']:['$'HOME'][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+'$'HOME:[$HOME]:[$HOME][✅]
+----------------------------------------
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+"'$'HOME'":['$'HOME']:['$'HOME'][✅]
+----------------------------------------
+$"HOME":[HOME]:[HOME][✅]
+----------------------------------------
+"$'HOME":[$'HOME]:[$'HOME][✅]
+----------------------------------------
+$'HOME':[HOME]:[HOME][✅]
+----------------------------------------
+$""'zbi'$:[zbi$]:[zbi$][✅]
+----------------------------------------
+"'$HOME'"$:['/home/moel-oua'$]:['/home/moel-oua'$][✅]
+----------------------------------------
+"'$HOME'$":['/home/moel-oua'$]:['/home/moel-oua'$][✅]
+----------------------------------------
+$'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+$'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+$"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
+----------------------------------------
+$$HOME":[syntax error]:[syntax error][✅]
+----------------------------------------
+$$HOME:[$/home/moel-oua]:[594378HOME][❌]
+----------------------------------------
+$'$HOME":[syntax error]:[syntax error][✅]
+----------------------------------------
+$'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+$'$''HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+'$$HOME':[$$HOME]:[$$HOME][✅]
+----------------------------------------
+"$$HOME":[$/home/moel-oua]:[594388HOME][❌]
+----------------------------------------
+"'$HO'":['']:[''][✅]
+----------------------------------------
+"'$'HO'":['$'HO']:['$'HO'][✅]
+----------------------------------------
+"'$'HOme'":['$'HOme']:['$'HOme'][✅]
+----------------------------------------
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
+----------------------------------------
+'$HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+'$''HOME':[$HOME]:[$HOME][✅]
+----------------------------------------
+'$''HOME$':[$HOME$]:[$HOME$][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+$'ls':[ls]:[ls][✅]
+----------------------------------------
+$"ls":[ls]:[ls][✅]
+----------------------------------------
+$"ls'":[ls']:[ls'][✅]
+----------------------------------------
+$'"ls'":[syntax error]:[syntax error][✅]
+----------------------------------------
+$'"ls'"":["ls]:["ls][✅]
+----------------------------------------
+'$'"ls'""':[syntax error]:[syntax error][✅]
+----------------------------------------
+'$"ls""':[$"ls""]:[$"ls""][✅]
+----------------------------------------
+'$"ls""':[$"ls""]:[$"ls""][✅]
+----------------------------------------
+'$"ls""':[$"ls""]:[$"ls""][✅]
+----------------------------------------
+'$"ls""':[$"ls""]:[$"ls""][✅]
+----------------------------------------
+"$HOME                 $fgfdgfdg          '$HOME'":[/home/moel-oua                           '/home/moel-oua']:[/home/moel-oua                           '/home/moel-oua'][✅]
+----------------------------------------
+"'"$a"'":[''']:['''][✅]
+----------------------------------------
+'"'$b'"':["""]:["""][✅]
+----------------------------------------

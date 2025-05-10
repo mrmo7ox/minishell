@@ -3,34 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   expand_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 09:45:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 17:09:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 13:56:51 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-bool	is_dollar_in_quotes(t_qoutes **quotes, int index)
+t_dollar	is_dollar_in_quotes(t_qoutes **quotes, int index)
 {
 	t_qoutes	*curr;
 
 	if (!quotes || !*quotes)
-		return (true);
+		return (OUTSIDE);
 	curr = *quotes;
-	(void)index;
 	while (curr)
 	{
 		if (curr->type == DQOUTE && index > curr->open_index
 			&& index < curr->close_index)
-			return (true);
+			return (INSIDED);
 		else if (curr->type == SQOUTE && index > curr->open_index
 			&& index < curr->close_index)
-			return (false);
+			return (INSIDES);
 		curr = curr->next;
 	}
-	return (true);
+	return (OUTSIDE);
 }
 
 t_qoutes	*is_im_quotes(t_qoutes **quotes, int index)
@@ -51,7 +50,7 @@ t_qoutes	*is_im_quotes(t_qoutes **quotes, int index)
 
 t_expand	*is_index_on_dollar(t_expand **dollars, int index)
 {
-	t_expand	*curr;
+	t_expand *curr;
 
 	if (!dollars || !*dollars)
 		return (NULL);
