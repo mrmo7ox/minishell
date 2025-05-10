@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:53:38 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 10:46:58 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 15:03:57 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,17 +98,14 @@ int	ft_exit(char **args, t_env **ft_env, t_gc **gc, int prev)
 
 	printf("exit\n");
 	if (!args)
-		helper(ft_env, gc, prev % 256);
+		helper(ft_env, gc, prev);
 	if (args_len(args) == 1)
 		helper(ft_env, gc, prev);
 	status = prev;
-	if (!status)
-	{
-		tmp = status;
-		status = exit_args(args, ft_env, gc, status);
-		if (status != tmp)
-			return (status);
-	}
+	tmp = status;
+	status = exit_args(args, ft_env, gc, status);
+	if (status != tmp)
+		return (status);
 	status = ft_atoll(args[1]);
 	helper(ft_env, gc, status % 256);
 	return (1);

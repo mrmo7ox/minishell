@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/08 16:13:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/10 14:56:08 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	exe_pipe(char **args, t_pipe *pip, t_env **ft_env, t_gc **gc)
 	}
 }
 
-t_leaf	*pipe_handle(t_leaf **root, t_pipe *pip, t_env **ft_env, t_gc **gc)
+t_leaf	*pipe_handle(t_leaf **root, t_pipe *pip, t_container *c)
 {
 	t_leaf	*node;
 
