@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 12:36:27 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 14:26:09 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ typedef enum e_type
 	OR,
 	AND
 }							t_type;
+
+typedef enum e_dollar
+{
+	INSIDED,
+	OUTSIDE,
+	INSIDES,
+}							t_dollar;
 
 typedef enum e_qoute_type
 {
@@ -163,6 +170,7 @@ typedef struct s_list
 	t_qoutes				**qoutes;
 	t_expand				**expand;
 	t_env					**env;
+	int						status;
 }							t_list;
 
 typedef struct s_new_string
@@ -332,7 +340,7 @@ t_qoutes					*ft_new_node(int open, int close, t_qtype type,
 								t_gc **garbage);
 t_expand					*ft_new_expand(int start, int end, bool expand,
 								t_gc **garbage);
-bool						is_dollar_in_quotes(t_qoutes **quotes, int index);
+t_dollar					is_dollar_in_quotes(t_qoutes **quotes, int index);
 t_qoutes					*is_im_quotes(t_qoutes **quotes, int index);
 t_expand					*is_index_on_dollar(t_expand **dollars, int index);
 void						add_to_quote_list(t_list *u, t_gc **garbage,

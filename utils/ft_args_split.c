@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:48:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 12:06:38 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 12:55:22 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,19 @@ static int	strlen_mod(char *str)
 		if (!str[i])
 			break ;
 		words++;
-		if (ft_chrstr(str[i], "\'\""))
+		while (str[i] && str[i] != ' ')
 		{
-			quote = str[i];
-			i++;
-			while (str[i] != '\0' && !closed)
+			if (ft_chrstr(str[i], "\'\""))
 			{
-				if (str[i] == quote)
-				{
-					closed = true;
+				quote = str[i];
+				i++;
+				while (str[i] && str[i] != quote)
 					i++;
-					break ;
-				}
-				i++;
+				if (str[i] == quote)
+					i++;
+				continue ;
 			}
-			while (str[i] != '\0' && str[i] != ' ')
-				i++;
-			continue ;
-		}
-		else
-		{
-			while (str[i] && str[i] != ' ')
-			{
-				i++;
-			}
+			i++;
 		}
 	}
 	return (words);
@@ -103,29 +92,19 @@ char	**ft_args_split(char *str, t_gc **garbage, int i, int j)
 		if (!str[i])
 			break ;
 		j = i;
-		if (ft_chrstr(str[i], "\'\""))
+		while (str[i] && str[i] != ' ')
 		{
-			quote = str[i];
-			i++;
-			while (str[i] && !closed)
+			if (ft_chrstr(str[i], "\'\""))
 			{
-				if (str[i] == quote)
-				{
-					closed = true;
+				quote = str[i];
+				i++;
+				while (str[i] && str[i] != quote)
 					i++;
-					break ;
-				}
-				i++;
+				if (str[i] == quote)
+					i++;
+				continue ;
 			}
-			while (str[i] != ' ')
-				i++;
-		}
-		else
-		{
-			while (str[i] && str[i] != ' ')
-			{
-				i++;
-			}
+			i++;
 		}
 		if (i > j)
 		{

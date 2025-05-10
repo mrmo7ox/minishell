@@ -6,70 +6,111 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 11:59:17 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 14:31:44 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
+static bool	cases(char *holder, t_dollar mode, int i)
+{
+	// if (mode == INSIDED)
+	// {
+	// 	printf("[INSIDED][%d]\n", i);
+	// }
+	// else if (mode == INSIDES)
+	// {
+	// 	printf("[INSIDES][%d]\n", i);
+	// }
+	// else if (mode == OUTSIDE)
+	// {
+	// 	printf("[OUTSIDE][%d]\n", i);
+	// }
+	if ((!ft_strcmp(holder, "'") || !ft_strcmp(holder, "\""))
+				&& mode == INSIDED)
+	{
+		return (true);
+	}
+	else
+	{
+		return (false);
+	}
+}
+
 static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
 {
-	t_size	size_utils;
+	t_size	u;
 
-	size_utils.i = 0;
-	size_utils.new_size = 0;
-	while (line[size_utils.i])
+	u.i = 0;
+	u.new_size = 0;
+	while (line[u.i])
 	{
-		size_utils.start_end = is_index_on_dollar(utils->expand, size_utils.i);
-		if (size_utils.start_end && is_dollar_in_quotes(utils->qoutes,
-				size_utils.i))
+		u.start_end = is_index_on_dollar(utils->expand, u.i);
+		if (u.start_end && (is_dollar_in_quotes(utils->qoutes, u.i) == OUTSIDE
+				|| is_dollar_in_quotes(utils->qoutes, u.i) == INSIDED))
 		{
-			size_utils.len = size_utils.start_end->end
-				- size_utils.start_end->start + 1;
-			size_utils.holder = ft_substr(line, size_utils.start_end->start + 1,
-					size_utils.len - 1, garbage);
-			size_utils.temp = ft_getenv(size_utils.holder, utils->env);
-			if (size_utils.temp)
-				size_utils.new_size += ft_strlen(size_utils.temp);
-			size_utils.i += size_utils.len;
+			u.len = u.start_end->end - u.start_end->start + 1;
+			u.holder = ft_substr(line, u.start_end->start + 1, u.len - 1,
+					garbage);
+			if (cases(u.holder, is_dollar_in_quotes(utils->qoutes, u.i), u.i))
+			{
+				u.new_size++, u.i++;
+				continue ;
+			}
+			if (!ft_strcmp(u.holder, "?"))
+				u.temp = ft_itoa(utils->status, garbage);
+			else
+				u.temp = ft_getenv(u.holder, utils->env);
+			if (u.temp)
+				u.new_size += ft_strlen(u.temp);
+			u.i += u.len;
 		}
-		else if (!is_im_quotes(utils->qoutes, size_utils.i))
-			size_utils.new_size++, size_utils.i++;
+		else if (!is_im_quotes(utils->qoutes, u.i))
+			u.new_size++, u.i++;
 		else
-			size_utils.i++;
+			u.i++;
 	}
-	return (size_utils.new_size);
+	return (u.new_size);
 }
 
 static void	fill_new_string(char *line, char *new, t_list *utils,
 		t_gc **garbage)
 {
-	t_new	string;
+	t_new	s;
 
-	string.i = 0;
-	string.pos = 0;
-	while (line[string.i])
+	s.i = 0;
+	s.pos = 0;
+	while (line[s.i])
 	{
-		string.start_end = is_index_on_dollar(utils->expand, string.i);
-		if (string.start_end && is_dollar_in_quotes(utils->qoutes, string.i))
+		s.start_end = is_index_on_dollar(utils->expand, s.i);
+		if (s.start_end && (is_dollar_in_quotes(utils->qoutes, s.i) == OUTSIDE
+				|| is_dollar_in_quotes(utils->qoutes, s.i) == INSIDED))
 		{
-			string.len = string.start_end->end - string.start_end->start + 1;
-			string.holder = ft_substr(line, string.start_end->start + 1,
-					string.len - 1, garbage);
-			string.temp = ft_getenv(string.holder, utils->env);
-			if (string.temp)
+			s.len = s.start_end->end - s.start_end->start + 1;
+			s.holder = ft_substr(line, s.start_end->start + 1, s.len - 1,
+					garbage);
+			if (cases(s.holder, is_dollar_in_quotes(utils->qoutes, s.i), s.i))
 			{
-				ft_strcpy(new + string.pos, string.temp);
-				string.pos += ft_strlen(string.temp);
+				new[s.pos++] = line[s.i++];
+				continue ;
 			}
-			string.i += string.len;
+			if (!ft_strcmp(s.holder, "?"))
+				s.temp = ft_itoa(utils->status, garbage);
+			else
+				s.temp = ft_getenv(s.holder, utils->env);
+			if (s.temp)
+			{
+				ft_strcpy(new + s.pos, s.temp);
+				s.pos += ft_strlen(s.temp);
+			}
+			s.i += s.len;
 		}
-		else if (!is_im_quotes(utils->qoutes, string.i))
-			new[string.pos++] = line[string.i++];
+		else if (!is_im_quotes(utils->qoutes, s.i))
+			new[s.pos++] = line[s.i++];
 		else
-			string.i++;
+			s.i++;
 	}
-	new[string.pos] = '\0';
+	new[s.pos] = '\0';
 }
 
 char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **garbage)
@@ -105,8 +146,15 @@ char	*expander(char *line, t_container *c)
 	u.qoutes = &quotes;
 	u.expand = &expand_res;
 	u.env = c->ft_env;
+	u.status = c->status;
 	get_quote_index(&u, c->garbage);
 	get_expand_index(&u, c->garbage);
+	// t_expand *tmp = *u.expand;
+	// while (tmp)
+	// {
+	// 	printf("[%d][%d]\n", tmp->start, tmp->end);
+	// 	tmp = tmp->next;
+	// }
 	new = remove_quotes_and_expand(line, &u, c->garbage);
 	return (new);
 }
