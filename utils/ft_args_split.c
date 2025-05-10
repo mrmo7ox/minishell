@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:48:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 11:57:14 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 12:06:38 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ static int	strlen_mod(char *str)
 	int		i;
 	int		words;
 	char	quote;
+	bool	closed;
 
+	closed = false;
 	i = 0;
 	words = 0;
 	while (str[i])
@@ -42,26 +44,27 @@ static int	strlen_mod(char *str)
 		words++;
 		if (ft_chrstr(str[i], "\'\""))
 		{
-			quote = str[i++];
-			while (str[i] && str[i] != quote)
+			quote = str[i];
+			i++;
+			while (str[i] != '\0' && !closed)
+			{
+				if (str[i] == quote)
+				{
+					closed = true;
+					i++;
+					break ;
+				}
 				i++;
-			if (str[i] == quote)
+			}
+			while (str[i] != '\0' && str[i] != ' ')
 				i++;
+			continue ;
 		}
 		else
 		{
 			while (str[i] && str[i] != ' ')
 			{
-				if (ft_chrstr(str[i], "\'\""))
-				{
-					quote = str[i++];
-					while (str[i] && str[i] != quote)
-						i++;
-					if (str[i] == quote)
-						i++;
-				}
-				else
-					i++;
+				i++;
 			}
 		}
 	}
@@ -82,7 +85,9 @@ char	**ft_args_split(char *str, t_gc **garbage, int i, int j)
 	int		words;
 	int		word_count;
 	char	quote;
+	bool	closed;
 
+	closed = false;
 	words = 0;
 	if (!str)
 		return (NULL);
@@ -102,26 +107,24 @@ char	**ft_args_split(char *str, t_gc **garbage, int i, int j)
 		{
 			quote = str[i];
 			i++;
-			while (str[i] && str[i] != quote)
+			while (str[i] && !closed)
+			{
+				if (str[i] == quote)
+				{
+					closed = true;
+					i++;
+					break ;
+				}
 				i++;
-			if (str[i] == quote)
+			}
+			while (str[i] != ' ')
 				i++;
 		}
 		else
 		{
 			while (str[i] && str[i] != ' ')
 			{
-				if (ft_chrstr(str[i], "\'\""))
-				{
-					quote = str[i];
-					i++;
-					while (str[i] && str[i] != quote)
-						i++;
-					if (str[i] == quote)
-						i++;
-				}
-				else
-					i++;
+				i++;
 			}
 		}
 		if (i > j)

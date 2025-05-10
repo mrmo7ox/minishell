@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 18:00:48 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 11:56:52 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	heredoc(t_tk *token, char *path, t_container *c)
 	pid_t	pid;
 	int		status;
 	bool	qoutes;
-	int		o[2];
 
 	status = 0;
 	line = NULL;
@@ -80,10 +79,7 @@ int	heredoc(t_tk *token, char *path, t_container *c)
 				qoutes = true;
 			else
 				qoutes = false;
-			printf("[%d]\n", qoutes);
-			o[0] = 1;
-			o[1] = 0;
-			path = expander(formating(path, c->garbage), c, o);
+			path = expander(formating(path, c->garbage), c);
 			printf("[%s]\n", path);
 			while (1)
 			{
@@ -92,11 +88,9 @@ int	heredoc(t_tk *token, char *path, t_container *c)
 					break ;
 				if (qoutes)
 				{
-					o[0] = 0;
-					o[1] = 1;
-					line = expander(line, c, o);
-					printf("[%s]\n", line);
+					line = expander(line, c);
 				}
+				printf("[%s]\n", line);
 				write(token->in, line, ft_strlen(line));
 			}
 		}

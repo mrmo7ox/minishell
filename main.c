@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 18:10:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 11:52:05 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	minishell_init(t_container *container, int ac, char **av,
 		ft_putstr_fd("too many arguments\n", 2);
 		exit(1);
 	}
-	if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
-		exit(1);
+	// if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
+	// 	exit(1);
 	container->status = 0;
 	env_init(env, container->ft_env, container->garbage);
 }

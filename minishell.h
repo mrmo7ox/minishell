@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 18:04:39 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 11:59:07 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -324,7 +324,7 @@ t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
 //************************************************************** */
-char						*expander(char *line, t_container *c, int *o);
+char						*expander(char *line, t_container *c);
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,

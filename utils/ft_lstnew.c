@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 11:07:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/09 20:45:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ t_qoutes	*ft_new_node(int open, int close, t_qtype type, t_gc **garbage)
 {
 	t_qoutes	*node;
 
-	node = malloc(sizeof(t_qoutes));
+	node = ft_malloc(sizeof(t_qoutes), garbage);
 	if (!node)
 		return (NULL);
-	(void)garbage;
 	node->open_index = open;
 	node->close_index = close;
 	node->type = type;
