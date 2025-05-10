@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 11:56:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:10:42 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 {
 	if (token->in)
 		close(token->in);
-	token->in = open(formating(path, c->garbage), O_RDONLY);
+	token->in = open(expander(formating(path, c->garbage), c), O_RDONLY);
 	if (token->in == -1)
 		return (false);
 	else
@@ -27,10 +27,13 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 
 bool	out_files(t_tk *token, char *path, t_container *c)
 {
-	if (token->in)
-		close(token->in);
-	token->in = open(formating(path, c->garbage), O_WRONLY | O_CREAT, 0644);
-	if (token->in == -1)
+	if (token->out)
+		close(token->out);
+	printf("before[%s]\n", path);
+	printf("[%s]\n", expander(formating(path, c->garbage), c));
+	token->out = open(expander(formating(path, c->garbage), c),
+			O_WRONLY | O_CREAT, 0644);
+	if (token->out == -1)
 		return (false);
 	else
 	{
@@ -40,11 +43,11 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 
 bool	append_files(t_tk *token, char *path, t_container *c)
 {
-	if (token->out)
-		close(token->out);
-	token->out = open(formating(path, c->garbage),
+	if (token->in)
+		close(token->in);
+	token->in = open(expander(formating(path, c->garbage), c),
 			O_WRONLY | O_CREAT | O_APPEND, 0644);
-	if (token->out == -1)
+	if (token->in == -1)
 		return (false);
 	else
 	{
@@ -88,9 +91,9 @@ int	heredoc(t_tk *token, char *path, t_container *c)
 					break ;
 				if (qoutes)
 				{
-					line = expander(line, c);
+					line = h_expander(line, c);
+					printf("[%s]\n", line);
 				}
-				printf("[%s]\n", line);
 				write(token->in, line, ft_strlen(line));
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 14:26:09 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/10 14:48:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -349,6 +349,7 @@ void						get_quote_index(t_list *u, t_gc **garbage);
 void						add_to_expand_list(t_list *u, bool expand_s,
 								t_gc **garbage);
 t_list						*get_expand_index(t_list *u, t_gc **garbage);
+char						*h_expander(char *line, t_container *c);
 
 //************************************************************** */
 // exe
