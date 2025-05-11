@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 09:53:27 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 11:16:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static char	**dp_env(t_env **ft_env, t_gc **gc)
+char	**dp_env(t_env **ft_env, t_gc **gc)
 {
 	char	**res;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 10:05:38 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 15:42:32 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -361,11 +361,24 @@ int							exe_builtin(char **args, t_leaf *root,
 								t_container *c);
 char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
+char						**dp_env(t_env **ft_env, t_gc **gc);
+char						*resolve_path(char **args, t_env **ft_env,
+								t_gc **gc);
 
 // redics
 bool						exec_redirec(t_tk *token, t_container *c);
 
 // exec part me
 int							execc(t_container *c);
+
+//pipe
+void						child3(t_container *c, t_leaf **root, int *fd);
+void						fork_err(t_container *c, int *fds);
+void						child2(t_container *c, t_leaf **root, int *fd);
+void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
+void						ft_dup2(int fd1, int fd2, int *p_fd,
+								t_container *c);
+void						pipe_handle(t_leaf **root, int *fds,
+								t_container *c, int flag);
 
 #endif

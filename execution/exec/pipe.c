@@ -6,94 +6,141 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 14:56:08 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 16:42:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	dup_protect(t_pipe pip)
+void exe_pipe(t_leaf *tmp, char **args, t_container *c)
 {
-	close(pip->fd);
-	close(pip->p_fd[1]);
-	close(pip->p_fd[0]);
-	perror("dup2");
-	exit(1);
-}
+	char **env;
+	char *path;
 
-static void	execve_pro(t_pipe *pip, t_env **ft_env, t_gc **gc)
-{
-	free_garbage(gc);
-	ft_free_env(env);
-	if (access(path, X_OK) != -1)
-		exit(0);
-	perror("execv");
-	exit(-1);
-}
-
-static void	child(char **args, t_pipe *pip, t_env **ft_env, t_gc **gc)
-{
-	char	**env;
-	char	*path;
-
-	if (pip->fd != -1)
-	{
-		if (dup2(pip->fd, 1) == -1)
-			dup_protect(pip);
-		close(pip->fd);
-	}
-	if (dup2(pip->p_fd[1], 0) == -1)
-		dup_protect(pip);
-	pip->fd = pipe->p_fd[0];
 	if (is_builtin(args[0]))
-		pip->status = exe_builtin(args, ft_env, gc);
+		exit(exe_builtin(args, tmp, c));
 	else
 	{
-		path = resolve_path(args, ft_env, gc);
-		env = dp_env(ft_env, gc);
+		path = resolve_path(args, c->ft_env, c->garbage);
+		env = dp_env(c->ft_env, c->garbage);
 		if (execve(path, args, env) == -1)
-			execve(pip, ft_env, gc);
+		{
+			if (access(path, X_OK) != -1)
+				exit(0); // handle dir
+			perror("execve");
+		}
 	}
 }
 
-static void	exe_pipe(char **args, t_pipe *pip, t_env **ft_env, t_gc **gc)
+static void ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 {
-	if (pipe(pip->p_fd) == -1)
+	char **args;
+	t_leaf *tmp;
+	int i;
+
+	i = 0;
+	tmp = *root;
+	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	while (args[i])
 	{
-		perror("Pipe");
-		pip->status = -1;
-		return ;
+		args[i] = expander(args[i], c);
+		i++;
 	}
-	pip->pid = fork();
-	if (pip->pid == -1)
+	printf("child1\n");
+	if (tmp->token->out)
+		ft_dup2(tmp->token->out, 1, p_fd, c);
+	else
+		ft_dup2(p_fd[1], 1, p_fd, c);
+	if (tmp->token->in)
+		ft_dup2(tmp->token->in, 0, p_fd, c);
+	close(p_fd[1]);
+	close(p_fd[0]);
+	exe_pipe(tmp, args, c);
+}
+
+static void child1(t_container *c, t_leaf **root, int *fds)
+{
+	int i;
+	int p_fd[2];
+	pid_t pid;
+
+	i = 0;
+	if (pipe(p_fd) == -1)
 	{
-		perror("Fork");
-		pip->status = -1;
-		return ;
+		perror("pipe");
+		return;
 	}
-	if (!pip->pid)
-		child(args, pip, ft_env, gc);
+	pid = fork();
+	if (pid == -1)
+	{
+		close(p_fd[0]);
+		close(p_fd[1]);
+		fork_err(c, fds);
+	}
+	else if (!pid)
+		ext_child1(p_fd, root, c, fds);
 	else
 	{
-		close(pip->p_fd[0]);
-		close(pip->p_fd[1]);
-		waitpid(pip->pid, &pip->status, 0);
+		fds[0] = p_fd[0];
+		fds[1] = p_fd[1];
+		// waitpid(pid, NULL, 0);
 	}
 }
-
-t_leaf	*pipe_handle(t_leaf **root, t_pipe *pip, t_container *c)
+void print_node(t_leaf *node, char *l)
 {
-	t_leaf	*node;
+	if (!node || !node->token)
+		return;
+	printf("[%s]", l);
+	if (node->type == AND)
+		printf("Operator: &&\n");
+	else if (node->type == OR)
+		printf("Operator: ||\n");
+	else if (node->type == PIPE)
+		printf("Operator: |\n");
+	else
+		printf("Command: %s\n", node->token->token);
+}
+
+// void print_ast(t_leaf *root, char *l, int depth)
+// {
+// 	if (!root)
+// 		return ;
+
+// 	for (int i = 0; i < depth; i++)
+// 		printf("  ");
+
+// 	print_node(root, l);
+
+// 	print_ast(root->left, "left", depth + 1);
+// 	print_ast(root->right, "right", depth + 1);
+// }
+void pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
+{
+	t_leaf *node;
 
 	node = *root;
-	if (!pip)
-		new_pip(-1, 0, gc);
-	if (node->right)
-		pip->fd = exe_pipe(node->token->token, pip, ft_env, gc);
-	if (pip-> status == 0 && node->left->type == PIPE)
-		pipe_handle(node->left, pip, ft_env, gc);
-	else if (pip-> status == 0 && node->left->type == COMMAND)
-		pip->fd = exe_pipe(node->token->token, pip, ft_env, gc);
-	else
-		return (node->left);
+
+	if (flag)
+		fds = ft_malloc((2 * sizeof(int)), c->garbage);
+	// print_ast(node, "O", 0);
+	if (node->right->type == PIPE)
+		pipe_handle(&node->right, fds, c, 0);
+	else if (node->right->type == COMMAND)
+	{
+		exec_redirec(node->right->token, c);
+		child1(c, &node->right, fds);
+	}
+	if (node->left->type == COMMAND)
+	{
+		if (!flag)
+		{
+			exec_redirec(node->left->token, c);
+			child2(c, &node->left, fds);
+		}
+		else
+		{
+			exec_redirec(node->left->token, c);
+			child3(c, &node->left, fds);
+		}
+	}
 }

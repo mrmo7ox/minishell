@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 10:07:31 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 12:01:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ bool heredoc(t_tk *token, char *path, t_container *c)
 			{
 				line = readline("> ");
 				if (!ft_strcmp(path, line))
-					break;
+					break ;
 				if (qoutes)
 					line = h_expander(line, c);
 				if (write(token->in, line, ft_strlen(line)) == -1)
@@ -111,7 +111,10 @@ bool heredoc(t_tk *token, char *path, t_container *c)
 			}
 		}
 		else
+		{
 			waitpid(pid, &c->status, 0);
+			c->status = WEXITSTATUS(c->status);
+		}
 		close(token->in);
 		token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND, 0644);
 		unlink(tmp);

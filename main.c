@@ -6,16 +6,16 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 16:21:58 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 16:16:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-void	start(char *line, t_container *container)
+void start(char *line, t_container *container)
 {
-	// add_history(line);
-	// save_history();
+	add_history(line);
+	save_history();
 	if (syntax_error(line))
 	{
 		if (tokenizer(container->root, container->garbage, line))
@@ -25,8 +25,8 @@ void	start(char *line, t_container *container)
 	}
 }
 
-static void	minishell_init(t_container *container, int ac, char **av,
-		char **env)
+static void minishell_init(t_container *container, int ac, char **av,
+						   char **env)
 {
 	if (ac > 1)
 	{
@@ -41,12 +41,12 @@ static void	minishell_init(t_container *container, int ac, char **av,
 	pwd_update(container->ft_env, 0);
 }
 
-int	main(int ac, char **av, char **env)
+int main(int ac, char **av, char **env)
 {
-	t_container	container;
-	t_gc		*gc;
-	t_leaf		*root;
-	t_env		*ft_env;
+	t_container container;
+	t_gc *gc;
+	t_leaf *root;
+	t_env *ft_env;
 
 	gc = NULL;
 	root = NULL;
@@ -55,16 +55,16 @@ int	main(int ac, char **av, char **env)
 	container.ft_env = &ft_env;
 	container.garbage = &gc;
 	minishell_init(&container, ac, av, env);
-	// load_history();
+	load_history();
 	while (true)
 	{
 		container.line = readline("Minishell: ");
 		if (!container.line)
 			ft_exit(NULL, container.ft_env, container.garbage,
-				container.status);
+					container.status);
 		container.line = formating(container.line, container.garbage);
 		if (!container.line[0])
-			continue ;
+			continue;
 		start(container.line, &container);
 		free_garbage(container.garbage);
 	}
