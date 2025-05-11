@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 16:21:31 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 09:53:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	child(char **args, t_container *c)
 	if (execve(path, args, env) == -1)
 	{
 		if (access(path, X_OK) != -1)
-			exit(0);
+			exit(0);//handle dir
 		perror("execve");
 	}
 }
@@ -106,9 +106,11 @@ void	child(char **args, t_container *c)
 void	exe_cmd(char **args, t_container *c)
 {
 	pid_t	pid;
+	t_leaf	*tmp;
 
+	tmp = *(c->root);
 	if (is_builtin(args[0]))
-		c->status = exe_builtin(args, c->ft_env, c->garbage, &c->status);
+		c->status = exe_builtin(args, tmp, c);
 	else
 	{
 		pid = fork();

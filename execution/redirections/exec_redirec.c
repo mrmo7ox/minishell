@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 16:21:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 10:07:31 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ bool out_files(t_tk *token, char *path, t_container *c)
 	tmp = expander(formating(path, c->garbage), c);
 	if (token->out)
 		close(token->out);
-	token->out = open(tmp,
-					  O_WRONLY | O_CREAT, 0644);
+	token->out = open(tmp, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (token->out == -1)
 	{
 		perror(tmp);

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/04 13:22:13 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 09:55:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,27 @@ char	**export_split(char *str)
 		args[2] = NULL;
 	}
 	return (args);
+}
+
+void	no_args_ext(t_env *head, int out)
+{
+	while (head)
+	{
+		if (!ft_strcmp(head->name, "_"))
+		{
+			head = head->next;
+			continue ;
+		}
+		ft_putstr_fd("declare -x ", out);
+		ft_putstr_fd(head->name, out);
+		if (head->value)
+		{
+			ft_putstr_fd("=\"", out);
+			ft_putstr_fd(head->value, out);
+			ft_putstr_fd("\"\n", out);
+		}
+		else
+			ft_putstr_fd("\n", out);
+		head = head->next;
+	}
 }

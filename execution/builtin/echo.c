@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:32:10 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 19:54:56 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/11 10:05:50 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,11 @@ static bool	check_op(char *str)
 	return (false);
 }
 
-int	echo(char **args)
+static void	helper(char **args, int out, int flag, int count)
 {
 	int	i;
-	int	flag;
-	int	count;
 
-	flag = 0;
 	i = 1;
-	count = 0;
 	while (args[i])
 	{
 		if (i == 1 && check_op(args[i]))
@@ -49,12 +45,19 @@ int	echo(char **args)
 		else
 		{
 			if (count > 0)
-				printf(" ");
-			printf("%s", args[i++]);
+				ft_putstr_fd(" ", out);
+			ft_putstr_fd(args[i++], out);
 			count++;
 		}
 	}
 	if (!flag)
-		printf("\n");
+		ft_putstr_fd("\n", out);
+}
+
+int	echo(char **args, int out)
+{
+	if (!out)
+		out = 1;
+	helper(args, out, 0, 0);
 	return (0);
 }

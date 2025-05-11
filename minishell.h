@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/10 16:21:04 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 10:05:38 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,9 +211,10 @@ void						ft_free_env(t_env **ft_env);
 
 // builtin
 int							cd(char **args, t_gc **gg, t_env **ft_env);
-int							echo(char **args);
-int							cmd_env(char **args, t_env **env);
-void						export(char **args, t_env **ft_env, t_gc **gg);
+int							echo(char **args, int out);
+int							cmd_env(char **args, int out, t_env **env);
+void						export(char **args, int out, t_env **ft_env,
+								t_gc **gc);
 void						export_append(char *name, char *value,
 								t_env **ft_env, t_gc **gg);
 void						ft_upenv(char *name, char *value, t_env **ft_env);
@@ -223,13 +224,14 @@ void						ext_export(char *name, char *value, t_env **ft_env,
 void						export_sort(t_env **ft_env);
 char						**export_split(char *str);
 bool						check_name_env(char *name, t_env **ft_env);
-int							ft_pwd(t_env **ft_env);
+int							ft_pwd(t_env **ft_env, int out);
 int							ft_unset(char **args, t_env **env);
 void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
 void						shlvl(t_env **ft_env, t_gc **gc);
 int							ft_exit(char **args, t_env **ft_env, t_gc **gc,
 								int prev);
 char						*pwd_update(t_env **ft_env, int flag);
+void						no_args_ext(t_env *head, int out);
 
 // history
 void						save_history(void);
@@ -355,8 +357,8 @@ char						*h_expander(char *line, t_container *c);
 // exe
 void						exe_cmd(char **args, t_container *c);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
-int							exe_builtin(char **args, t_env **ft_env, t_gc **gc,
-								int *status);
+int							exe_builtin(char **args, t_leaf *root,
+								t_container *c);
 char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
 

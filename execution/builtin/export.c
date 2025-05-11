@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/07 10:30:01 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/11 09:56:21 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	free_tmp(t_env **tmp)
 	*tmp = NULL;
 }
 
-static void	no_args(t_env **ft_env, t_gc **gc)
+static void	no_args(t_env **ft_env, int out,t_gc **gc)
 {
 	t_env	*head;
 	t_env	*tmp;
@@ -50,20 +50,7 @@ static void	no_args(t_env **ft_env, t_gc **gc)
 	clone_env(ft_env, &tmp, gc);
 	export_sort(&tmp);
 	head = tmp;
-	while (head)
-	{
-		if (!ft_strcmp(head->name, "_"))
-		{
-			head = head->next;
-			continue ;
-		}
-		printf("declare -x %s", head->name);
-		if (head->value)
-			printf("=\"%s\"\n", head->value);
-		else
-			printf("\n");
-		head = head->next;
-	}
+	no_args_ext(head, out);
 	free_tmp(&tmp);
 }
 
@@ -80,9 +67,8 @@ static void	helper(char **args, t_env **ft_env, t_gc **gc)
 		if ((ft_chrstr('=', args[i]) && ft_strlen(args[i]) == 1)
 			|| args[i][0] == '=')
 		{
-			ft_putstr_fd(args[i], 2);
+			ft_putstr_fd(args[i++], 2);
 			ft_putstr_fd(": not a valid identifier\n", 2);
-			i++;
 			continue ;
 		}
 		tmp = export_split(args[i]);
@@ -97,13 +83,15 @@ static void	helper(char **args, t_env **ft_env, t_gc **gc)
 	}
 }
 
-void	export(char **args, t_env **ft_env, t_gc **gc)
+void	export(char **args, int out, t_env **ft_env, t_gc **gc)
 {
 	int	len;
 
 	len = args_len(args);
+	if (!out)
+		out = 1;
 	if (len == 1)
-		no_args(ft_env, gc);
+		no_args(ft_env, out, gc);
 	else if (len >= 2)
 	{
 		if (!syntax(args))

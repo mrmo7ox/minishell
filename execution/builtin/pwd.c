@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 10:36:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/11 10:01:01 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ char	*pwd_update(t_env **ft_env, int flag)
 	return (old);
 }
 
-int	ft_pwd(t_env **ft_env)
+int	ft_pwd(t_env **ft_env, int out)
 {
-	printf("%s\n", pwd_update(ft_env, 0));
+	if (!out)
+		out = 1;
+	ft_putstr_fd(pwd_update(ft_env, 0), out);
+	ft_putstr_fd("\n", out);
 	return (0);
 }
