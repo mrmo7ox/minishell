@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 10:24:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 13:45:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
+	close(p_fd[0]);
 	if (tmp->token->out)
 		ft_dup2(tmp->token->out, 1, p_fd, c);
 	else
@@ -53,7 +54,6 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	if (tmp->token->in)
 		ft_dup2(tmp->token->in, 0, p_fd, c);
 	close(p_fd[1]);
-	close(p_fd[0]);
 	exe_pipe(tmp, args, c);
 }
 
@@ -71,9 +71,7 @@ static pid_t	child1(t_container *c, t_leaf **root, int *fds)
 	}
 	pid = fork();
 	if (pid == -1)
-	{
 		fork_err(c, p_fd);
-	}
 	else if (!pid)
 		ext_child1(p_fd, root, c, fds);
 	else

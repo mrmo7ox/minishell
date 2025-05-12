@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 10:24:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 14:25:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define KMAG "\x1B[35m"
 # define KCYN "\x1B[36m"
 # define KWHT "\x1B[37m"
+# define PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 typedef enum e_type
 {
@@ -213,6 +214,7 @@ void						env_init(char **env, t_env **ft_env, t_gc **gc);
 void						ft_putenv(char *name, char *value, t_env **ft_env);
 char						*ft_getenv(char *name, t_env **ft_env);
 void						ft_free_env(t_env **ft_env);
+char						*env_check_path(t_env **ft_env, int flag);
 
 // builtin
 int							cd(char **args, t_gc **gg, t_env **ft_env);

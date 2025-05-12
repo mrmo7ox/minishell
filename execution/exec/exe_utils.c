@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 10:05:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 14:20:11 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,11 @@ char	*get_path(char **args, t_env **ft_env, t_gc **gc)
 
 	path = ft_strdup(ft_getenv("PATH", ft_env), gc);
 	if (!path)
-		return (ft_strdup(args[0], gc));
+	{
+		path = env_check_path(ft_env, 2);
+		if (!path)
+			return (ft_strdup(args[0], gc));
+	}
 	cmd = ft_strjoin("/", args[0], gc);
 	paths = ft_vanilla_split(path, ':', 0, 0);
 	i = 0;

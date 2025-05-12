@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 20:49:06 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/12 14:31:54 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*formating(char *line, t_gc **gg)
 {
-	int	start;
-	int	end;
+	int		start;
+	int		end;
 
 	start = 0;
 	end = ft_strlen(line) - 1;
