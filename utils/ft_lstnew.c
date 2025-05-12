@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/09 20:45:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/12 10:02:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,4 @@ void	*ft_new_redic_node(t_gc **garbage, char *content)
 	node->prev = NULL;
 	node->next = NULL;
 	return (node);
-}
-
-t_pipe	*new_pip(int fd, int status, t_gc **gc)
-{
-	t_pipe	*new;
-
-	new = ft_malloc(sizeof(t_pipe), gc);
-	new->fd = fd;
-	new->status = status;
-	return (new);
 }

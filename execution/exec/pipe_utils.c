@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 15:42:04 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 10:29:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	printf("child2\n");
 	if (tmp->token->out)
 		ft_dup2(tmp->token->out, 1, p_fd, c);
 	else
@@ -40,7 +39,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	exe_pipe(tmp, args, c);
 }
 
-void	child2(t_container *c, t_leaf **root, int *fds)
+pid_t	child2(t_container *c, t_leaf **root, int *fds)
 {
 	int		p_fd[2];
 	int		status;
@@ -64,8 +63,8 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 		close(fds[1]);
 		fds[0] = p_fd[0];
 		fds[1] = p_fd[1];
-		waitpid(pid, NULL, 0);
 	}
+	return (pid);
 }
 
 static void	ext_child3(t_leaf **root, t_container *c, int *fds)
@@ -82,28 +81,18 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	printf("child3\n");
 	if (tmp->token->out)
-	{
-		printf("out\n");
 		ft_dup2(tmp->token->out, 1, NULL, c);
-	}
 	if (tmp->token->in)
-	{
-		printf("in\n");
 		ft_dup2(tmp->token->in, 0, NULL, c);
-	}
 	else
-	{
-		printf("pipe_in\n");
 		ft_dup2(fds[0], 0, NULL, c);
-	}
 	close(fds[0]);
 	close(fds[1]);
 	exe_pipe(tmp, args, c);
 }
 
-void	child3(t_container *c, t_leaf **root, int *fds)
+pid_t	child3(t_container *c, t_leaf **root, int *fds)
 {
 	int		i;
 	pid_t	pid;
@@ -118,9 +107,8 @@ void	child3(t_container *c, t_leaf **root, int *fds)
 	{
 		close(fds[0]);
 		close(fds[1]);
-		waitpid(pid, &c->status, 0);
-		c->status = WEXITSTATUS(c->status);
 	}
+	return (pid);
 }
 
 void	ft_dup2(int fd1, int fd2, int *p_fd, t_container *c)

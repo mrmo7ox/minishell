@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 15:42:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 10:24:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,12 +194,17 @@ typedef struct s_size
 
 }							t_size;
 
+
+typedef struct s_towait
+{
+	pid_t	pid;
+	void	*next;
+}				t_towait;
+
 typedef struct s_pipe
 {
-	int						fd;
-	int						status;
-	int						p_fd[2];
-	pid_t					pid;
+	t_towait	**lst;
+	int			*fds;
 }							t_pipe;
 
 void						ft_add_env(t_env **head, t_env *new);
@@ -305,7 +310,6 @@ char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);
 long						get_random(void);
-t_pipe						*new_pip(int fd, int status, t_gc **gc);
 void						*ft_memset(void *s, int c, size_t n);
 t_gc						*ft_new_gc_node(void *content);
 void						ft_add_gc(t_gc **head, t_gc *new);
@@ -372,13 +376,17 @@ bool						exec_redirec(t_tk *token, t_container *c);
 int							execc(t_container *c);
 
 //pipe
-void						child3(t_container *c, t_leaf **root, int *fd);
+pid_t						child3(t_container *c, t_leaf **root, int *fd);
 void						fork_err(t_container *c, int *fds);
-void						child2(t_container *c, t_leaf **root, int *fd);
+pid_t						child2(t_container *c, t_leaf **root, int *fd);
 void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
 void						ft_dup2(int fd1, int fd2, int *p_fd,
 								t_container *c);
-void						pipe_handle(t_leaf **root, int *fds,
+void						pipe_handle(t_leaf **root, t_pipe *pip,
 								t_container *c, int flag);
+t_towait					*ft_new_towait(pid_t pid, t_gc **gc);
+void						add_towait(t_towait **head, t_towait *new);
+void						pid_wait(t_towait **lst, t_container *c);
+void						init_pip(t_pipe *pip, t_gc **gc);
 
 #endif

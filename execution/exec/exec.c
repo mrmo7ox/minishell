@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 16:42:29 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 10:29:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool exe_cmd_hundler(t_leaf *node, int *status, t_container *c)
+static bool exe_cmd_hundler(t_leaf *node, t_container *c)
 {
 	char **args;
 
@@ -36,23 +36,25 @@ static bool exe_cmd_hundler(t_leaf *node, int *status, t_container *c)
 
 int execc(t_container *c)
 {
-	t_leaf *node;
-	t_leaf **root;
-	int *status;
+	t_leaf	*node;
+	t_leaf	**root;
+	t_pipe	pip;
+	t_pipe	*tmp;
 
 	root = c->root;
-	status = &c->status;
 	if (!(*root))
 		return (1);
 	node = *root;
-
 	// print_ast(node, 0);
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
 	if (node->type == COMMAND)
-		return (exe_cmd_hundler(node, status, c));
+		return (exe_cmd_hundler(node, c));
 	if (node->type == PIPE)
-		pipe_handle(root, NULL, c, 1);
+	{
+		pipe_handle(root, &pip, c, 1);
+		pid_wait(pip.lst, c);
+	}
 	// if (node->type == AND)
 	// {
 	// 	if (exec(node->left, ft_env, garbage) == 0)
