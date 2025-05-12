@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 13:45:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 15:43:33 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	exe_pipe(tmp, args, c);
 }
 
-static pid_t	child1(t_container *c, t_leaf **root, int *fds)
+static void	child1(t_container *c, t_leaf **root, int *fds)
 {
 	int		i;
 	int		p_fd[2];
@@ -67,7 +67,7 @@ static pid_t	child1(t_container *c, t_leaf **root, int *fds)
 	if (pipe(p_fd) == -1)
 	{
 		perror("pipe");
-		return (0);
+		return ;
 	}
 	pid = fork();
 	if (pid == -1)
@@ -79,7 +79,6 @@ static pid_t	child1(t_container *c, t_leaf **root, int *fds)
 		fds[0] = p_fd[0];
 		fds[1] = p_fd[1];
 	}
-	return (pid);
 }
 // void	print_node(t_leaf *node, char *l)
 // {
@@ -110,34 +109,35 @@ static pid_t	child1(t_container *c, t_leaf **root, int *fds)
 // 	print_ast(root->right, "right", depth + 1);
 // print_ast(node, "O", 0);
 // }
-void	pipe_handle(t_leaf **root, t_pipe *pip, t_container *c, int flag)
+void	pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
 {
 	t_leaf	*node;
+	pid_t	last;
 
 	node = *root;
 	if (flag)
-		init_pip(pip, c->garbage);
+		fds = ft_malloc((2 * sizeof(int)), c->garbage);
+	last = 0;
 	if (node->right->type == PIPE)
-		pipe_handle(&node->right, pip, c, 0);
+		pipe_handle(&node->right, fds, c, 0);
 	else if (node->right->type == COMMAND)
 	{
 		exec_redirec(node->right->token, c);
-		add_towait(pip->lst, ft_new_towait(child1(c, &node->right,
-					pip->fds), c->garbage));
+		child1(c, &node->right, fds);
 	}
 	if (node->left->type == COMMAND)
 	{
 		if (!flag)
 		{
 			exec_redirec(node->left->token, c);
-			add_towait(pip->lst, ft_new_towait(child2(c, &node->left,
-						pip->fds), c->garbage));
+			child2(c, &node->left, fds);
 		}
 		else
 		{
 			exec_redirec(node->left->token, c);
-			add_towait(pip->lst, ft_new_towait(child3(c, &node->left,
-						pip->fds), c->garbage));
+			last = child3(c, &node->left, fds);
 		}
 	}
+	if (flag)
+		pid_wait(c, last);
 }

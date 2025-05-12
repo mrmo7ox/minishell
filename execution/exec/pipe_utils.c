@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 13:45:54 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 15:35:22 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	exe_pipe(tmp, args, c);
 }
 
-pid_t	child2(t_container *c, t_leaf **root, int *fds)
+void	child2(t_container *c, t_leaf **root, int *fds)
 {
 	int		p_fd[2];
 	int		status;
@@ -64,7 +64,6 @@ pid_t	child2(t_container *c, t_leaf **root, int *fds)
 		fds[0] = p_fd[0];
 		fds[1] = p_fd[1];
 	}
-	return (pid);
 }
 
 static void	ext_child3(t_leaf **root, t_container *c, int *fds)
@@ -107,6 +106,7 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 	{
 		close(fds[0]);
 		close(fds[1]);
+		return (pid);
 	}
 	return (pid);
 }

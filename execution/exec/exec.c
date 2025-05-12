@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 13:40:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/12 15:41:42 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int execc(t_container *c)
 {
 	t_leaf	*node;
 	t_leaf	**root;
-	t_pipe	pip;
-	t_pipe	*tmp;
 
 	root = c->root;
 	if (!(*root))
@@ -51,10 +49,7 @@ int execc(t_container *c)
 	if (node->type == COMMAND)
 		return (exe_cmd_hundler(node, c));
 	if (node->type == PIPE)
-	{
-		pipe_handle(root, &pip, c, 1);
-		pid_wait(pip.lst, c);
-	}
+		pipe_handle(root, NULL, c, 1);
 	// if (node->type == AND)
 	// {
 	// 	if (exec(node->left, ft_env, garbage) == 0)
