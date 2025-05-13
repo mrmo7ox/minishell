@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/09 17:25:36 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 12:56:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static char	*helper(char *name, t_gc **gc)
 	char	*new;
 
 	new = ft_substr(name, 0, ft_strlen(name) - 1, gc);
-	free(name);
 	return (new);
 }
 

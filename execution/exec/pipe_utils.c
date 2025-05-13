@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 10:02:06 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 11:32:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	if (tmp->token->out)
+	if (tmp->token->out > 0)
 		ft_dup2(tmp->token->out, 1, p_fd, c);
 	else
 		ft_dup2(p_fd[1], 1, p_fd, c);
-	if (tmp->token->in)
+	if (tmp->token->in > 0)
 		ft_dup2(tmp->token->in, 0, p_fd, c);
 	else
 		ft_dup2(fds[0], 0, p_fd, c);
@@ -82,9 +82,9 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	if (tmp->token->out)
+	if (tmp->token->out > 0)
 		ft_dup2(tmp->token->out, 1, NULL, c);
-	if (tmp->token->in)
+	if (tmp->token->in > 0)
 		ft_dup2(tmp->token->in, 0, NULL, c);
 	else
 		ft_dup2(fds[0], 0, NULL, c);

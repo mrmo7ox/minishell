@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 09:55:30 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 12:48:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,14 @@ void	no_args_ext(t_env *head, int out)
 			ft_putstr_fd("\n", out);
 		head = head->next;
 	}
+}
+
+void	free_d(char **tmp)
+{
+	int	i;
+
+	i = 0;
+	while (tmp[i])
+		free(tmp[i++]);
+	free(tmp);
 }

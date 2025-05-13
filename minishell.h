@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 11:13:48 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 12:48:04 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ int							ft_exit(char **args, t_env **ft_env, t_gc **gc,
 								int prev);
 char						*pwd_update(t_env **ft_env, int flag);
 void						no_args_ext(t_env *head, int out);
+void						free_d(char **tmp);
 
 // history
 void						save_history(void);
