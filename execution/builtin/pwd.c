@@ -6,11 +6,24 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 10:01:01 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 17:07:58 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
+
+static void	old_pwd(char *old, t_env **ft_env)
+{
+	if (check_name_env("OLDPWD", ft_env))
+		ft_upenv("OLDPWD", old, ft_env);
+	else
+	{
+		if (!old)
+			ft_putenv("OLDPWD", NULL, ft_env);
+		else
+			ft_putenv("OLDPWD", old, ft_env);
+	}
+}
 
 char	*pwd_update(t_env **ft_env, int flag)
 {
@@ -20,6 +33,7 @@ char	*pwd_update(t_env **ft_env, int flag)
 	if (!flag)
 	{
 		tmp = old;
+		old_pwd(tmp, ft_env);
 		old = getcwd(NULL, 0);
 		if (!old)
 			old = tmp;

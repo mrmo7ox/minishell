@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 12:48:30 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 17:12:42 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	clone_env(t_env **ft_env, t_env **tmp, t_gc **gc)
 	head = *ft_env;
 	while (head)
 	{
-		ft_add_env(tmp, ft_new_env(ft_strdup(head->name, gc),
-				ft_strdup(head->value, gc)));
+		ft_add_env(tmp, ft_new_env(head->name,
+				head->value));
 		head = head->next;
 	}
 }

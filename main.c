@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 15:29:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 17:16:18 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-void start(char *line, t_container *container)
+void	start(char *line, t_container *container)
 {
 	add_history(line);
 	save_history();
@@ -59,7 +59,7 @@ int	main(int ac, char **av, char **env)
 	load_history();
 	while (true)
 	{
-		container.line = readline("Minishell$>");
+		container.line = readline("Minishell$> ");
 		if (!container.line)
 			ft_exit(NULL, container.ft_env, container.garbage,
 				container.status);

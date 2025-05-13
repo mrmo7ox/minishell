@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 12:48:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 17:13:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ static void	free_tmp(t_env **tmp)
 	while (head)
 	{
 		nt = head->next;
+		free(head->name);
+		free(head->value);
 		free(head);
 		head = nt;
 	}
 	*tmp = NULL;
 }
 
-static void	no_args(t_env **ft_env, int out,t_gc **gc)
+static void	no_args(t_env **ft_env, int out, t_gc **gc)
 {
 	t_env	*head;
 	t_env	*tmp;
