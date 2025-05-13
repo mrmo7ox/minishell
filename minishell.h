@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 12:48:04 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 15:19:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -364,6 +364,15 @@ char						*resolve_path(char **args, t_env **ft_env,
 
 // redics
 bool						exec_redirec(t_tk *token, t_container *c);
+void						heredoc_ext(t_tk *token, char *path,
+								t_container *c);
+bool						ext_exe_redr(t_redic **curr, t_container *c,
+								t_tk *token);
+bool						in_files(t_tk *token, char *path, t_container *c);
+bool						out_files(t_tk *token, char *path, t_container *c);
+bool						append_files(t_tk *token, char *path,
+								t_container *c);
+bool						heredoc(t_tk *token, char *path, t_container *c);
 
 // exec part me
 int							execc(t_container *c);

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 11:32:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 13:33:32 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 	pid_t	pid;
 
 	i = 0;
+	if (!(*root)->token->token)
+		return ;
 	if (pipe(p_fd) == -1)
 		pipe_err("Fork", c, NULL);
 	pid = fork();

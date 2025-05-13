@@ -6,15 +6,15 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 11:40:34 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 15:12:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool exe_cmd_hundler(t_leaf *node, t_container *c)
+static bool	exe_cmd_hundler(t_leaf *node, t_container *c)
 {
-	char **args;
+	char	**args;
 
 	args = NULL;
 	if (node->token->token)

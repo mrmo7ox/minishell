@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 11:32:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 13:33:38 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 	int		status;
 	pid_t	pid;
 
+	if (!(*root)->token->token)
+		return ;
 	status = 0;
 	if (pipe(p_fd) == -1)
 		pipe_err("Fork", c, fds);
@@ -98,6 +100,8 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 	int		i;
 	pid_t	pid;
 
+	if (!(*root)->token->token)
+		return (0);
 	i = 0;
 	pid = fork();
 	if (pid == -1)

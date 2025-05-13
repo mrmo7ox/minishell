@@ -6,15 +6,15 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 12:01:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 15:17:05 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-bool in_files(t_tk *token, char *path, t_container *c)
+bool	in_files(t_tk *token, char *path, t_container *c)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = expander(formating(path, c->garbage), c);
 	if (token->in)
@@ -26,39 +26,32 @@ bool in_files(t_tk *token, char *path, t_container *c)
 		return (false);
 	}
 	else
-	{
 		return (true);
-	}
 }
 
-bool out_files(t_tk *token, char *path, t_container *c)
+bool	out_files(t_tk *token, char *path, t_container *c)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = expander(formating(path, c->garbage), c);
 	if (token->out)
 		close(token->out);
 	token->out = open(tmp, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (token->out == -1)
-	{
-		perror(tmp);
-		return (false);
-	}
+		return (perror(tmp), false);
 	else
-	{
 		return (true);
-	}
 }
 
-bool append_files(t_tk *token, char *path, t_container *c)
+bool	append_files(t_tk *token, char *path, t_container *c)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = expander(formating(path, c->garbage), c);
 	if (token->in)
 		close(token->in);
 	token->in = open(tmp,
-					 O_WRONLY | O_CREAT | O_APPEND, 0644);
+			O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (token->in == -1)
 	{
 		perror(tmp);
@@ -68,90 +61,46 @@ bool append_files(t_tk *token, char *path, t_container *c)
 		return (true);
 }
 
-bool heredoc(t_tk *token, char *path, t_container *c)
+bool	heredoc(t_tk *token, char *path, t_container *c)
 {
-	char *tmp;
-	char *line;
-	pid_t pid;
-	bool qoutes;
+	char	*tmp;
+	pid_t	pid;
 
-	line = NULL;
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), c->garbage), c->garbage);
 	token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND,
-					 0644);
+			0644);
 	if (token->in == -1)
-	{
-		perror("heredoc");
-		return (false);
-	}
+		return (perror("heredoc"), false);
 	else
 	{
 		pid = fork();
 		if (pid == -1)
-		{
-			perror("fork");
-			return (false);
-		}
-		else if (pid == 0)
-		{
-			if (!ft_chrstr('\'', path) && !ft_chrstr('\"', path))
-				qoutes = true;
-			else
-				qoutes = false;
-			path = expander(formating(path, c->garbage), c);
-			while (1)
-			{
-				line = readline("> ");
-				if (!ft_strcmp(path, line))
-					break ;
-				if (qoutes)
-					line = h_expander(line, c);
-				if (write(token->in, line, ft_strlen(line)) == -1)
-					perror("write");
-			}
-		}
+			return (perror("fork"), false);
+		else if (!pid)
+			heredoc_ext(token, path, c);
 		else
 		{
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
 		}
 		close(token->in);
-		token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND, 0644);
-		unlink(tmp);
-		return (true);
+		token->in = open(formating(tmp, c->garbage),
+				O_RDWR | O_CREAT | O_APPEND, 0644);
+		return (unlink(tmp), true);
 	}
 }
 
-bool exec_redirec(t_tk *token, t_container *c)
+bool	exec_redirec(t_tk *token, t_container *c)
 {
-	t_redic *curr;
+	t_redic		*curr;
 
 	curr = token->redics;
 	token->in = 0;
 	token->out = 0;
 	while (curr)
 	{
-		if (curr->type == IN)
-		{
-			if (!in_files(token, ft_strip('<', curr->content, c->garbage), c))
-				return (false);
-		}
-		else if (curr->type == OUT)
-		{
-			if (!out_files(token, ft_strip('>', curr->content, c->garbage), c))
-				return (false);
-		}
-		else if (curr->type == APPEND)
-		{
-			if (!append_files(token, ft_strip('>', curr->content, c->garbage),
-							  c))
-				return (false);
-		}
-		else if (curr->type == HEREDOC)
-		{
-			if (!heredoc(token, ft_strip('<', curr->content, c->garbage), c))
-				return (false);
-		}
+		if (!ext_exe_redr(&curr, c, token))
+			return (false);
 		curr = curr->next;
 	}
 	return (true);

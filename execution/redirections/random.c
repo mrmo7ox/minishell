@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 20:09:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 20:23:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/13 15:00:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 long	get_random(void)
 {
-	int local;
-	return ((long)&local) ^ ((long)&get_random);
+	int		local;
+
+	return (((long)&local) ^ ((long)&get_random));
 }
