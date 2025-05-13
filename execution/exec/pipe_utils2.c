@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 15:43:04 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:00:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	fork_err(t_container *c, int *fds)
+void	pipe_err(char *str, t_container *c, int *fds)
 {
 	if (fds)
 	{
@@ -21,7 +21,7 @@ void	fork_err(t_container *c, int *fds)
 	}
 	ft_free_env(c->ft_env);
 	free_garbage(c->garbage);
-	perror("dup2");
+	perror(str);
 	exit(1);
 }
 
@@ -31,4 +31,3 @@ void	pid_wait(t_container *c, pid_t pid)
 	c->status = WEXITSTATUS(c->status);
 	wait(NULL);
 }
-

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 15:43:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:01:26 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,10 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 
 	i = 0;
 	if (pipe(p_fd) == -1)
-	{
-		perror("pipe");
-		return ;
-	}
+		pipe_err("Fork", c, NULL);
 	pid = fork();
 	if (pid == -1)
-		fork_err(c, p_fd);
+		pipe_err("Fork", c, p_fd);
 	else if (!pid)
 		ext_child1(p_fd, root, c, fds);
 	else

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 15:35:22 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:02:06 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		ft_dup2(fds[0], 0, p_fd, c);
 	close(fds[0]);
 	close(fds[1]);
+	close(p_fd[1]);
+	close(p_fd[0]);
 	exe_pipe(tmp, args, c);
 }
 
@@ -47,13 +49,13 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 
 	status = 0;
 	if (pipe(p_fd) == -1)
-		perror("pipe");
+		pipe_err("Fork", c, fds);
 	pid = fork();
 	if (pid == -1)
 	{
 		close(p_fd[0]);
 		close(p_fd[1]);
-		fork_err(c, fds);
+		pipe_err("Fork", c, fds);
 	}
 	else if (!pid)
 		ext_child2(p_fd, root, c, fds);
@@ -99,7 +101,7 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 	i = 0;
 	pid = fork();
 	if (pid == -1)
-		fork_err(c, fds);
+		pipe_err("Fork", c, fds);
 	else if (!pid)
 		ext_child3(root, c, fds);
 	else

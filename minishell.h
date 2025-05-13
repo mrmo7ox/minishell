@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 15:40:10 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:01:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -367,7 +367,7 @@ int							execc(t_container *c);
 
 //pipe
 pid_t						child3(t_container *c, t_leaf **root, int *fd);
-void						fork_err(t_container *c, int *fds);
+void						pipe_err(char *str, t_container *c, int *fds);
 void						child2(t_container *c, t_leaf **root, int *fd);
 void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
 void						ft_dup2(int fd1, int fd2, int *p_fd,
