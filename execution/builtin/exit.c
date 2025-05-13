@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:53:38 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 15:03:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:27:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ int	ft_exit(char **args, t_env **ft_env, t_gc **gc, int prev)
 	int	status;
 	int	tmp;
 
-	printf("exit\n");
+	if (isatty(STDIN_FILENO) && isatty(STDOUT_FILENO))
+		printf("exit\n");
 	if (!args)
 		helper(ft_env, gc, prev);
 	if (args_len(args) == 1)

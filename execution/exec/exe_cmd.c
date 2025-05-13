@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 11:16:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 11:10:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,7 @@ void	child(char **args, t_container *c)
 	path = resolve_path(args, c->ft_env, c->garbage);
 	env = dp_env(c->ft_env, c->garbage);
 	if (execve(path, args, env) == -1)
-	{
-		if (access(path, X_OK) != -1)
-			exit(0);//handle dir
-		perror("execve");
-	}
+		exevce_fail(path, c);
 }
 
 void	exe_cmd(char **args, t_container *c)

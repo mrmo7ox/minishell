@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 15:41:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 10:24:29 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,35 @@ static bool exe_cmd_hundler(t_leaf *node, t_container *c)
 	}
 	return (true);
 }
+// void	print_node(t_leaf *node, char *l)
+// {
+// 	if (!node || !node->token)
+// 		return ;
+// 	printf("[%s]", l);
+// 	if (node->type == AND)
+// 		printf("Operator: &&\n");
+// 	else if (node->type == OR)
+// 		printf("Operator: ||\n");
+// 	else if (node->type == PIPE)
+// 		printf("Operator: |\n");
+// 	else
+// 		printf("Command: %s\n", node->token->token);
+// }
 
+// void print_ast(t_leaf *root, char *l, int depth)
+// {
+// 	if (!root)
+// 		return ;
+
+// 	for (int i = 0; i < depth; i++)
+// 		printf("  ");
+
+// 	print_node(root, l);
+
+// 	print_ast(root->left, "left", depth + 1);
+// 	print_ast(root->right, "right", depth + 1);
+
+// }
 
 int execc(t_container *c)
 {
@@ -46,6 +74,7 @@ int execc(t_container *c)
 	// print_ast(node, 0);
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
+	// print_ast(node, "O", 0);
 	if (node->type == COMMAND)
 		return (exe_cmd_hundler(node, c));
 	if (node->type == PIPE)

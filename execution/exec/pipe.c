@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 10:01:26 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 11:10:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
 {
-	char	**env;
-	char	*path;
+	char		**env;
+	char		*path;
 
 	if (is_builtin(args[0]))
 		exit(exe_builtin(args, tmp, c));
@@ -24,11 +24,7 @@ void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
 		path = resolve_path(args, c->ft_env, c->garbage);
 		env = dp_env(c->ft_env, c->garbage);
 		if (execve(path, args, env) == -1)
-		{
-			if (access(path, X_OK) != -1)
-				exit(0); // handle dir
-			perror("execve");
-		}
+			exevce_fail(path, c);
 	}
 }
 
@@ -77,51 +73,12 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 		fds[1] = p_fd[1];
 	}
 }
-// void	print_node(t_leaf *node, char *l)
-// {
-// 	if (!node || !node->token)
-// 		return ;
-// 	printf("[%s]", l);
-// 	if (node->type == AND)
-// 		printf("Operator: &&\n");
-// 	else if (node->type == OR)
-// 		printf("Operator: ||\n");
-// 	else if (node->type == PIPE)
-// 		printf("Operator: |\n");
-// 	else
-// 		printf("Command: %s\n", node->token->token);
-// }
 
-// void print_ast(t_leaf *root, char *l, int depth)
-// {
-// 	if (!root)
-// 		return ;
-
-// 	for (int i = 0; i < depth; i++)
-// 		printf("  ");
-
-// 	print_node(root, l);
-
-// 	print_ast(root->left, "left", depth + 1);
-// 	print_ast(root->right, "right", depth + 1);
-// print_ast(node, "O", 0);
-// }
-void	pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
+static	void	ext_pipe(t_leaf *node, int *fds, t_container *c, int flag)
 {
-	t_leaf	*node;
 	pid_t	last;
 
-	node = *root;
-	if (flag)
-		fds = ft_malloc((2 * sizeof(int)), c->garbage);
 	last = 0;
-	if (node->right->type == PIPE)
-		pipe_handle(&node->right, fds, c, 0);
-	else if (node->right->type == COMMAND)
-	{
-		exec_redirec(node->right->token, c);
-		child1(c, &node->right, fds);
-	}
 	if (node->left->type == COMMAND)
 	{
 		if (!flag)
@@ -137,4 +94,21 @@ void	pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
 	}
 	if (flag)
 		pid_wait(c, last);
+}
+
+void	pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
+{
+	t_leaf	*node;
+
+	node = *root;
+	if (flag)
+		fds = ft_malloc((2 * sizeof(int)), c->garbage);
+	if (node->right->type == PIPE)
+		pipe_handle(&node->right, fds, c, 0);
+	else if (node->right->type == COMMAND)
+	{
+		exec_redirec(node->right->token, c);
+		child1(c, &node->right, fds);
+	}
+	ext_pipe(node, fds, c, flag);
 }

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 10:01:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/13 11:13:48 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <string.h>
 # include <sys/wait.h>
 # include <unistd.h>
+# include <sys/stat.h>
+# include <time.h>
 
 # define HISTORY_FILE ".command_history"
 # define MAX_HISTORY_LENGTH 1000
@@ -375,5 +377,6 @@ void						ft_dup2(int fd1, int fd2, int *p_fd,
 void						pipe_handle(t_leaf **root, int *pip,
 								t_container *c, int flag);
 void						pid_wait(t_container *c, pid_t pid);
+void						exevce_fail(char *path, t_container *c);
 
 #endif
