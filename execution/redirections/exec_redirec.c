@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/14 14:39:58 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:25:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 
 	tmp = expander(formating(path, c->garbage), c);
 	if (!tmp[0])
+	{
+		token->in = -1;
 		return (ft_putstr_fd(path, 2),
 			ft_putstr_fd(": ambiguous redirect\n", 2), false);
+	}
 	if (token->in)
 		close(token->in);
 	token->in = open(tmp, O_RDONLY);
@@ -38,8 +41,11 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 
 	tmp = expander(formating(path, c->garbage), c);
 	if (!tmp[0])
+	{
+		token->out = -1;
 		return (ft_putstr_fd(path, 2),
 			ft_putstr_fd(": ambiguous redirect\n", 2), false);
+	}
 	if (token->out)
 		close(token->out);
 	token->out = open(tmp, O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -55,8 +61,11 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 
 	tmp = expander(formating(path, c->garbage), c);
 	if (!tmp[0])
+	{
+		token->out = -1;
 		return (ft_putstr_fd(path, 2),
 			ft_putstr_fd(": ambiguous redirect\n", 2), false);
+	}
 	if (token->in)
 		close(token->in);
 	token->in = open(tmp,

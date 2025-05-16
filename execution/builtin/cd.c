@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 10:43:22 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 14:46:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ static int	helper(char *str, t_gc **gg, t_env **ft_env)
 	pwd_update(ft_env, 0);
 	return (0);
 }
-
 
 int	cd(char **args, t_gc **gg, t_env **ft_env)
 {

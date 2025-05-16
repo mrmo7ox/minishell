@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 13:19:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:30:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,22 +88,7 @@ void	child(char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
-	if (tmp->token->in > 0)
-	{
-		if (dup2(tmp->token->in, 0) == -1)
-		{
-			perror("dup2");
-			exit_exe(c->ft_env, c->garbage, 1);
-		}
-	}
-	if (tmp->token->out > 0)
-	{
-		if (dup2(tmp->token->out, 1) == -1)
-		{
-			perror("dup2");
-			exit_exe(c->ft_env, c->garbage, 1);
-		}
-	}
+	redr_cmd(tmp, c);
 	path = resolve_path(args, c->ft_env, c->garbage);
 	env = dp_env(c->ft_env, c->garbage);
 	if (execve(path, args, env) == -1)

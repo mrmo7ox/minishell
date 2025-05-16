@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 15:24:08 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:37:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	heredoc_ext(t_tk *token, char *path, t_container *c)
 		qoutes = true;
 	else
 		qoutes = false;
-	path = expander(formating(path, c->garbage), c);
+	path = formating(path, c->garbage);
 	while (1)
 	{
 		line = readline("> ");

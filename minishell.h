@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/16 11:20:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:31:30 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,6 +237,7 @@ void						load_history(void);
 // redic
 void						ft_add_redic(t_redic **head, t_redic *new);
 void						*ft_new_redic_node(t_gc **garbage, char *content);
+void						redr_cmd(t_leaf *tmp, t_container *c);
 
 // tokenizer
 bool						tokenizer(t_leaf **root, t_gc **garbage,

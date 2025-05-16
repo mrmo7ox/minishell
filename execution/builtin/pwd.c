@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:11:44 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 13:26:38 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:31:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ char	*pwd_update(t_env **ft_env, int flag)
 
 int	ft_pwd(t_env **ft_env, int out)
 {
-	if (out <= 0)
+	if (out == 0)
 		out = 1;
+	else if (out < 0)
+		return (1);
 	ft_putstr_fd(pwd_update(ft_env, 0), out);
 	ft_putstr_fd("\n", out);
 	return (0);

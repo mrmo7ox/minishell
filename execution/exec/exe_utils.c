@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/12 14:20:11 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:31:24 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,28 @@ char	*get_path(char **args, t_env **ft_env, t_gc **gc)
 	}
 	free(paths);
 	return (NULL);
+}
+
+void	redr_cmd(t_leaf *tmp, t_container *c)
+{
+	if (tmp->token->in > 0)
+	{
+		if (dup2(tmp->token->in, 0) == -1)
+		{
+			perror("dup2");
+			exit_exe(c->ft_env, c->garbage, 1);
+		}
+	}
+	else if (tmp->token->in < 0)
+		exit_exe(c->ft_env, c->garbage, 1);
+	if (tmp->token->out > 0)
+	{
+		if (dup2(tmp->token->out, 1) == -1)
+		{
+			perror("dup2");
+			exit_exe(c->ft_env, c->garbage, 1);
+		}
+	}
+	else if (tmp->token->out < 0)
+		exit_exe(c->ft_env, c->garbage, 1);
 }
