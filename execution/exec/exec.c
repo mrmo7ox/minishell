@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 15:12:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 11:22:10 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,14 @@ int execc(t_container *c)
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
 	// print_ast(node, "O", 0);
-	if (node->type == COMMAND)
-		return (exe_cmd_hundler(node, c));
-	if (node->type == PIPE)
+	if (node->type == OR)
+		exe_or(root, c);
+	else if (node->type == AND)
+		exe_and(root, c);
+	else if (node->type == PIPE)
 		pipe_handle(root, NULL, c, 1);
+	else if (node->type == COMMAND)
+		return (exe_cmd_hundler(node, c));
 	// if (node->type == AND)
 	// {
 	// 	if (exec(node->left, ft_env, garbage) == 0)

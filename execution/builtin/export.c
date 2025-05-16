@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 17:13:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:26:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	export(char **args, int out, t_env **ft_env, t_gc **gc)
 	int	len;
 
 	len = args_len(args);
-	if (!out)
+	if (out <= 0)
 		out = 1;
 	if (len == 1)
 		no_args(ft_env, out, gc);

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/13 15:19:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 11:20:32 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -388,5 +388,7 @@ void						pipe_handle(t_leaf **root, int *pip,
 								t_container *c, int flag);
 void						pid_wait(t_container *c, pid_t pid);
 void						exevce_fail(char *path, t_container *c);
+void						exe_or(t_leaf **root, t_container *c);
+void						exe_and(t_leaf **root, t_container *c);
 
 #endif

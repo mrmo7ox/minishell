@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 12:32:10 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/11 10:05:50 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:26:18 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	helper(char **args, int out, int flag, int count)
 
 int	echo(char **args, int out)
 {
-	if (!out)
+	if (out <= 0)
 		out = 1;
 	helper(args, out, 0, 0);
 	return (0);

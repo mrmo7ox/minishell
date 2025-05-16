@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 11:10:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 13:19:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ char	**dp_env(t_env **ft_env, t_gc **gc)
 	len = ft_envsize(*ft_env);
 	head = *ft_env;
 	res = ft_malloc((len + 1) * sizeof(char *), gc);
+	if (!res)
+	{
+		perror("malloc");
+		exit (1);
+	}
 	while (i < len || head)
 	{
 		res[i] = ft_strjoin(head->name, "=", gc);
@@ -83,15 +88,21 @@ void	child(char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
-	if (tmp->token->in)
+	if (tmp->token->in > 0)
 	{
 		if (dup2(tmp->token->in, 0) == -1)
+		{
+			perror("dup2");
 			exit_exe(c->ft_env, c->garbage, 1);
+		}
 	}
-	if (tmp->token->out)
+	if (tmp->token->out > 0)
 	{
 		if (dup2(tmp->token->out, 1) == -1)
+		{
+			perror("dup2");
 			exit_exe(c->ft_env, c->garbage, 1);
+		}
 	}
 	path = resolve_path(args, c->ft_env, c->garbage);
 	env = dp_env(c->ft_env, c->garbage);
