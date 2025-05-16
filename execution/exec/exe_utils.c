@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 16:31:24 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/16 16:42:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	redr_cmd(t_leaf *tmp, t_container *c)
 			perror("dup2");
 			exit_exe(c->ft_env, c->garbage, 1);
 		}
+		close(tmp->token->in);
 	}
 	else if (tmp->token->in < 0)
 		exit_exe(c->ft_env, c->garbage, 1);
@@ -106,6 +107,7 @@ void	redr_cmd(t_leaf *tmp, t_container *c)
 			perror("dup2");
 			exit_exe(c->ft_env, c->garbage, 1);
 		}
+		close(tmp->token->out);
 	}
 	else if (tmp->token->out < 0)
 		exit_exe(c->ft_env, c->garbage, 1);
