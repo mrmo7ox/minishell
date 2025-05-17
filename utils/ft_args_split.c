@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_args_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:48:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/10 12:55:22 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/17 09:29:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ static int	strlen_mod(char *str)
 	int		i;
 	int		words;
 	char	quote;
-	bool	closed;
 
-	closed = false;
 	i = 0;
 	words = 0;
 	while (str[i])
@@ -74,9 +72,7 @@ char	**ft_args_split(char *str, t_gc **garbage, int i, int j)
 	int		words;
 	int		word_count;
 	char	quote;
-	bool	closed;
 
-	closed = false;
 	words = 0;
 	if (!str)
 		return (NULL);

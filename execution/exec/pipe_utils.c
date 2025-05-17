@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 16:35:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 09:29:05 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 void	child2(t_container *c, t_leaf **root, int *fds)
 {
 	int		p_fd[2];
-	int		status;
 	pid_t	pid;
 
 	if (!(*root)->token->token)
 		return ;
-	status = 0;
 	if (pipe(p_fd) == -1)
 		pipe_err("Fork", c, fds);
 	pid = fork();
@@ -105,12 +103,10 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 
 pid_t	child3(t_container *c, t_leaf **root, int *fds)
 {
-	int		i;
 	pid_t	pid;
 
 	if (!(*root)->token->token)
 		return (0);
-	i = 0;
 	pid = fork();
 	if (pid == -1)
 		pipe_err("Fork", c, fds);

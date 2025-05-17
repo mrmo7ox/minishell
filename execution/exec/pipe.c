@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 16:35:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 09:28:50 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,9 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 
 static void	child1(t_container *c, t_leaf **root, int *fds)
 {
-	int		i;
 	int		p_fd[2];
 	pid_t	pid;
 
-	i = 0;
 	if (!(*root)->token->token)
 		return ;
 	if (pipe(p_fd) == -1)

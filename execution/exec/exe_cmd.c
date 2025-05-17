@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 16:48:21 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 09:51:31 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ char	**dp_env(t_env **ft_env, t_gc **gc)
 
 void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 {
-	int	i;
-
-	i = 0;
 	if (path && !access(path, F_OK))
 	{
 		if (access(path, X_OK))
@@ -81,7 +78,7 @@ char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 	return (path);
 }
 
-void	child(char **args, t_container *c)
+static void	child(char **args, t_container *c)
 {
 	char	**env;
 	char	*path;

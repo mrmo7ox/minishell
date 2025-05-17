@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/16 13:50:18 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:32:11 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,28 @@ static void	minishell_init(t_container *container, int ac, char **av,
 	env_check_path(container->ft_env, 0);
 }
 
+char	*prompt(t_container *c)
+{
+	char	*username;
+	char	*pwd;
+	char	*pro;
+
+	username = expander("$USER", c);
+	if (!username[0])
+		username = ft_strdup("Minishell", c->garbage);
+	pwd = expander("$PWD", c);
+	if (!pwd[0])
+	{
+		pwd = getcwd(NULL, 0);
+		ft_add_gc(c->garbage, ft_new_gc_node(pwd));
+	}
+	pro = ft_strjoin(username, ":", c->garbage);
+	pro = ft_strjoin(pro, pwd, c->garbage);
+	pro = ft_strjoin(pro, "$ ", c->garbage);
+	return (pro);
+}
+
+
 int	main(int ac, char **av, char **env)
 {
 	t_container	container;
@@ -59,7 +81,7 @@ int	main(int ac, char **av, char **env)
 	load_history();
 	while (true)
 	{
-		container.line = readline("Minishell$> ");
+		container.line = readline(prompt(&container));
 		if (!container.line)
 			ft_exit(NULL, container.ft_env, container.garbage,
 				container.status);
