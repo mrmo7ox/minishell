@@ -66,11 +66,11 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 		return (ft_putstr_fd(path, 2),
 			ft_putstr_fd(": ambiguous redirect\n", 2), false);
 	}
-	if (token->in)
-		close(token->in);
-	token->in = open(tmp,
+	if (token->out)
+	close(token->out);
+	token->out = open(tmp,
 			O_WRONLY | O_CREAT | O_APPEND, 0644);
-	if (token->in == -1)
+	if (token->out == -1)
 	{
 		perror(tmp);
 		return (false);

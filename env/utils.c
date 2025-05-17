@@ -44,6 +44,7 @@ t_env	*ft_new_env(char *name, char *value)
 
 void	no_env(t_env **ft_env, t_gc **gc)
 {
+	pwd_update(ft_env, 0);
 	shlvl(ft_env, gc);
 	ft_add_env(ft_env, ft_new_env("_",
 			"/usr/bin/env"));
