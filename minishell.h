@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/16 16:31:30 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 11:16:45 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -378,7 +378,7 @@ bool						heredoc(t_tk *token, char *path, t_container *c);
 // exec part me
 int							execc(t_container *c);
 
-//pipe
+//exe
 pid_t						child3(t_container *c, t_leaf **root, int *fd);
 void						pipe_err(char *str, t_container *c, int *fds);
 void						child2(t_container *c, t_leaf **root, int *fd);
@@ -391,5 +391,10 @@ void						pid_wait(t_container *c, pid_t pid);
 void						exevce_fail(char *path, t_container *c);
 void						exe_or(t_leaf **root, t_container *c);
 void						exe_and(t_leaf **root, t_container *c);
+void						close_redr(t_leaf **root);
+void						child3_helper(t_leaf *tmp, t_container *c,
+								int *p_fd);
+void						child2_helper(t_leaf *tmp, t_container *c,
+								int *p_fd, int *fds);
 
 #endif

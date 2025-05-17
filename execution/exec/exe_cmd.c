@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 09:51:31 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:48:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,10 @@ void	exe_cmd(char **args, t_container *c)
 		{
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
-			if (tmp->token->in > 0)
-				close(tmp->token->in);
-			else if (tmp->token->out > 0)
-				close(tmp->token->out);
 		}
 	}
+	if (tmp->token->in > 0)
+		close(tmp->token->in);
+	else if (tmp->token->out > 0)
+		close(tmp->token->out);
 }

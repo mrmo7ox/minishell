@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 09:29:05 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 11:15:44 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	if (tmp->token->out > 0)
-		ft_dup2(tmp->token->out, 1, p_fd, c);
-	else if (tmp->token->out < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
-	else
-		ft_dup2(p_fd[1], 1, p_fd, c);
-	if (tmp->token->in > 0)
-		ft_dup2(tmp->token->in, 0, p_fd, c);
-	else if (tmp->token->out < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
-	else
-		ft_dup2(fds[0], 0, p_fd, c);
+	child2_helper(tmp, c, p_fd, fds);
 	close(fds[0]);
 	close(fds[1]);
 	close(p_fd[1]);
@@ -65,6 +54,7 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 		ext_child2(p_fd, root, c, fds);
 	else
 	{
+		close_redr(root);
 		close(fds[0]);
 		close(fds[1]);
 		fds[0] = p_fd[0];
@@ -86,16 +76,7 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	if (tmp->token->out > 0)
-		ft_dup2(tmp->token->out, 1, NULL, c);
-	else if (tmp->token->out < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
-	if (tmp->token->in > 0)
-		ft_dup2(tmp->token->in, 0, NULL, c);
-	else if (tmp->token->out < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
-	else
-		ft_dup2(fds[0], 0, NULL, c);
+	child3_helper(tmp, c, fds);
 	close(fds[0]);
 	close(fds[1]);
 	exe_pipe(tmp, args, c);

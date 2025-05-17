@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 13:15:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:59:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,12 @@ void	exevce_fail(char *path, t_container *c)
 		}
 	}
 	perror("execve");
+}
+
+void	close_redr(t_leaf **root)
+{
+	if ((*root)->token->in > 0)
+		close((*root)->token->in);
+	if ((*root)->token->out > 0)
+		close((*root)->token->out);
 }

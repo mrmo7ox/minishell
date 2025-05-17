@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/17 10:32:11 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/17 10:43:31 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ char	*prompt(t_container *c)
 		pwd = getcwd(NULL, 0);
 		ft_add_gc(c->garbage, ft_new_gc_node(pwd));
 	}
-	pro = ft_strjoin(username, ":", c->garbage);
+	pro = ft_strjoin("\033[0;32m", username, c->garbage);
+	pro = ft_strjoin(pro, "\033[0m:", c->garbage);
 	pro = ft_strjoin(pro, pwd, c->garbage);
 	pro = ft_strjoin(pro, "$ ", c->garbage);
 	return (pro);
