@@ -27,15 +27,26 @@ static bool	exe_cmd_hundler(t_leaf *node, t_container *c)
 			args[i] = expander(args[i], c);
 			i++;
 		}
-		exec_redirec(node->token, c);
 		exe_cmd(args, c);
 	}
 	else
-	{
-		exec_redirec(node->token, c);
 		return (false);
-	}
 	return (true);
+}
+
+void	run_redirec(t_leaf **root,  t_container *c)
+{
+	 t_leaf *tmp;
+
+    if (!root || !*root)
+        return;
+    tmp = *root;
+	if (tmp->right)
+		run_redirec(&tmp->right, c);
+    if (tmp->left)
+        run_redirec(&tmp->left, c);
+    if (tmp->type == COMMAND)
+        exec_redirec(tmp->token, c);
 }
 // void	print_node(t_leaf *node, char *l)
 // {
@@ -77,6 +88,7 @@ int	execc(t_container *c)
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
 	// print_ast(node, "O", 0);
+	run_redirec(root, c);
 	if (node->type == OR)
 		exe_or(root, c);
 	else if (node->type == AND)

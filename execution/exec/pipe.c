@@ -42,18 +42,8 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	close(p_fd[0]);
-	if (tmp->token->out > 0)
-		ft_dup2(tmp->token->out, 1, p_fd, c);
-	else if (tmp->token->out < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
-	else
-		ft_dup2(p_fd[1], 1, p_fd, c);
-	if (tmp->token->in > 0)
-		ft_dup2(tmp->token->in, 0, p_fd, c);
-	else if (tmp->token->in < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
-	close(p_fd[1]);
+	child1_helper(tmp, c, p_fd);
+	close_fds();
 	exe_pipe(tmp, args, c);
 }
 
@@ -70,10 +60,7 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 	if (pid == -1)
 		pipe_err("Fork", c, p_fd);
 	else if (!pid)
-	{
 		ext_child1(p_fd, root, c, fds);
-		close_redr(root);
-	}
 	else
 	{
 		close_redr(root);
@@ -90,15 +77,9 @@ static	void	ext_pipe(t_leaf *node, int *fds, t_container *c, int flag)
 	if (node->left->type == COMMAND)
 	{
 		if (!flag)
-		{
-			exec_redirec(node->left->token, c);
 			child2(c, &node->left, fds);
-		}
 		else
-		{
-			exec_redirec(node->left->token, c);
 			last = child3(c, &node->left, fds);
-		}
 	}
 	if (flag)
 		pid_wait(c, last);
@@ -114,9 +95,6 @@ void	pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
 	if (node->right->type == PIPE)
 		pipe_handle(&node->right, fds, c, 0);
 	else if (node->right->type == COMMAND)
-	{
-		exec_redirec(node->right->token, c);
 		child1(c, &node->right, fds);
-	}
 	ext_pipe(node, fds, c, flag);
 }

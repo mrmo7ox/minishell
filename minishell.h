@@ -383,8 +383,7 @@ pid_t						child3(t_container *c, t_leaf **root, int *fd);
 void						pipe_err(char *str, t_container *c, int *fds);
 void						child2(t_container *c, t_leaf **root, int *fd);
 void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
-void						ft_dup2(int fd1, int fd2, int *p_fd,
-								t_container *c);
+void						ft_dup2(int fd1, int fd2, t_container *c);
 void						pipe_handle(t_leaf **root, int *pip,
 								t_container *c, int flag);
 void						pid_wait(t_container *c, pid_t pid);
@@ -396,5 +395,8 @@ void						child3_helper(t_leaf *tmp, t_container *c,
 								int *p_fd);
 void						child2_helper(t_leaf *tmp, t_container *c,
 								int *p_fd, int *fds);
+void						close_fds(void);
+void						child1_helper(t_leaf *tmp, t_container *c,
+								int *p_fd);
 
 #endif

@@ -27,10 +27,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		i++;
 	}
 	child2_helper(tmp, c, p_fd, fds);
-	close(fds[0]);
-	close(fds[1]);
-	close(p_fd[1]);
-	close(p_fd[0]);
+	close_fds();
 	exe_pipe(tmp, args, c);
 }
 
@@ -77,8 +74,7 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 		i++;
 	}
 	child3_helper(tmp, c, fds);
-	close(fds[0]);
-	close(fds[1]);
+	close_fds();
 	exe_pipe(tmp, args, c);
 }
 
@@ -102,15 +98,11 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 	return (pid);
 }
 
-void	ft_dup2(int fd1, int fd2, int *p_fd, t_container *c)
+void	ft_dup2(int fd1, int fd2, t_container *c)
 {
 	if (dup2(fd1, fd2) == -1)
 	{
-		if (p_fd)
-		{
-			close(p_fd[0]);
-			close(p_fd[1]);
-		}
+		close_fds();
 		ft_free_env(c->ft_env);
 		free_garbage(c->garbage);
 		perror("dup2");

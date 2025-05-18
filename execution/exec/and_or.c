@@ -67,7 +67,6 @@ static void	cmd(t_leaf **root, t_container *c)
 		args[i] = expander(args[i], c);
 		i++;
 	}
-	exec_redirec(node->token, c);
 	exe(args, root, c);
 }
 
