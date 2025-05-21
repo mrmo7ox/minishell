@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 10:01:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 13:59:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	shlvl(t_env **ft_env, t_gc **gc)
 	if (check_name_env("SHLVL", ft_env))
 	{
 		old = ft_getenv("SHLVL", ft_env);
-		if (!check_valid(old))
+		if (!old || !check_valid(old))
 			ft_upenv("SHLVL", "1", ft_env);
 		else
 		{
