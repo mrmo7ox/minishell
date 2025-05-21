@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 11:16:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:22:38 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*pwd(void)
 	return (buff);
 }
 
-static void	no_args(t_env **ft_env)
+static int	no_args(t_env **ft_env)
 {
 	char	*home;
 
@@ -30,11 +30,15 @@ static void	no_args(t_env **ft_env)
 	if (!home)
 	{
 		ft_putstr_fd("HOME not set\n", 2);
-		return ;
+		return (1);
 	}
 	if (chdir(home) == -1)
+	{
 		perror("cd");
+		return (1);
+	}
 	pwd_update(ft_env, 0);
+	return (0);
 }
 
 static int	helper(char *str, t_gc **gg, t_env **ft_env)
@@ -73,7 +77,7 @@ int	cd(char **args, t_gc **gg, t_env **ft_env)
 		return (1);
 	len = args_len(args);
 	if (len == 1)
-		no_args(ft_env);
+		return (no_args(ft_env));
 	else if (len > 2)
 	{
 		ft_putstr_fd("too many argument\n", 2);

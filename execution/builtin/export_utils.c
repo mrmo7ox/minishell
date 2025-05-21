@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 12:56:51 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:27:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	check_key(char *str, char *value)
 		if (i == 0 && ((str[i] >= '0' && str[i] <= '9')
 				|| str[i] == '+'))
 			return (0);
-		if (ft_chrstr(str[i], "-!?$%@-#"))
+		if (ft_chrstr(str[i], "-!?$%@-#/\\"))
 			return (0);
 		if (str[i] == '+' && str[i + 1])
 			return (0);

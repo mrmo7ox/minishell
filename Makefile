@@ -6,13 +6,13 @@
 #    By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/05/21 13:57:55 by ihamani          ###   ########.fr        #
+#    Updated: 2025/05/21 14:30:39 by ihamani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = cc
-CFLAGS = -Wall  -Wextra -Werror -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-function -g3 -fsanitize=address
+CFLAGS = -Wall  -Wextra -Werror -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-function #-g3 -fsanitize=address
 MFLAGS = -lreadline -lncurses
 G = $(shell tput setaf 2)
 R = $(shell tput setaf 1)

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/21 12:51:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:35:54 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,6 @@ int	execc(t_container *c)
 	else if (node->type == PIPE)
 		pipe_handle(root, NULL, c, 1);
 	else if (node->type == COMMAND)
-		return (exe_cmd_hundler(node, c));
+		return (close_redirec(root, c), exe_cmd_hundler(node, c));
 	return (1);
 }

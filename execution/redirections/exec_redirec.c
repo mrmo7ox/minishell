@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/21 10:35:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 14:28:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND,
 			0644);
 	if (token->in == -1)
-		return (close(token->in) ,perror("heredoc"), false);
+		return (close(token->in), perror("heredoc"), false);
 	else
 	{
 		pid = fork();
