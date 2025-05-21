@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:36:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 10:03:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 10:14:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	no_args(t_env **ft_env)
 		return ;
 	}
 	if (chdir(home) == -1)
-	perror("cd ");
+		perror("cd ");
+	pwd_update(ft_env, 0);
 }
 
 static int	helper(char *str, t_gc **gg, t_env **ft_env)

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/17 10:43:31 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 10:13:37 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	start(char *line, t_container *container)
 {
-	add_history(line);
-	save_history();
+	// add_history(line);
+	// save_history();
 	if (syntax_error(line))
 	{
 		if (tokenizer(container->root, container->garbage, line))
@@ -78,7 +78,7 @@ int	main(int ac, char **av, char **env)
 	container.ft_env = &ft_env;
 	container.garbage = &gc;
 	minishell_init(&container, ac, av, env);
-	load_history();
+	// load_history();
 	while (true)
 	{
 		container.line = readline(prompt(&container));

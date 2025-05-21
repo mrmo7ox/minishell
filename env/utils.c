@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 13:50:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 10:01:57 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ t_env	*ft_new_env(char *name, char *value)
 
 	node = malloc(sizeof(t_env));
 	if (!node)
-		return (NULL);
+	{
+		perror("malloc");
+		exit(1);
+	}
 	node->name = ft_strdupnofree(name);
 	node->value = ft_strdupnofree(value);
 	node->next = NULL;

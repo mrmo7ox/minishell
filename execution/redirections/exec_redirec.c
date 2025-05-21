@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/17 09:47:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 10:35:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 		return (ft_putstr_fd(path, 2),
 			ft_putstr_fd(": ambiguous redirect\n", 2), false);
 	}
-	if (token->out)
+	if (token->out > 0)
 		close(token->out);
 	token->out = open(tmp, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (token->out == -1)
@@ -66,8 +66,8 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 		return (ft_putstr_fd(path, 2),
 			ft_putstr_fd(": ambiguous redirect\n", 2), false);
 	}
-	if (token->out)
-	close(token->out);
+	if (token->out > 0)
+		close(token->out);
 	token->out = open(tmp,
 			O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (token->out == -1)
@@ -85,10 +85,12 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	pid_t	pid;
 
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), c->garbage), c->garbage);
+	if (token->in > 0)
+		close(token->in);
 	token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND,
 			0644);
 	if (token->in == -1)
-		return (perror("heredoc"), false);
+		return (close(token->in) ,perror("heredoc"), false);
 	else
 	{
 		pid = fork();
@@ -101,7 +103,8 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
 		}
-		close(token->in);
+		if (token->in > 0)
+			close(token->in);
 		token->in = open(formating(tmp, c->garbage),
 				O_RDWR | O_CREAT | O_APPEND, 0644);
 		return (unlink(tmp), true);

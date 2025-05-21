@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/16 16:37:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 11:10:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,20 @@
 
 static void	exit_heredoc(t_tk *token, t_container *c, int status)
 {
-	close(token->in);
+	if (status)
+		perror("write");
+	close_fds();
 	ft_free_env(c->ft_env);
 	free_garbage(c->garbage);
 	exit(status);
+}
+
+static	void	heredoc_eof(t_tk *token, t_container *c)
+{
+	ft_putstr_fd("warning: here-document ", 2);
+	ft_putstr_fd("at line 1 delimited by end-of-file (wanted `ls')\n", 2);
+	exit_heredoc(token, c, 0);
+	close_fds();
 }
 
 void	heredoc_ext(t_tk *token, char *path, t_container *c)
@@ -34,16 +44,16 @@ void	heredoc_ext(t_tk *token, char *path, t_container *c)
 	while (1)
 	{
 		line = readline("> ");
+		if (!line)
+			heredoc_eof(token, c);
+		ft_add_gc(c->garbage, ft_new_gc_node(line));
 		if (!ft_strcmp(path, line))
 			break ;
 		if (qoutes)
 			line = h_expander(line, c);
 		if (write(token->in, line, ft_strlen(line)) == -1
 			|| write(token->in, "\n", 1) == -1)
-		{
-			perror("write");
 			exit_heredoc(token, c, 1);
-		}
 	}
 	exit_heredoc(token, c, 0);
 }
