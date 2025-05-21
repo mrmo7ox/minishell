@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 10:08:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:48:14 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	exit_exe(t_env **ft_env, t_gc **gc, int err)
 {
 	(void)ft_env;
 	free_garbage(gc);
+	close_fds();
 	exit(err);
 }
 

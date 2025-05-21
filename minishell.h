@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/17 11:16:45 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:01:26 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -398,5 +398,8 @@ void						child2_helper(t_leaf *tmp, t_container *c,
 void						close_fds(void);
 void						child1_helper(t_leaf *tmp, t_container *c,
 								int *p_fd);
+int							exe_builtin_pipe(char **args, t_leaf *root,
+								t_container *c);
+void						close_redirec(t_leaf **root, t_container *c);
 
 #endif

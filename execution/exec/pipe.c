@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 10:59:50 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 11:25:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
 	char		*path;
 
 	if (is_builtin(args[0]))
-		exit(exe_builtin(args, tmp, c));
+		exit(exe_builtin_pipe(args, tmp, c));
 	else
 	{
 		path = resolve_path(args, c->ft_env, c->garbage);

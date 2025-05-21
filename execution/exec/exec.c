@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/17 10:00:10 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:51:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,34 @@ static bool	exe_cmd_hundler(t_leaf *node, t_container *c)
 	return (true);
 }
 
-void	run_redirec(t_leaf **root,  t_container *c)
+void	run_redirec(t_leaf **root, t_container *c)
 {
-	 t_leaf *tmp;
+	t_leaf	*tmp;
 
-    if (!root || !*root)
-        return;
-    tmp = *root;
+	if (!root || !*root)
+		return ;
+	tmp = *root;
 	if (tmp->right)
 		run_redirec(&tmp->right, c);
-    if (tmp->left)
-        run_redirec(&tmp->left, c);
-    if (tmp->type == COMMAND)
-        exec_redirec(tmp->token, c);
+	if (tmp->left)
+		run_redirec(&tmp->left, c);
+	if (tmp->type == COMMAND)
+		exec_redirec(tmp->token, c);
+}
+
+void	close_redirec(t_leaf **root, t_container *c)
+{
+	t_leaf	*tmp;
+
+	if (!root || !*root)
+		return ;
+	tmp = *root;
+	if (tmp->right)
+		close_redirec(&tmp->right, c);
+	if (tmp->left)
+		close_redirec(&tmp->left, c);
+	if (tmp->type == COMMAND)
+		close_redr(&tmp);
 }
 // void	print_node(t_leaf *node, char *l)
 // {
@@ -90,9 +105,15 @@ int	execc(t_container *c)
 	// print_ast(node, "O", 0);
 	run_redirec(root, c);
 	if (node->type == OR)
+	{
 		exe_or(root, c);
+		close_redirec(root, c);
+	}
 	else if (node->type == AND)
+	{
 		exe_and(root, c);
+		close_redirec(root, c);
+	}
 	else if (node->type == PIPE)
 		pipe_handle(root, NULL, c, 1);
 	else if (node->type == COMMAND)

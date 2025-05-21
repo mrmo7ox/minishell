@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 11:15:44 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 11:34:10 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 		ext_child3(root, c, fds);
 	else
 	{
+		close_redr(root);
 		close(fds[0]);
 		close(fds[1]);
 		return (pid);

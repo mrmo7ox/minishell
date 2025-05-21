@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:13:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 10:50:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/21 12:48:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,11 @@ static void	exe(char **args, t_leaf **root, t_container *c)
 			child(root, args, c);
 		else if (pid)
 		{
+			close_redr(root);
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
 		}
 	}
-	if (tmp->token->in > 0)
-		close(tmp->token->in);
-	else if (tmp->token->out > 0)
-		close(tmp->token->out);
 }
 
 static void	cmd(t_leaf **root, t_container *c)
