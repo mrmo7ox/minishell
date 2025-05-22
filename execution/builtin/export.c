@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 14:27:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 11:10:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,44 +56,46 @@ static void	no_args(t_env **ft_env, int out, t_gc **gc)
 	free_tmp(&tmp);
 }
 
-static void	helper(char **args, t_env **ft_env, t_gc **gc)
+static void	helper(char **args, t_env **ft_env, t_gc **gc, int *status)
 {
 	char	**tmp;
-	int		i;
-	char	*name;
+	int		i[2];
 	char	*value;
 
-	i = 1;
-	while (args[i])
+	i[0] = 1;
+	while (args[i[0]])
 	{
-		if ((ft_chrstr('=', args[i]) && ft_strlen(args[i]) == 1)
-			|| args[i][0] == '=')
+		if ((ft_chrstr('=', args[i[0]]) && ft_strlen(args[i[0]]) == 1)
+			|| args[i[0]][0] == '=')
 		{
-			ft_putstr_fd(args[i++], 2);
+			ft_putstr_fd(args[i[0]++], 2);
 			ft_putstr_fd(": not a valid identifier\n", 2);
+			*status = 1;
 			continue ;
 		}
-		tmp = export_split(args[i]);
-		name = tmp[0];
-		if (ft_chrstr('=', args[i]) && !tmp[1])
+		tmp = export_split(args[i[0]]);
+		if (ft_chrstr('=', args[i[0]++]) && !tmp[1])
 			value = "";
 		else
 			value = tmp[1];
-		ext_export(name, value, ft_env, gc);
+		i[1] = ext_export(tmp[0], value, ft_env, gc);
+		if (i[1])
+			*status = i[1];
 		free_d(tmp);
-		i++;
 	}
 }
 
-void	export(char **args, int out, t_env **ft_env, t_gc **gc)
+int	export(char **args, int out, t_env **ft_env, t_gc **gc)
 {
 	int	len;
+	int	status;
 
+	status = 0;
 	len = args_len(args);
 	if (out == 0)
 		out = 1;
 	else if (out < 0)
-		return ;
+		return (1);
 	if (len == 1)
 		no_args(ft_env, out, gc);
 	else if (len >= 2)
@@ -101,8 +103,9 @@ void	export(char **args, int out, t_env **ft_env, t_gc **gc)
 		if (!syntax(args))
 		{
 			ft_putstr_fd("bad args sysntax\n", 2);
-			return ;
+			return (1);
 		}
-		helper(args, ft_env, gc);
+		helper(args, ft_env, gc, &status);
 	}
+	return (status);
 }

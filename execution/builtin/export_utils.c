@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 14:27:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:39:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,15 @@ static int	check_key(char *str, char *value)
 	return (1);
 }
 
-void	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
+int	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 {
 	if (!ft_strcmp(name, "_"))
-		return ;
+		return (1);
 	if (!check_key(name, value))
 	{
 		ft_putstr_fd(name, 2);
 		ft_putstr_fd(": not a valid identifier\n", 2);
-		return ;
+		return (1);
 	}
 	else if (check_key(name, value) == 2)
 		export_append(name, value, ft_env, gg);
@@ -100,4 +100,5 @@ void	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 		else
 			ft_upenv(name, value, ft_env);
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/21 17:37:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:14:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,15 +106,9 @@ int	execc(t_container *c)
 	// print_ast(node, "O", 0);
 	run_redirec(root, c);
 	if (node->type == OR)
-	{
 		exe_or(root, c);
-		close_redirec(root, c);
-	}
 	else if (node->type == AND)
-	{
 		exe_and(root, c);
-		close_redirec(root, c);
-	}
 	else if (node->type == PIPE)
 		pipe_handle(root, NULL, c, 1);
 	else if (node->type == COMMAND)

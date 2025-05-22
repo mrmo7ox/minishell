@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/21 14:16:21 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:15:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	start(char *line, t_container *container)
 		if (tokenizer(container->root, container->garbage, line))
 		{
 			execc(container);
+			close_redirec(container->root, container);
 		}
 	}
 }

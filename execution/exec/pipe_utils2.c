@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 10:59:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:14:22 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,13 @@ void	exevce_fail(char *path, t_container *c)
 void	close_redr(t_leaf **root)
 {
 	if ((*root)->token->in > 0)
+	{
 		close((*root)->token->in);
+		(*root)->token->in = 0;
+	}
 	if ((*root)->token->out > 0)
+	{
 		close((*root)->token->out);
+		(*root)->token->out = 0;
+	}
 }

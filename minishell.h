@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/21 12:01:26 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:59:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,13 +210,13 @@ char						*env_check_path(t_env **ft_env, int flag);
 int							cd(char **args, t_gc **gg, t_env **ft_env);
 int							echo(char **args, int out);
 int							cmd_env(char **args, int out, t_env **env);
-void						export(char **args, int out, t_env **ft_env,
+int							export(char **args, int out, t_env **ft_env,
 								t_gc **gc);
 void						export_append(char *name, char *value,
 								t_env **ft_env, t_gc **gg);
 void						ft_upenv(char *name, char *value, t_env **ft_env);
 void						no_env(t_env **ft_env, t_gc **gc);
-void						ext_export(char *name, char *value, t_env **ft_env,
+int							ext_export(char *name, char *value, t_env **ft_env,
 								t_gc **gg);
 void						export_sort(t_env **ft_env);
 char						**export_split(char *str);

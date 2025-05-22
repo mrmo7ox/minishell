@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 14:35:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 10:24:47 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 
 	i = 0;
 	tmp = *root;
+	if (!tmp->token->token)
+		exit_exe(c->ft_env, c->garbage, 1);
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
 	while (args[i])
 	{
@@ -52,8 +54,6 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 	int		p_fd[2];
 	pid_t	pid;
 
-	if (!(*root)->token->token)
-		return ;
 	if (pipe(p_fd) == -1)
 		pipe_err("Fork", c, NULL);
 	pid = fork();

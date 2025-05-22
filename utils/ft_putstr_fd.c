@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:16:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/04/23 14:19:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/22 09:56:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *str, int fd)
 {
+	if (!str)
+		return ;
 	while (*str)
 	{
 		write(fd, str, 1);
