@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 10:02:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 13:24:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	*ft_new_redic_node(t_gc **garbage, char *content)
 	t_redic	*node;
 
 	node = ft_malloc(sizeof(t_redic), garbage);
-	if (!node)
-		return (NULL);
 	node->content = formating(content, garbage);
 	node->type = special_cases_redic(content);
 	node->prev = NULL;

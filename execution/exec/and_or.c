@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:13:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 12:48:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:50:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ static void	child(t_leaf **root, char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *root;
+	exec_redirec(tmp->token, c);
 	redr_cmd(tmp, c);
+	close_redr(&tmp);
+	close_heredoc(c->root, c);
 	path = resolve_path(args, c->ft_env, c->garbage);
 	env = dp_env(c->ft_env, c->garbage);
 	if (execve(path, args, env) == -1)
@@ -43,7 +46,6 @@ static void	exe(char **args, t_leaf **root, t_container *c)
 			child(root, args, c);
 		else if (pid)
 		{
-			close_redr(root);
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
 		}

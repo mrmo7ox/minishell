@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 10:24:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 17:08:06 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
+	exec_redirec(tmp->token, c);
 	child1_helper(tmp, c, p_fd);
-	close_fds();
+	close_fds(tmp, NULL, p_fd);
+	close_heredoc(c->root, c);
 	exe_pipe(tmp, args, c);
 }
 
@@ -63,7 +65,6 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 		ext_child1(p_fd, root, c, fds);
 	else
 	{
-		close_redr(root);
 		fds[0] = p_fd[0];
 		fds[1] = p_fd[1];
 	}

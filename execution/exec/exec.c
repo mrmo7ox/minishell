@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/22 10:14:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 15:29:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,13 @@ static bool	exe_cmd_hundler(t_leaf *node, t_container *c)
 			i++;
 		}
 		exe_cmd(args, c);
-		close_redirec(&node, c);
 	}
 	else
 		return (false);
 	return (true);
 }
 
-void	run_redirec(t_leaf **root, t_container *c)
+void	run_heredoc(t_leaf **root, t_container *c)
 {
 	t_leaf	*tmp;
 
@@ -43,14 +42,14 @@ void	run_redirec(t_leaf **root, t_container *c)
 		return ;
 	tmp = *root;
 	if (tmp->right)
-		run_redirec(&tmp->right, c);
+		run_heredoc(&tmp->right, c);
 	if (tmp->left)
-		run_redirec(&tmp->left, c);
+		run_heredoc(&tmp->left, c);
 	if (tmp->type == COMMAND)
-		exec_redirec(tmp->token, c);
+		exec_heredoc(tmp->token, c);
 }
 
-void	close_redirec(t_leaf **root, t_container *c)
+void	close_heredoc(t_leaf **root, t_container *c)
 {
 	t_leaf	*tmp;
 
@@ -58,11 +57,14 @@ void	close_redirec(t_leaf **root, t_container *c)
 		return ;
 	tmp = *root;
 	if (tmp->right)
-		close_redirec(&tmp->right, c);
+		close_heredoc(&tmp->right, c);
 	if (tmp->left)
-		close_redirec(&tmp->left, c);
+		close_heredoc(&tmp->left, c);
 	if (tmp->type == COMMAND)
-		close_redr(&tmp);
+	{
+		if (tmp->token->heredoc > 0)
+			close(tmp->token->heredoc);
+	}
 }
 // void	print_node(t_leaf *node, char *l)
 // {
@@ -104,7 +106,7 @@ int	execc(t_container *c)
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
 	// print_ast(node, "O", 0);
-	run_redirec(root, c);
+	run_heredoc(root, c);
 	if (node->type == OR)
 		exe_or(root, c);
 	else if (node->type == AND)

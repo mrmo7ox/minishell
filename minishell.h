@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/22 10:59:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:41:28 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ typedef struct s_tokenizer
 	int						out;
 	int						priority;
 	int						subshell;
+	int						heredoc;
+	int						is_last;
 	int						index;
 	struct s_tokenizer		*next;
 	struct s_tokenizer		*prev;
@@ -395,11 +397,14 @@ void						child3_helper(t_leaf *tmp, t_container *c,
 								int *p_fd);
 void						child2_helper(t_leaf *tmp, t_container *c,
 								int *p_fd, int *fds);
-void						close_fds(void);
 void						child1_helper(t_leaf *tmp, t_container *c,
 								int *p_fd);
 int							exe_builtin_pipe(char **args, t_leaf *root,
 								t_container *c);
-void						close_redirec(t_leaf **root, t_container *c);
+void						close_heredoc(t_leaf **root, t_container *c);
+void						exec_heredoc(t_tk *token, t_container *c);
+void						check_iflast(t_tk *token);
+void						close_fds(t_leaf *tmp, int *fds, int *p_fd);
+void						redr_cmd_helper(t_leaf *tmp, t_container *c);
 
 #endif

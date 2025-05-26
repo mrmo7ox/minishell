@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/22 10:32:26 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 15:34:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,17 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	pid_t	pid;
 
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), c->garbage), c->garbage);
-	if (token->in > 0)
-		close(token->in);
-	token->in = open(formating(tmp, c->garbage), O_RDWR | O_CREAT | O_APPEND,
-			0644);
-	if (token->in == -1)
-		return (close(token->in), perror("heredoc"), false);
+	if (token->heredoc > 0)
+		close(token->heredoc);
+	token->heredoc = open(formating(tmp, c->garbage),
+			O_RDWR | O_CREAT | O_APPEND, 0644);
+	if (token->heredoc == -1)
+		return (perror("heredoc"), false);
 	else
 	{
 		pid = fork();
 		if (pid == -1)
-			return (token->in = -1, perror("fork"), false);
+			return (token->heredoc = -1, perror("fork"), false);
 		else if (!pid)
 			heredoc_ext(token, path, c);
 		else
@@ -103,9 +103,9 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
 		}
-		if (token->in > 0)
-			close(token->in);
-		token->in = open(formating(tmp, c->garbage),
+		if (token->heredoc > 0)
+			close(token->heredoc);
+		token->heredoc = open(formating(tmp, c->garbage),
 				O_RDWR | O_CREAT | O_APPEND, 0644);
 		return (unlink(tmp), true);
 	}
@@ -121,8 +121,12 @@ bool	exec_redirec(t_tk *token, t_container *c)
 	while (curr)
 	{
 		if (!ext_exe_redr(&curr, c, token))
+		{
+			close(token->heredoc);
 			return (false);
+		}
 		curr = curr->next;
 	}
+	check_iflast(token);
 	return (true);
 }

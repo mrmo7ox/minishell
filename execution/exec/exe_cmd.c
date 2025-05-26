@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 14:35:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 17:16:31 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,12 @@ void	exe_cmd(char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
+	exec_redirec(tmp->token, c);
 	if (is_builtin(args[0]))
+	{
 		c->status = exe_builtin(args, tmp, c);
+		close_redr(&tmp);
+	}
 	else
 	{
 		pid = fork();

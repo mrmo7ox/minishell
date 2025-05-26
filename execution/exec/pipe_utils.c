@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 10:20:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 17:07:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
+	exec_redirec(tmp->token, c);
 	child2_helper(tmp, c, p_fd, fds);
-	close_fds();
+	close_fds(tmp, fds, p_fd);
+	close_heredoc(c->root, c);
 	exe_pipe(tmp, args, c);
 }
 
@@ -51,7 +53,6 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 		ext_child2(p_fd, root, c, fds);
 	else
 	{
-		close_redr(root);
 		close(fds[0]);
 		close(fds[1]);
 		fds[0] = p_fd[0];
@@ -73,8 +74,10 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 		args[i] = expander(args[i], c);
 		i++;
 	}
+	exec_redirec(tmp->token, c);
 	child3_helper(tmp, c, fds);
-	close_fds();
+	close_fds(tmp, fds, NULL);
+	close_heredoc(c->root, c);
 	exe_pipe(tmp, args, c);
 }
 
@@ -91,7 +94,6 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 		ext_child3(root, c, fds);
 	else
 	{
-		close_redr(root);
 		close(fds[0]);
 		close(fds[1]);
 		return (pid);
@@ -103,7 +105,6 @@ void	ft_dup2(int fd1, int fd2, t_container *c)
 {
 	if (dup2(fd1, fd2) == -1)
 	{
-		close_fds();
 		ft_free_env(c->ft_env);
 		free_garbage(c->garbage);
 		perror("dup2");
