@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/22 10:15:55 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 20:44:39 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	start(char *line, t_container *container)
 }
 
 static void	minishell_init(t_container *container, int ac, char **av,
-				char **env)
+		char **env)
 {
 	if (ac > 1)
 	{
@@ -48,10 +48,10 @@ char	*prompt(t_container *c)
 	char	*pwd;
 	char	*pro;
 
-	username = expander("$USER", c);
+	username = ft_getenv("USER", c->ft_env);
 	if (!username[0])
 		username = ft_strdup("Minishell", c->garbage);
-	pwd = expander("$PWD", c);
+	pwd = ft_getenv("PWD", c->ft_env);
 	if (!pwd[0])
 	{
 		pwd = getcwd(NULL, 0);
@@ -63,7 +63,6 @@ char	*prompt(t_container *c)
 	pro = ft_strjoin(pro, "$ ", c->garbage);
 	return (pro);
 }
-
 
 int	main(int ac, char **av, char **env)
 {
@@ -78,6 +77,7 @@ int	main(int ac, char **av, char **env)
 	container.root = &root;
 	container.ft_env = &ft_env;
 	container.garbage = &gc;
+	container.pid = get_pid_str();
 	minishell_init(&container, ac, av, env);
 	load_history();
 	while (true)

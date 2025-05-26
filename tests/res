@@ -1,980 +1,2020 @@
-$@ls:[syntax error]:[ls][❌]
+$@ls:[ls]:[ls][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-'$'ls'':[syntax error]:[$ls][❌]
+'$'ls'':[$ls]:[$ls][✅]
 ----------------------------------------
-'$'ls'':[syntax error]:[$ls][❌]
+'$'ls'':[$ls]:[$ls][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-'$ls':[syntax error]:[$ls][❌]
+'$ls':[$ls]:[$ls][✅]
 ----------------------------------------
-'$ls':[syntax error]:[$ls][❌]
+'$ls':[$ls]:[$ls][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'" hi:[syntax error]:[$'ls' hi][❌]
+"$'ls'" hi:[$'ls' hi]:[$'ls' hi][✅]
 ----------------------------------------
-"$'ls'" hi:[syntax error]:[$'ls' hi][❌]
+"$'ls'" hi:[$'ls' hi]:[$'ls' hi][✅]
 ----------------------------------------
-"$'ls'" hi:[syntax error]:[$'ls' hi][❌]
+"$'ls'" hi:[$'ls' hi]:[$'ls' hi][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-run:[syntax error]:[run][❌]
+run:[run]:[run][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-clear:[syntax error]:[clear][❌]
+clear:[clear]:[clear][✅]
 ----------------------------------------
-clear:[syntax error]:[clear][❌]
+clear:[clear]:[clear][✅]
 ----------------------------------------
-clear:[syntax error]:[clear][❌]
+clear:[clear]:[clear][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"'ls'":[syntax error]:['ls'][❌]
+"'ls'":['ls']:['ls'][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"$ls":[syntax error]:[][❌]
+"$ls":[]:[][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"$ls":[syntax error]:[][❌]
+"$ls":[]:[][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"$   'ls'":[syntax error]:[$   'ls'][❌]
+"$   'ls'":[$   'ls']:[$   'ls'][✅]
 ----------------------------------------
-"$   'ls'":[syntax error]:[$   'ls'][❌]
+"$   'ls'":[$   'ls']:[$   'ls'][✅]
 ----------------------------------------
-'ls':[syntax error]:[ls][❌]
+'ls':[ls]:[ls][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-fdsf $'ls':[syntax error]:[fdsf ls][❌]
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
 ----------------------------------------
-fdsf $'ls':[syntax error]:[fdsf ls][❌]
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
 ----------------------------------------
-fdsf $'ls':[syntax error]:[fdsf ls][❌]
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
 ----------------------------------------
-fdsf $'ls':[syntax error]:[fdsf ls][❌]
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
 ----------------------------------------
-fdsf $'ls':[syntax error]:[fdsf ls][❌]
+fdsf $'ls':[fdsf ls]:[fdsf ls][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-'$ls':[syntax error]:[$ls][❌]
+'$ls':[$ls]:[$ls][✅]
 ----------------------------------------
 '$'ls':[syntax error]:[syntax error][✅]
 ----------------------------------------
-'$'ls:[syntax error]:[$ls][❌]
+'$'ls:[$ls]:[$ls][✅]
 ----------------------------------------
-"$'ls'":[syntax error]:[$'ls'][❌]
+"$'ls'":[$'ls']:[$'ls'][✅]
 ----------------------------------------
-"'ls'":[syntax error]:['ls'][❌]
+"'ls'":['ls']:['ls'][✅]
 ----------------------------------------
-"'ls'" '$ls':[syntax error]:['ls' $ls][❌]
+"'ls'" '$ls':['ls' $ls]:['ls' $ls][✅]
 ----------------------------------------
-"'$ls'" '$ls':[syntax error]:['' $ls][❌]
+"'$ls'" '$ls':['' $ls]:['' $ls][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-"'ls'":[syntax error]:['ls'][❌]
+"'ls'":['ls']:['ls'][✅]
 ----------------------------------------
-"'$ls'":[syntax error]:[''][❌]
+"'$ls'":['']:[''][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-$'HOME':[syntax error]:[HOME][❌]
+$'HOME':[HOME]:[HOME][✅]
 ----------------------------------------
-$'HOME':[syntax error]:[HOME][❌]
+$'HOME':[HOME]:[HOME][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-dfd sf "$'HOME'":[syntax error]:[dfd sf $'HOME'][❌]
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
 ----------------------------------------
-dfd sf "$'HOME'":[syntax error]:[dfd sf $'HOME'][❌]
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
 ----------------------------------------
-dfd sf "$'HOME'":[syntax error]:[dfd sf $'HOME'][❌]
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
 ----------------------------------------
-dfd sf "$'HOME'":[syntax error]:[dfd sf $'HOME'][❌]
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
 ----------------------------------------
-dfd sf "$HOME":[syntax error]:[dfd sf /home/nero][❌]
+dfd sf "$HOME":[dfd sf /home/moel-oua]:[dfd sf /home/moel-oua][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$     'HOME'":[syntax error]:[dfd sf $     'HOME'][❌]
+dfd sf "$     'HOME'":[dfd sf $     'HOME']:[dfd sf $     'HOME'][✅]
 ----------------------------------------
-dfd sf "$'HOME'":[syntax error]:[dfd sf $'HOME'][❌]
+dfd sf "$'HOME'":[dfd sf $'HOME']:[dfd sf $'HOME'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-dfd sf "'$HOME'":[syntax error]:[dfd sf '/home/nero'][❌]
+dfd sf "'$HOME'":[dfd sf '/home/moel-oua']:[dfd sf '/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'home'":[syntax error]:[$'home'][❌]
+"$'home'":[$'home']:[$'home'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"$HOME'":[syntax error]:[/home/nero'][❌]
+"$HOME'":[/home/moel-oua']:[/home/moel-oua'][✅]
 ----------------------------------------
-'$HOME':[syntax error]:[$HOME][❌]
+'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"$HI":[syntax error]:[][❌]
+"$HI":[]:[][✅]
 ----------------------------------------
-"$HI":[syntax error]:[][❌]
+"$HI":[]:[][✅]
 ----------------------------------------
-"$HI":[syntax error]:[][❌]
+"$HI":[]:[][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME":[syntax error]:['/home/nero][❌]
+"'$HOME":['/home/moel-oua]:['/home/moel-oua][✅]
 ----------------------------------------
 "$"HOME":[syntax error]:[syntax error][✅]
 ----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
-"$HOME'''":[syntax error]:[/home/nero'''][❌]
+"$HOME'''":[/home/moel-oua''']:[/home/moel-oua'''][✅]
 ----------------------------------------
 '"$HOME'''"':[syntax error]:[syntax error][✅]
 ----------------------------------------
-'"$HOME''"':[syntax error]:["$HOME"][❌]
+'"$HOME''"':["$HOME"]:["$HOME"][✅]
 ----------------------------------------
 '"$HOME'"':[syntax error]:[syntax error][✅]
 ----------------------------------------
-'"$HOME"':[syntax error]:["$HOME"][❌]
+'"$HOME"':["$HOME"]:["$HOME"][✅]
 ----------------------------------------
-$"HOME":[syntax error]:[HOME][❌]
+$"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$'HOME'":[syntax error]:[$'HOME'][❌]
+"$'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
 $'HOME:[syntax error]:[syntax error][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-$$HOME:[syntax error]:[54950HOME][❌]
+$$HOME:[1002885HOME]:[1002887HOME][❌]
 ----------------------------------------
-$$$HOME:[syntax error]:[54952/home/nero][❌]
+$$$HOME:[1002889/home/moel-oua]:[1002891/home/moel-oua][❌]
 ----------------------------------------
-$HOME$:[syntax error]:[/home/nero$][❌]
+$HOME$:[/home/moel-oua$]:[/home/moel-oua$][✅]
 ----------------------------------------
-$1HOME:[syntax error]:[HOME][❌]
+$1HOME:[HOME]:[HOME][✅]
 ----------------------------------------
-$1HOME:[syntax error]:[HOME][❌]
+$1HOME:[HOME]:[HOME][✅]
 ----------------------------------------
-$1H2OME:[syntax error]:[H2OME][❌]
+$1H2OME:[H2OME]:[H2OME][✅]
 ----------------------------------------
-$H2OME:[syntax error]:[][❌]
+$H2OME:[]:[][✅]
 ----------------------------------------
-$1HOME:[syntax error]:[HOME][❌]
+$1HOME:[HOME]:[HOME][✅]
 ----------------------------------------
-$?HOME:[syntax error]:[0HOME][❌]
+$?HOME:[0HOME]:[0HOME][✅]
 ----------------------------------------
-"HOME":[syntax error]:[HOME][❌]
+"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-'"$HOME"':[syntax error]:["$HOME"][❌]
+'"$HOME"':["$HOME"]:["$HOME"][✅]
 ----------------------------------------
 "'$'HOME':[syntax error]:[syntax error][✅]
 ----------------------------------------
-"'$'HOME":[syntax error]:['$'HOME][❌]
+"'$'HOME":['$'HOME]:['$'HOME][✅]
 ----------------------------------------
 '$'HOME":[syntax error]:[syntax error][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-$"HOME":[syntax error]:[HOME][❌]
+$"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-$"'HOME'":[syntax error]:['HOME'][❌]
+$"'HOME'":['HOME']:['HOME'][✅]
 ----------------------------------------
-$"'"HOME"'":[syntax error]:['HOME'][❌]
+$"'"HOME"'":['HOME']:['HOME'][✅]
 ----------------------------------------
-$'"'HOME'"':[syntax error]:["HOME"][❌]
+$'"'HOME'"':["HOME"]:["HOME"][✅]
 ----------------------------------------
-'$'"'HOME'":[syntax error]:[$'HOME'][❌]
+'$'"'HOME'":[$'HOME']:[$'HOME'][✅]
 ----------------------------------------
-$%HOME:[syntax error]:[$%HOME][❌]
+$%HOME:[$%HOME]:[$%HOME][✅]
 ----------------------------------------
-$1HOME:[syntax error]:[HOME][❌]
+$1HOME:[HOME]:[HOME][✅]
 ----------------------------------------
-$"1"HOME:[syntax error]:[1HOME][❌]
+$"1"HOME:[1HOME]:[1HOME][✅]
 ----------------------------------------
-$"1"HOME:[syntax error]:[1HOME][❌]
+$"1"HOME:[1HOME]:[1HOME][✅]
 ----------------------------------------
-$ls1HOME:[syntax error]:[][❌]
+$ls1HOME:[]:[][✅]
 ----------------------------------------
-"$'ls1HOME'":[syntax error]:[$'ls1HOME'][❌]
+"$'ls1HOME'":[$'ls1HOME']:[$'ls1HOME'][✅]
 ----------------------------------------
-"$'ls%HOME'":[syntax error]:[$'ls%HOME'][❌]
+"$'ls%HOME'":[$'ls%HOME']:[$'ls%HOME'][✅]
 ----------------------------------------
-$'ls%HOME':[syntax error]:[ls%HOME][❌]
+$'ls%HOME':[ls%HOME]:[ls%HOME][✅]
 ----------------------------------------
-$'lsHOME':[syntax error]:[lsHOME][❌]
+$'lsHOME':[lsHOME]:[lsHOME][✅]
 ----------------------------------------
-$'HOME':[syntax error]:[HOME][❌]
+$'HOME':[HOME]:[HOME][✅]
 ----------------------------------------
-$"HOME":[syntax error]:[HOME][❌]
+$"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-$"ls%HOME":[syntax error]:[ls%HOME][❌]
+$"ls%HOME":[ls%HOME]:[ls%HOME][✅]
 ----------------------------------------
-$'ls%HOME':[syntax error]:[ls%HOME][❌]
+$'ls%HOME':[ls%HOME]:[ls%HOME][✅]
 ----------------------------------------
-$%home$HOME$$whaat:[syntax error]:[$%home/home/nero55018whaat][❌]
+$%home$HOME$$whaat:[$%home/home/moel-oua1003021whaat]:[$%home/home/moel-oua1003023whaat][❌]
 ----------------------------------------
-$"HOME":[syntax error]:[HOME][❌]
+$"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-$"HOME":[syntax error]:[HOME][❌]
+$"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$1HOME'":[syntax error]:['HOME'][❌]
+"'$1HOME'":['HOME']:['HOME'][✅]
 ----------------------------------------
-"'$1HOME'":[syntax error]:['HOME'][❌]
+"'$1HOME'":['HOME']:['HOME'][✅]
 ----------------------------------------
-"$1HOME":[syntax error]:[HOME][❌]
+"$1HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-"1HOME":[syntax error]:[1HOME][❌]
+"1HOME":[1HOME]:[1HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-";$HOME":[syntax error]:[;/home/nero][❌]
+";$HOME":[;/home/moel-oua]:[;/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME":[syntax error]:['/home/nero][❌]
+"'$HOME":['/home/moel-oua]:['/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
-'"$HOME"':[syntax error]:["$HOME"][❌]
-----------------------------------------
-'"$'HOME"':[syntax error]:[syntax error][✅]
-----------------------------------------
-'"$''HOME"':[syntax error]:["$HOME"][❌]
+'"$HOME"':["$HOME"]:["$HOME"][✅]
 ----------------------------------------
 '"$'HOME"':[syntax error]:[syntax error][✅]
 ----------------------------------------
-$"1"HOME:[syntax error]:[1HOME][❌]
-----------------------------------------
-$"1"HOME:[syntax error]:[1HOME][❌]
-----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
-----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
-----------------------------------------
-$"1"HOME:[syntax error]:[1HOME][❌]
-----------------------------------------
-$"1"HOME:[syntax error]:[1HOME][❌]
+'"$''HOME"':["$HOME"]:["$HOME"][✅]
 ----------------------------------------
 '"$'HOME"':[syntax error]:[syntax error][✅]
 ----------------------------------------
-'"$HOME"':[syntax error]:["$HOME"][❌]
+$"1"HOME:[1HOME]:[1HOME][✅]
 ----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
+$"1"HOME:[1HOME]:[1HOME][✅]
 ----------------------------------------
-"$ls":[syntax error]:[][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
-"$ls":[syntax error]:[][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
-"$ls":[syntax error]:[][❌]
+$"1"HOME:[1HOME]:[1HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+$"1"HOME:[1HOME]:[1HOME][✅]
 ----------------------------------------
-"$HOME   ":[syntax error]:[/home/nero][❌]
+'"$'HOME"':[syntax error]:[syntax error][✅]
 ----------------------------------------
-"$HOME   " 'home':[syntax error]:[/home/nero    home][❌]
+'"$HOME"':["$HOME"]:["$HOME"][✅]
 ----------------------------------------
-"$HOME   " 'home':[syntax error]:[/home/nero    home][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
-"$HOME'   " 'home':[syntax error]:[/home/nero'    home][❌]
+"$ls":[]:[][✅]
 ----------------------------------------
-"$HOME'   " 'home':[syntax error]:[/home/nero'    home][❌]
+"$ls":[]:[][✅]
 ----------------------------------------
-"' -la":[syntax error]:[' -la][❌]
+"$ls":[]:[][✅]
 ----------------------------------------
-"' -la":[syntax error]:[' -la][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"' -la'":[syntax error]:[' -la'][❌]
+"$HOME   ":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"""' -la":[syntax error]:[' -la][❌]
+"$HOME   " 'home':[/home/moel-oua    home]:[/home/moel-oua    home][✅]
 ----------------------------------------
-""" -la''":[syntax error]:[-la''][❌]
+"$HOME   " 'home':[/home/moel-oua    home]:[/home/moel-oua    home][✅]
 ----------------------------------------
-"'$a'":[syntax error]:[''][❌]
+"$HOME'   " 'home':[/home/moel-oua'    home]:[/home/moel-oua'    home][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"$HOME'   " 'home':[/home/moel-oua'    home]:[/home/moel-oua'    home][✅]
 ----------------------------------------
-"'$HOME''''":[syntax error]:['/home/nero''''][❌]
+"' -la":[' -la]:[' -la][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"' -la":[' -la]:[' -la][✅]
 ----------------------------------------
-"'$HOME1":[syntax error]:['][❌]
+"' -la'":[' -la']:[' -la'][✅]
 ----------------------------------------
-"'$1HOME":[syntax error]:['HOME][❌]
+"""' -la":[' -la]:[' -la][✅]
 ----------------------------------------
-"'$HOME""":[syntax error]:['/home/nero][❌]
+""" -la''":[-la'']:[-la''][✅]
 ----------------------------------------
-"'$HOME""SD":[syntax error]:['/home/neroSD][❌]
+"'$a'":['1                       4']:['1                       4'][✅]
 ----------------------------------------
-a="'$HOME'":[syntax error]:[a='/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-$A:[syntax error]:[][❌]
+"'$HOME''''":['/home/moel-oua'''']:['/home/moel-oua''''][✅]
 ----------------------------------------
-$a:[syntax error]:[][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-$a:[syntax error]:[][❌]
+"'$HOME1":[']:['][✅]
 ----------------------------------------
-"$a":[syntax error]:[][❌]
+"'$1HOME":['HOME]:['HOME][✅]
 ----------------------------------------
-"$a" a:[syntax error]:[a][❌]
+"'$HOME""":['/home/moel-oua]:['/home/moel-oua][✅]
 ----------------------------------------
-"$a":[syntax error]:[][❌]
+"'$HOME""SD":['/home/moel-ouaSD]:['/home/moel-ouaSD][✅]
 ----------------------------------------
-"$a":[syntax error]:[][❌]
+a="'$HOME'":[a='/home/moel-oua']:[a='/home/moel-oua'][✅]
 ----------------------------------------
-$a:[syntax error]:[][❌]
+$A:[]:[][✅]
 ----------------------------------------
-'$a':[syntax error]:[$a][❌]
+$a:[1 4]:[1 4][✅]
 ----------------------------------------
-'$a':[syntax error]:[$a][❌]
+$a:[1 4]:[1 4][✅]
 ----------------------------------------
-$a:[syntax error]:[][❌]
+"$a":[1                       4]:[1                       4][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+"$a" a:[1                       4 a]:[1                       4 a][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$a":[1                       4]:[1                       4][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$a":[1                       4]:[1                       4][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+$a:[1 4]:[1 4][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+'$a':[$a]:[$a][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+'$a':[$a]:[$a][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+$a:[1 4]:[1 4][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME" $HOME:[syntax error]:[/home/nero /home/nero][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME'" '$HOME':[syntax error]:[/home/nero' $HOME][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME'" '"$HOME"':[syntax error]:[/home/nero' "$HOME"][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"$HOME'" "'"$HOME"'":[syntax error]:[/home/nero' '/home/nero'][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"'"$HOME"'":[syntax error]:['/home/nero'][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-"'"$HOME"'":[syntax error]:['/home/nero'][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-$"":[syntax error]:[][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-$"dfsdsf":[syntax error]:[dfsdsf][❌]
+"$HOME" $HOME:[/home/moel-oua /home/moel-oua]:[/home/moel-oua /home/moel-oua][✅]
 ----------------------------------------
-$"dfsdsf":[syntax error]:[dfsdsf][❌]
+"$HOME'" '$HOME':[/home/moel-oua' $HOME]:[/home/moel-oua' $HOME][✅]
 ----------------------------------------
-"ddddd":[syntax error]:[ddddd][❌]
+"$HOME'" '"$HOME"':[/home/moel-oua' "$HOME"]:[/home/moel-oua' "$HOME"][✅]
 ----------------------------------------
-"$ddddd":[syntax error]:[][❌]
+"$HOME'" "'"$HOME"'":[/home/moel-oua' '/home/moel-oua']:[/home/moel-oua' '/home/moel-oua'][✅]
 ----------------------------------------
-"'$ddddd'":[syntax error]:[''][❌]
+"'"$HOME"'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'"$HOME"'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+$"":[]:[][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+$"dfsdsf":[dfsdsf]:[dfsdsf][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+$"dfsdsf":[dfsdsf]:[dfsdsf][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"ddddd":[ddddd]:[ddddd][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"$ddddd":[]:[][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$ddddd'":['']:[''][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" $HOME:[syntax error]:['/home/nero' /home/nero][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME':[syntax error]:['/home/nero' $HOME][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME''':[syntax error]:['/home/nero' $HOME][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME'dsfdsf'':[syntax error]:['/home/nero' $HOMEdsfdsf][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME'dsfdsf'':[syntax error]:['/home/nero' $HOMEdsfdsf][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME'dsfdsf'':[syntax error]:['/home/nero' $HOMEdsfdsf][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME'dsfdsf'':[syntax error]:['/home/nero' $HOMEdsfdsf][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$HOME'" '$HOME'dsfdsf'':[syntax error]:['/home/nero' $HOMEdsfdsf][❌]
+"'$HOME'" $HOME:['/home/moel-oua' /home/moel-oua]:['/home/moel-oua' /home/moel-oua][✅]
 ----------------------------------------
-"$HOME$":[syntax error]:[/home/nero$][❌]
+"'$HOME'" '$HOME':['/home/moel-oua' $HOME]:['/home/moel-oua' $HOME][✅]
 ----------------------------------------
-$HOME$:[syntax error]:[/home/nero$][❌]
+"'$HOME'" '$HOME''':['/home/moel-oua' $HOME]:['/home/moel-oua' $HOME][✅]
 ----------------------------------------
-"$HOME$":[syntax error]:[/home/nero$][❌]
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
 ----------------------------------------
-"$'HOME$":[syntax error]:[$'HOME$][❌]
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
 ----------------------------------------
-"$'home$":[syntax error]:[$'home$][❌]
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
 ----------------------------------------
-"$home$":[syntax error]:[$][❌]
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
 ----------------------------------------
-"$home$":[syntax error]:[$][❌]
+"'$HOME'" '$HOME'dsfdsf'':['/home/moel-oua' $HOMEdsfdsf]:['/home/moel-oua' $HOMEdsfdsf][✅]
 ----------------------------------------
-"$home$":[syntax error]:[$][❌]
+"$HOME$":[/home/moel-oua$]:[/home/moel-oua$][✅]
 ----------------------------------------
-"home$":[syntax error]:[home$][❌]
+$HOME$:[/home/moel-oua$]:[/home/moel-oua$][✅]
 ----------------------------------------
-$"home$":[syntax error]:[home$][❌]
+"$HOME$":[/home/moel-oua$]:[/home/moel-oua$][✅]
 ----------------------------------------
-$"$HOME":[syntax error]:[/home/nero][❌]
+"$'HOME$":[$'HOME$]:[$'HOME$][✅]
 ----------------------------------------
-$'$HOME':[syntax error]:[$HOME][❌]
+"$'home$":[$'home$]:[$'home$][✅]
 ----------------------------------------
-"a$":[syntax error]:[a$][❌]
+"$home$":[$]:[$][✅]
 ----------------------------------------
-$'$HOME':[syntax error]:[$HOME][❌]
+"$home$":[$]:[$][✅]
 ----------------------------------------
-$"zbi"$:[syntax error]:[zbi$][❌]
+"$home$":[$]:[$][✅]
 ----------------------------------------
-"$'zbi'$":[syntax error]:[$'zbi'$][❌]
+"home$":[home$]:[home$][✅]
 ----------------------------------------
-$'zbi'$:[syntax error]:[zbi$][❌]
+$"home$":[home$]:[home$][✅]
 ----------------------------------------
-$ll'zbi'$:[syntax error]:[zbi$][❌]
+$"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-$""'zbi'$:[syntax error]:[zbi$][❌]
+$'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-$""'zbi'$:[syntax error]:[zbi$][❌]
+"a$":[a$]:[a$][✅]
 ----------------------------------------
-$ls:[syntax error]:[][❌]
+$'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+$"zbi"$:[zbi$]:[zbi$][✅]
 ----------------------------------------
-$?:[syntax error]:[0][❌]
+"$'zbi'$":[$'zbi'$]:[$'zbi'$][✅]
 ----------------------------------------
-$?:[syntax error]:[0][❌]
+$'zbi'$:[zbi$]:[zbi$][✅]
 ----------------------------------------
-$:[syntax error]:[$][❌]
+$ll'zbi'$:[zbi$]:[zbi$][✅]
 ----------------------------------------
-$fdsfdsfds:[syntax error]:[][❌]
+$""'zbi'$:[zbi$]:[zbi$][✅]
 ----------------------------------------
-$?:[syntax error]:[0][❌]
+$""'zbi'$:[zbi$]:[zbi$][✅]
 ----------------------------------------
-$?fdsfdsf:[syntax error]:[0fdsfdsf][❌]
+$ls:[]:[][✅]
 ----------------------------------------
-$?fdsfdsf:[syntax error]:[0fdsfdsf][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-$?fdsfdsf:[syntax error]:[0fdsfdsf][❌]
+$?:[0]:[0][✅]
 ----------------------------------------
-$?:[syntax error]:[0][❌]
+$?:[0]:[0][✅]
 ----------------------------------------
-$holder:[syntax error]:[][❌]
+$:[$]:[$][✅]
 ----------------------------------------
-"$holder":[syntax error]:[][❌]
+$fdsfdsfds:[]:[][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$?fdsfdsf:[0fdsfdsf]:[0fdsfdsf][✅]
+----------------------------------------
+$?fdsfdsf:[0fdsfdsf]:[0fdsfdsf][✅]
+----------------------------------------
+$?fdsfdsf:[0fdsfdsf]:[0fdsfdsf][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$holder:[]:[][✅]
+----------------------------------------
+"$holder":[]:[][✅]
 ----------------------------------------
 $"holde:[syntax error]:[syntax error][✅]
 ----------------------------------------
-$"holde":[syntax error]:[holde][❌]
+$"holde":[holde]:[holde][✅]
 ----------------------------------------
-$"holde":[syntax error]:[holde][❌]
+$"holde":[holde]:[holde][✅]
 ----------------------------------------
-$"holde":[syntax error]:[holde][❌]
+$"holde":[holde]:[holde][✅]
 ----------------------------------------
-$"holde" $HOME:[syntax error]:[holde /home/nero][❌]
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-$"holde" $HOME:[syntax error]:[holde /home/nero][❌]
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-$"holde" $HOME:[syntax error]:[holde /home/nero][❌]
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-$"holde" $HOME:[syntax error]:[holde /home/nero][❌]
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-"$'holde'" $HOME:[syntax error]:[$'holde' /home/nero][❌]
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
 ----------------------------------------
-"$'holde'" $HOME:[syntax error]:[$'holde' /home/nero][❌]
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
 ----------------------------------------
-"'holde'" $HOME:[syntax error]:['holde' /home/nero][❌]
+"'holde'" $HOME:['holde' /home/moel-oua]:['holde' /home/moel-oua][✅]
 ----------------------------------------
-"$'holde'" $HOME:[syntax error]:[$'holde' /home/nero][❌]
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
 ----------------------------------------
-"$'holde'" $HOME:[syntax error]:[$'holde' /home/nero][❌]
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
 ----------------------------------------
-"$'holde'" $HOME:[syntax error]:[$'holde' /home/nero][❌]
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
 ----------------------------------------
-$'holde' $HOME:[syntax error]:[holde /home/nero][❌]
+$'holde' $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-$'holde' $HOME:[syntax error]:[holde /home/nero][❌]
+$'holde' $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-$'holde' $HOME:[syntax error]:[holde /home/nero][❌]
+$'holde' $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-"$'holde'" $HOME:[syntax error]:[$'holde' /home/nero][❌]
+"$'holde'" $HOME:[$'holde' /home/moel-oua]:[$'holde' /home/moel-oua][✅]
 ----------------------------------------
-'$'holde'' $HOME:[syntax error]:[$holde /home/nero][❌]
+'$'holde'' $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
 ----------------------------------------
-"$"holde'' $HOME:[syntax error]:[$holde /home/nero][❌]
+"$"holde'' $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
 ----------------------------------------
-"$"holde $HOME:[syntax error]:[$holde /home/nero][❌]
+"$"holde $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
 ----------------------------------------
-$"holde" $HOME:[syntax error]:[holde /home/nero][❌]
+$"holde" $HOME:[holde /home/moel-oua]:[holde /home/moel-oua][✅]
 ----------------------------------------
-"$"holde $HOME:[syntax error]:[$holde /home/nero][❌]
+"$"holde $HOME:[$holde /home/moel-oua]:[$holde /home/moel-oua][✅]
 ----------------------------------------
-$HOME:[syntax error]:[/home/nero][❌]
+$HOME:[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$'HOME'":[syntax error]:['$'HOME'][❌]
+"'$'HOME'":['$'HOME']:['$'HOME'][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$'HOME:[syntax error]:[$HOME][❌]
+'$'HOME:[$HOME]:[$HOME][✅]
 ----------------------------------------
-"$HOME":[syntax error]:[/home/nero][❌]
+"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-"'$'HOME'":[syntax error]:['$'HOME'][❌]
+"'$'HOME'":['$'HOME']:['$'HOME'][✅]
 ----------------------------------------
-$"HOME":[syntax error]:[HOME][❌]
+$"HOME":[HOME]:[HOME][✅]
 ----------------------------------------
-"$'HOME":[syntax error]:[$'HOME][❌]
+"$'HOME":[$'HOME]:[$'HOME][✅]
 ----------------------------------------
-$'HOME':[syntax error]:[HOME][❌]
+$'HOME':[HOME]:[HOME][✅]
 ----------------------------------------
-$""'zbi'$:[syntax error]:[zbi$][❌]
+$""'zbi'$:[zbi$]:[zbi$][✅]
 ----------------------------------------
-"'$HOME'"$:[syntax error]:['/home/nero'$][❌]
+"'$HOME'"$:['/home/moel-oua'$]:['/home/moel-oua'$][✅]
 ----------------------------------------
-"'$HOME'$":[syntax error]:['/home/nero'$][❌]
+"'$HOME'$":['/home/moel-oua'$]:['/home/moel-oua'$][✅]
 ----------------------------------------
-$'$HOME':[syntax error]:[$HOME][❌]
+$'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-$'$HOME':[syntax error]:[$HOME][❌]
+$'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-$"$HOME":[syntax error]:[/home/nero][❌]
+$"$HOME":[/home/moel-oua]:[/home/moel-oua][✅]
 ----------------------------------------
 $$HOME":[syntax error]:[syntax error][✅]
 ----------------------------------------
-$$HOME:[syntax error]:[55435HOME][❌]
+$$HOME:[1003874HOME]:[1003876HOME][❌]
 ----------------------------------------
 $'$HOME":[syntax error]:[syntax error][✅]
 ----------------------------------------
-$'$HOME':[syntax error]:[$HOME][❌]
+$'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-$'$''HOME':[syntax error]:[$HOME][❌]
+$'$''HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$$HOME':[syntax error]:[$$HOME][❌]
+'$$HOME':[$$HOME]:[$$HOME][✅]
 ----------------------------------------
-"$$HOME":[syntax error]:[55445HOME][❌]
+"$$HOME":[1003903HOME]:[1003905HOME][❌]
 ----------------------------------------
-"'$HO'":[syntax error]:[''][❌]
+"'$HO'":['']:[''][✅]
 ----------------------------------------
-"'$'HO'":[syntax error]:['$'HO'][❌]
+"'$'HO'":['$'HO']:['$'HO'][✅]
 ----------------------------------------
-"'$'HOme'":[syntax error]:['$'HOme'][❌]
+"'$'HOme'":['$'HOme']:['$'HOme'][✅]
 ----------------------------------------
-"'$HOME'":[syntax error]:['/home/nero'][❌]
+"'$HOME'":['/home/moel-oua']:['/home/moel-oua'][✅]
 ----------------------------------------
-'$HOME':[syntax error]:[$HOME][❌]
+'$HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$''HOME':[syntax error]:[$HOME][❌]
+'$''HOME':[$HOME]:[$HOME][✅]
 ----------------------------------------
-'$''HOME$':[syntax error]:[$HOME$][❌]
+'$''HOME$':[$HOME$]:[$HOME$][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-$'ls':[syntax error]:[ls][❌]
+$'ls':[ls]:[ls][✅]
 ----------------------------------------
-$"ls":[syntax error]:[ls][❌]
+$"ls":[ls]:[ls][✅]
 ----------------------------------------
-$"ls'":[syntax error]:[ls'][❌]
+$"ls'":[ls']:[ls'][✅]
 ----------------------------------------
 $'"ls'":[syntax error]:[syntax error][✅]
 ----------------------------------------
-$'"ls'"":[syntax error]:["ls][❌]
+$'"ls'"":["ls]:["ls][✅]
 ----------------------------------------
 '$'"ls'""':[syntax error]:[syntax error][✅]
 ----------------------------------------
-'$"ls""':[syntax error]:[$"ls""][❌]
+'$"ls""':[$"ls""]:[$"ls""][✅]
 ----------------------------------------
-'$"ls""':[syntax error]:[$"ls""][❌]
+'$"ls""':[$"ls""]:[$"ls""][✅]
 ----------------------------------------
-'$"ls""':[syntax error]:[$"ls""][❌]
+'$"ls""':[$"ls""]:[$"ls""][✅]
 ----------------------------------------
-'$"ls""':[syntax error]:[$"ls""][❌]
+'$"ls""':[$"ls""]:[$"ls""][✅]
 ----------------------------------------
-"$HOME                 $fgfdgfdg          '$HOME'":[syntax error]:[/home/nero                           '/home/nero'][❌]
+"$HOME                 $fgfdgfdg          '$HOME'":[/home/moel-oua                           '/home/moel-oua']:[/home/moel-oua                           '/home/moel-oua'][✅]
 ----------------------------------------
-"'"$a"'":[syntax error]:[''][❌]
+"'"$a"'":['1 4']:['1 4'][✅]
 ----------------------------------------
-'"'$b'"':[syntax error]:[""][❌]
+'"'$b'"':["""]:["""][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$s:[]:[][✅]
+----------------------------------------
+$s:[]:[][✅]
+----------------------------------------
+"ls":[ls]:[ls][✅]
+----------------------------------------
+"$ls"'$ls':[$ls]:[$ls][✅]
+----------------------------------------
+"$ls"'$ls' gfdgfdg:[$ls gfdgfdg]:[$ls gfdgfdg][✅]
+----------------------------------------
+"ls"'ls' gfdgfdg:[lsls gfdgfdg]:[lsls gfdgfdg][✅]
+----------------------------------------
+"$ls"$ls gfdgfdg:[gfdgfdg]:[gfdgfdg][✅]
+----------------------------------------
+$ls"ls":[ls]:[ls][✅]
+----------------------------------------
+$ls"ls":[ls]:[ls][✅]
+----------------------------------------
+$ls"ls":[ls]:[ls][✅]
+----------------------------------------
+$ls"ls":[ls]:[ls][✅]
+----------------------------------------
+$ls"ls":[ls]:[ls][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls"$ls":[]:[][✅]
+----------------------------------------
+$ls:[]:[][✅]
+----------------------------------------
+$ls:[]:[][✅]
+----------------------------------------
+$ls:[]:[][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a"ls":[1 4ls]:[1 4ls][✅]
+----------------------------------------
+$a"ls":[1 4ls]:[1 4ls][✅]
+----------------------------------------
+$a"ls":[1 4ls]:[1 4ls][✅]
+----------------------------------------
+$a"ls":[1 4ls]:[1 4ls][✅]
+----------------------------------------
+$a"ls":[1 4ls]:[1 4ls][✅]
+----------------------------------------
+$a"$a":[1 41                       4]:[1 41                       4][✅]
+----------------------------------------
+$a"$a":[1 41                       4]:[1 41                       4][✅]
+----------------------------------------
+$a"$a":[1 41                       4]:[1 41                       4][✅]
+----------------------------------------
+$a"a":[1 4a]:[1 4a][✅]
+----------------------------------------
+$a"a":[1 4a]:[1 4a][✅]
+----------------------------------------
+$a"a":[1 4a]:[1 4a][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a"dasdsad":[1 4dasdsad]:[1 4dasdsad][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+"$dasdsad":[]:[][✅]
+----------------------------------------
+"$dasdsad":[]:[][✅]
+----------------------------------------
+"$dasdsad":[]:[][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+$a"$dasdsad":[1 4]:[1 4][✅]
+----------------------------------------
+$a"$dasdsad"'$a':[1 4$a]:[1 4$a][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a $a"$a":[1 4 1 41                       4]:[1 4 1 41                       4][✅]
+----------------------------------------
+$a $a"$a":[1 4 1 41                       4]:[1 4 1 41                       4][✅]
+----------------------------------------
+$a$a"$a":[1 41 41                       4]:[1 41 41                       4][✅]
+----------------------------------------
+$a$b"$c":[1 4"life       'is'       good]:[1 4"life       'is'       good][✅]
+----------------------------------------
+$a$b"$c":[1 4"life       'is'       good]:[1 4"life       'is'       good][✅]
+----------------------------------------
+$a$b'$c':[1 4"$c]:[1 4"$c][✅]
+----------------------------------------
+$?$b'$c':[0"$c]:[0"$c][✅]
+----------------------------------------
+$$$b'$c':[1004255"$c]:[1004257"$c][❌]
+----------------------------------------
+$'$c':[$c]:[$c][✅]
+----------------------------------------
+ls:[ls]:[ls][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+ls $a$b:[ls 1 4"]:[ls 1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+ls:[ls]:[ls][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a$b:[1 4"]:[1 4"][✅]
+----------------------------------------
+$a $b:[1 4 "]:[1 4 "][✅]
+----------------------------------------
+$a $b:[1 4 "]:[1 4 "][✅]
+----------------------------------------
+$a $b:[1 4 "]:[1 4 "][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a $b:[1 4 "]:[1 4 "][✅]
+----------------------------------------
+$a $a:[1 4 1 4]:[1 4 1 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a$a:[1 41 4]:[1 41 4][✅]
+----------------------------------------
+$a"$a"$a:[1 41                       41 4]:[1 41                       41 4][✅]
+----------------------------------------
+$a"$a"$a:[1 41                       41 4]:[1 41                       41 4][✅]
+----------------------------------------
+$a"$a"$a:[1 41                       41 4]:[1 41                       41 4][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"b"$c:[1 4blife 'is' good]:[1 4blife 'is' good][✅]
+----------------------------------------
+$a"b"$c:[1 4blife 'is' good]:[1 4blife 'is' good][✅]
+----------------------------------------
+$a"b"$c:[1 4blife 'is' good]:[1 4blife 'is' good][✅]
+----------------------------------------
+$a"b"$c:[1 4blife 'is' good]:[1 4blife 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$b"$c:[1 4"life 'is' good]:[1 4"life 'is' good][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+$a"$a"'$a'$a:[1 41                       4$a1 4]:[1 41                       4$a1 4][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+ls:[ls]:[ls][✅]
+----------------------------------------
+ls:[ls]:[ls][✅]
+----------------------------------------
+ls:[ls]:[ls][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+"$a":[1                       4]:[1                       4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+$a"$a"$a:[1 41                       41 4]:[1 41                       41 4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+$a"$a":[1 41                       4]:[1 41                       4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+"$a"$a:[1                       41 4]:[1                       41 4][✅]
+----------------------------------------
+"$a"$a$a:[1                       41 41 4]:[1                       41 41 4][✅]
+----------------------------------------
+"$a"$a'$a':[1                       41 4$a]:[1                       41 4$a][✅]
+----------------------------------------
+'$a':[$a]:[$a][✅]
+----------------------------------------
+'$a'$a:[$a1 4]:[$a1 4][✅]
+----------------------------------------
+$a++'$a'$a:[1 4++$a1 4]:[1 4++$a1 4][✅]
+----------------------------------------
+$a++'$a'$a:[1 4++$a1 4]:[1 4++$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a@'$a'$a:[1 4@$a1 4]:[1 4@$a1 4][✅]
+----------------------------------------
+$a'$a'$a:[1 4$a1 4]:[1 4$a1 4][✅]
+----------------------------------------
+$adasdads'$a'$a:[$a1 4]:[$a1 4][✅]
+----------------------------------------
+$adasdads'$a'$a:[$a1 4]:[$a1 4][✅]
+----------------------------------------
+$adasdads'$a'$a:[$a1 4]:[$a1 4][✅]
+----------------------------------------
+$adasdads'$a'$a:[$a1 4]:[$a1 4][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+~:[~]:[/home/moel-oua][❌]
+----------------------------------------
+$~:[$~]:[$~][✅]
+----------------------------------------
+$~:[$~]:[$~][✅]
+----------------------------------------
+$:[$]:[$][✅]
+----------------------------------------
+$$:[1004917]:[1004919][❌]
+----------------------------------------
+$$$:[1004921$]:[1004923$][❌]
+----------------------------------------
+$$"$":[1004925$]:[1004927$][❌]
+----------------------------------------
+$$"$":[1004929$]:[1004931$][❌]
+----------------------------------------
+$$$:[1004933$]:[1004935$][❌]
+----------------------------------------
+$$$:[1004937$]:[1004939$][❌]
+----------------------------------------
+$$$:[1004941$]:[1004943$][❌]
+----------------------------------------
+$$$:[1004945$]:[1004947$][❌]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$:[$]:[$][✅]
+----------------------------------------
+$$$$:[10049741004974]:[10049761004976][❌]
+----------------------------------------
+$ 'fdsfdsfds'':[syntax error]:[syntax error][✅]
+----------------------------------------
+$ 'fdsfdsfds':[$ fdsfdsfds]:[$ fdsfdsfds][✅]
+----------------------------------------
+$ 'fdsfdsfds':[$ fdsfdsfds]:[$ fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$ 'fdsfdsfds':[$ fdsfdsfds]:[$ fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$'$fdsfdsfds':[$fdsfdsfds]:[$fdsfdsfds][✅]
+----------------------------------------
+$'$fdsfdsfds':[$fdsfdsfds]:[$fdsfdsfds][✅]
+----------------------------------------
+$'$fdsfdsfds':[$fdsfdsfds]:[$fdsfdsfds][✅]
+----------------------------------------
+$'$fdsfdsfds':[$fdsfdsfds]:[$fdsfdsfds][✅]
+----------------------------------------
+$ '$fdsfdsfds':[$ $fdsfdsfds]:[$ $fdsfdsfds][✅]
+----------------------------------------
+$'$fdsfdsfds':[$fdsfdsfds]:[$fdsfdsfds][✅]
+----------------------------------------
+$'fdsfdsfds':[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$ 'fdsfdsfds':[$ fdsfdsfds]:[$ fdsfdsfds][✅]
+----------------------------------------
+$ "fdsfdsfds":[$ fdsfdsfds]:[$ fdsfdsfds][✅]
+----------------------------------------
+$"fdsfdsfds":[fdsfdsfds]:[fdsfdsfds][✅]
+----------------------------------------
+$"$'fdsfdsfds":[$'fdsfdsfds]:[$'fdsfdsfds][✅]
+----------------------------------------
+"$'fdsfdsfds":[$'fdsfdsfds]:[$'fdsfdsfds][✅]
+----------------------------------------
+"$'fdsfdsfds":[$'fdsfdsfds]:[$'fdsfdsfds][✅]
+----------------------------------------
+"$2222":[222]:[222][✅]
+----------------------------------------
+"$":[$]:[$][✅]
+----------------------------------------
+"$":[$]:[$][✅]
+----------------------------------------
+$':[syntax error]:[syntax error][✅]
+----------------------------------------
+'$':[$]:[$][✅]
+----------------------------------------
+'$"':[$"]:[$"][✅]
+----------------------------------------
+"$'":[$']:[$'][✅]
+----------------------------------------
+"$hello":[]:[][✅]
+----------------------------------------
+"$_a":[]:[][✅]
+----------------------------------------
+"$a_a":[]:[][✅]
+----------------------------------------
+$_a:[]:[][✅]
+----------------------------------------
+$_a:[]:[][✅]
+----------------------------------------
+$_a:[]:[][✅]
+----------------------------------------
+":[syntax error]:[syntax error][✅]
+----------------------------------------
+"$_a":[]:[][✅]
+----------------------------------------
+"$_adasdas":[]:[][✅]
+----------------------------------------
+"$_adasda fdsf":[fdsf]:[fdsf][✅]
+----------------------------------------
+"$_adasda $fdsf":[]:[][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+exit:[]:[][✅]
+----------------------------------------
+cas:[cas]:[cas][✅]
+----------------------------------------
+"$"$a"'"$c'$'$b:[$1 4'life 'is' good$"]:[$1 4'life 'is' good$"][✅]
+----------------------------------------
+"$"$a"'"$c'$'$b:[$1 4'life 'is' good$"]:[$1 4'life 'is' good$"][✅]
+----------------------------------------
+"$"$a"'"$c'$'$b:[$1 4'life 'is' good$"]:[$1 4'life 'is' good$"][✅]
+----------------------------------------
+"$"$a"'"$c'$'$b:[$1 4'life 'is' good$"]:[$1 4'life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+dsadsad$c'$'$b:[dsadsadlife 'is' good$"]:[dsadsadlife 'is' good$"][✅]
+----------------------------------------
+dsadsad$c'$'$b:[dsadsadlife 'is' good$"]:[dsadsadlife 'is' good$"][✅]
+----------------------------------------
+dsadsad$c'$'$b:[dsadsadlife 'is' good$"]:[dsadsadlife 'is' good$"][✅]
+----------------------------------------
+dsadsad$c'$'$b:[dsadsadlife 'is' good$"]:[dsadsadlife 'is' good$"][✅]
+----------------------------------------
+dsadsad$c'$'$b:[dsadsadlife 'is' good$"]:[dsadsadlife 'is' good$"][✅]
+----------------------------------------
+$c'$'$b:[life 'is' good$"]:[life 'is' good$"][✅]
+----------------------------------------
+$c$c'$'$b:[life 'is' goodlife 'is' good$"]:[life 'is' goodlife 'is' good$"][✅]
+----------------------------------------
+$c@@$c'$'$b:[life 'is' good@@life 'is' good$"]:[life 'is' good@@life 'is' good$"][✅]
+----------------------------------------
+$c"$c"'$'$b:[life 'is' goodlife       'is'       good$"]:[life 'is' goodlife       'is'       good$"][✅]
+----------------------------------------
+$c"'$c'"'$'$b:[life 'is' good'life       'is'       good'$"]:[life 'is' good'life       'is'       good'$"][✅]
+----------------------------------------
+'$c'"'$c'"'$'$b:[$c'life       'is'       good'$"]:[$c'life       'is'       good'$"][✅]
+----------------------------------------
+$a:[1 4]:[1 4][✅]
+----------------------------------------
+$a fucker:[1 4 fucker]:[1 4 fucker][✅]
+----------------------------------------
+clear:[clear]:[clear][✅]
+----------------------------------------
+ls:[ls]:[ls][✅]
+----------------------------------------
+$$HOME":[syntax error]:[syntax error][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+"$USER":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+'$USER':[$USER]:[$USER][✅]
+----------------------------------------
+"Hello $USER":[Hello moel-oua]:[Hello moel-oua][✅]
+----------------------------------------
+'Hello $USER':[Hello $USER]:[Hello $USER][✅]
+----------------------------------------
+"Your home is $HOME":[Your home is /home/moel-oua]:[Your home is /home/moel-oua][✅]
+----------------------------------------
+'Your home is $HOME':[Your home is $HOME]:[Your home is $HOME][✅]
+----------------------------------------
+"PATH is $PATH":[PATH is /home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[PATH is /home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+'PATH is $PATH':[PATH is $PATH]:[PATH is $PATH][✅]
+----------------------------------------
+"$$":[1005343]:[1005345][❌]
+----------------------------------------
+'$$':[$$]:[$$][✅]
+----------------------------------------
+"$?":[0]:[0][✅]
+----------------------------------------
+'$?':[$?]:[$?][✅]
+----------------------------------------
+"$USER$PATH":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+"$USER's home is $HOME":[moel-oua's home is /home/moel-oua]:[moel-oua's home is /home/moel-oua][✅]
+----------------------------------------
+"${USER}":[${USER}]:[moel-oua][❌]
+----------------------------------------
+"${USER}test":[${USER}test]:[moel-ouatest][❌]
+----------------------------------------
+"$USER test":[moel-oua test]:[moel-oua test][✅]
+----------------------------------------
+"\\$USER":[\\moel-oua]:[\moel-oua][❌]
+----------------------------------------
+'\\$USER':[\\$USER]:[\\$USER][✅]
+----------------------------------------
+"\$USER":[\moel-oua]:[$USER][❌]
+----------------------------------------
+'\$USER':[\$USER]:[\$USER][✅]
+----------------------------------------
+"\\\$USER":[\\\moel-oua]:[\$USER][❌]
+----------------------------------------
+'\\\$USER':[\\\$USER]:[\\\$USER][✅]
+----------------------------------------
+"$PWD":[/home/moel-oua/Desktop/minishell/tests/expanding tester]:[/home/moel-oua/Desktop/minishell/tests/expanding tester][✅]
+----------------------------------------
+'$PWD':[$PWD]:[$PWD][✅]
+----------------------------------------
+"$OLDPWD":[/home/moel-oua/Desktop/minishell]:[/home/moel-oua/Desktop/minishell][✅]
+----------------------------------------
+'$OLDPWD':[$OLDPWD]:[$OLDPWD][✅]
+----------------------------------------
+"$SHELL":[/bin/zsh]:[/bin/zsh][✅]
+----------------------------------------
+'$SHELL':[$SHELL]:[$SHELL][✅]
+----------------------------------------
+"$SHLVL":[6]:[6][✅]
+----------------------------------------
+'$SHLVL':[$SHLVL]:[$SHLVL][✅]
+----------------------------------------
+"$_":[/usr/bin/python3]:[a=1                       4][❌]
+----------------------------------------
+'$_':[$_]:[$_][✅]
+----------------------------------------
+"$0":[]:[bash][❌]
+----------------------------------------
+'$0':[$0]:[$0][✅]
+----------------------------------------
+"$1":[]:[][✅]
+----------------------------------------
+'$1':[$1]:[$1][✅]
+----------------------------------------
+"$#":[]:[0][❌]
+----------------------------------------
+'$#':[$#]:[$#][✅]
+----------------------------------------
+"$*":[]:[][✅]
+----------------------------------------
+'$*':[$*]:[$*][✅]
+----------------------------------------
+"$@":[]:[][✅]
+----------------------------------------
+'$@':[$@]:[$@][✅]
+----------------------------------------
+"$!":[]:[][✅]
+----------------------------------------
+'$!':[$!]:[$!][✅]
+----------------------------------------
+"$-":[$-]:[hBs][❌]
+----------------------------------------
+'$-':[$-]:[$-][✅]
+----------------------------------------
+"$USER$HOME$PATH":[moel-oua/home/moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[moel-oua/home/moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+"$USER $HOME $PATH":[moel-oua /home/moel-oua /home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[moel-oua /home/moel-oua /home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+"test$USER":[testmoel-oua]:[testmoel-oua][✅]
+----------------------------------------
+"test$USER test":[testmoel-oua test]:[testmoel-oua test][✅]
+----------------------------------------
+"$USER":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+" $USER ":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+"	$USER	":[moel-oua]:[moel-oua][❌]
+----------------------------------------
+":[syntax error]:[syntax error][✅]
+----------------------------------------
+$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+":[syntax error]:[syntax error][✅]
+----------------------------------------
+"'$USER'":['moel-oua']:['moel-oua'][✅]
+----------------------------------------
+"\"$USER\"":[\moel-oua\]:["moel-oua"][❌]
+----------------------------------------
+"\\$USER\\":[\\moel-oua\\]:[\moel-oua\][❌]
+----------------------------------------
+"\\\\$USER\\\\":[\\\\moel-oua\\\\]:[\\moel-oua\\][❌]
+----------------------------------------
+"test\\$USER":[test\\moel-oua]:[test\moel-oua][❌]
+----------------------------------------
+"test\\$USER\\test":[test\\moel-oua\\test]:[test\moel-oua\test][❌]
+----------------------------------------
+"$USER$USER$USER":[moel-ouamoel-ouamoel-oua]:[moel-ouamoel-ouamoel-oua][✅]
+----------------------------------------
+"$USER$HOME$PWD":[moel-oua/home/moel-oua/home/moel-oua/Desktop/minishell/tests/expanding tester]:[moel-oua/home/moel-oua/home/moel-oua/Desktop/minishell/tests/expanding tester][✅]
+----------------------------------------
+"$UNDEFINED":[]:[][✅]
+----------------------------------------
+"$UNDEFINED$USER":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+"$USER$UNDEFINED":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+"$UNDEFINED1":[]:[][✅]
+----------------------------------------
+"$1USER":[USER]:[USER][✅]
+----------------------------------------
+"$USER1":[]:[][✅]
+----------------------------------------
+"$9":[]:[][✅]
+----------------------------------------
+"$999":[99]:[99][✅]
+----------------------------------------
+"$":[$]:[$][✅]
+----------------------------------------
+"$$$":[1005615$]:[1005617$][❌]
+----------------------------------------
+"$ $":[$ $]:[$ $][✅]
+----------------------------------------
+"$?$USER":[0moel-oua]:[0moel-oua][✅]
+----------------------------------------
+"$$$USER":[1005627moel-oua]:[1005629moel-oua][❌]
+----------------------------------------
+"$USER$?":[moel-oua0]:[moel-oua0][✅]
+----------------------------------------
+"$USER$$":[moel-oua1005635]:[moel-oua1005637][❌]
+----------------------------------------
+"$USER\\$":[moel-oua\\$]:[moel-oua\$][❌]
+----------------------------------------
+"$USER\\$\\":[moel-oua\\$\\]:[moel-oua\$\][❌]
+----------------------------------------
+"$USER\\$USER":[moel-oua\\moel-oua]:[moel-oua\moel-oua][❌]
+----------------------------------------
+"$USER\\$USER\\":[moel-oua\\moel-oua\\]:[moel-oua\moel-oua\][❌]
+----------------------------------------
+"$USER\\$UNDEFINED":[moel-oua\\]:[moel-oua\][❌]
+----------------------------------------
+"$UNDEFINED\\$USER":[\\moel-oua]:[\moel-oua][❌]
+----------------------------------------
+"$USER$":[moel-oua$]:[moel-oua$][✅]
+----------------------------------------
+"$USER$ ":[moel-oua$]:[moel-oua$][✅]
+----------------------------------------
+"$USER $":[moel-oua $]:[moel-oua $][✅]
+----------------------------------------
+" $USER$ ":[moel-oua$]:[moel-oua$][✅]
+----------------------------------------
+"$USER test$ test":[moel-oua test$ test]:[moel-oua test$ test][✅]
+----------------------------------------
+"test$ test$USER":[test$ testmoel-oua]:[test$ testmoel-oua][✅]
+----------------------------------------
+"$USER.test":[moel-oua.test]:[moel-oua.test][✅]
+----------------------------------------
+"test.$USER":[test.moel-oua]:[test.moel-oua][✅]
+----------------------------------------
+"$USER-test":[moel-oua-test]:[moel-oua-test][✅]
+----------------------------------------
+"test-$USER":[test-moel-oua]:[test-moel-oua][✅]
+----------------------------------------
+"$USER_test":[]:[][✅]
+----------------------------------------
+"test_$USER":[test_moel-oua]:[test_moel-oua][✅]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005711$-]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005713hBs][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005715$-]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005717hBs][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005719$-]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005721hBs][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005723$-]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005725hBs][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*$#":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005727$-]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005729hBs0][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*$#$0":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005731$-]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005733hBs0bash][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*$#$0$_":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005735$-/usr/bin/python3]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005737hBs0basha=1                       4][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*$#$0$_$!":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005739$-/usr/bin/python3]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005741hBs0basha=1                       4][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*$#$0$_$!$":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005743$-/usr/bin/python3$]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005745hBs0basha=1                       4$][❌]
+----------------------------------------
+"$USER$PATH$HOME$?$$$-$UNDEFINED$1$2$3$@$*$#$0$_$!$ ":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005747$-/usr/bin/python3$]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua01005749hBs0basha=1                       4$][❌]
+----------------------------------------
+$0:[]:[bash][❌]
+----------------------------------------
+"$0":[]:[bash][❌]
+----------------------------------------
+$1:[]:[][✅]
+----------------------------------------
+"$1":[]:[][✅]
+----------------------------------------
+$9:[]:[][✅]
+----------------------------------------
+"$9":[]:[][✅]
+----------------------------------------
+$10:[0]:[0][✅]
+----------------------------------------
+"$10":[0]:[0][✅]
+----------------------------------------
+$999999:[99999]:[99999][✅]
+----------------------------------------
+"$999999":[99999]:[99999][✅]
+----------------------------------------
+$0$1$2:[]:[bash][❌]
+----------------------------------------
+"$0$1$2":[]:[bash][❌]
+----------------------------------------
+$?:[0]:[0][✅]
+----------------------------------------
+"Last exit: $?":[]:[][✅]
+----------------------------------------
+$$:[1005807]:[1005809][❌]
+----------------------------------------
+"PID: $$":[PID: 1005811]:[PID: 1005813][❌]
+----------------------------------------
+$!:[]:[][✅]
+----------------------------------------
+"BG PID: $!":[BG PID:]:[BG PID:][✅]
+----------------------------------------
+$-:[$-]:[hBs][❌]
+----------------------------------------
+"Flags: $-":[Flags: $-]:[Flags: hBs][❌]
+----------------------------------------
+$_:[/usr/bin/python3]:[a=1 4][❌]
+----------------------------------------
+"Last arg: $_":[Last arg: /usr/bin/python3]:[Last arg: a=1                       4][❌]
+----------------------------------------
+$#:[]:[0][❌]
+----------------------------------------
+"Arg count: $#":[Arg count:]:[Arg count: 0][❌]
+----------------------------------------
+$@:[]:[][✅]
+----------------------------------------
+"Args: $@":[Args:]:[Args:][✅]
+----------------------------------------
+$*:[]:[][✅]
+----------------------------------------
+"All args: $*":[All args:]:[All args:][✅]
+----------------------------------------
+"'$USER'":['moel-oua']:['moel-oua'][✅]
+----------------------------------------
+'"$USER"':["$USER"]:["$USER"][✅]
+----------------------------------------
+"'\"$USER\"'":['\moel-oua\']:['"moel-oua"'][❌]
+----------------------------------------
+'"'"$USER"'"':["moel-oua"]:["moel-oua"][✅]
+----------------------------------------
+'$USER'"$PATH":[$USER/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[$USER/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+"$USER"'$PATH':[moel-oua$PATH]:[moel-oua$PATH][✅]
+----------------------------------------
+"'$USER'$PATH":['moel-oua'/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:['moel-oua'/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+"$USER"'$PATH'"$HOME":[moel-oua$PATH/home/moel-oua]:[moel-oua$PATH/home/moel-oua][✅]
+----------------------------------------
+"'$USER'"'"$PATH"'"$HOME":['moel-oua'"$PATH"/home/moel-oua]:['moel-oua'"$PATH"/home/moel-oua][✅]
+----------------------------------------
+$UNSET_VAR:[]:[][✅]
+----------------------------------------
+"$UNSET_VAR":[]:[][✅]
+----------------------------------------
+$UNSET_VAR$USER:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+"$UNSET_VAR$USER":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$USER$UNSET_VAR:[moel-oua]:[moel-oua][✅]
+----------------------------------------
+"$USER$UNSET_VAR":[moel-oua]:[moel-oua][✅]
+----------------------------------------
+$1$2$3:[]:[][✅]
+----------------------------------------
+"$1$2$3":[]:[][✅]
+----------------------------------------
+$999999999:[99999999]:[99999999][✅]
+----------------------------------------
+"$999999999":[99999999]:[99999999][✅]
+----------------------------------------
+$0$1$UNDEFINED:[]:[bash][❌]
+----------------------------------------
+"$0$1$UNDEFINED":[]:[bash][❌]
+----------------------------------------
+\$USER:[\moel-oua]:[$USER][❌]
+----------------------------------------
+"\$USER":[\moel-oua]:[$USER][❌]
+----------------------------------------
+'\$USER':[\$USER]:[\$USER][✅]
+----------------------------------------
+\\$USER:[\\moel-oua]:[\moel-oua][❌]
+----------------------------------------
+"\\$USER":[\\moel-oua]:[\moel-oua][❌]
+----------------------------------------
+'\\$USER':[\\$USER]:[\\$USER][✅]
+----------------------------------------
+\\\$USER:[\\\moel-oua]:[\$USER][❌]
+----------------------------------------
+"\\\$USER":[\\\moel-oua]:[\$USER][❌]
+----------------------------------------
+'\\\$USER':[\\\$USER]:[\\\$USER][✅]
+----------------------------------------
+"$USER\\":[moel-oua\\]:[moel-oua\][❌]
+----------------------------------------
+"$USER\\\\":[moel-oua\\\\]:[moel-oua\\][❌]
+----------------------------------------
+"$USER\\$PATH":[moel-oua\\/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[moel-oua\/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][❌]
+----------------------------------------
+"$USER\\$":[moel-oua\\$]:[moel-oua\$][❌]
+----------------------------------------
+"$USER\\$ ":[moel-oua\\$]:[moel-oua\$][❌]
+----------------------------------------
+$:[$]:[$][✅]
+----------------------------------------
+"$":[$]:[$][✅]
+----------------------------------------
+$:[$]:[$][✅]
+----------------------------------------
+"$ ":[$]:[$][✅]
+----------------------------------------
+$'':[]:[][✅]
+----------------------------------------
+$"":[]:[][✅]
+----------------------------------------
+$:[$]:[$][✅]
+----------------------------------------
+"$    ":[$]:[$][✅]
+----------------------------------------
+"a$ b":[a$ b]:[a$ b][✅]
+----------------------------------------
+"a$":[a$]:[a$][✅]
+----------------------------------------
+"a$ ":[a$]:[a$][✅]
+----------------------------------------
+"$ a":[$ a]:[$ a][✅]
+----------------------------------------
+"$ a$USER":[$ amoel-oua]:[$ amoel-oua][✅]
+----------------------------------------
+"$USER a$":[moel-oua a$]:[moel-oua a$][✅]
+----------------------------------------
+"$USER a$ ":[moel-oua a$]:[moel-oua a$][✅]
+----------------------------------------
+$USER$PATH$HOME:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua][✅]
+----------------------------------------
+"$USER$PATH$HOME":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua][✅]
+----------------------------------------
+$USER$PATH$HOME$UNDEFINED:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua][✅]
+----------------------------------------
+"$USER$PATH$HOME$UNDEFINED":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts/home/moel-oua][✅]
+----------------------------------------
+$USER$123:[moel-oua23]:[moel-oua23][✅]
+----------------------------------------
+"$USER$123":[moel-oua23]:[moel-oua23][✅]
+----------------------------------------
+$USER$:[moel-oua$]:[moel-oua$][✅]
+----------------------------------------
+"$USER$":[moel-oua$]:[moel-oua$][✅]
+----------------------------------------
+$USER"$PATH":[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts]:[moel-oua/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/bin:/home/moel-oua/.nvm/versions/node/v18.20.8/bin:/home/moel-oua/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/moel-oua/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/scripts/noConfigScripts][✅]
+----------------------------------------
+$USER'$PATH':[moel-oua$PATH]:[moel-oua$PATH][✅]
 ----------------------------------------

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 10:24:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/25 10:56:18 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
 {
-	char		**env;
-	char		*path;
+	char	**env;
+	char	*path;
 
 	if (is_builtin(args[0]))
 		exit(exe_builtin_pipe(args, tmp, c));
@@ -39,11 +39,7 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	if (!tmp->token->token)
 		exit_exe(c->ft_env, c->garbage, 1);
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
-	while (args[i])
-	{
-		args[i] = expander(args[i], c);
-		i++;
-	}
+	args = expander(args, c);
 	child1_helper(tmp, c, p_fd);
 	close_fds();
 	exe_pipe(tmp, args, c);
@@ -69,7 +65,7 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 	}
 }
 
-static	void	ext_pipe(t_leaf *node, int *fds, t_container *c, int flag)
+static void	ext_pipe(t_leaf *node, int *fds, t_container *c, int flag)
 {
 	pid_t	last;
 

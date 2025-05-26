@@ -10,8 +10,10 @@ def run_command_with_shell(shell_path, command):
     )
 
     try:
-        output, error = process.communicate(input=command + '\nexit\n', timeout=3)
-        if( ">" in output or error):
+        # Combine both commands into a single input
+        full_input = f"export a=\"1                       4\"\n{command}\nexit\n"
+        output, error = process.communicate(input=full_input, timeout=3)
+        if(shell_path == "bash" and error):
                 return "syntax error"
         new = ''
         for line in output.split('\n'):

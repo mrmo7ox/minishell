@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 14:35:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:00:03 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**dp_env(t_env **ft_env, t_gc **gc)
 	if (!res)
 	{
 		perror("malloc");
-		exit (1);
+		exit(1);
 	}
 	while (i < len || head)
 	{
@@ -98,6 +98,8 @@ void	exe_cmd(char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
+	if (!args || !args[0])
+		return ;
 	if (is_builtin(args[0]))
 		c->status = exe_builtin(args, tmp, c);
 	else

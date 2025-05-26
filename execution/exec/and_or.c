@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   and_or.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:13:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 12:48:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/25 10:57:05 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,7 @@ static void	cmd(t_leaf **root, t_container *c)
 	i = 0;
 	node = *root;
 	args = ft_args_split(node->token->token, c->garbage, 0, 0);
-	while (args[i])
-	{
-		args[i] = expander(args[i], c);
-		i++;
-	}
+	args = expander(args, c);
 	exe(args, root, c);
 }
 
@@ -84,7 +80,7 @@ void	exe_and(t_leaf **root, t_container *c)
 		cmd(&node->left, c);
 }
 
-//andother or
+// andother or
 void	exe_or(t_leaf **root, t_container *c)
 {
 	t_leaf	*node;

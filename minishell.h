@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/22 10:59:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 19:57:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <sys/wait.h>
-# include <unistd.h>
 # include <sys/stat.h>
+# include <sys/wait.h>
 # include <time.h>
+# include <unistd.h>
 
 # define HISTORY_FILE ".command_history"
 # define MAX_HISTORY_LENGTH 1000
@@ -48,6 +48,13 @@ typedef enum e_type
 	OR,
 	AND
 }							t_type;
+
+typedef enum e_lax
+{
+	START,
+	END,
+	NORMAL,
+}							t_lax;
 
 typedef enum e_dollar
 {
@@ -143,6 +150,7 @@ typedef struct s_container
 	t_env					**ft_env;
 	t_leaf					**root;
 	int						status;
+	char					*pid;
 }							t_container;
 
 typedef struct s_qoutes
@@ -197,6 +205,13 @@ typedef struct s_size
 
 }							t_size;
 
+typedef struct s_arg
+{
+	char					*arg;
+	t_lax					flag;
+	struct s_arg			*next;
+	struct s_arg			*prev;
+}							t_arg;
 
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
@@ -333,7 +348,7 @@ t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
 //************************************************************** */
-char						*expander(char *line, t_container *c);
+char						**expander(char **args, t_container *c);
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,
@@ -350,6 +365,15 @@ void						add_to_expand_list(t_list *u, bool expand_s,
 								t_gc **garbage);
 t_list						*get_expand_index(t_list *u, t_gc **garbage);
 char						*h_expander(char *line, t_container *c);
+void						ft_add_arg(t_arg **head, t_arg *new);
+t_arg						*ft_new_arg(char *arg, t_lax flag, t_container *c);
+int							ft_args_size(t_arg *head);
+char						*ft_addchr(char *str, char chr, t_container *c);
+char						*ft_addstr(char *str, char *str2, t_container *c);
+char						**ft_expand_split(char *str, t_container *c, int i,
+								int j);
+int							ft_args_size_flag(t_arg *head);
+char						*get_pid_str(void);
 
 //************************************************************** */
 // exe
@@ -378,14 +402,14 @@ bool						heredoc(t_tk *token, char *path, t_container *c);
 // exec part me
 int							execc(t_container *c);
 
-//exe
+// exe
 pid_t						child3(t_container *c, t_leaf **root, int *fd);
 void						pipe_err(char *str, t_container *c, int *fds);
 void						child2(t_container *c, t_leaf **root, int *fd);
 void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
 void						ft_dup2(int fd1, int fd2, t_container *c);
-void						pipe_handle(t_leaf **root, int *pip,
-								t_container *c, int flag);
+void						pipe_handle(t_leaf **root, int *pip, t_container *c,
+								int flag);
 void						pid_wait(t_container *c, pid_t pid);
 void						exevce_fail(char *path, t_container *c);
 void						exe_or(t_leaf **root, t_container *c);

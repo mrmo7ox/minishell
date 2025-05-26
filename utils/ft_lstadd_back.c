@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:46:28 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/08 11:45:32 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/26 12:11:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,25 @@ void	ft_add_gc(t_gc **head, t_gc *new)
 	while (last->next)
 		last = last->next;
 	last->next = new;
+}
+
+void	ft_add_arg(t_arg **head, t_arg *new)
+{
+	t_arg	*last;
+
+	if (!(head) || !new)
+		return ;
+	if (!(*head))
+	{
+		(*head) = new;
+		new->prev = NULL;
+		return ;
+	}
+	last = *head;
+	while (last->next)
+		last = last->next;
+	last->next = new;
+	new->prev = last;
 }
 
 void	ft_add_qoute(t_qoutes **head, t_qoutes *new)

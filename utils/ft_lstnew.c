@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 10:02:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 17:58:17 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,20 @@ t_qoutes	*ft_new_node(int open, int close, t_qtype type, t_gc **garbage)
 	node->open_index = open;
 	node->close_index = close;
 	node->type = type;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
+}
+
+t_arg	*ft_new_arg(char *arg, t_lax flag, t_container *c)
+{
+	t_arg	*node;
+
+	node = ft_malloc(sizeof(t_arg), c->garbage);
+	if (!node)
+		return (NULL);
+	node->arg = arg;
+	node->flag = flag;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
