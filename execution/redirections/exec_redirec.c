@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/25 10:53:24 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/26 20:50:30 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	{
 		pid = fork();
 		if (pid == -1)
-			return (token->in = -1, perror("fork"), false);
+			return (token->heredoc = -1, perror("fork"), false);
 		else if (!pid)
 			heredoc_ext(token, path, c);
 		else
@@ -101,9 +101,9 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 			waitpid(pid, &c->status, 0);
 			c->status = WEXITSTATUS(c->status);
 		}
-		if (token->in > 0)
-			close(token->in);
-		token->in = open(formating(tmp, c->garbage),
+		if (token->heredoc > 0)
+			close(token->heredoc);
+		token->heredoc = open(formating(tmp, c->garbage),
 				O_RDWR | O_CREAT | O_APPEND, 0644);
 		return (unlink(tmp), true);
 	}
@@ -119,8 +119,12 @@ bool	exec_redirec(t_tk *token, t_container *c)
 	while (curr)
 	{
 		if (!ext_exe_redr(&curr, c, token))
+		{
+			close(token->heredoc);
 			return (false);
+		}
 		curr = curr->next;
 	}
+	check_iflast(token);
 	return (true);
 }

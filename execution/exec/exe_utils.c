@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 11:11:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:43:34 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	exit_exe(t_env **ft_env, t_gc **gc, int err)
 {
 	(void)ft_env;
 	free_garbage(gc);
-	close_fds();
 	exit(err);
 }
 
@@ -95,21 +94,23 @@ void	redr_cmd(t_leaf *tmp, t_container *c)
 		if (dup2(tmp->token->in, 0) == -1)
 		{
 			perror("dup2");
+			close_redr(&tmp);
 			exit_exe(c->ft_env, c->garbage, 1);
 		}
 		close(tmp->token->in);
 	}
 	else if (tmp->token->in < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
+		redr_cmd_helper(tmp, c);
 	if (tmp->token->out > 0)
 	{
 		if (dup2(tmp->token->out, 1) == -1)
 		{
 			perror("dup2");
+			close_redr(&tmp);
 			exit_exe(c->ft_env, c->garbage, 1);
 		}
 		close(tmp->token->out);
 	}
 	else if (tmp->token->out < 0)
-		exit_exe(c->ft_env, c->garbage, 1);
+		redr_cmd_helper(tmp, c);
 }

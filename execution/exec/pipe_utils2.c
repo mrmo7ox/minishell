@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 10:14:22 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/26 16:40:01 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,7 @@ void	close_redr(t_leaf **root)
 		close((*root)->token->out);
 		(*root)->token->out = 0;
 	}
+	if ((*root)->token->heredoc > 0
+		&& (*root)->token->out != (*root)->token->heredoc)
+		close((*root)->token->heredoc);
 }

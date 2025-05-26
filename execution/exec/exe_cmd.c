@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/25 21:00:03 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/26 20:50:59 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,10 @@ void	exe_cmd(char **args, t_container *c)
 	if (!args || !args[0])
 		return ;
 	if (is_builtin(args[0]))
+	{
 		c->status = exe_builtin(args, tmp, c);
+		close_redr(&tmp);
+	}
 	else
 	{
 		pid = fork();

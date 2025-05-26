@@ -6,7 +6,11 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/05/26 20:44:39 by moel-oua         ###   ########.fr       */
+=======
+/*   Updated: 2025/05/26 15:36:11 by ihamani          ###   ########.fr       */
+>>>>>>> b83c7b127b5818736ba53aeb657be28f02e8c38b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +25,7 @@ void	start(char *line, t_container *container)
 		if (tokenizer(container->root, container->garbage, line))
 		{
 			execc(container);
-			close_redirec(container->root, container);
+			close_heredoc(container->root, container);
 		}
 	}
 }

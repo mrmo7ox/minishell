@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/25 10:56:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/26 20:50:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	i = 0;
 	tmp = *root;
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
-	args = expander(args, c);
+	while (args[i])
+	{
+		args[i] = expander(args[i], c);
+		i++;
+	}
+	exec_redirec(tmp->token, c);
 	child2_helper(tmp, c, p_fd, fds);
-	close_fds();
+	close_fds(tmp, fds, p_fd);
+	close_heredoc(c->root, c);
 	exe_pipe(tmp, args, c);
 }
 
@@ -47,7 +53,6 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 		ext_child2(p_fd, root, c, fds);
 	else
 	{
-		close_redr(root);
 		close(fds[0]);
 		close(fds[1]);
 		fds[0] = p_fd[0];
@@ -64,9 +69,19 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 	i = 0;
 	tmp = *root;
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+<<<<<<< HEAD
 	args = expander(args, c);
+=======
+	while (args[i])
+	{
+		args[i] = expander(args[i], c);
+		i++;
+	}
+	exec_redirec(tmp->token, c);
+>>>>>>> b83c7b127b5818736ba53aeb657be28f02e8c38b
 	child3_helper(tmp, c, fds);
-	close_fds();
+	close_fds(tmp, fds, NULL);
+	close_heredoc(c->root, c);
 	exe_pipe(tmp, args, c);
 }
 
@@ -83,7 +98,6 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 		ext_child3(root, c, fds);
 	else
 	{
-		close_redr(root);
 		close(fds[0]);
 		close(fds[1]);
 		return (pid);
@@ -95,7 +109,6 @@ void	ft_dup2(int fd1, int fd2, t_container *c)
 {
 	if (dup2(fd1, fd2) == -1)
 	{
-		close_fds();
 		ft_free_env(c->ft_env);
 		free_garbage(c->garbage);
 		perror("dup2");
