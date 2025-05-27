@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 11:17:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 13:38:11 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ void	exe_cmd(char **args, t_container *c)
 		return ;
 	exec_redirec(tmp->token, c);
 	if (is_builtin(args[0]))
+	{
 		c->status = exe_builtin(args, tmp, c);
+		set_status(c->status, -1);
+	}
 	else
 	{
 		pid = fork();
@@ -108,7 +111,9 @@ void	exe_cmd(char **args, t_container *c)
 		else if (pid)
 		{
 			waitpid(pid, &c->status, 0);
-			c->status = WEXITSTATUS(c->status);
+			set_status(WEXITSTATUS(c->status), -1);
+			if (WIFSIGNALED(c->status))
+				write(1, "\n", 1);
 		}
 	}
 	close_redr(&tmp);

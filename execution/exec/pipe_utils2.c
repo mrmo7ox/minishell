@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/26 16:40:01 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 13:42:41 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ void	pipe_err(char *str, t_container *c, int *fds)
 
 void	pid_wait(t_container *c, pid_t pid)
 {
+	int	tmp;
+
 	waitpid(pid, &c->status, 0);
-	c->status = WEXITSTATUS(c->status);
-	while (wait(NULL) != -1)
+	set_status(WEXITSTATUS(c->status), -1);
+	while (wait(&tmp) != -1)
 		continue ;
+	if (WIFSIGNALED(c->status))
+		write(1, "\n", 1);
 }
 
 static void	ext_exevce_fail(t_container *c)

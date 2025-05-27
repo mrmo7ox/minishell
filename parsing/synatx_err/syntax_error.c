@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/12 14:31:54 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 11:46:29 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*formating(char *line, t_gc **gg)
 {
-	int		start;
-	int		end;
+	int	start;
+	int	end;
 
 	start = 0;
 	end = ft_strlen(line) - 1;
@@ -28,7 +28,7 @@ char	*formating(char *line, t_gc **gg)
 		line = ft_substr(line, start, (end - start) + 1, gg);
 		if (!line)
 		{
-			printf("[KO] Malloc Failed\n");
+			ft_putstr_fd("[KO] Malloc Failed\n", 2);
 			return (NULL);
 		}
 	}
@@ -40,7 +40,7 @@ bool	syntax_error(char *line)
 	if (!qoutes(line) || !and_or(line) || !parenthesis(line, 0, 0, 0)
 		|| !redir_handler(line))
 	{
-		printf("syntax error\n");
+		ft_putstr_fd("syntax error\n", 2);
 		return (false);
 	}
 	return (true);

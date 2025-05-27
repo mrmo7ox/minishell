@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 11:44:09 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:40:30 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,9 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 		else
 		{
 			waitpid(pid, &c->status, 0);
-			c->status = WEXITSTATUS(c->status);
+			set_status(WEXITSTATUS(c->status), -1);
+			if (set_status(0, 0) == 130)
+				g_signal = 169;
 		}
 		if (token->heredoc > 0)
 			close(token->heredoc);

@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdupnofree.c                                  :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 11:01:26 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 12:46:44 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/27 12:50:13 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/27 13:27:04 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char	*ft_strdupnofree(const char *source)
+int	set_status(int new_status, int flag)
 {
-	char	*dup;
-	int		len;
+	static int	status;
 
-	if (!source)
-		return (NULL);
-	len = ft_strlen(source);
-	dup = (char *)malloc((sizeof(char) * (len + 1)));
-	if (!dup)
+	if (flag == -1)
 	{
-		perror("malloc");
-		exit(1);
+		status = new_status;
 	}
-	if (dup == NULL)
-		return (NULL);
-	ft_memcpy(dup, source, len);
-	dup[len] = '\0';
-	return (dup);
+	return (status);
+}
+
+void	handler(int sig)
+{
+	if (g_signal == SIGINT)
+	{
+		(void)sig;
+		write(1, "\n", 1);
+		rl_replace_line("", 0);
+		rl_on_new_line();
+		rl_redisplay();
+		set_status(130, -1);
+	}
+	else if(g_signal == 69)
+	{
+		close(0);
+		g_signal = 169;
+	}
 }

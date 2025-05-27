@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 11:40:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:33:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	exit_heredoc(t_tk *token, t_container *c, int status)
 	int	i;
 
 	i = 3;
-	if (status)
+	if (status && g_signal != 169)
 		perror("write");
 	ft_free_env(c->ft_env);
 	free_garbage(c->garbage);
@@ -28,9 +28,14 @@ static void	exit_heredoc(t_tk *token, t_container *c, int status)
 
 static void	heredoc_eof(t_tk *token, t_container *c)
 {
-	ft_putstr_fd("warning: here-document ", 2);
-	ft_putstr_fd("at line 1 delimited by end-of-file (wanted `ls')\n", 2);
-	exit_heredoc(token, c, 0);
+	if (g_signal != 169)
+	{
+		ft_putstr_fd("warning: here-document ", 2);
+		ft_putstr_fd("at line 1 delimited by end-of-file (wanted `ls')\n", 2);
+		exit_heredoc(token, c, 0);
+	}
+	else if (g_signal == 169)
+		exit_heredoc(token, c, 130);
 }
 
 void	heredoc_ext(t_tk *token, char *path, t_container *c)
@@ -38,16 +43,19 @@ void	heredoc_ext(t_tk *token, char *path, t_container *c)
 	bool	qoutes;
 	char	*line;
 
+	if (g_signal == 169)
+		heredoc_eof(token, c);
 	line = NULL;
 	if (!ft_chrstr('\'', path) && !ft_chrstr('\"', path))
 		qoutes = true;
 	else
 		qoutes = false;
 	path = formating(path, c->garbage);
+	g_signal = 69;
 	while (1)
 	{
 		line = readline("> ");
-		if (!line)
+		if (!line || g_signal == 169)
 			heredoc_eof(token, c);
 		ft_add_gc(c->garbage, ft_new_gc_node(line));
 		if (!ft_strcmp(remove_qoutes(path, c), line))

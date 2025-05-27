@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 11:44:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:11:12 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define KCYN "\x1B[36m"
 # define KWHT "\x1B[37m"
 # define PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+extern int					g_signal;
 
 typedef enum e_type
 {
@@ -431,5 +433,9 @@ void						exec_heredoc(t_tk *token, t_container *c);
 void						check_iflast(t_tk *token);
 void						close_fds(t_leaf *tmp, int *fds, int *p_fd);
 void						redr_cmd_helper(t_leaf *tmp, t_container *c);
+// signal
+
+void						handler(int sig);
+int							set_status(int new_status, int flag);
 
 #endif

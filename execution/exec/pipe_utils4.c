@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 10:20:10 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 13:18:01 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	exe_builtin_pipe(char **args, t_leaf *root, t_container *c)
 	else if (!ft_strcmp(args[0], "unset"))
 		return (ft_unset(args, c->ft_env));
 	else if (!ft_strcmp(args[0], "exit"))
-		return (ft_exit(args, c->ft_env, c->garbage, c->status));
+		return (ft_exit(args, c->ft_env, c->garbage, set_status(c->status, 0)));
 	return (0);
 }
 

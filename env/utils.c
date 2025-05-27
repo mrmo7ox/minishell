@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 13:59:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 11:57:52 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void	no_env(t_env **ft_env, t_gc **gc)
 {
 	pwd_update(ft_env, 0);
 	shlvl(ft_env, gc);
-	ft_add_env(ft_env, ft_new_env("_",
-			"/usr/bin/env"));
+	ft_add_env(ft_env, ft_new_env("_", "/usr/bin/env"));
 }
 
 static bool	check_valid(char *str)
@@ -87,7 +86,8 @@ void	shlvl(t_env **ft_env, t_gc **gc)
 			}
 			else
 			{
-				ft_putstr_fd("shell level (1000) too high, resetting to 1\n", 2);
+				ft_putstr_fd("shell level (1000) too high, resetting to 1\n",
+					2);
 				ft_upenv("SHLVL", "1", ft_env);
 			}
 		}

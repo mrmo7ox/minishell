@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 20:30:46 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:17:04 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,7 +282,8 @@ char	*expand(char *arg, char *next, t_container *c)
 			cut = ft_substr(arg, i, j - i, c->garbage);
 			if (ft_chrstr('?', cut))
 			{
-				new = ft_addstr(new, ft_itoa(c->status, c->garbage), c);
+				new = ft_addstr(new, ft_itoa(set_status(c->status, 0),
+							c->garbage), c);
 			}
 			else if (!ft_strcmp("$", cut))
 			{
@@ -424,8 +425,8 @@ char	**hundler(char **args, t_container *c)
 						cut = ft_substr(args[i], j, k - j, c->garbage);
 						if (ft_chrstr('?', cut))
 						{
-							line = ft_addstr(line, ft_itoa(c->status,
-										c->garbage), c);
+							line = ft_addstr(line, ft_itoa(set_status(c->status,
+											0), c->garbage), c);
 						}
 						else if (!ft_strcmp(cut, "$"))
 						{
