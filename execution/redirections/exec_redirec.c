@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 10:30:09 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 11:14:21 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ bool	exec_redirec(t_tk *token, t_container *c)
 	{
 		if (!ext_exe_redr(&curr, c, token))
 		{
-			close(token->heredoc);
+			if (token->heredoc > 0)
+				close(token->heredoc);
 			return (false);
 		}
 		curr = curr->next;

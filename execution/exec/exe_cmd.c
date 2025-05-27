@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 10:29:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 11:17:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ char	**dp_env(t_env **ft_env, t_gc **gc)
 	len = ft_envsize(*ft_env);
 	head = *ft_env;
 	res = ft_malloc((len + 1) * sizeof(char *), gc);
-	if (!res)
-	{
-		perror("malloc");
-		exit(1);
-	}
 	while (i < len || head)
 	{
 		res[i] = ft_strjoin(head->name, "=", gc);
@@ -102,10 +97,7 @@ void	exe_cmd(char **args, t_container *c)
 		return ;
 	exec_redirec(tmp->token, c);
 	if (is_builtin(args[0]))
-	{
 		c->status = exe_builtin(args, tmp, c);
-		close_redr(&tmp);
-	}
 	else
 	{
 		pid = fork();
@@ -119,4 +111,5 @@ void	exe_cmd(char **args, t_container *c)
 			c->status = WEXITSTATUS(c->status);
 		}
 	}
+	close_redr(&tmp);
 }
