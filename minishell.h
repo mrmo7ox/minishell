@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 20:50:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:40:22 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -376,6 +376,7 @@ char						**ft_expand_split(char *str, t_container *c, int i,
 								int j);
 int							ft_args_size_flag(t_arg *head);
 char						*get_pid_str(void);
+char						*remove_qoutes(char *arg, t_container *c);
 
 //************************************************************** */
 // exe

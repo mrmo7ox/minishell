@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 21:29:18 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:06:01 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,33 +62,6 @@ void	close_heredoc(t_leaf **root, t_container *c)
 			close(tmp->token->heredoc);
 	}
 }
-// void	print_node(t_leaf *node, char *l)
-// {
-// 	if (!node || !node->token)
-// 		return ;
-// 	printf("[%s]", l);
-// 	if (node->type == AND)
-// 		printf("Operator: &&\n");
-// 	else if (node->type == OR)
-// 		printf("Operator: ||\n");
-// 	else if (node->type == PIPE)
-// 		printf("Operator: |\n");
-// 	else
-// 		printf("Command: %s\n", node->token->token);
-// }
-
-// void print_ast(t_leaf *root, char *l, int depth)
-// {
-// 	if (!root)
-// 		return ;
-
-// 	for (int i = 0; i < depth; i++)
-// 		printf("  ");
-// 	print_node(root, l);
-// 	print_ast(root->left, "left", depth + 1);
-// 	print_ast(root->right, "right", depth + 1);
-
-// }
 
 int	execc(t_container *c)
 {
@@ -99,10 +72,10 @@ int	execc(t_container *c)
 	if (!(*root))
 		return (1);
 	node = *root;
+	run_heredoc(root, c);
 	// if (node->token->subshell > 0 == COMMAND)
 	// 	return (exe_subshell(node, ft_env, garbage));
 	// print_ast(node, "O", 0);
-	run_heredoc(root, c);
 	if (node->type == OR)
 		exe_or(root, c);
 	else if (node->type == AND)

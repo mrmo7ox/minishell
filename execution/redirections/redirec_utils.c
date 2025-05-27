@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirec_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/26 16:29:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 11:40:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	exit_heredoc(t_tk *token, t_container *c, int status)
 	exit(status);
 }
 
-static	void	heredoc_eof(t_tk *token, t_container *c)
+static void	heredoc_eof(t_tk *token, t_container *c)
 {
 	ft_putstr_fd("warning: here-document ", 2);
 	ft_putstr_fd("at line 1 delimited by end-of-file (wanted `ls')\n", 2);
@@ -50,7 +50,7 @@ void	heredoc_ext(t_tk *token, char *path, t_container *c)
 		if (!line)
 			heredoc_eof(token, c);
 		ft_add_gc(c->garbage, ft_new_gc_node(line));
-		if (!ft_strcmp(path, line))
+		if (!ft_strcmp(remove_qoutes(path, c), line))
 			break ;
 		if (qoutes)
 			line = h_expander(line, c);
@@ -78,8 +78,7 @@ bool	ext_exe_redr(t_redic **curr, t_container *c, t_tk *token)
 	}
 	else if (tmp->type == APPEND)
 	{
-		if (!append_files(token, ft_strip('>', tmp->content, c->garbage),
-				c))
+		if (!append_files(token, ft_strip('>', tmp->content, c->garbage), c))
 			return (false);
 	}
 	return (true);

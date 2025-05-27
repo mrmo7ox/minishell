@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/26 20:50:59 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 10:29:57 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void	exe_cmd(char **args, t_container *c)
 	tmp = *(c->root);
 	if (!args || !args[0])
 		return ;
+	exec_redirec(tmp->token, c);
 	if (is_builtin(args[0]))
 	{
 		c->status = exe_builtin(args, tmp, c);

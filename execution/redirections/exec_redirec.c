@@ -6,18 +6,28 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 20:50:30 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:42:53 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
+char	**gen_arry(char *line, t_container *c)
+{
+	char	**new;
+
+	new = ft_malloc(sizeof(char *) * 2, c->garbage);
+	new[0] = formating(line, c->garbage);
+	new[1] = NULL;
+	return (new);
+}
+
 bool	in_files(t_tk *token, char *path, t_container *c)
 {
-	char	*tmp;
+	char	**tmp;
 
-	tmp = path;
-	if (!tmp[0])
+	tmp = expander(gen_arry(path, c), c);
+	if (!tmp || !tmp[0] || (tmp[0] && tmp[1]))
 	{
 		token->in = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
@@ -25,10 +35,10 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 	}
 	if (token->in)
 		close(token->in);
-	token->in = open(tmp, O_RDONLY);
+	token->in = open(tmp[0], O_RDONLY);
 	if (token->in == -1)
 	{
-		perror(tmp);
+		perror(tmp[0]);
 		return (false);
 	}
 	else
@@ -37,10 +47,10 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 
 bool	out_files(t_tk *token, char *path, t_container *c)
 {
-	char	*tmp;
+	char	**tmp;
 
-	tmp = path;
-	if (!tmp[0])
+	tmp = expander(gen_arry(path, c), c);
+	if (!tmp || !tmp[0] || (tmp[0] && tmp[1]))
 	{
 		token->out = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
@@ -48,19 +58,19 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 	}
 	if (token->out > 0)
 		close(token->out);
-	token->out = open(tmp, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	token->out = open(tmp[0], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (token->out == -1)
-		return (perror(tmp), false);
+		return (perror(tmp[0]), false);
 	else
 		return (true);
 }
 
 bool	append_files(t_tk *token, char *path, t_container *c)
 {
-	char	*tmp;
+	char	**tmp;
 
-	tmp = path;
-	if (!tmp[0])
+	tmp = expander(gen_arry(path, c), c);
+	if (!tmp || !tmp[0] || (tmp[0] && tmp[1]))
 	{
 		token->out = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
@@ -68,10 +78,10 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 	}
 	if (token->out > 0)
 		close(token->out);
-	token->out = open(tmp, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	token->out = open(tmp[0], O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (token->out == -1)
 	{
-		perror(tmp);
+		perror(tmp[0]);
 		return (false);
 	}
 	else
@@ -84,11 +94,12 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	pid_t	pid;
 
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), c->garbage), c->garbage);
-	if (token->in > 0)
-		close(token->in);
-	token->in = open(path, O_RDWR | O_CREAT | O_APPEND, 0644);
-	if (token->in == -1)
-		return (close(token->in), perror("heredoc"), false);
+	if (token->heredoc > 0)
+		close(token->heredoc);
+	token->heredoc = open(formating(tmp, c->garbage),
+			O_RDWR | O_CREAT | O_APPEND, 0644);
+	if (token->heredoc == -1)
+		return (perror("heredoc"), false);
 	else
 	{
 		pid = fork();
@@ -111,7 +122,7 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 
 bool	exec_redirec(t_tk *token, t_container *c)
 {
-	t_redic	*curr;
+	t_redic *curr;
 
 	curr = token->redics;
 	token->in = 0;
@@ -120,7 +131,8 @@ bool	exec_redirec(t_tk *token, t_container *c)
 	{
 		if (!ext_exe_redr(&curr, c, token))
 		{
-			close(token->heredoc);
+			if (token->heredoc > 0)
+				close(token->heredoc);
 			return (false);
 		}
 		curr = curr->next;
