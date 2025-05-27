@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 10:58:06 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:43:59 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int ac, char **av, char **env)
 	container.root = &root;
 	container.ft_env = &ft_env;
 	container.garbage = &gc;
-	container.pid = get_pid_str();
+	container.pid = get_pid_str(&container);
 	minishell_init(&container, ac, av, env);
 	load_history();
 	while (true)

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 10:58:34 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:44:13 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	i = 0;
 	tmp = *root;
 	if (!tmp->token->token)
+	{
+		close(p_fd[0]);
+		close(p_fd[1]);
 		exit_exe(c->ft_env, c->garbage, 1);
+	}
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
 	exec_redirec(tmp->token, c);

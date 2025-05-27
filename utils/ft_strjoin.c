@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 12:33:52 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 11:36:49 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:27:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ size_t	ft_strlen(const char *s)
 	if (s == NULL)
 		return (0);
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
