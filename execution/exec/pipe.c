@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 11:44:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:28:28 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	}
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
-	exec_redirec(tmp->token, c);
 	child1_helper(tmp, c, p_fd);
 	close_fds(tmp, NULL, p_fd);
 	close_heredoc(c->root, c);

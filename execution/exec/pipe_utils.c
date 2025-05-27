@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 10:58:44 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:29:07 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	tmp = *root;
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
-	exec_redirec(tmp->token, c);
 	child2_helper(tmp, c, p_fd, fds);
 	close_fds(tmp, fds, p_fd);
 	close_heredoc(c->root, c);
@@ -64,7 +63,6 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 	tmp = *root;
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
-	exec_redirec(tmp->token, c);
 	child3_helper(tmp, c, fds);
 	close_fds(tmp, fds, NULL);
 	close_heredoc(c->root, c);

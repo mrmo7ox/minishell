@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 13:18:09 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:21:06 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ char	*prompt(t_container *c)
 	char	*pro;
 
 	username = ft_getenv("USER", c->ft_env);
-	if (!username[0])
+	if (!username || !username[0])
 		username = ft_strdup("Minishell", c->garbage);
 	pwd = ft_getenv("PWD", c->ft_env);
-	if (!pwd[0])
+	if (!pwd || !pwd[0])
 	{
 		pwd = getcwd(NULL, 0);
 		ft_add_gc(c->garbage, ft_new_gc_node(pwd));

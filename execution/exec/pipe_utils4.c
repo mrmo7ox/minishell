@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 13:18:01 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:17:54 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,22 @@ void	redr_cmd_helper(t_leaf *tmp, t_container *c)
 {
 	close_redr(&tmp);
 	exit_exe(c->ft_env, c->garbage, 1);
+}
+
+void	child2_pipe(t_leaf *tmp, t_container *c, int *fds, int *p_fd)
+{
+	if (dup2(p_fd[1], 1) == -1)
+	{
+		perror("dup2");
+		close_fds(tmp, fds, p_fd);
+		close_heredoc(c->root, c);
+		exit_exe(c->ft_env, c->garbage, 1);
+	}
+	if (dup2(fds[0], 0) == -1)
+	{
+		perror("dup2");
+		close_fds(tmp, fds, p_fd);
+		close_heredoc(c->root, c);
+		exit_exe(c->ft_env, c->garbage, 1);
+	}
 }

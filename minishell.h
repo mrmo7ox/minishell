@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 13:11:12 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:16:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -433,6 +433,8 @@ void						exec_heredoc(t_tk *token, t_container *c);
 void						check_iflast(t_tk *token);
 void						close_fds(t_leaf *tmp, int *fds, int *p_fd);
 void						redr_cmd_helper(t_leaf *tmp, t_container *c);
+void						child2_pipe(t_leaf *tmp, t_container *c, int *fds,
+								int *p_fd);
 // signal
 
 void						handler(int sig);
