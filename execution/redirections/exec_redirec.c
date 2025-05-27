@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_redirec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 20:50:30 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/27 10:30:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 {
 	char	*tmp;
 
-	tmp = path;
+	tmp = formating(path, c->garbage);
 	if (!tmp[0])
 	{
 		token->in = -1;
-		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
-				2), false);
+		return (ft_putstr_fd(path, 2),
+			ft_putstr_fd(": ambiguous redirect\n", 2), false);
 	}
 	if (token->in)
 		close(token->in);
@@ -39,12 +39,12 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 {
 	char	*tmp;
 
-	tmp = path;
+	tmp = formating(path, c->garbage);
 	if (!tmp[0])
 	{
 		token->out = -1;
-		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
-				2), false);
+		return (ft_putstr_fd(path, 2),
+			ft_putstr_fd(": ambiguous redirect\n", 2), false);
 	}
 	if (token->out > 0)
 		close(token->out);
@@ -59,16 +59,17 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 {
 	char	*tmp;
 
-	tmp = path;
+	tmp = formating(path, c->garbage);
 	if (!tmp[0])
 	{
 		token->out = -1;
-		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
-				2), false);
+		return (ft_putstr_fd(path, 2),
+			ft_putstr_fd(": ambiguous redirect\n", 2), false);
 	}
 	if (token->out > 0)
 		close(token->out);
-	token->out = open(tmp, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	token->out = open(tmp,
+			O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (token->out == -1)
 	{
 		perror(tmp);
@@ -84,11 +85,12 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	pid_t	pid;
 
 	tmp = ft_strjoin("/tmp/", ft_itoa(get_random(), c->garbage), c->garbage);
-	if (token->in > 0)
-		close(token->in);
-	token->in = open(path, O_RDWR | O_CREAT | O_APPEND, 0644);
-	if (token->in == -1)
-		return (close(token->in), perror("heredoc"), false);
+	if (token->heredoc > 0)
+		close(token->heredoc);
+	token->heredoc = open(formating(tmp, c->garbage),
+			O_RDWR | O_CREAT | O_APPEND, 0644);
+	if (token->heredoc == -1)
+		return (perror("heredoc"), false);
 	else
 	{
 		pid = fork();
@@ -111,7 +113,7 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 
 bool	exec_redirec(t_tk *token, t_container *c)
 {
-	t_redic	*curr;
+	t_redic		*curr;
 
 	curr = token->redics;
 	token->in = 0;
