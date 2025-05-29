@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:58:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:34:05 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:37:33 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_dir(char *line)
 	return (0);
 }
 
-static void	handle_wildcard_match(t_wu *wu)
+static void	wildcard_matcher(t_wu *wu)
 {
 	char	*path;
 	int		j;
@@ -55,7 +55,7 @@ static void	handle_wildcard_match(t_wu *wu)
 		ft_add_wild(wu->head, ft_new_wild(path, wu->c));
 }
 
-static void	handle_exact_match(t_wu *wu)
+static void	found_and_used(t_wu *wu)
 {
 	char	*path;
 	int		j;
@@ -98,9 +98,9 @@ void	recursive_wild(t_wu *wu)
 		if (!current_dir(wu->entry->d_name))
 		{
 			if (ft_chrstr('*', wu->split[*wu->i]))
-				handle_wildcard_match(wu);
+				wildcard_matcher(wu);
 			else
-				handle_exact_match(wu);
+				found_and_used(wu);
 		}
 		wu->entry = readdir(opened);
 	}
