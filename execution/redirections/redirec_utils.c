@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/28 10:46:28 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 14:13:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 static void	exit_heredoc(t_tk *token, t_container *c, int status)
 {
-	int	i;
-
-	i = 3;
 	if (status && g_signal != 169)
 		perror("write");
 	ft_free_env(c->ft_env);
+	close_heredoc(c->root, c);
 	free_garbage(c->garbage);
-	while (i < 1024)
-		close(i++);
 	exit(status);
 }
 

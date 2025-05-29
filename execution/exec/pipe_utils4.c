@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 15:13:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 18:09:36 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,12 @@ void	child2_pipe(t_leaf *tmp, t_container *c, int *fds, int *p_fd)
 		close_heredoc(c->root, c);
 		exit_exe(c->ft_env, c->garbage, 1);
 	}
+}
+
+void	path_check_pro(char **args)
+{
+	if (ft_chrstr('/', args[0]))
+		ft_putstr_fd(": No such file or directory\n", 2);
+	else
+		ft_putstr_fd(": Command not found\n", 2);
 }

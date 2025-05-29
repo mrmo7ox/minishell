@@ -6,7 +6,11 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/05/29 21:13:46 by moel-oua         ###   ########.fr       */
+=======
+/*   Updated: 2025/05/29 18:08:13 by ihamani          ###   ########.fr       */
+>>>>>>> b6bb135ac4f126b5634d8c16dbc5cb01ca9a3073
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -413,7 +417,6 @@ pid_t						child3(t_container *c, t_leaf **root, int *fd);
 void						pipe_err(char *str, t_container *c, int *fds);
 void						child2(t_container *c, t_leaf **root, int *fd);
 void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
-void						ft_dup2(int fd1, int fd2, t_container *c);
 void						pipe_handle(t_leaf **root, int *pip, t_container *c,
 								int flag);
 bool						exe_cmd_hundler(t_leaf *node, t_container *c);
@@ -437,6 +440,8 @@ void						close_fds(t_leaf *tmp, int *fds, int *p_fd);
 void						redr_cmd_helper(t_leaf *tmp, t_container *c);
 void						child2_pipe(t_leaf *tmp, t_container *c, int *fds,
 								int *p_fd);
+void						cmd_no_args(t_leaf *tmp, t_container *c);
+void						path_check_pro(char **args);
 // signal
 
 void						handler(int sig);

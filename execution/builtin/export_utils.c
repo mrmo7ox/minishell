@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 10:39:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 13:25:54 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,12 @@ int	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 	else
 	{
 		if (!check_name_env(name, ft_env))
-			ft_putenv(name, value, ft_env);
+		{
+			if (!ft_strcmp(name, "PATH") && value == NULL)
+				ft_putenv(name, env_check_path(ft_env, 2), ft_env);
+			else
+				ft_putenv(name, value, ft_env);
+		}
 		else
 			ft_upenv(name, value, ft_env);
 	}

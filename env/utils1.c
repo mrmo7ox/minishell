@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:04:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/17 09:29:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 13:20:45 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*env_check_path(t_env **ft_env, int flag)
 		else
 			path = NULL;
 	}
+	else if (flag == -1)
+		path = NULL;
 	else
 		return (path);
 	return (path);

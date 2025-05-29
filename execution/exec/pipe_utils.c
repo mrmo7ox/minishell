@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 19:41:35 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:25:50 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,10 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 	return (pid);
 }
 
-void	ft_dup2(int fd1, int fd2, t_container *c)
+void	cmd_no_args(t_leaf *tmp, t_container *c)
 {
-	if (dup2(fd1, fd2) == -1)
-	{
-		ft_free_env(c->ft_env);
-		free_garbage(c->garbage);
-		perror("dup2");
-		exit(1);
-	}
+	exec_redirec(tmp->token, c);
+	close_redr(&tmp);
+	close_heredoc(c->root, c);
+	set_status(0, -1);
 }

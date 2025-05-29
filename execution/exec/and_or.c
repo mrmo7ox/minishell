@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:13:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 19:41:41 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:25:34 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	exe(char **args, t_leaf **root, t_container *c)
 	tmp = *root;
 	if (is_builtin(args[0]))
 	{
+		exec_redirec(tmp->token, c);
 		c->status = exe_builtin(args, tmp, c);
 		set_status(c->status, -1);
 	}
