@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 16:21:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:13:46 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include <dirent.h>
 # include <errno.h>
 # include <fcntl.h>
 # include <limits.h>
@@ -441,7 +442,37 @@ void						child2_pipe(t_leaf *tmp, t_container *c, int *fds,
 void						handler(int sig);
 int							set_status(int new_status, int flag);
 
-//subshell
+// subshell
 void						exe_subshell(t_leaf **root, t_container *c);
+
+// wild cards
+
+typedef struct s_wild
+{
+	char					*arg;
+	struct s_wild			*next;
+	struct s_wild			*prev;
+}							t_wild;
+typedef struct s_wild_utils2
+{
+	char					*dir;
+	char					**split;
+	int						*i;
+	t_wild					**head;
+	t_container				*c;
+	struct dirent			*entry;
+}							t_wu;
+
+void						ft_add_wild(t_wild **head, t_wild *new);
+t_wild						*ft_new_wild(char *arg, t_container *c);
+int							ft_wildsize(t_wild *head);
+char						**wildcards(char **args, t_container *c);
+void						recursive_wild(t_wu *wu);
+
+char						**ft_wild_split(char *str, t_container *c, int i,
+								int j);
+bool						ismatch(char *s, char *p);
+bool						current_dir(char *line);
+int							is_dir(char *line);
 
 #endif

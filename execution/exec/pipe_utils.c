@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/28 10:17:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 19:41:35 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 {
 	char	**args;
-	int		i;
 	t_leaf	*tmp;
 
-	i = 0;
 	tmp = *root;
 	if (!tmp->token->token)
 	{

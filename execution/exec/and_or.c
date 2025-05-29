@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:13:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 13:44:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 19:41:41 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ static void	cmd(t_leaf **root, t_container *c)
 {
 	t_leaf	*node;
 	char	**args;
-	int		i;
 
-	i = 0;
 	node = *root;
 	args = ft_args_split(node->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
