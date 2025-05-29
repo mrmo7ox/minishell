@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/28 15:42:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 12:42:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,7 @@ void	exe_cmd(char **args, t_container *c)
 	tmp = *(c->root);
 	if (!args)
 	{
-		exec_redirec(tmp->token, c);
-		close_redr(&tmp);
-		close_heredoc(c->root, c);
-		set_status(0, -1);
+		cmd_no_args(tmp, c);
 		return ;
 	}
 	exec_redirec(tmp->token, c);

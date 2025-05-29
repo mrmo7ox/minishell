@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:50:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 13:27:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 13:03:28 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	handler(int sig)
 		rl_redisplay();
 		set_status(130, -1);
 	}
-	else if(g_signal == 69)
+	else if (g_signal == 69)
 	{
-		close(0);
 		g_signal = 169;
+		set_status(130, -1);
+		close(0);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 13:17:54 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 14:05:42 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*get_path(char **args, t_env **ft_env, t_gc **gc)
 	int		i;
 
 	path = ft_strdup(ft_getenv("PATH", ft_env), gc);
-	if (!path)
+	if (!path || !path[0])
 	{
 		path = env_check_path(ft_env, 2);
 		if (!path)

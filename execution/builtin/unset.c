@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:40:54 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 14:17:34 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 13:22:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	remove_node(char *name, t_env **ft_env)
 		free(t->value);
 		free(t);
 	}
+	else if (!head && !ft_strcmp(name, "PATH"))
+		env_check_path(ft_env, -1);
 }
 
 int	ft_unset(char **args, t_env **ft_env)

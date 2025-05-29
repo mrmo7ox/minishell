@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/28 15:43:04 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 14:27:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,37 +54,27 @@ void	close_heredoc(t_leaf **root, t_container *c)
 	if (tmp->type == COMMAND)
 	{
 		if (tmp->token->heredoc > 0)
+		{
 			close(tmp->token->heredoc);
+			tmp->token->heredoc = 0;
+		}
 	}
 }
 
-// void	print_node(t_leaf *node, char *l)
-// {
-// 	if (!node || !node->token)
-// 		return ;
-// 	printf("[%s]", l);
-// 	if (node->type == AND)
-// 		printf("Operator: &&\n");
-// 	else if (node->type == OR)
-// 		printf("Operator: ||\n");
-// 	else if (node->type == PIPE)
-// 		printf("Operator: |\n");
-// 	else
-// 		printf("Command: %s\n", node->token->token);
-// }
+void	init_heredoc(t_leaf **root, t_container *c)
+{
+	t_leaf	*tmp;
 
-// void print_ast(t_leaf *root, char *l, int depth)
-// {
-// 	if (!root)
-// 		return ;
-
-// 	for (int i = 0; i < depth; i++)
-// 		printf("  ");
-// 	print_node(root, l);
-// 	print_ast(root->left, "left", depth + 1);
-// 	print_ast(root->right, "right", depth + 1);
-
-// }
+	if (!root || !*root)
+		return ;
+	tmp = *root;
+	if (tmp->right)
+		run_heredoc(&tmp->right, c);
+	if (tmp->left)
+		run_heredoc(&tmp->left, c);
+	if (tmp->type == COMMAND)
+		tmp->token->heredoc = 0;
+}
 
 int	execc(t_container *c)
 {
@@ -95,15 +85,9 @@ int	execc(t_container *c)
 	if (!(*root))
 		return (1);
 	node = *root;
+	init_heredoc(root, c);
 	run_heredoc(root, c);
-	// print_ast(node, "O", 0);
-	// if (node->token->subshell > 0)
-	// 	exe_subshell(c->root, c);
-	if (node->type == OR)
-		exe_or(root, c);
-	else if (node->type == AND)
-		exe_and(root, c);
-	else if (node->type == PIPE)
+	if (node->type == PIPE)
 		pipe_handle(root, NULL, c, 1);
 	else if (node->type == COMMAND)
 		return (exe_cmd_hundler(node, c));

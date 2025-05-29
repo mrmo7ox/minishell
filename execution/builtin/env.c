@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:35 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/21 11:51:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 12:39:20 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ int	cmd_env(char **args, int out, t_env **env)
 		return (1);
 	len = args_len(args);
 	if (len > 1)
-	{
-		ft_putstr_fd("too many arguments\n", 2);
-		return (1);
-	}
+		return (ft_putstr_fd("too many arguments\n", 2), 1);
 	head = *env;
 	while (head)
 	{
