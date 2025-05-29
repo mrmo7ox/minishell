@@ -3,30 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 11:44:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:43:04 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	exe_cmd_hundler(t_leaf *node, t_container *c)
+bool	exe_cmd_hundler(t_leaf *node, t_container *c)
 {
 	char	**args;
 	int		i;
 
 	i = 0;
 	args = NULL;
-	if (node->token->token)
-	{
-		args = ft_args_split(node->token->token, c->garbage, 0, 0);
-		args = expander(args, c);
-		exe_cmd(args, c);
-	}
-	else
-		return (false);
+	args = ft_args_split(node->token->token, c->garbage, 0, 0);
+	args = expander(args, c);
+	exe_cmd(args, c);
 	return (true);
 }
 
@@ -63,6 +58,34 @@ void	close_heredoc(t_leaf **root, t_container *c)
 	}
 }
 
+// void	print_node(t_leaf *node, char *l)
+// {
+// 	if (!node || !node->token)
+// 		return ;
+// 	printf("[%s]", l);
+// 	if (node->type == AND)
+// 		printf("Operator: &&\n");
+// 	else if (node->type == OR)
+// 		printf("Operator: ||\n");
+// 	else if (node->type == PIPE)
+// 		printf("Operator: |\n");
+// 	else
+// 		printf("Command: %s\n", node->token->token);
+// }
+
+// void print_ast(t_leaf *root, char *l, int depth)
+// {
+// 	if (!root)
+// 		return ;
+
+// 	for (int i = 0; i < depth; i++)
+// 		printf("  ");
+// 	print_node(root, l);
+// 	print_ast(root->left, "left", depth + 1);
+// 	print_ast(root->right, "right", depth + 1);
+
+// }
+
 int	execc(t_container *c)
 {
 	t_leaf	*node;
@@ -73,9 +96,9 @@ int	execc(t_container *c)
 		return (1);
 	node = *root;
 	run_heredoc(root, c);
-	// if (node->token->subshell > 0 == COMMAND)
-	// 	return (exe_subshell(node, ft_env, garbage));
 	// print_ast(node, "O", 0);
+	// if (node->token->subshell > 0)
+	// 	exe_subshell(c->root, c);
 	if (node->type == OR)
 		exe_or(root, c);
 	else if (node->type == AND)

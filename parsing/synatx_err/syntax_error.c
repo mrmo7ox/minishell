@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syntax_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 11:46:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/28 09:34:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ bool	syntax_error(char *line)
 	if (!qoutes(line) || !and_or(line) || !parenthesis(line, 0, 0, 0)
 		|| !redir_handler(line))
 	{
-		ft_putstr_fd("syntax error\n", 2);
+		ft_putstr_fd("Syntax error\n", 2);
+		set_status(2, -1);
 		return (false);
 	}
 	return (true);

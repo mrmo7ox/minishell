@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 14:28:28 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/28 10:17:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@ void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
 	char	**env;
 	char	*path;
 
+	if (!args[0])
+	{
+		ft_putstr_fd("\'\'", 2);
+		ft_putstr_fd(" : Command not found\n", 2);
+		exit_exe(c->ft_env, c->garbage, 127);
+	}
 	if (is_builtin(args[0]))
-		exit(exe_builtin_pipe(args, tmp, c));
+		exit_exe(c->ft_env, c->garbage, exe_builtin_pipe(args, tmp, c));
 	else
 	{
 		path = resolve_path(args, c->ft_env, c->garbage);
@@ -38,15 +44,19 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	tmp = *root;
 	if (!tmp->token->token)
 	{
-		close(p_fd[0]);
-		close(p_fd[1]);
-		exit_exe(c->ft_env, c->garbage, 1);
+		exec_redirec(tmp->token, c);
+		close_fds(tmp, NULL, p_fd);
+		close_heredoc(c->root, c);
+		close_redr(&tmp);
+		exit_exe(c->ft_env, c->garbage, 0);
 	}
 	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
 	child1_helper(tmp, c, p_fd);
 	close_fds(tmp, NULL, p_fd);
 	close_heredoc(c->root, c);
+	if (!args)
+		exit_exe(c->ft_env, c->garbage, 0);
 	exe_pipe(tmp, args, c);
 }
 

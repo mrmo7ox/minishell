@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 14:16:09 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 16:21:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -415,6 +415,7 @@ void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
 void						ft_dup2(int fd1, int fd2, t_container *c);
 void						pipe_handle(t_leaf **root, int *pip, t_container *c,
 								int flag);
+bool						exe_cmd_hundler(t_leaf *node, t_container *c);
 void						pid_wait(t_container *c, pid_t pid);
 void						exevce_fail(char *path, t_container *c);
 void						exe_or(t_leaf **root, t_container *c);
@@ -439,5 +440,8 @@ void						child2_pipe(t_leaf *tmp, t_container *c, int *fds,
 
 void						handler(int sig);
 int							set_status(int new_status, int flag);
+
+//subshell
+void						exe_subshell(t_leaf **root, t_container *c);
 
 #endif

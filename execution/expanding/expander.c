@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 13:17:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:05:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -478,6 +478,8 @@ char	**expander(char **args, t_container *c)
 	new = NULL;
 	head = NULL;
 	i = 0;
+	if (!args)
+		return (NULL);
 	while (args[i])
 	{
 		if (has_qoute(args[i]) && !has_dollar(args[i]))

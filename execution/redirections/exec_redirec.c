@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_redirec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/27 13:40:30 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:09:21 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,19 +112,25 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 			waitpid(pid, &c->status, 0);
 			set_status(WEXITSTATUS(c->status), -1);
 			if (set_status(0, 0) == 130)
+			{
+				token->heredoc = -1;
 				g_signal = 169;
+			}
 		}
-		if (token->heredoc > 0)
-			close(token->heredoc);
-		token->heredoc = open(formating(tmp, c->garbage),
-				O_RDWR | O_CREAT | O_APPEND, 0644);
+		if (token->heredoc != -1)
+		{
+			if (token->heredoc > 0)
+				close(token->heredoc);
+			token->heredoc = open(formating(tmp, c->garbage),
+					O_RDWR | O_CREAT | O_APPEND, 0644);
+		}
 		return (unlink(tmp), true);
 	}
 }
 
 bool	exec_redirec(t_tk *token, t_container *c)
 {
-	t_redic *curr;
+	t_redic	*curr;
 
 	curr = token->redics;
 	token->in = 0;
@@ -135,6 +141,7 @@ bool	exec_redirec(t_tk *token, t_container *c)
 		{
 			if (token->heredoc > 0)
 				close(token->heredoc);
+			set_status(1, -1);
 			return (false);
 		}
 		curr = curr->next;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirec_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 13:33:33 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:46:28 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	heredoc_eof(t_tk *token, t_container *c)
 	if (g_signal != 169)
 	{
 		ft_putstr_fd("warning: here-document ", 2);
-		ft_putstr_fd("at line 1 delimited by end-of-file (wanted `ls')\n", 2);
+		ft_putstr_fd("delimited by end-of-file\n", 2);
 		exit_heredoc(token, c, 0);
 	}
 	else if (g_signal == 169)

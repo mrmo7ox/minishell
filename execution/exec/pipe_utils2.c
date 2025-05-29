@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 14:32:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/28 09:39:38 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	pid_wait(t_container *c, pid_t pid)
 {
 	int	tmp;
 
+	tmp = 0;
 	waitpid(pid, &c->status, 0);
 	set_status(WEXITSTATUS(c->status), -1);
 	while (wait(&tmp) != -1)

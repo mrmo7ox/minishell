@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 14:17:54 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/27 15:13:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	close_fds(t_leaf *tmp, int *fds, int *p_fd)
 void	redr_cmd_helper(t_leaf *tmp, t_container *c)
 {
 	close_redr(&tmp);
-	exit_exe(c->ft_env, c->garbage, 1);
+	exit_exe(c->ft_env, c->garbage, set_status(0, 0));
 }
 
 void	child2_pipe(t_leaf *tmp, t_container *c, int *fds, int *p_fd)

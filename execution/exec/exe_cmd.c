@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_cmd.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 13:38:11 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:42:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,17 @@ void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 	}
 	else
 	{
-		if (!args[0][0])
-			ft_putstr_fd("\'\'", 2);
+		if (errno == 20)
+		{
+			perror(args[0]);
+			exit_exe(ft_env, gc, 126);
+		}
 		else
+		{
 			ft_putstr_fd(args[0], 2);
-		ft_putstr_fd(" : command not found\n", 2);
-		exit_exe(ft_env, gc, 127);
+			ft_putstr_fd(" : command not found\n", 2);
+			exit_exe(ft_env, gc, 127);
+		}
 	}
 }
 
@@ -79,6 +84,13 @@ static void	child(char **args, t_container *c)
 	char	*path;
 	t_leaf	*tmp;
 
+	if (!args[0])
+	{
+		ft_putstr_fd("\'\'", 2);
+		ft_putstr_fd(" : Command not found\n", 2);
+		close_heredoc(c->root, c);
+		exit_exe(c->ft_env, c->garbage, 127);
+	}
 	tmp = *(c->root);
 	redr_cmd(tmp, c);
 	path = resolve_path(args, c->ft_env, c->garbage);
@@ -93,14 +105,17 @@ void	exe_cmd(char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
-	if (!args || !args[0])
+	if (!args)
+	{
+		exec_redirec(tmp->token, c);
+		close_redr(&tmp);
+		close_heredoc(c->root, c);
+		set_status(0, -1);
 		return ;
+	}
 	exec_redirec(tmp->token, c);
 	if (is_builtin(args[0]))
-	{
-		c->status = exe_builtin(args, tmp, c);
-		set_status(c->status, -1);
-	}
+		set_status(exe_builtin(args, tmp, c), -1);
 	else
 	{
 		pid = fork();
