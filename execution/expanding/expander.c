@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:27:42 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	convert(t_arg **args, char **new)
 	}
 	new[i] = NULL;
 }
-char	**convert_flag(t_arg **args, t_container *c)
+char	**convert_flag(t_arg **args, t_c *c)
 {
 	t_arg	*tmp;
 	char	*line;
@@ -222,7 +222,7 @@ bool	has_dollar(char *arg)
 	}
 	return (false);
 }
-char	*remove_qoutes(char *arg, t_container *c)
+char	*remove_qoutes(char *arg, t_c *c)
 {
 	char	*new;
 	int		i;
@@ -250,7 +250,7 @@ char	*remove_qoutes(char *arg, t_container *c)
 	}
 	return (new);
 }
-char	*expand(char *arg, char *next, t_container *c)
+char	*expand(char *arg, char *next, t_c *c)
 {
 	char	*new;
 	int		i;
@@ -305,7 +305,7 @@ char	*expand(char *arg, char *next, t_container *c)
 	return (new);
 }
 
-t_list	*init_list(char *arg, t_container *c)
+t_list	*init_list(char *arg, t_c *c)
 {
 	t_list		*u;
 	t_expand	*dollars;
@@ -324,7 +324,7 @@ t_list	*init_list(char *arg, t_container *c)
 	return (u);
 }
 
-char	**hundler(char **args, t_container *c)
+char	**hundler(char **args, t_c *c)
 {
 	t_arg		*min_head;
 	int			i;
@@ -460,7 +460,7 @@ char	**hundler(char **args, t_container *c)
 	return (new);
 }
 
-char	**expander(char **args, t_container *c)
+char	**expander(char **args, t_c *c)
 {
 	int		i;
 	char	**new;

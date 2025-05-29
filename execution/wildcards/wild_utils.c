@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:21:45 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:21:58 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_add_wild(t_wild **head, t_wild *new)
 	new->prev = last;
 }
 
-t_wild	*ft_new_wild(char *arg, t_container *c)
+t_wild	*ft_new_wild(char *arg, t_c *c)
 {
 	t_wild	*node;
 

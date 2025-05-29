@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 14:39:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	is_builtin(char *str)
 		return (false);
 }
 
-int	exe_builtin(char **args, t_leaf *root, t_container *c)
+int	exe_builtin(char **args, t_leaf *root, t_c *c)
 {
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, root->token->out, c->ft_env));
@@ -87,7 +87,7 @@ char	*get_path(char **args, t_env **ft_env, t_gc **gc)
 	return (NULL);
 }
 
-void	redr_cmd(t_leaf *tmp, t_container *c)
+void	redr_cmd(t_leaf *tmp, t_c *c)
 {
 	if (tmp->token->in > 0)
 	{

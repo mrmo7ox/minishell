@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:02:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 17:19:09 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	hd_helper(char *tmp, t_tk *token, int flag, t_container *c)
+static void	hd_helper(char *tmp, t_tk *token, int flag, t_c *c)
 {
 	if (flag == 1)
 	{
@@ -40,7 +40,7 @@ static void	hd_helper(char *tmp, t_tk *token, int flag, t_container *c)
 	}
 }
 
-bool	heredoc(t_tk *token, char *path, t_container *c)
+bool	heredoc(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
 	pid_t	pid;
@@ -68,7 +68,7 @@ bool	heredoc(t_tk *token, char *path, t_container *c)
 	}
 }
 
-void	exec_heredoc(t_tk *token, t_container *c)
+void	exec_heredoc(t_tk *token, t_c *c)
 {
 	t_redic		*curr;
 

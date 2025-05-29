@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 11:02:36 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 14:28:52 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static	void	redr_helper(t_leaf *tmp, t_container *c, int *p_fd, int flag)
+static void	redr_helper(t_leaf *tmp, t_c *c, int *p_fd, int flag)
 {
 	if (flag)
 	{
@@ -36,7 +36,7 @@ static	void	redr_helper(t_leaf *tmp, t_container *c, int *p_fd, int flag)
 	}
 }
 
-void	child2_helper(t_leaf *tmp, t_container *c, int *p_fd, int *fds)
+void	child2_helper(t_leaf *tmp, t_c *c, int *p_fd, int *fds)
 {
 	child2_pipe(tmp, c, fds, p_fd);
 	exec_redirec(tmp->token, c);
@@ -58,7 +58,7 @@ void	child2_helper(t_leaf *tmp, t_container *c, int *p_fd, int *fds)
 	}
 }
 
-void	child3_helper(t_leaf *tmp, t_container *c, int *p_fd)
+void	child3_helper(t_leaf *tmp, t_c *c, int *p_fd)
 {
 	if (dup2(p_fd[0], 0) == -1)
 	{
@@ -84,7 +84,7 @@ void	child3_helper(t_leaf *tmp, t_container *c, int *p_fd)
 	}
 }
 
-void	child1_helper(t_leaf *tmp, t_container *c, int *p_fd)
+void	child1_helper(t_leaf *tmp, t_c *c, int *p_fd)
 {
 	if (dup2(p_fd[1], 1) == -1)
 	{

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:41:41 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/26 17:23:44 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static char	**free_the_split(char **res, int words)
 	return (NULL);
 }
 
-char	**ft_expand_split(char *str, t_container *c, int i, int j)
+char	**ft_expand_split(char *str, t_c *c, int i, int j)
 {
 	char **res;
 	int words;

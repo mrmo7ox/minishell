@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/28 09:39:38 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	pipe_err(char *str, t_container *c, int *fds)
+void	pipe_err(char *str, t_c *c, int *fds)
 {
 	if (fds)
 	{
@@ -25,7 +25,7 @@ void	pipe_err(char *str, t_container *c, int *fds)
 	exit(1);
 }
 
-void	pid_wait(t_container *c, pid_t pid)
+void	pid_wait(t_c *c, pid_t pid)
 {
 	int	tmp;
 
@@ -38,13 +38,13 @@ void	pid_wait(t_container *c, pid_t pid)
 		write(1, "\n", 1);
 }
 
-static void	ext_exevce_fail(t_container *c)
+static void	ext_exevce_fail(t_c *c)
 {
 	ft_free_env(c->ft_env);
 	free_garbage(c->garbage);
 }
 
-void	exevce_fail(char *path, t_container *c)
+void	exevce_fail(char *path, t_c *c)
 {
 	struct stat	statbuf;
 

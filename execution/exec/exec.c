@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:32:53 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:47:43 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-bool	exe_cmd_hundler(t_leaf *node, t_container *c)
+bool	exe_cmd_hundler(t_leaf *node, t_c *c)
 {
 	char	**args;
 
@@ -20,11 +20,12 @@ bool	exe_cmd_hundler(t_leaf *node, t_container *c)
 	args = ft_args_split(node->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
 	args = wildcards(args, c);
+	
 	exe_cmd(args, c);
 	return (true);
 }
 
-void	run_heredoc(t_leaf **root, t_container *c)
+void	run_heredoc(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -39,7 +40,7 @@ void	run_heredoc(t_leaf **root, t_container *c)
 		exec_heredoc(tmp->token, c);
 }
 
-void	close_heredoc(t_leaf **root, t_container *c)
+void	close_heredoc(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -60,7 +61,7 @@ void	close_heredoc(t_leaf **root, t_container *c)
 	}
 }
 
-void	init_heredoc(t_leaf **root, t_container *c)
+void	init_heredoc(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -105,7 +106,7 @@ void	init_heredoc(t_leaf **root, t_container *c)
 
 // }
 
-int	execc(t_container *c)
+int	execc(t_c *c)
 {
 	t_leaf	*node;
 	t_leaf	**root;

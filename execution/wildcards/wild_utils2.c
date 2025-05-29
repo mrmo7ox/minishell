@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:58:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:37:33 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:46:29 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static void	wildcard_matcher(t_wu *wu)
 	if (!ismatch(wu->entry->d_name, wu->split[*wu->i]))
 		return ;
 	path = ft_strjoin(wu->dir, wu->entry->d_name, wu->c->garbage);
-	path = ft_addchr(path, '/', wu->c);
 	if (is_dir(path))
 	{
+		path = ft_addchr(path, '/', wu->c);
 		j = *wu->i + 1;
 		new_wu.dir = path;
 		new_wu.split = wu->split;
@@ -64,9 +64,9 @@ static void	found_and_used(t_wu *wu)
 	if (ft_strcmp(wu->entry->d_name, wu->split[*wu->i]) != 0)
 		return ;
 	path = ft_strjoin(wu->dir, wu->entry->d_name, wu->c->garbage);
-	path = ft_addchr(path, '/', wu->c);
 	if (is_dir(path))
 	{
+		path = ft_addchr(path, '/', wu->c);
 		j = *wu->i + 1;
 		new_wu.dir = path;
 		new_wu.split = wu->split;

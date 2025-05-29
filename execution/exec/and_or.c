@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 10:13:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:25:34 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	child(t_leaf **root, char **args, t_container *c)
+static void	child(t_leaf **root, char **args, t_c *c)
 {
 	char	**env;
 	char	*path;
@@ -29,7 +29,7 @@ static void	child(t_leaf **root, char **args, t_container *c)
 		exevce_fail(path, c);
 }
 
-static void	exe(char **args, t_leaf **root, t_container *c)
+static void	exe(char **args, t_leaf **root, t_c *c)
 {
 	pid_t	pid;
 	t_leaf	*tmp;
@@ -61,7 +61,7 @@ static void	exe(char **args, t_leaf **root, t_container *c)
 	}
 }
 
-static void	cmd(t_leaf **root, t_container *c)
+static void	cmd(t_leaf **root, t_c *c)
 {
 	t_leaf	*node;
 	char	**args;
@@ -72,7 +72,7 @@ static void	cmd(t_leaf **root, t_container *c)
 	exe(args, root, c);
 }
 
-void	exe_and(t_leaf **root, t_container *c)
+void	exe_and(t_leaf **root, t_c *c)
 {
 	t_leaf	*node;
 
@@ -90,7 +90,7 @@ void	exe_and(t_leaf **root, t_container *c)
 }
 
 // andother or
-void	exe_or(t_leaf **root, t_container *c)
+void	exe_or(t_leaf **root, t_c *c)
 {
 	t_leaf	*node;
 

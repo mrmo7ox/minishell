@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getpid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 19:56:02 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 17:17:32 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char	*helper(t_container *c, int fd)
+static char	*helper(t_c *c, int fd)
 {
 	char	*str;
 	char	*buff;
@@ -39,7 +39,7 @@ static char	*helper(t_container *c, int fd)
 	return (str);
 }
 
-char	*get_pid_str(t_container *c)
+char	*get_pid_str(t_c *c)
 {
 	int		fd;
 	char	*str;

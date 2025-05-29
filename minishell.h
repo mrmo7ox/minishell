@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:26:39 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ typedef struct s_container
 	t_leaf					**root;
 	int						status;
 	char					*pid;
-}							t_container;
+}							t_c;
 
 typedef struct s_qoutes
 {
@@ -257,7 +257,7 @@ void						load_history(void);
 // redic
 void						ft_add_redic(t_redic **head, t_redic *new);
 void						*ft_new_redic_node(t_gc **garbage, char *content);
-void						redr_cmd(t_leaf *tmp, t_container *c);
+void						redr_cmd(t_leaf *tmp, t_c *c);
 
 // tokenizer
 bool						tokenizer(t_leaf **root, t_gc **garbage,
@@ -353,7 +353,7 @@ t_leaf						*new_leaf(t_tk *token, t_type type, t_gc **garbage);
 t_leaf						*build_ast(t_tk *tokens, t_gc **garbage);
 
 //************************************************************** */
-char						**expander(char **args, t_container *c);
+char						**expander(char **args, t_c *c);
 void						ft_add_qoute(t_qoutes **head, t_qoutes *new);
 void						ft_add_expand(t_expand **head, t_expand *new);
 t_qoutes					*ft_new_node(int open, int close, t_qtype type,
@@ -369,24 +369,22 @@ void						get_quote_index(t_list *u, t_gc **garbage);
 void						add_to_expand_list(t_list *u, bool expand_s,
 								t_gc **garbage);
 t_list						*get_expand_index(t_list *u, t_gc **garbage);
-char						*h_expander(char *line, t_container *c);
+char						*h_expander(char *line, t_c *c);
 void						ft_add_arg(t_arg **head, t_arg *new);
-t_arg						*ft_new_arg(char *arg, t_lax flag, t_container *c);
+t_arg						*ft_new_arg(char *arg, t_lax flag, t_c *c);
 int							ft_args_size(t_arg *head);
-char						*ft_addchr(char *str, char chr, t_container *c);
-char						*ft_addstr(char *str, char *str2, t_container *c);
-char						**ft_expand_split(char *str, t_container *c, int i,
-								int j);
+char						*ft_addchr(char *str, char chr, t_c *c);
+char						*ft_addstr(char *str, char *str2, t_c *c);
+char						**ft_expand_split(char *str, t_c *c, int i, int j);
 int							ft_args_size_flag(t_arg *head);
-char						*get_pid_str(t_container *c);
-char						*remove_qoutes(char *arg, t_container *c);
+char						*get_pid_str(t_c *c);
+char						*remove_qoutes(char *arg, t_c *c);
 
 //************************************************************** */
 // exe
-void						exe_cmd(char **args, t_container *c);
+void						exe_cmd(char **args, t_c *c);
 void						exit_exe(t_env **ft_env, t_gc **gc, int err);
-int							exe_builtin(char **args, t_leaf *root,
-								t_container *c);
+int							exe_builtin(char **args, t_leaf *root, t_c *c);
 char						*get_path(char **args, t_env **ft_env, t_gc **gc);
 bool						is_builtin(char *str);
 char						**dp_env(t_env **ft_env, t_gc **gc);
@@ -394,49 +392,43 @@ char						*resolve_path(char **args, t_env **ft_env,
 								t_gc **gc);
 
 // redics
-bool						exec_redirec(t_tk *token, t_container *c);
-void						heredoc_ext(t_tk *token, char *path,
-								t_container *c);
-bool						ext_exe_redr(t_redic **curr, t_container *c,
-								t_tk *token);
-bool						in_files(t_tk *token, char *path, t_container *c);
-bool						out_files(t_tk *token, char *path, t_container *c);
-bool						append_files(t_tk *token, char *path,
-								t_container *c);
-bool						heredoc(t_tk *token, char *path, t_container *c);
+bool						exec_redirec(t_tk *token, t_c *c);
+void						heredoc_ext(t_tk *token, char *path, t_c *c);
+bool						ext_exe_redr(t_redic **curr, t_c *c, t_tk *token);
+bool						in_files(t_tk *token, char *path, t_c *c);
+bool						out_files(t_tk *token, char *path, t_c *c);
+bool						append_files(t_tk *token, char *path, t_c *c);
+bool						heredoc(t_tk *token, char *path, t_c *c);
 
 // exec part me
-int							execc(t_container *c);
+int							execc(t_c *c);
 
 // exe
-pid_t						child3(t_container *c, t_leaf **root, int *fd);
-void						pipe_err(char *str, t_container *c, int *fds);
-void						child2(t_container *c, t_leaf **root, int *fd);
-void						exe_pipe(t_leaf *tmp, char **args, t_container *c);
-void						pipe_handle(t_leaf **root, int *pip, t_container *c,
+pid_t						child3(t_c *c, t_leaf **root, int *fd);
+void						pipe_err(char *str, t_c *c, int *fds);
+void						child2(t_c *c, t_leaf **root, int *fd);
+void						exe_pipe(t_leaf *tmp, char **args, t_c *c);
+void						pipe_handle(t_leaf **root, int *pip, t_c *c,
 								int flag);
-bool						exe_cmd_hundler(t_leaf *node, t_container *c);
-void						pid_wait(t_container *c, pid_t pid);
-void						exevce_fail(char *path, t_container *c);
-void						exe_or(t_leaf **root, t_container *c);
-void						exe_and(t_leaf **root, t_container *c);
+bool						exe_cmd_hundler(t_leaf *node, t_c *c);
+void						pid_wait(t_c *c, pid_t pid);
+void						exevce_fail(char *path, t_c *c);
+void						exe_or(t_leaf **root, t_c *c);
+void						exe_and(t_leaf **root, t_c *c);
 void						close_redr(t_leaf **root);
-void						child3_helper(t_leaf *tmp, t_container *c,
-								int *p_fd);
-void						child2_helper(t_leaf *tmp, t_container *c,
-								int *p_fd, int *fds);
-void						child1_helper(t_leaf *tmp, t_container *c,
-								int *p_fd);
-int							exe_builtin_pipe(char **args, t_leaf *root,
-								t_container *c);
-void						close_heredoc(t_leaf **root, t_container *c);
-void						exec_heredoc(t_tk *token, t_container *c);
+void						child3_helper(t_leaf *tmp, t_c *c, int *p_fd);
+void						child2_helper(t_leaf *tmp, t_c *c, int *p_fd,
+								int *fds);
+void						child1_helper(t_leaf *tmp, t_c *c, int *p_fd);
+int							exe_builtin_pipe(char **args, t_leaf *root, t_c *c);
+void						close_heredoc(t_leaf **root, t_c *c);
+void						exec_heredoc(t_tk *token, t_c *c);
 void						check_iflast(t_tk *token);
 void						close_fds(t_leaf *tmp, int *fds, int *p_fd);
-void						redr_cmd_helper(t_leaf *tmp, t_container *c);
-void						child2_pipe(t_leaf *tmp, t_container *c, int *fds,
+void						redr_cmd_helper(t_leaf *tmp, t_c *c);
+void						child2_pipe(t_leaf *tmp, t_c *c, int *fds,
 								int *p_fd);
-void						cmd_no_args(t_leaf *tmp, t_container *c);
+void						cmd_no_args(t_leaf *tmp, t_c *c);
 void						path_check_pro(char **args);
 // signal
 
@@ -444,7 +436,7 @@ void						handler(int sig);
 int							set_status(int new_status, int flag);
 
 // subshell
-void						exe_subshell(t_leaf **root, t_container *c);
+void						exe_subshell(t_leaf **root, t_c *c);
 
 // wild cards
 
@@ -460,18 +452,17 @@ typedef struct s_wild_utils2
 	char					**split;
 	int						*i;
 	t_wild					**head;
-	t_container				*c;
+	t_c						*c;
 	struct dirent			*entry;
 }							t_wu;
 
 void						ft_add_wild(t_wild **head, t_wild *new);
-t_wild						*ft_new_wild(char *arg, t_container *c);
+t_wild						*ft_new_wild(char *arg, t_c *c);
 int							ft_wildsize(t_wild *head);
-char						**wildcards(char **args, t_container *c);
+char						**wildcards(char **args, t_c *c);
 void						recursive_wild(t_wu *wu);
 
-char						**ft_wild_split(char *str, t_container *c, int i,
-								int j);
+char						**ft_wild_split(char *str, t_c *c, int i, int j);
 bool						ismatch(char *s, char *p);
 bool						current_dir(char *line);
 int							is_dir(char *line);

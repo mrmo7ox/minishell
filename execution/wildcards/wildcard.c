@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:03:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:36:07 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:50:02 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char	*gen_dir(char **splited, int *i, int root, t_container *c)
+char	*gen_dir(char **splited, int *i, int root, t_c *c)
 {
 	char	*dir;
 
@@ -21,7 +21,7 @@ char	*gen_dir(char **splited, int *i, int root, t_container *c)
 		return (NULL);
 	while (splited[*i] && !ft_chrstr('*', splited[*i]))
 	{
-		if (root == 0)
+		if (root == 0 && !dir)
 		{
 			dir = ft_addchr(dir, '/', c);
 			root = 69;
@@ -37,7 +37,7 @@ char	*gen_dir(char **splited, int *i, int root, t_container *c)
 	return (dir);
 }
 
-void	expand_wildcards(char *arg, char *dir, t_wild **head, t_container *c)
+void	expand_wildcards(char *arg, char *dir, t_wild **head, t_c *c)
 {
 	t_wu	utils;
 	char	**splited;
@@ -55,7 +55,7 @@ void	expand_wildcards(char *arg, char *dir, t_wild **head, t_container *c)
 	{
 		splited = ft_wild_split(arg, c, 0, 0);
 		i = 0;
-		dir = ".";
+		dir = "./";
 	}
 	utils.dir = dir;
 	utils.split = splited;
@@ -66,7 +66,7 @@ void	expand_wildcards(char *arg, char *dir, t_wild **head, t_container *c)
 	recursive_wild(&utils);
 }
 
-char	**convert_array(t_wild **head, t_container *c)
+char	**convert_array(t_wild **head, t_c *c)
 {
 	char	**res;
 	t_wild	*tmp;
@@ -89,10 +89,11 @@ char	**convert_array(t_wild **head, t_container *c)
 	return (res);
 }
 
-char	**wildcards(char **args, t_container *c)
+char	**wildcards(char **args, t_c *c)
 {
 	t_wild	*head;
 	int		i;
+	int		size;
 
 	head = NULL;
 	i = 0;
@@ -100,7 +101,10 @@ char	**wildcards(char **args, t_container *c)
 	{
 		if (ft_chrstr('*', args[i]))
 		{
+			size = ft_wildsize(head);
 			expand_wildcards(args[i], ".", &head, c);
+			if (size == ft_wildsize(head))
+				ft_add_wild(&head, ft_new_wild(args[i], c));
 			i++;
 			continue ;
 		}

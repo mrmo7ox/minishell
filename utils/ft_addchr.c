@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 11:07:37 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/25 11:13:28 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char	*ft_addchr(char *str, char chr, t_container *c)
+char	*ft_addchr(char *str, char chr, t_c *c)
 {
 	size_t len = 0;
 	char *new_str;
