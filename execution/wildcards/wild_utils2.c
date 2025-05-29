@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:58:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:23:04 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:34:05 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,15 @@ void	recursive_wild(t_wu *wu)
 	if (!opened)
 		return ;
 	wu->entry = readdir(opened);
-	while ((wu->entry))
+	while (wu->entry)
 	{
-		if (current_dir(wu->entry->d_name))
-			continue ;
-		if (ft_chrstr('*', wu->split[*wu->i]))
-			handle_wildcard_match(wu);
-		else
-			handle_exact_match(wu);
+		if (!current_dir(wu->entry->d_name))
+		{
+			if (ft_chrstr('*', wu->split[*wu->i]))
+				handle_wildcard_match(wu);
+			else
+				handle_exact_match(wu);
+		}
 		wu->entry = readdir(opened);
 	}
 	closedir(opened);
