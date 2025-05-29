@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 11:49:11 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 17:18:05 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ int	main(int ac, char **av, char **env)
 	container.root = &root;
 	container.ft_env = &ft_env;
 	container.garbage = &gc;
-	container.pid = get_pid_str(&container);
 	minishell_init(&container, ac, av, env);
 	load_history();
 	while (true)
 	{
 		g_signal = SIGINT;
+		container.pid = get_pid_str(&container);
 		container.line = readline(prompt(&container));
 		if (!container.line)
 			ft_exit(NULL, container.ft_env, container.garbage,

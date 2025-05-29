@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:02:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 14:24:52 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 17:19:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	hd_helper(char *tmp, t_tk *token, int flag, t_container *c)
 	}
 	else if (flag == 2)
 	{
+		write(1, "\n", 1);
 		close_heredoc(c->root, c);
 		token->heredoc = -1;
 		g_signal = 169;
@@ -79,11 +80,6 @@ void	exec_heredoc(t_tk *token, t_container *c)
 		{
 			if (!heredoc(token, ft_strip('<', curr->content, c->garbage), c))
 				return ;
-			if (token->heredoc == -1)
-			{
-				close_heredoc(c->root, c);
-				break ;
-			}
 			if (curr->next == NULL)
 				token->is_last = 1;
 		}

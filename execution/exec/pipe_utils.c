@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 13:10:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 17:40:08 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,5 @@ void	cmd_no_args(t_leaf *tmp, t_container *c)
 	exec_redirec(tmp->token, c);
 	close_redr(&tmp);
 	close_heredoc(c->root, c);
-	if (set_status(0, 0) != 130)
-		set_status(0, -1);
+	set_status(0, -1);
 }

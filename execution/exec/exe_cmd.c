@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 12:42:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 18:09:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_path(char **args, char *path, t_env **ft_env, t_gc **gc)
 		else
 		{
 			ft_putstr_fd(args[0], 2);
-			ft_putstr_fd(" : command not found\n", 2);
+			path_check_pro(args);
 			exit_exe(ft_env, gc, 127);
 		}
 	}
@@ -105,11 +105,6 @@ void	exe_cmd(char **args, t_container *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
-	if (!args)
-	{
-		cmd_no_args(tmp, c);
-		return ;
-	}
 	exec_redirec(tmp->token, c);
 	if (is_builtin(args[0]))
 		set_status(exe_builtin(args, tmp, c), -1);
