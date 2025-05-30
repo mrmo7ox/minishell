@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:13:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:21:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ bool	append_files(t_tk *token, char *path, t_c *c)
 		return (true);
 }
 
-bool	exec_redirec(t_tk *token, t_container *c)
+bool	exec_redirec(t_tk *token, t_c *c)
 {
 	t_redic	*curr;
 

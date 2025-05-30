@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:13:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:21:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,24 @@ static void	minishell_init(t_c *c, int ac, char **av, char **env)
 	env_check_path(c->ft_env, 0);
 }
 
-void	loop(t_container *container)
+void	loop(t_c *c)
 {
 	while (true)
 	{
 		g_signal = SIGINT;
-		container->pid = get_pid_str(container);
-		container->line = readline("Minishell$>");
-		if (!container->line)
-			ft_exit(NULL, container->ft_env, container->garbage,
+		c->pid = get_pid_str(c);
+		c->line = readline("Minishell$>");
+		if (!c->line)
+			ft_exit(NULL, c->ft_env, c->garbage,
 				set_status(0, 0));
-		add_history(container->line);
+		add_history(c->line);
 		g_signal = 0;
-		ft_add_gc(container->garbage, ft_new_gc_node(container->line));
-		container->line = formating(container->line, container->garbage);
-		if (!container->line[0])
+		ft_add_gc(c->garbage, ft_new_gc_node(c->line));
+		c->line = formating(c->line, c->garbage);
+		if (!c->line[0])
 			continue ;
-		start(container->line, container);
-		free_garbage(container->garbage);
+		start(c->line, c);
+		free_garbage(c->garbage);
 	}
 }
 
@@ -73,10 +73,10 @@ int	main(int ac, char **av, char **env)
 	gc = NULL;
 	root = NULL;
 	ft_env = NULL;
-	container.root = &root;
-	container.ft_env = &ft_env;
-	container.garbage = &gc;
-	minishell_init(&container, ac, av, env);
-	loop(&container);
+	c.root = &root;
+	c.ft_env = &ft_env;
+	c.garbage = &gc;
+	minishell_init(&c, ac, av, env);
+	loop(&c);
 	return (0);
 }

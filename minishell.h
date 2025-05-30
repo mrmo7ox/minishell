@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/05/30 10:18:46 by ihamani          ###   ########.fr       */
-=======
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
->>>>>>> cfbfeffc3d2a90ffe4e60564d7ac366060c0cf23
+/*   Updated: 2025/05/30 11:24:20 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,6 +218,22 @@ typedef struct s_arg
 	struct s_arg			*prev;
 }							t_arg;
 
+typedef struct s_wild
+{
+	char					*arg;
+	struct s_wild			*next;
+	struct s_wild			*prev;
+}							t_wild;
+typedef struct s_wild_utils2
+{
+	char					*dir;
+	char					**split;
+	int						*i;
+	t_wild					**head;
+	t_c						*c;
+	struct dirent			*entry;
+}							t_wu;
+
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
 void						env_init(char **env, t_env **ft_env, t_gc **gc);
@@ -396,27 +408,17 @@ char						*resolve_path(char **args, t_env **ft_env,
 								t_gc **gc);
 
 // redics
-<<<<<<< HEAD
-bool						exec_redirec(t_tk *token, t_container *c);
-void						heredoc_ext(t_tk *token, char *path,
-								t_container *c);
-bool						ext_exe_redr(t_redic **curr, t_container *c,
-								t_tk *token);
-bool						in_files(t_tk *token, char *path, t_container *c);
-bool						out_files(t_tk *token, char *path, t_container *c);
-bool						append_files(t_tk *token, char *path,
-								t_container *c);
-bool						heredoc(t_tk *token, char *path, t_container *c);
-bool						check_redr_file(char *str);
-=======
 bool						exec_redirec(t_tk *token, t_c *c);
-void						heredoc_ext(t_tk *token, char *path, t_c *c);
-bool						ext_exe_redr(t_redic **curr, t_c *c, t_tk *token);
+void						heredoc_ext(t_tk *token, char *path,
+								t_c *c);
+bool						ext_exe_redr(t_redic **curr, t_c *c,
+								t_tk *token);
 bool						in_files(t_tk *token, char *path, t_c *c);
 bool						out_files(t_tk *token, char *path, t_c *c);
-bool						append_files(t_tk *token, char *path, t_c *c);
+bool						append_files(t_tk *token, char *path,
+								t_c *c);
 bool						heredoc(t_tk *token, char *path, t_c *c);
->>>>>>> cfbfeffc3d2a90ffe4e60564d7ac366060c0cf23
+bool						check_redr_file(char *str);
 
 // exec part me
 int							execc(t_c *c);
@@ -428,9 +430,9 @@ void						child2(t_c *c, t_leaf **root, int *fd);
 void						exe_pipe(t_leaf *tmp, char **args, t_c *c);
 void						pipe_handle(t_leaf **root, int *pip, t_c *c,
 								int flag);
-bool						exe_cmd_hundler(t_leaf *node, t_container *c);
-void						pid_wait(t_container *c, pid_t pid);
-void						exevce_fail(char *path, t_container *c);
+bool						exe_cmd_hundler(t_leaf *node, t_c *c);
+void						pid_wait(t_c *c, pid_t pid);
+void						exevce_fail(char *path, t_c *c);
 void						close_redr(t_leaf **root);
 void						child3_helper(t_leaf *tmp, t_c *c, int *p_fd);
 void						child2_helper(t_leaf *tmp, t_c *c, int *p_fd,
@@ -452,26 +454,7 @@ void						init_pwd(t_env **ft_env);
 void						handler(int sig);
 int							set_status(int new_status, int flag);
 
-// subshell
-void						exe_subshell(t_leaf **root, t_c *c);
-
 // wild cards
-
-typedef struct s_wild
-{
-	char					*arg;
-	struct s_wild			*next;
-	struct s_wild			*prev;
-}							t_wild;
-typedef struct s_wild_utils2
-{
-	char					*dir;
-	char					**split;
-	int						*i;
-	t_wild					**head;
-	t_c						*c;
-	struct dirent			*entry;
-}							t_wu;
 
 void						ft_add_wild(t_wild **head, t_wild *new);
 t_wild						*ft_new_wild(char *arg, t_c *c);
