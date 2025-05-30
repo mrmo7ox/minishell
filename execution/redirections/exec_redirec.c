@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:05:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:13:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char	**gen_arry(char *line, t_container *c)
+char	**gen_arry(char *line, t_c *c)
 {
 	char	**new;
 
@@ -22,7 +22,7 @@ char	**gen_arry(char *line, t_container *c)
 	return (new);
 }
 
-bool	in_files(t_tk *token, char *path, t_container *c)
+bool	in_files(t_tk *token, char *path, t_c *c)
 {
 	char	**tmp;
 
@@ -51,7 +51,7 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 		return (true);
 }
 
-bool	out_files(t_tk *token, char *path, t_container *c)
+bool	out_files(t_tk *token, char *path, t_c *c)
 {
 	char	**tmp;
 
@@ -78,7 +78,7 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 		return (true);
 }
 
-bool	append_files(t_tk *token, char *path, t_container *c)
+bool	append_files(t_tk *token, char *path, t_c *c)
 {
 	char	**tmp;
 

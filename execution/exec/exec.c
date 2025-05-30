@@ -6,31 +6,26 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 10:13:11 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 09:29:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:13:55 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-bool	exe_cmd_hundler(t_leaf *node, t_container *c)
+bool	exe_cmd_hundler(t_leaf *node, t_c *c)
 {
 	char	**args;
-	int		i;
 
-	i = 0;
 	args = NULL;
 	args = ft_args_split(node->token->token, c->garbage, 0, 0);
 	args = expander(args, c);
-	if (!args)
-	{
-		cmd_no_args(node, c);
-		return (true);
-	}
+	args = wildcards(args, c);
+	
 	exe_cmd(args, c);
 	return (true);
 }
 
-void	run_heredoc(t_leaf **root, t_container *c)
+void	run_heredoc(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -45,7 +40,7 @@ void	run_heredoc(t_leaf **root, t_container *c)
 		exec_heredoc(tmp->token, c);
 }
 
-void	close_heredoc(t_leaf **root, t_container *c)
+void	close_heredoc(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -66,7 +61,7 @@ void	close_heredoc(t_leaf **root, t_container *c)
 	}
 }
 
-void	init_heredoc(t_leaf **root, t_container *c)
+void	init_heredoc(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -81,7 +76,41 @@ void	init_heredoc(t_leaf **root, t_container *c)
 		tmp->token->heredoc = 0;
 }
 
+<<<<<<< HEAD
 int	execc(t_container *c)
+=======
+// void	print_node(t_leaf *node, char *l)
+// {
+// 	if (!node || !node->token)
+// 		return ;
+// 	printf("[%s]", l);
+// 	if (node->type == AND)
+// 		printf("Operator: &&, %d\n,", node->token->subshell);
+// 	else if (node->type == OR)
+// 		printf("Operator: ||\n");
+// 	else if (node->type == PIPE)
+// 		printf("Operator: |\n");
+// 	else
+// 		printf("Command: %s\n", node->token->token);
+// }
+
+// void print_ast(t_leaf *root, char *l, int depth)
+// {
+// 	if (!root)
+// 		return ;
+
+// 	for (int i = 0; i < depth; i++)
+// 		printf("  ");
+
+// 	print_node(root, l);
+
+// 	print_ast(root->left, "left", depth + 1);
+// 	print_ast(root->right, "right", depth + 1);
+
+// }
+
+int	execc(t_c *c)
+>>>>>>> cfbfeffc3d2a90ffe4e60564d7ac366060c0cf23
 {
 	t_leaf	*node;
 	t_leaf	**root;

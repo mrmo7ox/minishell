@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 11:26:30 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 20:18:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char	*ft_addstr(char *str, char *str2, t_container *c)
+char	*ft_addstr(char *str, char *str2, t_c *c)
 {
 	size_t	len1;
 	size_t	len2;

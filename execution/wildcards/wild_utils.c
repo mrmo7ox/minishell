@@ -1,55 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getpid.c                                        :+:      :+:    :+:   */
+/*   wild_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/26 19:56:02 by moel-oua          #+#    #+#             */
+/*   Created: 2025/05/29 19:21:45 by moel-oua          #+#    #+#             */
 /*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../../minishell.h"
 
-static char	*helper(t_c *c, int fd)
+void	ft_add_wild(t_wild **head, t_wild *new)
 {
-	char	*str;
-	char	*buff;
+	t_wild	*last;
 
-	str = NULL;
-	buff = ft_malloc((2 * sizeof(char)), c->garbage);
-	if (read(fd, buff, 1) == -1)
+	if (!(head) || !new)
+		return ;
+	if (!(*head))
 	{
-		perror("ft_getpid");
-		return (NULL);
+		(*head) = new;
+		new->prev = NULL;
+		return ;
 	}
-	buff[1] = '\0';
-	while (buff[0] != ' ')
-	{
-		str = ft_strjoin(str, buff, c->garbage);
-		if (read(fd, buff, 1) == -1)
-		{
-			perror("ft_getpid");
-			return (NULL);
-		}
-		buff[1] = '\0';
-	}
-	close(fd);
-	return (str);
+	last = *head;
+	while (last->next)
+		last = last->next;
+	last->next = new;
+	new->prev = last;
 }
 
-char	*get_pid_str(t_c *c)
+t_wild	*ft_new_wild(char *arg, t_c *c)
 {
-	int		fd;
-	char	*str;
-	char	*buff;
+	t_wild	*node;
 
-	fd = open("/proc/self/stat", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("ft_getpid");
+	node = ft_malloc(sizeof(t_wild), c->garbage);
+	if (!node)
 		return (NULL);
+	node->arg = arg;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
+}
+
+int	ft_wildsize(t_wild *head)
+{
+	int	i;
+
+	if (!head)
+		return (0);
+	i = 0;
+	while (head)
+	{
+		i++;
+		head = head->next;
 	}
-	return (helper(c, fd));
+	return (i);
 }

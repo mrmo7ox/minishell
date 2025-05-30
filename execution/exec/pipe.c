@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/28 10:17:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
+void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
 {
 	char	**env;
 	char	*path;
@@ -34,13 +34,11 @@ void	exe_pipe(t_leaf *tmp, char **args, t_container *c)
 	}
 }
 
-static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
+static void	ext_child1(int *p_fd, t_leaf **root, t_c *c, int *fds)
 {
 	char	**args;
 	t_leaf	*tmp;
-	int		i;
 
-	i = 0;
 	tmp = *root;
 	if (!tmp->token->token)
 	{
@@ -60,7 +58,7 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	exe_pipe(tmp, args, c);
 }
 
-static void	child1(t_container *c, t_leaf **root, int *fds)
+static void	child1(t_c *c, t_leaf **root, int *fds)
 {
 	int		p_fd[2];
 	pid_t	pid;
@@ -79,7 +77,7 @@ static void	child1(t_container *c, t_leaf **root, int *fds)
 	}
 }
 
-static void	ext_pipe(t_leaf *node, int *fds, t_container *c, int flag)
+static void	ext_pipe(t_leaf *node, int *fds, t_c *c, int flag)
 {
 	pid_t	last;
 
@@ -95,7 +93,7 @@ static void	ext_pipe(t_leaf *node, int *fds, t_container *c, int flag)
 		pid_wait(c, last);
 }
 
-void	pipe_handle(t_leaf **root, int *fds, t_container *c, int flag)
+void	pipe_handle(t_leaf **root, int *fds, t_c *c, int flag)
 {
 	t_leaf	*node;
 

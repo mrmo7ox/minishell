@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_expand.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 14:43:50 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 12:46:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ char	*expand_only(char *line, t_list *utils, t_gc **garbage)
 	return (new);
 }
 
-char	*h_expander(char *line, t_container *c)
+char	*h_expander(char *line, t_c *c)
 {
 	t_list		u;
 	char		*new;

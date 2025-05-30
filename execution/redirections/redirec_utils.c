@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 09:48:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:13:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	exit_heredoc(t_tk *token, t_container *c, int status)
+static void	exit_heredoc(t_tk *token, t_c *c, int status)
 {
 	if (status && g_signal != 169)
 		perror("write");
@@ -22,7 +22,7 @@ static void	exit_heredoc(t_tk *token, t_container *c, int status)
 	exit(status);
 }
 
-static void	heredoc_eof(t_tk *token, t_container *c)
+static void	heredoc_eof(t_tk *token, t_c *c)
 {
 	if (g_signal != 169)
 	{
@@ -34,7 +34,7 @@ static void	heredoc_eof(t_tk *token, t_container *c)
 		exit_heredoc(token, c, 130);
 }
 
-void	heredoc_ext(t_tk *token, char *path, t_container *c)
+void	heredoc_ext(t_tk *token, char *path, t_c *c)
 {
 	bool	qoutes;
 	char	*line;
@@ -63,7 +63,7 @@ void	heredoc_ext(t_tk *token, char *path, t_container *c)
 	exit_heredoc(token, c, 0);
 }
 
-bool	ext_exe_redr(t_redic **curr, t_container *c, t_tk *token)
+bool	ext_exe_redr(t_redic **curr, t_c *c, t_tk *token)
 {
 	t_redic	*tmp;
 

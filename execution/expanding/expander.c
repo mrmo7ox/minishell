@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 17:44:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,10 +136,9 @@ void	convert(t_arg **args, char **new)
 	}
 	new[i] = NULL;
 }
-char	**convert_flag(t_arg **args, t_container *c)
+char	**convert_flag(t_arg **args, t_c *c)
 {
 	t_arg	*tmp;
-	t_arg	*to_free;
 	char	*line;
 	int		i;
 	char	**new;
@@ -158,7 +157,6 @@ char	**convert_flag(t_arg **args, t_container *c)
 			tmp->prev->next = tmp->next;
 			if (tmp->next)
 				tmp->next->prev = tmp->prev;
-			to_free = tmp;
 			tmp = tmp->prev;
 		}
 		tmp = tmp->next;
@@ -171,7 +169,6 @@ char	**convert_flag(t_arg **args, t_container *c)
 			line = ft_addstr(tmp->arg, tmp->next->arg, c);
 			tmp->arg = line;
 			tmp->flag = NORMAL;
-			to_free = tmp->next;
 			tmp->next = tmp->next->next;
 			if (tmp->next)
 				tmp->next->prev = tmp;
@@ -225,7 +222,7 @@ bool	has_dollar(char *arg)
 	}
 	return (false);
 }
-char	*remove_qoutes(char *arg, t_container *c)
+char	*remove_qoutes(char *arg, t_c *c)
 {
 	char	*new;
 	int		i;
@@ -253,7 +250,7 @@ char	*remove_qoutes(char *arg, t_container *c)
 	}
 	return (new);
 }
-char	*expand(char *arg, char *next, t_container *c)
+char	*expand(char *arg, char *next, t_c *c)
 {
 	char	*new;
 	int		i;
@@ -308,7 +305,7 @@ char	*expand(char *arg, char *next, t_container *c)
 	return (new);
 }
 
-t_list	*init_list(char *arg, t_container *c)
+t_list	*init_list(char *arg, t_c *c)
 {
 	t_list		*u;
 	t_expand	*dollars;
@@ -327,7 +324,7 @@ t_list	*init_list(char *arg, t_container *c)
 	return (u);
 }
 
-char	**hundler(char **args, t_container *c)
+char	**hundler(char **args, t_c *c)
 {
 	t_arg		*min_head;
 	int			i;
@@ -342,7 +339,6 @@ char	**hundler(char **args, t_container *c)
 	char		*line;
 	int			k;
 	char		*cut;
-	t_lax		flag;
 	t_arg		*tmp;
 	char		*next;
 	char		*pid;
@@ -355,11 +351,9 @@ char	**hundler(char **args, t_container *c)
 	min_head = NULL;
 	while (args[i])
 	{
-		flag = NORMAL;
 		if (has_qoute(args[i]) && !has_dollar(args[i]))
 		{
 			args[i] = remove_qoutes(args[i], c);
-			flag = true;
 		}
 		else if (!has_qoute(args[i]) && has_dollar(args[i]))
 		{
@@ -466,7 +460,7 @@ char	**hundler(char **args, t_container *c)
 	return (new);
 }
 
-char	**expander(char **args, t_container *c)
+char	**expander(char **args, t_c *c)
 {
 	int		i;
 	char	**new;

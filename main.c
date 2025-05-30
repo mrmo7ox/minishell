@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:01:48 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:13:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	g_signal = 0;
 
-void	start(char *line, t_container *container)
+void	start(char *line, t_c *c)
 {
 	if (syntax_error(line))
 	{
-		if (tokenizer(container->root, container->garbage, line))
+		if (tokenizer(c->root, c->garbage, line))
 		{
-			execc(container);
-			close_heredoc(container->root, container);
+			execc(c);
+			close_heredoc(c->root, c);
 		}
 	}
 }
 
-static void	minishell_init(t_container *container, int ac, char **av,
-		char **env)
+static void	minishell_init(t_c *c, int ac, char **av, char **env)
 {
 	if (ac > 1)
 	{
@@ -38,9 +37,9 @@ static void	minishell_init(t_container *container, int ac, char **av,
 	if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
 		exit(1);
 	signal(SIGINT, handler);
-	container->status = 0;
-	env_init(env, container->ft_env, container->garbage);
-	env_check_path(container->ft_env, 0);
+	c->status = 0;
+	env_init(env, c->ft_env, c->garbage);
+	env_check_path(c->ft_env, 0);
 }
 
 void	loop(t_container *container)
@@ -66,10 +65,10 @@ void	loop(t_container *container)
 
 int	main(int ac, char **av, char **env)
 {
-	t_container	container;
-	t_gc		*gc;
-	t_leaf		*root;
-	t_env		*ft_env;
+	t_c		c;
+	t_gc	*gc;
+	t_leaf	*root;
+	t_env	*ft_env;
 
 	gc = NULL;
 	root = NULL;

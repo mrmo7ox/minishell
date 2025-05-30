@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:07:16 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:14:03 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 	return (path);
 }
 
-static void	child(char **args, t_container *c)
+static void	child(char **args, t_c *c)
 {
 	char	**env;
 	char	*path;
@@ -99,7 +99,7 @@ static void	child(char **args, t_container *c)
 		exevce_fail(path, c);
 }
 
-void	exe_cmd(char **args, t_container *c)
+void	exe_cmd(char **args, t_c *c)
 {
 	pid_t	pid;
 	t_leaf	*tmp;

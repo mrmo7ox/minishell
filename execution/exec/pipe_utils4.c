@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils4.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 18:09:36 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	exe_builtin_pipe(char **args, t_leaf *root, t_container *c)
+int	exe_builtin_pipe(char **args, t_leaf *root, t_c *c)
 {
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, 0, c->ft_env));
@@ -46,13 +46,13 @@ void	close_fds(t_leaf *tmp, int *fds, int *p_fd)
 	close_redr(&tmp);
 }
 
-void	redr_cmd_helper(t_leaf *tmp, t_container *c)
+void	redr_cmd_helper(t_leaf *tmp, t_c *c)
 {
 	close_redr(&tmp);
 	exit_exe(c->ft_env, c->garbage, set_status(0, 0));
 }
 
-void	child2_pipe(t_leaf *tmp, t_container *c, int *fds, int *p_fd)
+void	child2_pipe(t_leaf *tmp, t_c *c, int *fds, int *p_fd)
 {
 	if (dup2(p_fd[1], 1) == -1)
 	{

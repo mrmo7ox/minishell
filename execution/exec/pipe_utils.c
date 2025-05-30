@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:07:47 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:13:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
+static void	ext_child2(int *p_fd, t_leaf **root, t_c *c, int *fds)
 {
 	char	**args;
 	t_leaf	*tmp;
@@ -36,7 +36,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_container *c, int *fds)
 	exe_pipe(tmp, args, c);
 }
 
-void	child2(t_container *c, t_leaf **root, int *fds)
+void	child2(t_c *c, t_leaf **root, int *fds)
 {
 	int		p_fd[2];
 	pid_t	pid;
@@ -61,13 +61,11 @@ void	child2(t_container *c, t_leaf **root, int *fds)
 	}
 }
 
-static void	ext_child3(t_leaf **root, t_container *c, int *fds)
+static void	ext_child3(t_leaf **root, t_c *c, int *fds)
 {
 	char	**args;
-	int		i;
 	t_leaf	*tmp;
 
-	i = 0;
 	tmp = *root;
 	if (!tmp->token->token)
 	{
@@ -87,7 +85,7 @@ static void	ext_child3(t_leaf **root, t_container *c, int *fds)
 	exe_pipe(tmp, args, c);
 }
 
-pid_t	child3(t_container *c, t_leaf **root, int *fds)
+pid_t	child3(t_c *c, t_leaf **root, int *fds)
 {
 	pid_t	pid;
 
@@ -105,7 +103,7 @@ pid_t	child3(t_container *c, t_leaf **root, int *fds)
 	return (pid);
 }
 
-void	cmd_no_args(t_leaf *tmp, t_container *c)
+void	cmd_no_args(t_leaf *tmp, t_c *c)
 {
 	exec_redirec(tmp->token, c);
 	close_redr(&tmp);
