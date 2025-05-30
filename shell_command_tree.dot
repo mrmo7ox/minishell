@@ -1,0 +1,24 @@
+// Shell Command Tree
+digraph {
+	0 [label="|| (root)"]
+	1 [label="0 (left)"]
+	0 -> 1
+	2 [label="&& (right)"]
+	0 -> 2
+	3 [label="|| (left)"]
+	2 -> 3
+	4 [label="|| (right)"]
+	3 -> 4
+	5 [label="&& (left)"]
+	4 -> 5
+	6 [label="2 (left)"]
+	5 -> 6
+	7 [label="4 (right)"]
+	4 -> 7
+	8 [label="| (right)"]
+	2 -> 8
+	9 [label="4 (left)"]
+	8 -> 9
+	10 [label="5 (right)"]
+	8 -> 10
+}

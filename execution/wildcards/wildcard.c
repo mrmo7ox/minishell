@@ -6,12 +6,22 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:03:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:50:02 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:35:08 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
+bool	hardcode_case(char **splited, int *i, char **dir, t_c *c)
+{
+	if (!ft_strcmp("/", splited[*i]))
+	{
+		*dir = ft_strjoin(*dir, splited[*i], c->garbage);
+		(*i)++;
+		return (true);
+	}
+	return (false);
+}
 char	*gen_dir(char **splited, int *i, int root, t_c *c)
 {
 	char	*dir;
@@ -21,6 +31,8 @@ char	*gen_dir(char **splited, int *i, int root, t_c *c)
 		return (NULL);
 	while (splited[*i] && !ft_chrstr('*', splited[*i]))
 	{
+		if (hardcode_case(splited, i, &dir, c))
+			continue ;
 		if (root == 0 && !dir)
 		{
 			dir = ft_addchr(dir, '/', c);

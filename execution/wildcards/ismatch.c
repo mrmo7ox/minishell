@@ -6,29 +6,26 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:58:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:24:06 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:37:13 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	match_or_backtrack(char *s, char *p, int *i, int *j)
+bool	handle_wildcard(char *s, char *p, int *i, int *j, int *star_i,
+		int *star_j)
 {
-	static int	najma_index = -1;
-	static int	matchindex = -1;
-
 	if (p[*j] == '*')
 	{
-		najma_index = *j;
-		matchindex = *i;
+		*star_j = *j;
 		(*j)++;
+		*star_i = *i;
 		return (true);
 	}
-	else if (najma_index != -1)
+	else if (*star_j != -1)
 	{
-		*j = najma_index + 1;
-		*i = matchindex + 1;
-		matchindex = *i;
+		*j = *star_j + 1;
+		*i = ++(*star_i);
 		return (true);
 	}
 	return (false);
@@ -38,9 +35,13 @@ bool	ismatch(char *s, char *p)
 {
 	int	i;
 	int	j;
+	int	star_i;
+	int	star_j;
 
 	i = 0;
 	j = 0;
+	star_i = -1;
+	star_j = -1;
 	while (s[i])
 	{
 		if (p[j] == s[i])
@@ -48,8 +49,10 @@ bool	ismatch(char *s, char *p)
 			i++;
 			j++;
 		}
-		else if (!match_or_backtrack(s, p, &i, &j))
+		else if (!handle_wildcard(s, p, &i, &j, &star_i, &star_j))
+		{
 			return (false);
+		}
 	}
 	while (p[j] == '*')
 		j++;

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 11:09:02 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,5 +466,7 @@ char						**ft_wild_split(char *str, t_c *c, int i, int j);
 bool						ismatch(char *s, char *p);
 bool						current_dir(char *line);
 int							is_dir(char *line);
+// print tree
+void						print_tree(t_leaf *root);
 
 #endif

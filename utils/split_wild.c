@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 14:41:41 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:20:05 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static int	strlen_mod(char *str, char c)
 	words = 0;
 	while (str[i] != '\0')
 	{
+		if (i == 0 && str[i] == '/')
+		{
+			words++;
+			i++;
+		}
 		while (str[i] == c && str[i] != '\0')
 			i++;
 		if (str[i] != c && str[i] != '\0')
@@ -57,11 +62,19 @@ char	**ft_wild_split(char *str, t_c *c, int i, int j)
 	words = 0;
 	while (str[i])
 	{
-		while (str[i] && str[i] == '/')
+		if (i == 0 && str[i] == '/')
+		{
+			j = i;
 			i++;
-		j = i;
-		while (str[i] && str[i] != '/')
-			i++;
+		}
+		else
+		{
+			while (str[i] && str[i] == '/')
+				i++;
+			j = i;
+			while (str[i] && str[i] != '/')
+				i++;
+		}
 		if (i > j)
 		{
 			res[words] = ft_malloc(sizeof(char) * ((i - j) + 1), c->garbage);

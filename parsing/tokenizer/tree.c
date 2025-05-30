@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   tree.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 16:41:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 16:51:26 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-t_leaf *new_leaf(t_tk *token, t_type type, t_gc **garbage)
+t_leaf	*new_leaf(t_tk *token, t_type type, t_gc **garbage)
 {
-	t_leaf *new;
+	t_leaf	*new;
 
 	new = ft_malloc(sizeof(t_leaf), garbage);
 	if (!new)
@@ -26,7 +26,7 @@ t_leaf *new_leaf(t_tk *token, t_type type, t_gc **garbage)
 	return (new);
 }
 
-int get_precedence(t_type type)
+int	get_precedence(t_type type)
 {
 	if (type == OR)
 		return (1);
@@ -36,38 +36,74 @@ int get_precedence(t_type type)
 		return (3);
 	return (4);
 }
-
-void insert_node(t_leaf **root, t_tk *token, t_gc **garbage)
+void	insert_node(t_leaf **root, t_leaf *new_node)
 {
-	t_leaf *new;
-	t_leaf *curr;
+	t_leaf	*curr;
 
-	new = new_leaf(token, token->type, garbage);
 	if (!*root)
 	{
-		*root = new;
-		return;
+		*root = new_node;
+		return ;
 	}
-	if (get_precedence(token->type) < get_precedence((*root)->type))
+	if (get_precedence(new_node->type) > get_precedence((*root)->type)
+		|| new_node->token->subshell != (*root)->token->subshell)
 	{
-		new->left = *root;
-		*root = new;
+		curr = *root;
+		while (curr->right
+			&& get_precedence(new_node->type) > get_precedence(curr->right->type)
+			&& new_node->token->subshell == curr->right->token->subshell)
+		{
+			curr = curr->right;
+		}
+		new_node->left = curr->right;
+		curr->right = new_node;
 	}
 	else
 	{
-		curr = *root;
-		while (curr->right && get_precedence(token->type) >= get_precedence(curr->right->type))
-			curr = curr->right;
-		new->left = curr->right;
-		curr->right = new;
+		new_node->left = *root;
+		*root = new_node;
 	}
 }
-t_tk *reverse_tokens(t_tk *head)
-{
-	t_tk *prev = NULL;
-	t_tk *curr = head;
-	t_tk *next;
 
+t_leaf	*build_ast_for_subshell(t_tk **tokens, int current_subshell,
+		t_gc **garbage)
+{
+	t_leaf	*root;
+	t_leaf	*subtree;
+
+	root = NULL;
+	while (*tokens)
+	{
+		if ((*tokens)->subshell < current_subshell)
+			break ;
+		if ((*tokens)->subshell > current_subshell)
+		{
+			subtree = build_ast_for_subshell(tokens, (*tokens)->subshell,
+					garbage);
+			if (!subtree)
+				return (NULL);
+			insert_node(&root, subtree);
+		}
+		else
+		{
+			subtree = new_leaf(*tokens, (*tokens)->type, garbage);
+			if (!subtree)
+				return (NULL);
+			insert_node(&root, subtree);
+			*tokens = (*tokens)->next;
+		}
+	}
+	return (root);
+}
+
+t_tk	*reverse_tokens(t_tk *head)
+{
+	t_tk	*prev;
+	t_tk	*curr;
+	t_tk	*next;
+
+	prev = NULL;
+	curr = head;
 	while (curr)
 	{
 		next = curr->next;
@@ -75,19 +111,14 @@ t_tk *reverse_tokens(t_tk *head)
 		prev = curr;
 		curr = next;
 	}
-	return prev;
+	return (prev);
 }
 
-t_leaf *build_ast(t_tk *tokens, t_gc **garbage)
+t_leaf	*build_ast(t_tk *tokens, t_gc **garbage)
 {
-	t_leaf *root;
+	t_leaf	*root;
 
 	root = NULL;
-	tokens = reverse_tokens(tokens);
-	while (tokens)
-	{
-		insert_node(&root, tokens, garbage);
-		tokens = tokens->next;
-	}
+	root = build_ast_for_subshell(&tokens, 0, garbage);
 	return (root);
 }
