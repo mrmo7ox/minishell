@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:42:51 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 15:34:17 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,13 @@ char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 {
 	char	*path;
 
-	if (ft_chrstr('/', args[0]) || !args[0][0])
+	if (!strcmp(args[0], ".."))
+	{
+		ft_putstr_fd(args[0], 2);
+		ft_putstr_fd(": Command not found\n", 2);
+		exit_exe(ft_env, gc, 127);
+	}
+	if (ft_chrstr('/', args[0]) || ft_chrstr('.', args[0]) || !args[0][0])
 	{
 		path = ft_strdup(args[0], gc);
 		check_path(args, path, ft_env, gc);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wildcard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:03:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:50:02 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:33:10 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ char	**wildcards(char **args, t_c *c)
 
 	head = NULL;
 	i = 0;
+	if (!args)
+		return (args);
 	while (args[i])
 	{
 		if (ft_chrstr('*', args[i]))

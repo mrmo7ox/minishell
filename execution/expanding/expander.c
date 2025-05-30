@@ -3,119 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:13:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
-
-static bool	cases(char *holder, t_dollar mode, int i)
-{
-	if ((!ft_strcmp(holder, "'") || !ft_strcmp(holder, "\""))
-				&& mode == INSIDED)
-	{
-		return (true);
-	}
-	else
-	{
-		return (false);
-	}
-}
-
-static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
-{
-	t_size	u;
-
-	u.i = 0;
-	u.new_size = 0;
-	while (line[u.i])
-	{
-		u.start_end = is_index_on_dollar(utils->expand, u.i);
-		if (u.start_end && (is_dollar_in_quotes(utils->qoutes, u.i) == OUTSIDE
-				|| is_dollar_in_quotes(utils->qoutes, u.i) == INSIDED))
-		{
-			u.len = u.start_end->end - u.start_end->start + 1;
-			u.holder = ft_substr(line, u.start_end->start + 1, u.len - 1,
-					garbage);
-			if (cases(u.holder, is_dollar_in_quotes(utils->qoutes, u.i), u.i))
-			{
-				u.new_size++, u.i++;
-				continue ;
-			}
-			if (!ft_strcmp(u.holder, "?"))
-				u.temp = ft_itoa(utils->status, garbage);
-			else
-				u.temp = ft_getenv(u.holder, utils->env);
-			if (u.temp)
-				u.new_size += ft_strlen(u.temp);
-			u.i += u.len;
-		}
-		else if (!is_im_quotes(utils->qoutes, u.i))
-			u.new_size++, u.i++;
-		else
-			u.i++;
-	}
-	return (u.new_size);
-}
-
-static void	fill_new_string(char *line, char *new, t_list *utils,
-		t_gc **garbage)
-{
-	t_new	s;
-
-	s.i = 0;
-	s.pos = 0;
-	while (line[s.i])
-	{
-		s.start_end = is_index_on_dollar(utils->expand, s.i);
-		if (s.start_end && (is_dollar_in_quotes(utils->qoutes, s.i) == OUTSIDE
-				|| is_dollar_in_quotes(utils->qoutes, s.i) == INSIDED))
-		{
-			s.len = s.start_end->end - s.start_end->start + 1;
-			s.holder = ft_substr(line, s.start_end->start + 1, s.len - 1,
-					garbage);
-			if (cases(s.holder, is_dollar_in_quotes(utils->qoutes, s.i), s.i))
-			{
-				new[s.pos++] = line[s.i++];
-				continue ;
-			}
-			if (!ft_strcmp(s.holder, "?"))
-				s.temp = ft_itoa(utils->status, garbage);
-			else
-				s.temp = ft_getenv(s.holder, utils->env);
-			if (s.temp)
-			{
-				ft_strcpy(new + s.pos, s.temp);
-				s.pos += ft_strlen(s.temp);
-			}
-			s.i += s.len;
-		}
-		else if (!is_im_quotes(utils->qoutes, s.i))
-			new[s.pos++] = line[s.i++];
-		else
-			s.i++;
-	}
-	new[s.pos] = '\0';
-}
-
-char	*remove_quotes_and_expand(char *line, t_list *utils, t_gc **garbage)
-{
-	char	*new;
-	size_t	new_size;
-
-	if (!line || !utils || !garbage)
-		return (NULL);
-	new_size = calculate_new_size(line, utils, garbage);
-	new = ft_malloc(new_size + 1, garbage);
-	if (!new)
-		return (NULL);
-	new[0] = '\0';
-	fill_new_string(line, new, utils, garbage);
-	return (new);
-}
 
 // ne wcode
 
@@ -228,7 +123,7 @@ char	*remove_qoutes(char *arg, t_c *c)
 	int		i;
 	char	qoute;
 
-	new = NULL;
+	new = ft_strdup("", c->garbage);
 	i = 0;
 	while (arg[i])
 	{
@@ -257,8 +152,9 @@ char	*expand(char *arg, char *next, t_c *c)
 	int		j;
 	char	*cut;
 	char	*pid;
+	char	*txpandat;
 
-	new = NULL;
+	new = ft_strdup("", c->garbage);
 	i = 0;
 	if (!ft_strcmp("$", arg) && next && has_qoute(next))
 		return (new);
@@ -293,8 +189,13 @@ char	*expand(char *arg, char *next, t_c *c)
 			}
 			else
 			{
-				new = ft_addstr(new, ft_getenv(ft_strip('$', cut, c->garbage),
-							c->ft_env), c);
+				printf("439 [%s]\n", cut);
+				txpandat = ft_getenv(ft_strip('$', cut, c->garbage), c->ft_env);
+				if (txpandat)
+				{
+					printf("302 ======[TEST]======\n");
+					new = ft_addstr(new, txpandat, c);
+				}
 			}
 			i = j;
 			continue ;
@@ -342,6 +243,7 @@ char	**hundler(char **args, t_c *c)
 	t_arg		*tmp;
 	char		*next;
 	char		*pid;
+	char		*txpandat;
 
 	new_args = NULL;
 	new = NULL;
@@ -433,8 +335,14 @@ char	**hundler(char **args, t_c *c)
 						}
 						else
 						{
-							line = ft_addstr(line, ft_getenv(ft_strip('$', cut,
-											c->garbage), c->ft_env), c);
+							printf("439 [%s]\n", cut);
+							txpandat = ft_getenv(ft_strip('$', cut, c->garbage),
+									c->ft_env);
+							if (txpandat)
+							{
+								printf("======[TEST]======\n");
+								line = ft_addstr(line, txpandat, c);
+							}
 						}
 						j = k;
 						continue ;
@@ -495,10 +403,6 @@ char	**expander(char **args, t_c *c)
 		else if (has_qoute(args[i]) && has_dollar(args[i]))
 		{
 			splited = ft_expand_split(args[i], c, 0, 0);
-			// for (int k = 0; splited[k]; k++)
-			// {
-			// 	printf("[%s]\n", splited[k]);
-			// }
 			splited = hundler(splited, c);
 			if (!splited)
 			{
