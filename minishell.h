@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:24:20 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:44:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -453,6 +453,8 @@ void						init_pwd(t_env **ft_env);
 
 void						handler(int sig);
 int							set_status(int new_status, int flag);
+void						handle_signal_exe(int status);
+void						handle_signal_pip(int tmp, int status);
 
 // wild cards
 
@@ -461,7 +463,6 @@ t_wild						*ft_new_wild(char *arg, t_c *c);
 int							ft_wildsize(t_wild *head);
 char						**wildcards(char **args, t_c *c);
 void						recursive_wild(t_wu *wu);
-
 char						**ft_wild_split(char *str, t_c *c, int i, int j);
 bool						ismatch(char *s, char *p);
 bool						current_dir(char *line);

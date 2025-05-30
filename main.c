@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:21:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:38:24 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	minishell_init(t_c *c, int ac, char **av, char **env)
 	if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
 		exit(1);
 	signal(SIGINT, handler);
+	signal(SIGQUIT, SIG_IGN);
 	c->status = 0;
 	env_init(env, c->ft_env, c->garbage);
 	env_check_path(c->ft_env, 0);

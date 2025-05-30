@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:14:03 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:42:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ static void	child(char **args, t_c *c)
 	char	*path;
 	t_leaf	*tmp;
 
+	signal(SIGQUIT, SIG_DFL);
 	if (!args[0])
 	{
 		ft_putstr_fd("\'\'", 2);
@@ -119,10 +120,7 @@ void	exe_cmd(char **args, t_c *c)
 		{
 			waitpid(pid, &c->status, 0);
 			set_status(WEXITSTATUS(c->status), -1);
-			if (WTERMSIG(c->status) == SIGINT)
-				set_status(130, -1);
-			if (WIFSIGNALED(c->status))
-				write(1, "\n", 1);
+			handle_signal_exe(c->status);
 		}
 	}
 	close_redr(&tmp);

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:13:49 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:45:08 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,7 @@ void	pid_wait(t_c *c, pid_t pid)
 	set_status(WEXITSTATUS(c->status), -1);
 	while (wait(&tmp) != -1)
 		continue ;
-	if (WTERMSIG(c->status) == SIGINT || WTERMSIG(tmp) == SIGINT)
-	{
-		set_status(130, -1);
-		write(1, "\n", 1);
-	}
+	handle_signal_pip(tmp, c->status);
 }
 
 static void	ext_exevce_fail(t_c *c)

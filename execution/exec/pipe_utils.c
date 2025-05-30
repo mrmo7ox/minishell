@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:13:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:45:45 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_c *c, int *fds)
 	char	**args;
 	t_leaf	*tmp;
 
+	signal(SIGQUIT, SIG_DFL);
 	tmp = *root;
 	if (!tmp->token->token)
 	{
@@ -66,6 +67,7 @@ static void	ext_child3(t_leaf **root, t_c *c, int *fds)
 	char	**args;
 	t_leaf	*tmp;
 
+	signal(SIGQUIT, SIG_DFL);
 	tmp = *root;
 	if (!tmp->token->token)
 	{
