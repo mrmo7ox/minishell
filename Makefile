@@ -12,7 +12,7 @@
 
        
 CC = cc
-CFLAGS =  -g3 -fsanitize=address  -Wall  -Wextra -Werror -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-function
+CFLAGS =  #-g3 -fsanitize=address  -Wall  -Wextra -Werror -Wno-unused-variable  -Wno-unused-parameter -Wno-unused-function
 MFLAGS = -lreadline -lncurses
 RESET = $(shell tput sgr0)
 G = $(shell tput setaf 2)

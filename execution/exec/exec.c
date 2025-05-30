@@ -62,7 +62,7 @@ void	close_heredoc(t_leaf **root, t_c *c)
 	}
 }
 
-void	init_heredoc(t_leaf **root, t_c *c)
+void	init_redr(t_leaf **root, t_c *c)
 {
 	t_leaf	*tmp;
 
@@ -70,11 +70,15 @@ void	init_heredoc(t_leaf **root, t_c *c)
 		return ;
 	tmp = *root;
 	if (tmp->right)
-		init_heredoc(&tmp->right, c);
+		init_redr(&tmp->right, c);
 	if (tmp->left)
-		init_heredoc(&tmp->left, c);
+		init_redr(&tmp->left, c);
 	if (tmp->type == COMMAND)
+	{
 		tmp->token->heredoc = 0;
+		tmp->token->in = 0;
+		tmp->token->out = 0;
+	}
 }
 
 int	execc(t_c *c)
@@ -86,7 +90,7 @@ int	execc(t_c *c)
 	if (!(*root))
 		return (1);
 	node = *root;
-	init_heredoc(root, c);
+	init_redr(root, c);
 	run_heredoc(root, c);
 	if (g_signal != 169)
 	{
