@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:44:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 18:00:46 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,7 +276,7 @@ void						*ft_new_redic_node(t_gc **garbage, char *content);
 void						redr_cmd(t_leaf *tmp, t_c *c);
 
 // tokenizer
-bool						tokenizer(t_leaf **root, t_gc **garbage,
+bool						tokenizer(t_leaf **root, t_c *c,
 								char *line);
 t_tk						*ft_new_tk_node(char *content, t_gc **garbage,
 								t_split_utils *utils);
@@ -350,15 +350,15 @@ char						*ft_strjoin(char const *s1, char const *s2,
 								t_gc **garbage);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
 char						*ft_strdup(const char *source, t_gc **garbage);
-void						ft_minisplit(t_redic **res, t_gc **garbage,
+void						ft_minisplit(t_redic **res, t_c *c,
 								t_tk *token, t_mini m_utils);
 t_retypes					special_cases_redic(char *str);
 void						skip_spaces_minisplit(char *line, int *i);
 char						*extract_redir(char *line, int *i, int j,
 								t_gc **garbage);
 char						*extract_file(char *line, int *i, int *j,
-								t_gc **garbage);
-int							handle_redirection(t_redic **res, t_gc **garbage,
+								t_c *c);
+int							handle_redirection(t_redic **res, t_c *c,
 								char *line, int *i);
 char						*ft_strcpy(char *dest, const char *src);
 int							ft_atoi(const char *str);

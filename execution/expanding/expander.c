@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 16:13:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 17:13:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,11 +189,9 @@ char	*expand(char *arg, char *next, t_c *c)
 			}
 			else
 			{
-				printf("439 [%s]\n", cut);
 				txpandat = ft_getenv(ft_strip('$', cut, c->garbage), c->ft_env);
 				if (txpandat)
 				{
-					printf("302 ======[TEST]======\n");
 					new = ft_addstr(new, txpandat, c);
 				}
 			}
@@ -335,12 +333,10 @@ char	**hundler(char **args, t_c *c)
 						}
 						else
 						{
-							printf("439 [%s]\n", cut);
 							txpandat = ft_getenv(ft_strip('$', cut, c->garbage),
 									c->ft_env);
 							if (txpandat)
 							{
-								printf("======[TEST]======\n");
 								line = ft_addstr(line, txpandat, c);
 							}
 						}

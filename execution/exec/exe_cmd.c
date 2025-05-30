@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 15:34:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 16:46:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static void	child(char **args, t_c *c)
 	t_leaf	*tmp;
 
 	signal(SIGQUIT, SIG_DFL);
-	if (!args[0])
+	if (!args[0][0])
 	{
 		ft_putstr_fd("\'\'", 2);
 		ft_putstr_fd(" : Command not found\n", 2);

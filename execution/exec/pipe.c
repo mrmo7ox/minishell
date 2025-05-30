@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:45:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 16:47:31 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
 	char	**env;
 	char	*path;
 
-	if (!args[0])
+	if (!args[0][0])
 	{
 		ft_putstr_fd("\'\'", 2);
 		ft_putstr_fd(" : Command not found\n", 2);
