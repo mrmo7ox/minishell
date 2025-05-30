@@ -6,18 +6,16 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 17:18:05 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:01:48 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-int			g_signal = 0;
+int	g_signal = 0;
 
 void	start(char *line, t_container *container)
 {
-	add_history(line);
-	save_history();
 	if (syntax_error(line))
 	{
 		if (tokenizer(container->root, container->garbage, line))
@@ -45,26 +43,25 @@ static void	minishell_init(t_container *container, int ac, char **av,
 	env_check_path(container->ft_env, 0);
 }
 
-char	*prompt(t_container *c)
+void	loop(t_container *container)
 {
-	char	*username;
-	char	*pwd;
-	char	*pro;
-
-	username = ft_getenv("USER", c->ft_env);
-	if (!username || !username[0])
-		username = ft_strdup("Minishell", c->garbage);
-	pwd = ft_getenv("PWD", c->ft_env);
-	if (!pwd || !pwd[0])
+	while (true)
 	{
-		pwd = getcwd(NULL, 0);
-		ft_add_gc(c->garbage, ft_new_gc_node(pwd));
+		g_signal = SIGINT;
+		container->pid = get_pid_str(container);
+		container->line = readline("Minishell$>");
+		if (!container->line)
+			ft_exit(NULL, container->ft_env, container->garbage,
+				set_status(0, 0));
+		add_history(container->line);
+		g_signal = 0;
+		ft_add_gc(container->garbage, ft_new_gc_node(container->line));
+		container->line = formating(container->line, container->garbage);
+		if (!container->line[0])
+			continue ;
+		start(container->line, container);
+		free_garbage(container->garbage);
 	}
-	pro = ft_strjoin("\033[0;32m", username, c->garbage);
-	pro = ft_strjoin(pro, "\033[0m:", c->garbage);
-	pro = ft_strjoin(pro, pwd, c->garbage);
-	pro = ft_strjoin(pro, "$ ", c->garbage);
-	return (pro);
 }
 
 int	main(int ac, char **av, char **env)
@@ -81,22 +78,6 @@ int	main(int ac, char **av, char **env)
 	container.ft_env = &ft_env;
 	container.garbage = &gc;
 	minishell_init(&container, ac, av, env);
-	load_history();
-	while (true)
-	{
-		g_signal = SIGINT;
-		container.pid = get_pid_str(&container);
-		container.line = readline(prompt(&container));
-		if (!container.line)
-			ft_exit(NULL, container.ft_env, container.garbage,
-				container.status);
-		g_signal = 0;
-		ft_add_gc(container.garbage, ft_new_gc_node(container.line));
-		container.line = formating(container.line, container.garbage);
-		if (!container.line[0])
-			continue ;
-		start(container.line, &container);
-		free_garbage(container.garbage);
-	}
+	loop(&container);
 	return (0);
 }

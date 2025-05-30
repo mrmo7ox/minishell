@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 18:09:17 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:07:16 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void	exe_cmd(char **args, t_container *c)
 		{
 			waitpid(pid, &c->status, 0);
 			set_status(WEXITSTATUS(c->status), -1);
+			if (WTERMSIG(c->status) == SIGINT)
+				set_status(130, -1);
 			if (WIFSIGNALED(c->status))
 				write(1, "\n", 1);
 		}

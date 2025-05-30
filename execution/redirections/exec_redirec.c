@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 12:46:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:05:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,18 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 {
 	char	**tmp;
 
+	if (!check_redr_file(remove_qoutes(path, c)))
+	{
+		token->in = -1;
+		errno = 2;
+		return (perror(path), false);
+	}
 	tmp = expander(gen_arry(path, c), c);
-	if (!tmp || !tmp[0] || (tmp[0] && tmp[1]))
+	if ((!tmp || !tmp[0] || (tmp[0] && tmp[1])))
 	{
 		token->in = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
-				2), false);
+				2), set_status(1, -1), false);
 	}
 	if (token->in)
 		close(token->in);
@@ -39,7 +45,7 @@ bool	in_files(t_tk *token, char *path, t_container *c)
 	if (token->in == -1)
 	{
 		perror(tmp[0]);
-		return (false);
+		return (set_status(1, -1), false);
 	}
 	else
 		return (true);
@@ -49,9 +55,16 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 {
 	char	**tmp;
 
+	if (!check_redr_file(remove_qoutes(path, c)))
+	{
+		token->out = -1;
+		errno = 2;
+		return (perror(path), false);
+	}
 	tmp = expander(gen_arry(path, c), c);
 	if (!tmp || !tmp[0] || (tmp[0] && tmp[1]))
 	{
+		set_status(1, -1);
 		token->out = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
 				2), false);
@@ -60,7 +73,7 @@ bool	out_files(t_tk *token, char *path, t_container *c)
 		close(token->out);
 	token->out = open(tmp[0], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (token->out == -1)
-		return (perror(tmp[0]), false);
+		return (set_status(1, -1), perror(tmp[0]), false);
 	else
 		return (true);
 }
@@ -69,12 +82,18 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 {
 	char	**tmp;
 
+	if (!check_redr_file(remove_qoutes(path, c)))
+	{
+		token->out = -1;
+		errno = 2;
+		return (perror(path), false);
+	}
 	tmp = expander(gen_arry(path, c), c);
 	if (!tmp || !tmp[0] || (tmp[0] && tmp[1]))
 	{
 		token->out = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
-				2), false);
+				2), set_status(1, -1), false);
 	}
 	if (token->out > 0)
 		close(token->out);
@@ -82,13 +101,11 @@ bool	append_files(t_tk *token, char *path, t_container *c)
 	if (token->out == -1)
 	{
 		perror(tmp[0]);
-		return (false);
+		return (set_status(1, -1), false);
 	}
 	else
 		return (true);
 }
-
-
 
 bool	exec_redirec(t_tk *token, t_container *c)
 {

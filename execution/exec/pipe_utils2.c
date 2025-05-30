@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/28 09:39:38 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 10:44:09 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void	pid_wait(t_container *c, pid_t pid)
 	while (wait(&tmp) != -1)
 		continue ;
 	if (WTERMSIG(c->status) == SIGINT || WTERMSIG(tmp) == SIGINT)
+	{
+		set_status(130, -1);
 		write(1, "\n", 1);
+	}
 }
 
 static void	ext_exevce_fail(t_container *c)

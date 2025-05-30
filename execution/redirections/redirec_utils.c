@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 14:13:15 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 09:48:59 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	heredoc_ext(t_tk *token, char *path, t_container *c)
 	bool	qoutes;
 	char	*line;
 
-	if (g_signal == 169)
-		heredoc_eof(token, c);
 	line = NULL;
 	if (!ft_chrstr('\'', path) && !ft_chrstr('\"', path))
 		qoutes = true;
@@ -85,5 +83,17 @@ bool	ext_exe_redr(t_redic **curr, t_container *c, t_tk *token)
 		if (!append_files(token, ft_strip('>', tmp->content, c->garbage), c))
 			return (false);
 	}
+	return (true);
+}
+
+bool	check_redr_file(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] == ' ')
+		i++;
+	if (!str[i])
+		return (false);
 	return (true);
 }

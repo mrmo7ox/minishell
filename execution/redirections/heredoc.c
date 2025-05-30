@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:02:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 17:19:09 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 09:32:01 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	exec_heredoc(t_tk *token, t_container *c)
 	{
 		if (curr->type == HEREDOC)
 		{
+			if (g_signal == 169)
+				break ;
 			if (!heredoc(token, ft_strip('<', curr->content, c->garbage), c))
 				return ;
 			if (curr->next == NULL)

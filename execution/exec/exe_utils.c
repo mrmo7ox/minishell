@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 14:39:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 11:02:07 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	exe_builtin(char **args, t_leaf *root, t_container *c)
 	else if (!ft_strcmp(args[0], "unset"))
 		return (ft_unset(args, c->ft_env));
 	else if (!ft_strcmp(args[0], "exit"))
-		return (ft_exit(args, c->ft_env, c->garbage, set_status(c->status, 0)));
+		return (ft_exit(args, c->ft_env, c->garbage, set_status(0, 0)));
 	return (0);
 }
 

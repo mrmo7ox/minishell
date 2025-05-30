@@ -6,15 +6,15 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/11 16:41:57 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/30 10:21:36 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-t_leaf *new_leaf(t_tk *token, t_type type, t_gc **garbage)
+t_leaf	*new_leaf(t_tk *token, t_type type, t_gc **garbage)
 {
-	t_leaf *new;
+	t_leaf	*new;
 
 	new = ft_malloc(sizeof(t_leaf), garbage);
 	if (!new)
@@ -26,7 +26,7 @@ t_leaf *new_leaf(t_tk *token, t_type type, t_gc **garbage)
 	return (new);
 }
 
-int get_precedence(t_type type)
+int	get_precedence(t_type type)
 {
 	if (type == OR)
 		return (1);
@@ -37,16 +37,16 @@ int get_precedence(t_type type)
 	return (4);
 }
 
-void insert_node(t_leaf **root, t_tk *token, t_gc **garbage)
+void	insert_node(t_leaf **root, t_tk *token, t_gc **garbage)
 {
-	t_leaf *new;
-	t_leaf *curr;
+	t_leaf	*new;
+	t_leaf	*curr;
 
 	new = new_leaf(token, token->type, garbage);
 	if (!*root)
 	{
 		*root = new;
-		return;
+		return ;
 	}
 	if (get_precedence(token->type) < get_precedence((*root)->type))
 	{
@@ -62,11 +62,11 @@ void insert_node(t_leaf **root, t_tk *token, t_gc **garbage)
 		curr->right = new;
 	}
 }
-t_tk *reverse_tokens(t_tk *head)
+t_tk	*reverse_tokens(t_tk *head)
 {
-	t_tk *prev = NULL;
-	t_tk *curr = head;
-	t_tk *next;
+	t_tk	*prev = NULL;
+	t_tk	*curr = head;
+	t_tk	*next;
 
 	while (curr)
 	{
@@ -75,7 +75,7 @@ t_tk *reverse_tokens(t_tk *head)
 		prev = curr;
 		curr = next;
 	}
-	return prev;
+	return (prev);
 }
 
 t_leaf *build_ast(t_tk *tokens, t_gc **garbage)
