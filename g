@@ -1,0 +1,12 @@
+env
+execution
+fg
+g
+main.c
+Makefile
+minishell
+minishell.h
+parsing
+r
+signals
+utils

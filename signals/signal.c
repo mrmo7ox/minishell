@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 12:50:13 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 11:47:29 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 16:12:25 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	handle_signal_pip(int tmp, int status)
 			set_status(130, -1);
 		write(1, "\n", 1);
 	}
-	if (WTERMSIG(status) == SIGQUIT || WTERMSIG(tmp) == SIGQUIT)
+	if ((WTERMSIG(status) == SIGQUIT)
+		|| (WTERMSIG(tmp) == SIGPIPE && WTERMSIG(tmp) == SIGQUIT))
 	{
 		if (WTERMSIG(status) == SIGQUIT)
 			set_status(131, -1);

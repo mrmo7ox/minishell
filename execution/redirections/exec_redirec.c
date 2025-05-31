@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 12:46:07 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 17:26:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 		close(token->in);
 	token->in = open(tmp, O_RDONLY);
 	if (token->in == -1)
-	{
-		perror(tmp);
-		return (set_status(1, -1), false);
-	}
+		return (perror(tmp), set_status(1, -1), false);
 	else
 		return (true);
 }
@@ -56,17 +53,15 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 bool	out_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
+
 	path = remove_qoutes(path, c);
 	if (!check_redr_file(remove_qoutes(path, c)))
 	{
 		token->out = -1;
-		errno = 2;
-		return (perror(path), false);
+		return (errno = 2, perror(path), false);
 	}
-	
 	tmp = h_expander(formating(path, c->garbage), c);
 	tmp = wildcards(gen_arry(tmp, c), c)[0];
-
 	if (!tmp || !tmp[0])
 	{
 		set_status(1, -1);
@@ -86,29 +81,27 @@ bool	out_files(t_tk *token, char *path, t_c *c)
 bool	append_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
+
 	path = remove_qoutes(path, c);
 	if (!check_redr_file(remove_qoutes(path, c)))
 	{
 		token->out = -1;
-		errno = 2;
-		return (perror(path), false);
+		return (errno = 2, perror(path), false);
 	}
 	tmp = h_expander(formating(path, c->garbage), c);
 	tmp = wildcards(gen_arry(tmp, c), c)[0];
 	if (!tmp || !tmp[0])
 	{
+		set_status(1, -1);
 		token->out = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
-				2), set_status(1, -1), false);
+				2), false);
 	}
 	if (token->out > 0)
 		close(token->out);
 	token->out = open(tmp, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (token->out == -1)
-	{
-		perror(tmp);
-		return (set_status(1, -1), false);
-	}
+		return (set_status(1, -1), perror(tmp), false);
 	else
 		return (true);
 }

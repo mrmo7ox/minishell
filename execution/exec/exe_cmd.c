@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:02:42 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 16:46:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 17:44:10 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*resolve_path(char **args, t_env **ft_env, t_gc **gc)
 {
 	char	*path;
 
-	if (!strcmp(args[0], ".."))
+	if (!strcmp(args[0], "..") || !strcmp(args[0], "."))
 	{
 		ft_putstr_fd(args[0], 2);
 		ft_putstr_fd(": Command not found\n", 2);
@@ -91,15 +91,19 @@ static void	child(char **args, t_c *c)
 	t_leaf	*tmp;
 
 	signal(SIGQUIT, SIG_DFL);
+	tmp = (*c->root);
+	exec_redirec(tmp->token, c);
 	if (!args[0][0])
 	{
 		ft_putstr_fd("\'\'", 2);
 		ft_putstr_fd(" : Command not found\n", 2);
 		close_heredoc(c->root, c);
+		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 127);
 	}
 	tmp = *(c->root);
 	redr_cmd(tmp, c);
+	close_redr(&tmp);
 	path = resolve_path(args, c->ft_env, c->garbage);
 	env = dp_env(c->ft_env, c->garbage);
 	if (execve(path, args, env) == -1)
@@ -112,9 +116,6 @@ void	exe_cmd(char **args, t_c *c)
 	t_leaf	*tmp;
 
 	tmp = *(c->root);
-	exec_redirec(tmp->token, c);
-	if (tmp->token->in == -1 || tmp->token->out == -1)
-		return ;
 	if (is_builtin(args[0]))
 		set_status(exe_builtin(args, tmp, c), -1);
 	else

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:02:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:13:19 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 17:48:59 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ void	exec_heredoc(t_tk *token, t_c *c)
 	{
 		if (curr->type == HEREDOC)
 		{
-			if (g_signal == 169)
+			if (g_signal == 169 || token->heredoc == -1)
 				break ;
+			if (token->heredoc > 0)
+				close(token->heredoc);
 			if (!heredoc(token, ft_strip('<', curr->content, c->garbage), c))
 				return ;
 			if (curr->next == NULL)
@@ -91,23 +93,18 @@ void	exec_heredoc(t_tk *token, t_c *c)
 
 void	check_iflast(t_tk *token)
 {
-	if (token->is_last)
+	if (token->is_last || token->in == 0)
 	{
-		if (token->in >= 0)
-		{
-			if (token->in > 0)
-				close(token->in);
-			token->in = token->heredoc;
-		}
-		else
-		{
-			if (token->heredoc > 0)
-				close(token->heredoc);
-		}
+		if (token->in > 0)
+			close(token->in);
+		token->in = token->heredoc;
 	}
 	else
 	{
 		if (token->heredoc > 0)
+		{
 			close(token->heredoc);
+			token->heredoc = 0;
+		}
 	}
 }

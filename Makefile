@@ -6,13 +6,13 @@
 #    By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 17:09:10 by moel-oua          #+#    #+#              #
-#    Updated: 2025/05/31 12:52:32 by ihamani          ###   ########.fr        #
+#    Updated: 2025/05/31 14:22:38 by ihamani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
        
 CC = cc
-CFLAGS = -g3 -fsanitize=address  -Wall  -Wextra -Werror
+CFLAGS = #-g3 -fsanitize=address  -Wall  -Wextra -Werror
 MFLAGS = -lreadline -lncurses
 RESET = $(shell tput sgr0)
 G = $(shell tput setaf 2)

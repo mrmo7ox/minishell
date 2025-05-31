@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 09:58:41 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 14:13:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void	minishell_init(t_c *c, int ac, char **av, char **env)
 		ft_putstr_fd("too many arguments\n", 2);
 		exit(1);
 	}
-	// if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
-	// 	exit(1);
+	if (!isatty(STDIN_FILENO) || !isatty(STDOUT_FILENO))
+		exit(1);
 	signal(SIGINT, handler);
 	signal(SIGQUIT, SIG_IGN);
 	c->status = 0;
