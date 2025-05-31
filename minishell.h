@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 15:58:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 17:56:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ typedef struct s_list
 	t_expand				**expand;
 	t_env					**env;
 	int						status;
+	t_gc					**garbage;
 }							t_list;
 
 typedef struct s_new_string
@@ -233,6 +234,34 @@ typedef struct s_wild_utils2
 	struct dirent			*entry;
 }							t_wu;
 
+typedef struct s_as
+{
+	char					*str;
+	int						i;
+	int						j;
+	int						words;
+	int						words_counter;
+	char					**res;
+	t_gc					**garbage;
+}							t_as;
+
+typedef struct s_ismatch
+{
+	int						i;
+	int						j;
+	int						star_i;
+	int						star_j;
+}							t_ismatch;
+typedef struct s_expand_hundler
+{
+	t_expand				*expands;
+	t_qoutes				*qoutes;
+	char					*line;
+	int						j;
+	t_dollar				type;
+	t_expand				*data;
+}							t_e_h;
+
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
 void						env_init(char **env, t_env **ft_env, t_gc **gc);
@@ -272,8 +301,7 @@ void						*ft_new_redic_node(t_gc **garbage, char *content);
 void						redr_cmd(t_leaf *tmp, t_c *c);
 
 // tokenizer
-bool						tokenizer(t_leaf **root, t_c *c,
-								char *line);
+bool						tokenizer(t_leaf **root, t_c *c, char *line);
 t_tk						*ft_new_tk_node(char *content, t_gc **garbage,
 								t_split_utils *utils);
 void						ft_add_tk(t_tk **head, t_tk *new);
@@ -332,7 +360,7 @@ char						*ft_cut(char const *s, unsigned int start,
 								size_t len);
 char						*ft_strdupnofree(const char *source);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
-char						**ft_args_split(char *str, t_gc **gc, int i, int j);
+char						**ft_args_split(char *str, t_gc **gc);
 char						**ft_vanilla_split(char *str, char c, int i, int j);
 int							ft_envsize(t_env *head);
 char						*ft_itoa(long n, t_gc **garbage);
@@ -347,14 +375,13 @@ char						*ft_strjoin(char const *s1, char const *s2,
 								t_gc **garbage);
 void						*ft_memcpy(void *dst, const void *src, size_t n);
 char						*ft_strdup(const char *source, t_gc **garbage);
-void						ft_minisplit(t_redic **res, t_c *c,
-								t_tk *token, t_mini m_utils);
+void						ft_minisplit(t_redic **res, t_c *c, t_tk *token,
+								t_mini m_utils);
 t_retypes					special_cases_redic(char *str);
 void						skip_spaces_minisplit(char *line, int *i);
 char						*extract_redir(char *line, int *i, int j,
 								t_gc **garbage);
-char						*extract_file(char *line, int *i, int *j,
-								t_c *c);
+char						*extract_file(char *line, int *i, int *j, t_c *c);
 int							handle_redirection(t_redic **res, t_c *c,
 								char *line, int *i);
 char						*ft_strcpy(char *dest, const char *src);
@@ -406,14 +433,11 @@ char						*resolve_path(char **args, t_env **ft_env,
 
 // redics
 bool						exec_redirec(t_tk *token, t_c *c);
-void						heredoc_ext(t_tk *token, char *path,
-								t_c *c);
-bool						ext_exe_redr(t_redic **curr, t_c *c,
-								t_tk *token);
+void						heredoc_ext(t_tk *token, char *path, t_c *c);
+bool						ext_exe_redr(t_redic **curr, t_c *c, t_tk *token);
 bool						in_files(t_tk *token, char *path, t_c *c);
 bool						out_files(t_tk *token, char *path, t_c *c);
-bool						append_files(t_tk *token, char *path,
-								t_c *c);
+bool						append_files(t_tk *token, char *path, t_c *c);
 bool						heredoc(t_tk *token, char *path, t_c *c);
 bool						check_redr_file(char *str);
 
@@ -464,5 +488,25 @@ char						**ft_wild_split(char *str, t_c *c, int i, int j);
 bool						ismatch(char *s, char *p);
 bool						current_dir(char *line);
 int							is_dir(char *line);
+void						skip_hit(int *i, char *str);
+void						not_hit(int *i, char *str);
 
+void						skip_it(char *str, int *i);
+bool						more_things(t_as *u);
+char						**gen_arry(char *line, t_gc **garbage);
+bool						find_case_b(t_size *u, t_list *utils);
+bool						find_case(t_new *s, char *new, char *line,
+								t_list *utils);
+bool						check_f(t_tk *token, char *path, t_c *c);
+void						convert(t_arg **args, char **new);
+bool						has_dollar(char *arg);
+bool						has_qoute(char *arg);
+char						*expand(char *arg, char *next, t_c *c);
+char						**convert_(char *line, t_c *c);
+char						**convert_flag(t_arg **args, t_c *c);
+char						**convert_to_array(t_arg **head, t_c *c);
+t_list						*init_list(char *arg, t_c *c);
+char						**hundler(char **args, t_c *c);
+char						*decide(char **array, int i);
+void						handle_quotes_only(char *arg, t_c *c, t_arg **head);
 #endif

@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 14:13:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 17:56:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-int	g_signal;
+int			g_signal;
 
 void	start(char *line, t_c *c)
 {
@@ -52,8 +52,7 @@ void	loop(t_c *c)
 		c->pid = get_pid_str(c);
 		c->line = readline("Minishell$> ");
 		if (!c->line)
-			ft_exit(NULL, c->ft_env, c->garbage,
-				set_status(0, 0));
+			ft_exit(NULL, c->ft_env, c->garbage, set_status(0, 0));
 		add_history(c->line);
 		g_signal = 0;
 		ft_add_gc(c->garbage, ft_new_gc_node(c->line));

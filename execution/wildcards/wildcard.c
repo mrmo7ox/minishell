@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wildcard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:03:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 12:22:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:05:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ bool	hardcode_case(char **splited, int *i, char **dir, t_c *c)
 	}
 	return (false);
 }
+
 char	*gen_dir(char **splited, int *i, int root, t_c *c)
 {
 	char	*dir;
@@ -93,12 +94,12 @@ char	**convert_array(t_wild **head, t_c *c)
 	i = 0;
 	while (tmp)
 	{
-		if (ft_strlen(tmp->arg) >= 2
-			&& tmp->arg[0] == '.' && tmp->arg[1] == '/' && tmp->flag)
+		if (ft_strlen(tmp->arg) >= 2 && tmp->arg[0] == '.' && tmp->arg[1] == '/'
+			&& tmp->flag)
 			tmp->arg = ft_substr(tmp->arg, 2, ft_strlen(tmp->arg), c->garbage);
 		if (tmp->arg[ft_strlen(tmp->arg) - 1] == '/' && tmp->flag)
-			tmp->arg = ft_substr(tmp->arg, 0,
-					ft_strlen(tmp->arg) - 1, c->garbage);
+			tmp->arg = ft_substr(tmp->arg, 0, ft_strlen(tmp->arg) - 1,
+					c->garbage);
 		res[i] = tmp->arg;
 		i++;
 		tmp = tmp->next;

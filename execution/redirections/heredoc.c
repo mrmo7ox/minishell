@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:02:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/31 17:48:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 17:57:08 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool	heredoc(t_tk *token, char *path, t_c *c)
 
 void	exec_heredoc(t_tk *token, t_c *c)
 {
-	t_redic		*curr;
+	t_redic	*curr;
 
 	curr = token->redics;
 	token->is_last = 0;

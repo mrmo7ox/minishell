@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/31 13:26:56 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 14:48:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_c *c, int *fds)
 		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 0);
 	}
-	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	args = ft_args_split(tmp->token->token, c->garbage);
 	args = expander(args, c);
 	child2_helper(tmp, c, p_fd, fds);
 	close_fds(tmp, fds, p_fd);
@@ -77,7 +77,7 @@ static void	ext_child3(t_leaf **root, t_c *c, int *fds)
 		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 0);
 	}
-	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	args = ft_args_split(tmp->token->token, c->garbage);
 	args = expander(args, c);
 	child3_helper(tmp, c, fds);
 	close_fds(tmp, fds, NULL);
