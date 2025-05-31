@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/31 13:26:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 14:48:19 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_c *c)
 		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 0);
 	}
-	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	args = ft_args_split(tmp->token->token, c->garbage);
 	args = expander(args, c);
 	child1_helper(tmp, c, p_fd);
 	close_fds(tmp, NULL, p_fd);

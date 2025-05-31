@@ -3,34 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   expander.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 12:52:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 16:02:16 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-// ne wcode
 
-void	convert(t_arg **args, char **new)
-{
-	t_arg	*tmp;
-	int		i;
-
-	i = 0;
-	if (!args || !new)
-		return ;
-	tmp = *args;
-	while (tmp)
-	{
-		new[i] = tmp->arg;
-		tmp = tmp->next;
-		i++;
-	}
-	new[i] = NULL;
-}
 char	**convert_flag(t_arg **args, t_c *c)
 {
 	t_arg	*tmp;
@@ -90,61 +72,9 @@ char	**convert_flag(t_arg **args, t_c *c)
 	return (new);
 }
 
-bool	has_qoute(char *arg)
-{
-	int	i;
 
-	i = 0;
-	while (arg[i])
-	{
-		if (arg[i] == '"' || arg[i] == '\'')
-			return (true);
-		i++;
-	}
-	return (false);
-}
 
-bool	has_dollar(char *arg)
-{
-	int	i;
 
-	i = 0;
-	while (arg[i])
-	{
-		if (arg[i] == '$')
-			return (true);
-		i++;
-	}
-	return (false);
-}
-char	*remove_qoutes(char *arg, t_c *c)
-{
-	char	*new;
-	int		i;
-	char	qoute;
-
-	new = ft_strdup("", c->garbage);
-	i = 0;
-	while (arg[i])
-	{
-		if (ft_chrstr(arg[i], "\'\""))
-		{
-			qoute = arg[i];
-			i++;
-			while (arg[i] && arg[i] != qoute)
-			{
-				new = ft_addchr(new, arg[i], c);
-				i++;
-			}
-			if (arg[i] == qoute)
-				i++;
-			continue ;
-		}
-		new = ft_addchr(new, arg[i], c);
-		i++;
-	}
-	return (new);
-}
 char	*expand(char *arg, char *next, t_c *c)
 {
 	char	*new;
@@ -260,8 +190,7 @@ char	**hundler(char **args, t_c *c)
 			next = NULL;
 			if (args[i + 1] != NULL)
 				next = args[i + 1];
-			new_args = ft_args_split(expand(args[i], next, c), c->garbage, 0,
-					0);
+			new_args = ft_args_split(expand(args[i], next, c), c->garbage);
 			if (!new_args)
 			{
 				i++;
@@ -362,22 +291,23 @@ char	**hundler(char **args, t_c *c)
 	}
 	return (new);
 }
-char **convert_(char *line, t_c *c)
+char	**convert_(char *line, t_c *c)
 {
-	char **new = ft_malloc(sizeof(char *) * 2, c->garbage);
-	new[0] = line; 
-	new[1]= NULL;
-	return new;
-	
+	char	**new;
+
+	new = ft_malloc(sizeof(char *) * 2, c->garbage);
+	new[0] = line;
+	new[1] = NULL;
+	return (new);
 }
 char	**expander(char **args, t_c *c)
 {
-	int		i;
-	char	**new;
-	t_arg	*head;
-	char	**splited;
-	int		j;
-	int		x;
+	int i;
+	char **new;
+	t_arg *head;
+	char **splited;
+	int j;
+	int x;
 
 	new = NULL;
 	head = NULL;
@@ -391,12 +321,12 @@ char	**expander(char **args, t_c *c)
 			args[i] = remove_qoutes(args[i], c);
 			ft_add_arg(&head, ft_new_arg(args[i], NORMAL, c));
 			i++;
-			continue;
+			continue ;
 		}
 		else if (!has_qoute(args[i]) && has_dollar(args[i]))
 		{
 			j = 0;
-			splited = ft_args_split(expand(args[i], NULL, c), c->garbage, 0, 0);
+			splited = ft_args_split(expand(args[i], NULL, c), c->garbage);
 			splited = wildcards(splited, c);
 			if (!splited)
 			{

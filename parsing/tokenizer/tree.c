@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tree.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 10:21:36 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:04:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,22 @@ void	insert_node(t_leaf **root, t_tk *token, t_gc **garbage)
 	else
 	{
 		curr = *root;
-		while (curr->right && get_precedence(token->type) >= get_precedence(curr->right->type))
+		while (curr->right
+			&& get_precedence(token->type) >= get_precedence(curr->right->type))
 			curr = curr->right;
 		new->left = curr->right;
 		curr->right = new;
 	}
 }
+
 t_tk	*reverse_tokens(t_tk *head)
 {
-	t_tk	*prev = NULL;
-	t_tk	*curr = head;
+	t_tk	*prev;
+	t_tk	*curr;
 	t_tk	*next;
 
+	prev = NULL;
+	curr = head;
 	while (curr)
 	{
 		next = curr->next;
@@ -78,9 +82,9 @@ t_tk	*reverse_tokens(t_tk *head)
 	return (prev);
 }
 
-t_leaf *build_ast(t_tk *tokens, t_gc **garbage)
+t_leaf	*build_ast(t_tk *tokens, t_gc **garbage)
 {
-	t_leaf *root;
+	t_leaf	*root;
 
 	root = NULL;
 	tokens = reverse_tokens(tokens);

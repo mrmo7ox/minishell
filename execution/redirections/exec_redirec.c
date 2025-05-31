@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   exec_redirec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 12:46:07 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:51:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-char	**gen_arry(char *line, t_c *c)
+char	**gen_arry(char *line, t_gc **garbage)
 {
 	char	**new;
 
-	new = ft_malloc(sizeof(char *) * 2, c->garbage);
-	new[0] = formating(line, c->garbage);
+	new = ft_malloc(sizeof(char *) * 2, garbage);
+	new[0] = formating(line, garbage);
 	new[1] = NULL;
 	return (new);
 }
@@ -27,14 +27,10 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 	char	*tmp;
 
 	path = remove_qoutes(path, c);
-	if (!check_redr_file(remove_qoutes(path, c)))
-	{
-		token->in = -1;
-		errno = 2;
+	if (!check_f(token, path, c))
 		return (perror(path), false);
-	}
 	tmp = h_expander(formating(path, c->garbage), c);
-	tmp = wildcards(gen_arry(tmp, c), c)[0];
+	tmp = wildcards(gen_arry(tmp, c->garbage), c)[0];
 	if ((!tmp || !tmp[0]))
 	{
 		token->in = -1;
@@ -56,17 +52,12 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 bool	out_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
-	path = remove_qoutes(path, c);
-	if (!check_redr_file(remove_qoutes(path, c)))
-	{
-		token->out = -1;
-		errno = 2;
-		return (perror(path), false);
-	}
-	
-	tmp = h_expander(formating(path, c->garbage), c);
-	tmp = wildcards(gen_arry(tmp, c), c)[0];
 
+	path = remove_qoutes(path, c);
+	if (!check_f(token, path, c))
+		return (perror(path), false);
+	tmp = h_expander(formating(path, c->garbage), c);
+	tmp = wildcards(gen_arry(tmp, c->garbage), c)[0];
 	if (!tmp || !tmp[0])
 	{
 		set_status(1, -1);
@@ -86,15 +77,12 @@ bool	out_files(t_tk *token, char *path, t_c *c)
 bool	append_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
+
 	path = remove_qoutes(path, c);
-	if (!check_redr_file(remove_qoutes(path, c)))
-	{
-		token->out = -1;
-		errno = 2;
+	if (!check_f(token, path, c))
 		return (perror(path), false);
-	}
 	tmp = h_expander(formating(path, c->garbage), c);
-	tmp = wildcards(gen_arry(tmp, c), c)[0];
+	tmp = wildcards(gen_arry(tmp, c->garbage), c)[0];
 	if (!tmp || !tmp[0])
 	{
 		token->out = -1;

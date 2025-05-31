@@ -3,3 +3,4 @@ push.sh
 .command_history
 .vscode
 minishell
+minishell_tester

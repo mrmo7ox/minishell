@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wild_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:58:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 12:37:59 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 15:05:31 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static void	wildcard_matcher(t_wu *wu)
 	{
 		ft_add_wild(wu->head, ft_new_wild(path, true, wu->c));
 	}
-	
 }
 
 static void	found_and_used(t_wu *wu)
@@ -92,7 +91,7 @@ void	recursive_wild(t_wu *wu)
 
 	if (!wu->split[*wu->i])
 	{
-			ft_add_wild(wu->head, ft_new_wild(wu->dir, true, wu->c));
+		ft_add_wild(wu->head, ft_new_wild(wu->dir, true, wu->c));
 		return ;
 	}
 	opened = opendir(wu->dir);
