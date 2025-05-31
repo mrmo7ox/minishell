@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:21:45 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 17:08:02 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:23:15 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_add_wild(t_wild **head, t_wild *new)
 	new->prev = last;
 }
 
-t_wild	*ft_new_wild(char *arg, t_c *c)
+t_wild	*ft_new_wild(char *arg, bool flag, t_c *c)
 {
 	t_wild	*node;
 
@@ -39,6 +39,7 @@ t_wild	*ft_new_wild(char *arg, t_c *c)
 	if (!node)
 		return (NULL);
 	node->arg = arg;
+	node->flag = flag;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);

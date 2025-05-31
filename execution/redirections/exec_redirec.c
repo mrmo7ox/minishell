@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 09:53:34 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:46:07 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
 
+	path = remove_qoutes(path, c);
 	if (!check_redr_file(remove_qoutes(path, c)))
 	{
 		token->in = -1;
@@ -33,6 +34,7 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 		return (perror(path), false);
 	}
 	tmp = h_expander(formating(path, c->garbage), c);
+	tmp = wildcards(gen_arry(tmp, c), c)[0];
 	if ((!tmp || !tmp[0]))
 	{
 		token->in = -1;
@@ -54,14 +56,17 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 bool	out_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
-
+	path = remove_qoutes(path, c);
 	if (!check_redr_file(remove_qoutes(path, c)))
 	{
 		token->out = -1;
 		errno = 2;
 		return (perror(path), false);
 	}
+	
 	tmp = h_expander(formating(path, c->garbage), c);
+	tmp = wildcards(gen_arry(tmp, c), c)[0];
+
 	if (!tmp || !tmp[0])
 	{
 		set_status(1, -1);
@@ -81,7 +86,7 @@ bool	out_files(t_tk *token, char *path, t_c *c)
 bool	append_files(t_tk *token, char *path, t_c *c)
 {
 	char	*tmp;
-
+	path = remove_qoutes(path, c);
 	if (!check_redr_file(remove_qoutes(path, c)))
 	{
 		token->out = -1;
@@ -89,6 +94,7 @@ bool	append_files(t_tk *token, char *path, t_c *c)
 		return (perror(path), false);
 	}
 	tmp = h_expander(formating(path, c->garbage), c);
+	tmp = wildcards(gen_arry(tmp, c), c)[0];
 	if (!tmp || !tmp[0])
 	{
 		token->out = -1;

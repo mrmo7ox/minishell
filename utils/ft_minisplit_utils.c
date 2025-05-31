@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:36:48 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 09:46:29 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:28:36 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*extract_file(char *line, int *i, int *j, t_c *c)
 		}
 		(*i)++;
 	}
-	return (remove_qoutes(ft_copy(&line[*j], *i - *j, c->garbage), c));
+	return (ft_copy(&line[*j], *i - *j, c->garbage));
 }
 
 int	handle_redirection(t_redic **res, t_c *c, char *line, int *i)

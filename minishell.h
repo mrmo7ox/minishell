@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 09:56:53 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 13:26:32 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,7 @@ typedef struct s_arg
 typedef struct s_wild
 {
 	char					*arg;
+	bool					flag;
 	struct s_wild			*next;
 	struct s_wild			*prev;
 }							t_wild;
@@ -258,7 +259,7 @@ char						**export_split(char *str);
 bool						check_name_env(char *name, t_env **ft_env);
 int							ft_pwd(t_env **ft_env, int out);
 int							ft_unset(char **args, t_env **env);
-void						clone_env(t_env **ft_env, t_env **tmp, t_gc **gc);
+void						clone_env(t_env **ft_env, t_env **tmp);
 void						shlvl(t_env **ft_env, t_gc **gc);
 int							ft_exit(char **args, t_env **ft_env, t_gc **gc,
 								int prev);
@@ -302,6 +303,7 @@ bool						correct_count(char *line);
 bool						check_op_conflict(char **line, char oldchr);
 bool						correct_format(char *line);
 void						move_next(char *line, int *i);
+bool						has_qoute(char *arg);
 
 // utils
 void						ft_split(t_tk **res, t_gc **garbage, char *line);
@@ -423,7 +425,7 @@ int							execc(t_c *c);
 pid_t						child3(t_c *c, t_leaf **root, int *fd);
 void						pipe_err(char *str, t_c *c, int *fds);
 void						child2(t_c *c, t_leaf **root, int *fd);
-void						exe_pipe(t_leaf *tmp, char **args, t_c *c);
+void						exe_pipe(char **args, t_c *c);
 void						pipe_handle(t_leaf **root, int *pip, t_c *c,
 								int flag);
 bool						exe_cmd_hundler(t_leaf *node, t_c *c);
@@ -434,7 +436,7 @@ void						child3_helper(t_leaf *tmp, t_c *c, int *p_fd);
 void						child2_helper(t_leaf *tmp, t_c *c, int *p_fd,
 								int *fds);
 void						child1_helper(t_leaf *tmp, t_c *c, int *p_fd);
-int							exe_builtin_pipe(char **args, t_leaf *root, t_c *c);
+int							exe_builtin_pipe(char **args, t_c *c);
 void						close_heredoc(t_leaf **root, t_c *c);
 void						exec_heredoc(t_tk *token, t_c *c);
 void						check_iflast(t_tk *token);
@@ -455,7 +457,7 @@ void						handle_signal_pip(int tmp, int status);
 // wild cards
 
 void						ft_add_wild(t_wild **head, t_wild *new);
-t_wild						*ft_new_wild(char *arg, t_c *c);
+t_wild						*ft_new_wild(char *arg, bool flag, t_c *c);
 int							ft_wildsize(t_wild *head);
 char						**wildcards(char **args, t_c *c);
 void						recursive_wild(t_wu *wu);

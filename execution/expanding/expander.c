@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:14:42 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 17:13:25 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:52:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,6 @@ char	**hundler(char **args, t_c *c)
 	char		*line;
 	int			k;
 	char		*cut;
-	t_arg		*tmp;
 	char		*next;
 	char		*pid;
 	char		*txpandat;
@@ -363,15 +362,22 @@ char	**hundler(char **args, t_c *c)
 	}
 	return (new);
 }
-
+char **convert_(char *line, t_c *c)
+{
+	char **new = ft_malloc(sizeof(char *) * 2, c->garbage);
+	new[0] = line; 
+	new[1]= NULL;
+	return new;
+	
+}
 char	**expander(char **args, t_c *c)
 {
 	int		i;
 	char	**new;
 	t_arg	*head;
-	t_arg	*tmp;
 	char	**splited;
 	int		j;
+	int		x;
 
 	new = NULL;
 	head = NULL;
@@ -381,13 +387,22 @@ char	**expander(char **args, t_c *c)
 	while (args[i])
 	{
 		if (has_qoute(args[i]) && !has_dollar(args[i]))
+		{
 			args[i] = remove_qoutes(args[i], c);
+			ft_add_arg(&head, ft_new_arg(args[i], NORMAL, c));
+			i++;
+			continue;
+		}
 		else if (!has_qoute(args[i]) && has_dollar(args[i]))
 		{
 			j = 0;
 			splited = ft_args_split(expand(args[i], NULL, c), c->garbage, 0, 0);
+			splited = wildcards(splited, c);
 			if (!splited)
-				return (NULL);
+			{
+				i++;
+				continue ;
+			}
 			while (splited[j])
 			{
 				ft_add_arg(&head, ft_new_arg(splited[j], NORMAL, c));
@@ -414,7 +429,13 @@ char	**expander(char **args, t_c *c)
 			i++;
 			continue ;
 		}
-		ft_add_arg(&head, ft_new_arg(args[i], NORMAL, c));
+		splited = wildcards(convert_(args[i], c), c);
+		x = 0;
+		while (splited[x])
+		{
+			ft_add_arg(&head, ft_new_arg(splited[x], NORMAL, c));
+			x++;
+		}
 		i++;
 	}
 	if (head)

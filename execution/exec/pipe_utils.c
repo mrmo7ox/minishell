@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 11:45:45 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 13:26:56 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_c *c, int *fds)
 	close_heredoc(c->root, c);
 	if (!args)
 		exit_exe(c->ft_env, c->garbage, 1);
-	exe_pipe(tmp, args, c);
+	exe_pipe(args, c);
 }
 
 void	child2(t_c *c, t_leaf **root, int *fds)
@@ -84,7 +84,7 @@ static void	ext_child3(t_leaf **root, t_c *c, int *fds)
 	close_heredoc(c->root, c);
 	if (!args)
 		exit_exe(c->ft_env, c->garbage, 0);
-	exe_pipe(tmp, args, c);
+	exe_pipe(args, c);
 }
 
 pid_t	child3(t_c *c, t_leaf **root, int *fds)

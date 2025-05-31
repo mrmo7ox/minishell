@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 11:39:28 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/13 17:12:42 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:53:27 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	clone_env(t_env **ft_env, t_env **tmp, t_gc **gc)
+void	clone_env(t_env **ft_env, t_env **tmp)
 {
 	t_env	*head;
 

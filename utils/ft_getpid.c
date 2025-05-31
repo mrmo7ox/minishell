@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getpid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 19:56:02 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 13:27:51 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ static char	*helper(t_c *c, int fd)
 char	*get_pid_str(t_c *c)
 {
 	int		fd;
-	char	*str;
-	char	*buff;
 
 	fd = open("/proc/self/stat", O_RDONLY);
 	if (fd == -1)

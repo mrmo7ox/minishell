@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 14:39:58 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:54:52 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	exe_builtin_pipe(char **args, t_leaf *root, t_c *c)
+int	exe_builtin_pipe(char **args, t_c *c)
 {
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, 0, c->ft_env));

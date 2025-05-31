@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 16:47:31 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 13:26:39 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
+void	exe_pipe(char **args, t_c *c)
 {
 	char	**env;
 	char	*path;
@@ -24,7 +24,7 @@ void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
 		exit_exe(c->ft_env, c->garbage, 127);
 	}
 	if (is_builtin(args[0]))
-		exit_exe(c->ft_env, c->garbage, exe_builtin_pipe(args, tmp, c));
+		exit_exe(c->ft_env, c->garbage, exe_builtin_pipe(args, c));
 	else
 	{
 		path = resolve_path(args, c->ft_env, c->garbage);
@@ -34,7 +34,7 @@ void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
 	}
 }
 
-static void	ext_child1(int *p_fd, t_leaf **root, t_c *c, int *fds)
+static void	ext_child1(int *p_fd, t_leaf **root, t_c *c)
 {
 	char	**args;
 	t_leaf	*tmp;
@@ -56,7 +56,7 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_c *c, int *fds)
 	close_heredoc(c->root, c);
 	if (!args)
 		exit_exe(c->ft_env, c->garbage, 0);
-	exe_pipe(tmp, args, c);
+	exe_pipe(args, c);
 }
 
 static void	child1(t_c *c, t_leaf **root, int *fds)
@@ -70,7 +70,7 @@ static void	child1(t_c *c, t_leaf **root, int *fds)
 	if (pid == -1)
 		pipe_err("Fork", c, p_fd);
 	else if (!pid)
-		ext_child1(p_fd, root, c, fds);
+		ext_child1(p_fd, root, c);
 	else
 	{
 		fds[0] = p_fd[0];
