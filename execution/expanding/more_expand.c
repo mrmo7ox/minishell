@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:53:46 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 16:05:43 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:17:27 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ void	convert(t_arg **args, char **new)
 		i++;
 	}
 	new[i] = NULL;
+}
+
+char	**convert_(char *line, t_c *c)
+{
+	char	**new;
+
+	new = ft_malloc(sizeof(char *) * 2, c->garbage);
+	new[0] = line;
+	new[1] = NULL;
+	return (new);
 }
 
 bool	has_qoute(char *arg)
@@ -60,9 +70,9 @@ bool	has_dollar(char *arg)
 
 char	*remove_qoutes(char *arg, t_c *c)
 {
-	char *new;
-	int i;
-	char qoute;
+	char	*new;
+	int		i;
+	char	qoute;
 
 	new = ft_strdup("", c->garbage);
 	i = 0;

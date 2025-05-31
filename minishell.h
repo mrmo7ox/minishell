@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 16:07:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:50:06 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,34 @@ typedef struct s_wild_utils2
 	t_c						*c;
 	struct dirent			*entry;
 }							t_wu;
+
+typedef struct s_as
+{
+	char					*str;
+	int						i;
+	int						j;
+	int						words;
+	int						words_counter;
+	char					**res;
+	t_gc					**garbage;
+}							t_as;
+
+typedef struct s_ismatch
+{
+	int						i;
+	int						j;
+	int						star_i;
+	int						star_j;
+}							t_ismatch;
+typedef struct s_expand_hundler
+{
+	t_expand				*expands;
+	t_qoutes				*qoutes;
+	char					*line;
+	int						j;
+	t_dollar				type;
+	t_expand				*data;
+}							t_e_h;
 
 void						ft_add_env(t_env **head, t_env *new);
 t_env						*ft_new_env(char *name, char *value);
@@ -464,25 +492,6 @@ int							is_dir(char *line);
 void						skip_hit(int *i, char *str);
 void						not_hit(int *i, char *str);
 
-typedef struct s_as
-{
-	char					*str;
-	int						i;
-	int						j;
-	int						words;
-	int						words_counter;
-	char					**res;
-	t_gc					**garbage;
-}							t_as;
-
-typedef struct s_ismatch
-{
-	int						i;
-	int						j;
-	int						star_i;
-	int						star_j;
-}							t_ismatch;
-
 void						skip_it(char *str, int *i);
 bool						more_things(t_as *u);
 char						**gen_arry(char *line, t_gc **garbage);
@@ -493,5 +502,12 @@ bool						check_f(t_tk *token, char *path, t_c *c);
 void						convert(t_arg **args, char **new);
 bool						has_dollar(char *arg);
 bool						has_qoute(char *arg);
-
+char						*expand(char *arg, char *next, t_c *c);
+char						**convert_(char *line, t_c *c);
+char						**convert_flag(t_arg **args, t_c *c);
+char						**convert_to_array(t_arg **head, t_c *c);
+t_list						*init_list(char *arg, t_c *c);
+char						**hundler(char **args, t_c *c);
+char						*decide(char **array, int i);
+void						handle_quotes_only(char *arg, t_c *c, t_arg **head);
 #endif

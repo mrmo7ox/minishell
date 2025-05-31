@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:40:06 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 15:47:13 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 16:36:32 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,34 @@ bool	find_case_b(t_size *u, t_list *utils)
 	if (u->temp)
 		u->new_size += ft_strlen(u->temp);
 	return (true);
+}
+
+char	**convert_to_array(t_arg **head, t_c *c)
+{
+	char	**new;
+
+	new = ft_malloc(sizeof(char *) * (ft_args_size(*head) + 1), c->garbage);
+	if (!new)
+		return (NULL);
+	convert(head, new);
+	return (new);
+}
+
+t_list	*init_list(char *arg, t_c *c)
+{
+	t_list		*u;
+	t_expand	*dollars;
+	t_qoutes	*qoutes;
+
+	u = ft_malloc(sizeof(t_list), c->garbage);
+	qoutes = NULL;
+	dollars = NULL;
+	u->expand = &dollars;
+	u->qoutes = &qoutes;
+	u->i = 0;
+	u->j = 0;
+	u->line = arg;
+	get_quote_index(u, c->garbage);
+	get_expand_index(u, c->garbage);
+	return (u);
 }
