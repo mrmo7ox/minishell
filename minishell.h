@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 18:00:46 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 09:56:53 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # include <time.h>
 # include <unistd.h>
 
-# define HISTORY_FILE ".command_history"
 # define MAX_HISTORY_LENGTH 1000
 # define KNRM "\x1B[0m"
 # define KRED "\x1B[31m"
@@ -267,9 +266,6 @@ char						*pwd_update(t_env **ft_env, int flag);
 void						no_args_ext(t_env *head, int out);
 void						free_d(char **tmp);
 
-// history
-void						save_history(void);
-void						load_history(void);
 // redic
 void						ft_add_redic(t_redic **head, t_redic *new);
 void						*ft_new_redic_node(t_gc **garbage, char *content);

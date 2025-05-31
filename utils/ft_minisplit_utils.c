@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:36:48 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 17:59:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 09:46:29 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,21 @@ char	*extract_redir(char *line, int *i, int j, t_gc **garbage)
 
 char	*extract_file(char *line, int *i, int *j, t_c *c)
 {
-	char qoute;
+	char	qoute;
+
 	skip_spaces_minisplit(line, i);
 	*j = *i;
 	while (line[*i] && !ft_chrstr(line[*i], " \t<>"))
 	{
-		if(ft_chrstr(line[*i], "\"'")) 
+		if (ft_chrstr(line[*i], "\"'"))
 		{
-			qoute = line[*i] ;
+			qoute = line[*i];
 			(*i)++;
-			while(qoute != line[*i])
+			while (qoute != line[*i])
 				(*i)++;
-			if(qoute == line[*i])
+			if (qoute == line[*i])
 				(*i)++;
-			continue;
+			continue ;
 		}
 		(*i)++;
 	}

@@ -6,13 +6,13 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:08 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 18:00:50 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 09:58:41 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./minishell.h"
 
-int	g_signal = 0;
+int	g_signal;
 
 void	start(char *line, t_c *c)
 {
@@ -28,6 +28,7 @@ void	start(char *line, t_c *c)
 
 static void	minishell_init(t_c *c, int ac, char **av, char **env)
 {
+	g_signal = 0;
 	if (ac > 1)
 	{
 		(void)av;

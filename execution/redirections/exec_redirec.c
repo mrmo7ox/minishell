@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 17:53:51 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 09:53:34 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	in_files(t_tk *token, char *path, t_c *c)
 		return (perror(path), false);
 	}
 	tmp = h_expander(formating(path, c->garbage), c);
-	if ((!tmp || !tmp[0] ))
+	if ((!tmp || !tmp[0]))
 	{
 		token->in = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
@@ -89,7 +89,7 @@ bool	append_files(t_tk *token, char *path, t_c *c)
 		return (perror(path), false);
 	}
 	tmp = h_expander(formating(path, c->garbage), c);
-	if (!tmp || !tmp[0] )
+	if (!tmp || !tmp[0])
 	{
 		token->out = -1;
 		return (ft_putstr_fd(path, 2), ft_putstr_fd(": ambiguous redirect\n",
