@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:45 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/27 11:57:52 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/13 14:07:02 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,53 +45,8 @@ t_env	*ft_new_env(char *name, char *value)
 	return (node);
 }
 
-void	no_env(t_env **ft_env, t_gc **gc)
+void	no_env(t_env **ft_env)
 {
-	pwd_update(ft_env, 0);
-	shlvl(ft_env, gc);
+	init_pwd(ft_env);
 	ft_add_env(ft_env, ft_new_env("_", "/usr/bin/env"));
-}
-
-static bool	check_valid(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
-void	shlvl(t_env **ft_env, t_gc **gc)
-{
-	char	*old;
-	int		lvl;
-
-	if (check_name_env("SHLVL", ft_env))
-	{
-		old = ft_getenv("SHLVL", ft_env);
-		if (!old || !check_valid(old))
-			ft_upenv("SHLVL", "1", ft_env);
-		else
-		{
-			lvl = ft_atoi(old);
-			if (lvl < 999)
-			{
-				lvl++;
-				ft_upenv("SHLVL", ft_itoa(lvl, gc), ft_env);
-			}
-			else
-			{
-				ft_putstr_fd("shell level (1000) too high, resetting to 1\n",
-					2);
-				ft_upenv("SHLVL", "1", ft_env);
-			}
-		}
-	}
-	else
-		ft_putenv("SHLVL", "1", ft_env);
 }

@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:40:11 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:48:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_c *c, int *fds)
 	char	**args;
 	t_leaf	*tmp;
 
+	signal(SIGQUIT, SIG_DFL);
 	tmp = *root;
 	if (!tmp->token->token)
 	{
@@ -26,14 +27,14 @@ static void	ext_child2(int *p_fd, t_leaf **root, t_c *c, int *fds)
 		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 0);
 	}
-	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	args = ft_args_split(tmp->token->token, c->garbage);
 	args = expander(args, c);
 	child2_helper(tmp, c, p_fd, fds);
 	close_fds(tmp, fds, p_fd);
 	close_heredoc(c->root, c);
 	if (!args)
 		exit_exe(c->ft_env, c->garbage, 1);
-	exe_pipe(tmp, args, c);
+	exe_pipe(args, c);
 }
 
 void	child2(t_c *c, t_leaf **root, int *fds)
@@ -66,6 +67,7 @@ static void	ext_child3(t_leaf **root, t_c *c, int *fds)
 	char	**args;
 	t_leaf	*tmp;
 
+	signal(SIGQUIT, SIG_DFL);
 	tmp = *root;
 	if (!tmp->token->token)
 	{
@@ -75,14 +77,14 @@ static void	ext_child3(t_leaf **root, t_c *c, int *fds)
 		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 0);
 	}
-	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	args = ft_args_split(tmp->token->token, c->garbage);
 	args = expander(args, c);
 	child3_helper(tmp, c, fds);
 	close_fds(tmp, fds, NULL);
 	close_heredoc(c->root, c);
 	if (!args)
 		exit_exe(c->ft_env, c->garbage, 0);
-	exe_pipe(tmp, args, c);
+	exe_pipe(args, c);
 }
 
 pid_t	child3(t_c *c, t_leaf **root, int *fds)
@@ -108,5 +110,4 @@ void	cmd_no_args(t_leaf *tmp, t_c *c)
 	exec_redirec(tmp->token, c);
 	close_redr(&tmp);
 	close_heredoc(c->root, c);
-	set_status(0, -1);
 }

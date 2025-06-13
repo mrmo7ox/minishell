@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:04:58 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 13:20:45 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/02 10:34:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,12 @@ char	*env_check_path(t_env **ft_env, int flag)
 	else
 		return (path);
 	return (path);
+}
+
+void	env_init_helper(char *name, char *value, t_env **ft_env)
+{
+	if (!value)
+		ft_add_env(ft_env, ft_new_env(name, ""));
+	else
+		ft_add_env(ft_env, ft_new_env(name, value));
 }

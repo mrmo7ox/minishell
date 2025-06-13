@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/22 11:10:39 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/05/31 12:54:29 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static void	free_tmp(t_env **tmp)
 	*tmp = NULL;
 }
 
-static void	no_args(t_env **ft_env, int out, t_gc **gc)
+static void	no_args(t_env **ft_env, int out)
 {
 	t_env	*head;
 	t_env	*tmp;
 
 	tmp = NULL;
-	clone_env(ft_env, &tmp, gc);
+	clone_env(ft_env, &tmp);
 	export_sort(&tmp);
 	head = tmp;
 	no_args_ext(head, out);
@@ -97,7 +97,7 @@ int	export(char **args, int out, t_env **ft_env, t_gc **gc)
 	else if (out < 0)
 		return (1);
 	if (len == 1)
-		no_args(ft_env, out, gc);
+		no_args(ft_env, out);
 	else if (len >= 2)
 	{
 		if (!syntax(args))

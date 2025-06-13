@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:45:04 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/05 20:24:35 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/13 11:35:49 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	put_in(char *p, long n, int len)
 
 char	*ft_itoa(long n, t_gc **garbage)
 {
-	int len;
-	char *p;
+	int		len;
+	char	*p;
 
 	if (n == 0)
 	{

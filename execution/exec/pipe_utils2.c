@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipe_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 10:58:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:41:49 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	pid_wait(t_c *c, pid_t pid)
 	set_status(WEXITSTATUS(c->status), -1);
 	while (wait(&tmp) != -1)
 		continue ;
-	if (WTERMSIG(c->status) == SIGINT || WTERMSIG(tmp) == SIGINT)
-		write(1, "\n", 1);
+	handle_signal_pip(tmp, c->status);
 }
 
 static void	ext_exevce_fail(t_c *c)
@@ -85,7 +84,4 @@ void	close_redr(t_leaf **root)
 		close((*root)->token->out);
 		(*root)->token->out = 0;
 	}
-	if ((*root)->token->heredoc > 0
-		&& (*root)->token->out != (*root)->token->heredoc)
-		close((*root)->token->heredoc);
 }

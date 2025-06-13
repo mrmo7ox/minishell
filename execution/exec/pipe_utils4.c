@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 11:23:52 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 21:04:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	exe_builtin_pipe(char **args, t_leaf *root, t_c *c)
+int	exe_builtin_pipe(char **args, t_c *c)
 {
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, 0, c->ft_env));
@@ -75,5 +75,5 @@ void	path_check_pro(char **args)
 	if (ft_chrstr('/', args[0]))
 		ft_putstr_fd(": No such file or directory\n", 2);
 	else
-		ft_putstr_fd(": Command not found\n", 2);
+		ft_putstr_fd(": command not found\n", 2);
 }

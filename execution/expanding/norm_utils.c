@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   history.c                                          :+:      :+:    :+:   */
+/*   norm_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 13:36:18 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/04/28 20:49:12 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/31 17:22:54 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/31 21:36:09 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	save_history(void)
+void	handle_quotes_only(char *arg, t_c *c, t_arg **head)
 {
-	if (append_history(1, HISTORY_FILE) != 0)
-	{
-		fprintf(stderr, "Failed to save history to file!\n");
-	}
-}
-
-void	load_history(void)
-{
-	if (read_history(HISTORY_FILE) != 0)
-	{
-		printf("No history file found. Starting fresh.\n");
-	}
-	stifle_history(MAX_HISTORY_LENGTH);
+	arg = remove_qoutes(arg, c);
+	if (!arg || !*arg)
+		ft_add_arg(head, ft_new_arg(ft_strdup("", c->garbage), NORMAL, c));
+	else
+		ft_add_arg(head, ft_new_arg(arg, NORMAL, c));
 }

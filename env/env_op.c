@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   env_op.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 13:50:48 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/30 15:44:16 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/13 13:22:35 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	env_init(char **env, t_env **ft_env, t_gc **gc)
+void	env_init(char **env, t_env **ft_env)
 {
 	int		i;
 	char	**tmp;
 
 	if (!(*env))
-		no_env(ft_env, gc);
+		no_env(ft_env);
 	else
 	{
 		i = 0;
@@ -27,13 +27,13 @@ void	env_init(char **env, t_env **ft_env, t_gc **gc)
 			tmp = export_split(env[i]);
 			if (!tmp)
 				return ;
-			ft_add_env(ft_env, ft_new_env(tmp[0], tmp[1]));
+			else
+				env_init_helper(tmp[0], tmp[1], ft_env);
 			free(tmp[0]);
 			free(tmp[1]);
 			free(tmp);
 			i++;
 		}
-		shlvl(ft_env, gc);
 	}
 }
 

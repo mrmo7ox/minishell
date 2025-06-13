@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 10:15:33 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 16:51:26 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 15:04:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,64 +36,32 @@ int	get_precedence(t_type type)
 		return (3);
 	return (4);
 }
-void	insert_node(t_leaf **root, t_leaf *new_node)
+
+void	insert_node(t_leaf **root, t_tk *token, t_gc **garbage)
 {
+	t_leaf	*new;
 	t_leaf	*curr;
 
+	new = new_leaf(token, token->type, garbage);
 	if (!*root)
 	{
-		*root = new_node;
+		*root = new;
 		return ;
 	}
-	if (get_precedence(new_node->type) > get_precedence((*root)->type)
-		|| new_node->token->subshell != (*root)->token->subshell)
+	if (get_precedence(token->type) < get_precedence((*root)->type))
 	{
-		curr = *root;
-		while (curr->right
-			&& get_precedence(new_node->type) > get_precedence(curr->right->type)
-			&& new_node->token->subshell == curr->right->token->subshell)
-		{
-			curr = curr->right;
-		}
-		new_node->left = curr->right;
-		curr->right = new_node;
+		new->left = *root;
+		*root = new;
 	}
 	else
 	{
-		new_node->left = *root;
-		*root = new_node;
+		curr = *root;
+		while (curr->right
+			&& get_precedence(token->type) >= get_precedence(curr->right->type))
+			curr = curr->right;
+		new->left = curr->right;
+		curr->right = new;
 	}
-}
-
-t_leaf	*build_ast_for_subshell(t_tk **tokens, int current_subshell,
-		t_gc **garbage)
-{
-	t_leaf	*root;
-	t_leaf	*subtree;
-
-	root = NULL;
-	while (*tokens)
-	{
-		if ((*tokens)->subshell < current_subshell)
-			break ;
-		if ((*tokens)->subshell > current_subshell)
-		{
-			subtree = build_ast_for_subshell(tokens, (*tokens)->subshell,
-					garbage);
-			if (!subtree)
-				return (NULL);
-			insert_node(&root, subtree);
-		}
-		else
-		{
-			subtree = new_leaf(*tokens, (*tokens)->type, garbage);
-			if (!subtree)
-				return (NULL);
-			insert_node(&root, subtree);
-			*tokens = (*tokens)->next;
-		}
-	}
-	return (root);
 }
 
 t_tk	*reverse_tokens(t_tk *head)
@@ -119,6 +87,11 @@ t_leaf	*build_ast(t_tk *tokens, t_gc **garbage)
 	t_leaf	*root;
 
 	root = NULL;
-	root = build_ast_for_subshell(&tokens, 0, garbage);
+	tokens = reverse_tokens(tokens);
+	while (tokens)
+	{
+		insert_node(&root, tokens, garbage);
+		tokens = tokens->next;
+	}
 	return (root);
 }

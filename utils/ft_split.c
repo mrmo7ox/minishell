@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 12:05:01 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/04 10:47:59 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:58:41 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	skip_spaces(char *line, int *i)
 {
-	while (line[*i] && ft_chrstr(line[*i], " \t"))
+	while (line[*i] && ft_whitespaces(line[*i]))
 		(*i)++;
 }
 

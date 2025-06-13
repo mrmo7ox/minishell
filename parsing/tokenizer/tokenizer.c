@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:05:51 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/30 16:01:34 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/30 18:00:34 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	adding_redirects(t_tk **head, t_gc **garbage)
+void	adding_redirects(t_tk **head, t_c *c)
 {
 	t_tk	*current;
 	t_redic	*new;
@@ -29,23 +29,23 @@ void	adding_redirects(t_tk **head, t_gc **garbage)
 			new = NULL;
 			m_utils.i = 0;
 			m_utils.line = current->token;
-			ft_minisplit(&new, garbage, current, m_utils);
+			ft_minisplit(&new, c, current, m_utils);
 			current->redics = new;
 		}
 		current = current->next;
 	}
 }
 
-bool	tokenizer(t_leaf **root, t_gc **garbage, char *line)
+bool	tokenizer(t_leaf **root, t_c *c, char *line)
 {
 	t_tk	*splitted;
 
 	splitted = NULL;
-	ft_split(&splitted, garbage, line);
+	ft_split(&splitted, c->garbage, line);
 	if (ft_lstsize(splitted) == 0)
 		return (false);
-	adding_redirects(&splitted, garbage);
-	(*root) = build_ast(splitted, garbage);
+	adding_redirects(&splitted, c);
+	(*root) = build_ast(splitted, c->garbage);
 	if (!(*root))
 		return (false);
 	return (true);

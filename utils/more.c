@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wild_utils.c                                       :+:      :+:    :+:   */
+/*   more.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 19:21:45 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/31 15:05:42 by moel-oua         ###   ########.fr       */
+/*   Created: 2025/05/31 14:25:50 by moel-oua          #+#    #+#             */
+/*   Updated: 2025/05/31 15:23:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../minishell.h"
 
-void	ft_add_wild(t_wild **head, t_wild *new)
+t_qoutes	*ft_new_node(int open, int close, t_qtype type, t_gc **garbage)
 {
-	t_wild	*last;
+	t_qoutes	*node;
+
+	node = ft_malloc(sizeof(t_qoutes), garbage);
+	if (!node)
+		return (NULL);
+	node->open_index = open;
+	node->close_index = close;
+	node->type = type;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
+}
+
+void	ft_add_arg(t_arg **head, t_arg *new)
+{
+	t_arg	*last;
 
 	if (!(head) || !new)
 		return ;
@@ -31,31 +46,14 @@ void	ft_add_wild(t_wild **head, t_wild *new)
 	new->prev = last;
 }
 
-t_wild	*ft_new_wild(char *arg, bool flag, t_c *c)
+void	skip_it(char *str, int *i)
 {
-	t_wild	*node;
+	char	quote;
 
-	node = ft_malloc(sizeof(t_wild), c->garbage);
-	if (!node)
-		return (NULL);
-	node->arg = arg;
-	node->flag = flag;
-	node->next = NULL;
-	node->prev = NULL;
-	return (node);
-}
-
-int	ft_wildsize(t_wild *head)
-{
-	int	i;
-
-	if (!head)
-		return (0);
-	i = 0;
-	while (head)
-	{
-		i++;
-		head = head->next;
-	}
-	return (i);
+	quote = str[*i];
+	(*i)++;
+	while (str[*i] && str[*i] != quote)
+		(*i)++;
+	if (str[*i] == quote)
+		(*i)++;
 }

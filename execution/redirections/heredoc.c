@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:02:33 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/01 09:30:33 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ bool	heredoc(t_tk *token, char *path, t_c *c)
 
 void	exec_heredoc(t_tk *token, t_c *c)
 {
-	t_redic		*curr;
+	t_redic	*curr;
 
 	curr = token->redics;
 	token->is_last = 0;
@@ -78,6 +78,10 @@ void	exec_heredoc(t_tk *token, t_c *c)
 	{
 		if (curr->type == HEREDOC)
 		{
+			if (g_signal == 169 || token->heredoc == -1)
+				break ;
+			if (token->heredoc > 0)
+				close(token->heredoc);
 			if (!heredoc(token, ft_strip('<', curr->content, c->garbage), c))
 				return ;
 			if (curr->next == NULL)
@@ -89,23 +93,18 @@ void	exec_heredoc(t_tk *token, t_c *c)
 
 void	check_iflast(t_tk *token)
 {
-	if (token->is_last)
+	if (token->is_last || token->in == 0)
 	{
-		if (token->in >= 0)
-		{
-			if (token->in > 0)
-				close(token->in);
-			token->in = token->heredoc;
-		}
-		else
-		{
-			if (token->heredoc > 0)
-				close(token->heredoc);
-		}
+		if (token->in > 0)
+			close(token->in);
+		token->in = token->heredoc;
 	}
 	else
 	{
 		if (token->heredoc > 0)
+		{
 			close(token->heredoc);
+			token->heredoc = 0;
+		}
 	}
 }

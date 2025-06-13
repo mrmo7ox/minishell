@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 13:19:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/21 14:39:23 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/02 10:54:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static bool	validate_redirections(char **line)
 			return (false);
 		(*line)++;
 	}
-	while (**line == ' ' || **line == '\t')
+	while (ft_whitespaces(**line))
 		(*line)++;
 	if (**line && ft_chrstr(**line, "<>&|;#"))
 		return (false);

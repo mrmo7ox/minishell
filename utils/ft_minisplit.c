@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minisplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 11:13:35 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 13:29:51 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/02 10:50:49 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	process_word(char **new_line, t_mini *m_utils, t_gc **garbage)
 {
 	m_utils->j = m_utils->i;
 	while (m_utils->line[m_utils->i] && !ft_chrstr(m_utils->line[m_utils->i],
-			" \t<>"))
+			"<>") && !ft_whitespaces(m_utils->line[m_utils->i]))
 	{
 		if (handle_quotes(m_utils->line, &m_utils->i))
 			continue ;
@@ -64,7 +64,7 @@ static int	process_word(char **new_line, t_mini *m_utils, t_gc **garbage)
 	return (handle_word_concat(new_line, m_utils, garbage));
 }
 
-void	ft_minisplit(t_redic **res, t_gc **garbage, t_tk *token, t_mini m_utils)
+void	ft_minisplit(t_redic **res, t_c *c, t_tk *token, t_mini m_utils)
 {
 	char	*new_line;
 
@@ -77,11 +77,11 @@ void	ft_minisplit(t_redic **res, t_gc **garbage, t_tk *token, t_mini m_utils)
 			break ;
 		if (ft_chrstr(m_utils.line[m_utils.i], "<>"))
 		{
-			if (!handle_redirection(res, garbage, m_utils.line, &(m_utils.i)))
+			if (!handle_redirection(res, c, m_utils.line, &(m_utils.i)))
 				return ;
 			continue ;
 		}
-		if (!process_word(&new_line, &m_utils, garbage))
+		if (!process_word(&new_line, &m_utils, c->garbage))
 			return ;
 	}
 	token->token = new_line;

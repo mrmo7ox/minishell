@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:48:19 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 14:26:15 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ t_gc	*ft_new_gc_node(void *content)
 		return (NULL);
 	node->addr = content;
 	node->next = NULL;
-	return (node);
-}
-
-t_qoutes	*ft_new_node(int open, int close, t_qtype type, t_gc **garbage)
-{
-	t_qoutes	*node;
-
-	node = ft_malloc(sizeof(t_qoutes), garbage);
-	if (!node)
-		return (NULL);
-	node->open_index = open;
-	node->close_index = close;
-	node->type = type;
-	node->next = NULL;
-	node->prev = NULL;
 	return (node);
 }
 

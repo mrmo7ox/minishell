@@ -6,25 +6,25 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 12:58:12 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 21:04:54 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
+void	exe_pipe(char **args, t_c *c)
 {
 	char	**env;
 	char	*path;
 
-	if (!args[0])
+	if (!args[0][0])
 	{
 		ft_putstr_fd("\'\'", 2);
-		ft_putstr_fd(" : Command not found\n", 2);
+		ft_putstr_fd(" : command not found\n", 2);
 		exit_exe(c->ft_env, c->garbage, 127);
 	}
 	if (is_builtin(args[0]))
-		exit_exe(c->ft_env, c->garbage, exe_builtin_pipe(args, tmp, c));
+		exit_exe(c->ft_env, c->garbage, exe_builtin_pipe(args, c));
 	else
 	{
 		path = resolve_path(args, c->ft_env, c->garbage);
@@ -34,11 +34,12 @@ void	exe_pipe(t_leaf *tmp, char **args, t_c *c)
 	}
 }
 
-static void	ext_child1(int *p_fd, t_leaf **root, t_c *c, int *fds)
+static void	ext_child1(int *p_fd, t_leaf **root, t_c *c)
 {
 	char	**args;
 	t_leaf	*tmp;
 
+	signal(SIGQUIT, SIG_DFL);
 	tmp = *root;
 	if (!tmp->token->token)
 	{
@@ -48,14 +49,14 @@ static void	ext_child1(int *p_fd, t_leaf **root, t_c *c, int *fds)
 		close_redr(&tmp);
 		exit_exe(c->ft_env, c->garbage, 0);
 	}
-	args = ft_args_split(tmp->token->token, c->garbage, 0, 0);
+	args = ft_args_split(tmp->token->token, c->garbage);
 	args = expander(args, c);
 	child1_helper(tmp, c, p_fd);
 	close_fds(tmp, NULL, p_fd);
 	close_heredoc(c->root, c);
 	if (!args)
 		exit_exe(c->ft_env, c->garbage, 0);
-	exe_pipe(tmp, args, c);
+	exe_pipe(args, c);
 }
 
 static void	child1(t_c *c, t_leaf **root, int *fds)
@@ -69,7 +70,7 @@ static void	child1(t_c *c, t_leaf **root, int *fds)
 	if (pid == -1)
 		pipe_err("Fork", c, p_fd);
 	else if (!pid)
-		ext_child1(p_fd, root, c, fds);
+		ext_child1(p_fd, root, c);
 	else
 	{
 		fds[0] = p_fd[0];

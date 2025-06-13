@@ -3,22 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_expand.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 14:43:50 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/01 09:35:00 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static bool	cases(char *holder)
-{
-	if ((!ft_strcmp(holder, "'") || !ft_strcmp(holder, "\"")))
-		return (true);
-	else
-		return (false);
-}
 static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
 {
 	t_size	u;
@@ -33,17 +26,7 @@ static size_t	calculate_new_size(char *line, t_list *utils, t_gc **garbage)
 			u.len = u.start_end->end - u.start_end->start + 1;
 			u.holder = ft_substr(line, u.start_end->start + 1, u.len - 1,
 					garbage);
-			if (cases(u.holder))
-			{
-				u.new_size++, u.i++;
-				continue ;
-			}
-			if (!ft_strcmp(u.holder, "?"))
-				u.temp = ft_itoa(utils->status, garbage);
-			else
-				u.temp = ft_getenv(u.holder, utils->env);
-			if (u.temp)
-				u.new_size += ft_strlen(u.temp);
+			find_case_b(&u, utils);
 			u.i += u.len;
 		}
 		else
@@ -70,20 +53,8 @@ static void	fill_new_string(char *line, char *new, t_list *utils,
 			s.len = s.start_end->end - s.start_end->start + 1;
 			s.holder = ft_substr(line, s.start_end->start + 1, s.len - 1,
 					garbage);
-			if (cases(s.holder))
-			{
-				new[s.pos++] = line[s.i++];
+			if (!find_case(&s, new, line, utils))
 				continue ;
-			}
-			if (!ft_strcmp(s.holder, "?"))
-				s.temp = ft_itoa(utils->status, garbage);
-			else
-				s.temp = ft_getenv(s.holder, utils->env);
-			if (s.temp)
-			{
-				ft_strcpy(new + s.pos, s.temp);
-				s.pos += ft_strlen(s.temp);
-			}
 			s.i += s.len;
 		}
 		else
@@ -103,8 +74,9 @@ char	*expand_only(char *line, t_list *utils, t_gc **garbage)
 	new = ft_malloc(new_size + 1, garbage);
 	if (!new)
 		return (NULL);
-	new[0] = '\0';
 	fill_new_string(line, new, utils, garbage);
+	if (!new || !*new)
+		return (ft_strdup("", garbage));
 	return (new);
 }
 
@@ -125,6 +97,7 @@ char	*h_expander(char *line, t_c *c)
 	u.qoutes = &quotes;
 	u.expand = &expand_res;
 	u.env = c->ft_env;
+	u.garbage = c->garbage;
 	u.status = set_status(c->status, 0);
 	get_quote_index(&u, c->garbage);
 	get_expand_index(&u, c->garbage);

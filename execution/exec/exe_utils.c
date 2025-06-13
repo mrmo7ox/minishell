@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exe_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 16:09:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:43:01 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ bool	is_builtin(char *str)
 
 int	exe_builtin(char **args, t_leaf *root, t_c *c)
 {
+	exec_redirec(root->token, c);
+	if (root->token->in == -1 || root->token->out == -1)
+		return (1);
 	if (!ft_strcmp(args[0], "env"))
 		return (cmd_env(args, root->token->out, c->ft_env));
 	else if (!ft_strcmp(args[0], "export"))
@@ -47,7 +50,8 @@ int	exe_builtin(char **args, t_leaf *root, t_c *c)
 	else if (!ft_strcmp(args[0], "unset"))
 		return (ft_unset(args, c->ft_env));
 	else if (!ft_strcmp(args[0], "exit"))
-		return (ft_exit(args, c->ft_env, c->garbage, set_status(c->status, 0)));
+		return (ft_exit(args, c->ft_env, c->garbage, set_status(0, 0)));
+	close_redr(&root);
 	return (0);
 }
 

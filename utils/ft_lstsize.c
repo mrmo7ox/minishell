@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:10:41 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/26 19:25:29 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/02 09:22:38 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int	ft_envsize(t_env *head)
 	i = 0;
 	while (head)
 	{
-		i++;
+		if (head->value)
+			i++;
 		head = head->next;
 	}
 	return (i);

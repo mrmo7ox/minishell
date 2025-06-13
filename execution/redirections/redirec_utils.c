@@ -6,13 +6,13 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/05/29 21:39:20 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:53:58 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	exit_heredoc(t_tk *token, t_c *c, int status)
+static void	exit_heredoc(t_c *c, int status)
 {
 	if (status && g_signal != 169)
 		perror("write");
@@ -22,16 +22,16 @@ static void	exit_heredoc(t_tk *token, t_c *c, int status)
 	exit(status);
 }
 
-static void	heredoc_eof(t_tk *token, t_c *c)
+static void	heredoc_eof(t_c *c)
 {
 	if (g_signal != 169)
 	{
 		ft_putstr_fd("warning: here-document ", 2);
 		ft_putstr_fd("delimited by end-of-file\n", 2);
-		exit_heredoc(token, c, 0);
+		exit_heredoc(c, 0);
 	}
 	else if (g_signal == 169)
-		exit_heredoc(token, c, 130);
+		exit_heredoc(c, 130);
 }
 
 void	heredoc_ext(t_tk *token, char *path, t_c *c)
@@ -39,8 +39,6 @@ void	heredoc_ext(t_tk *token, char *path, t_c *c)
 	bool	qoutes;
 	char	*line;
 
-	if (g_signal == 169)
-		heredoc_eof(token, c);
 	line = NULL;
 	if (!ft_chrstr('\'', path) && !ft_chrstr('\"', path))
 		qoutes = true;
@@ -52,7 +50,7 @@ void	heredoc_ext(t_tk *token, char *path, t_c *c)
 	{
 		line = readline("> ");
 		if (!line || g_signal == 169)
-			heredoc_eof(token, c);
+			heredoc_eof(c);
 		ft_add_gc(c->garbage, ft_new_gc_node(line));
 		if (!ft_strcmp(remove_qoutes(path, c), line))
 			break ;
@@ -60,9 +58,9 @@ void	heredoc_ext(t_tk *token, char *path, t_c *c)
 			line = h_expander(line, c);
 		if (write(token->heredoc, line, ft_strlen(line)) == -1
 			|| write(token->heredoc, "\n", 1) == -1)
-			exit_heredoc(token, c, 1);
+			exit_heredoc(c, 1);
 	}
-	exit_heredoc(token, c, 0);
+	exit_heredoc(c, 0);
 }
 
 bool	ext_exe_redr(t_redic **curr, t_c *c, t_tk *token)
@@ -85,5 +83,17 @@ bool	ext_exe_redr(t_redic **curr, t_c *c, t_tk *token)
 		if (!append_files(token, ft_strip('>', tmp->content, c->garbage), c))
 			return (false);
 	}
+	return (true);
+}
+
+bool	check_redr_file(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (ft_whitespaces(str[i]))
+		i++;
+	if (!str[i])
+		return (false);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 13:44:49 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/05/28 09:34:35 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/01 11:16:23 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*formating(char *line, t_gc **gg)
 
 bool	syntax_error(char *line)
 {
-	if (!qoutes(line) || !and_or(line) || !parenthesis(line, 0, 0, 0)
+	if (!qoutes(line) || !and_or(line) || !parenthesis(line, 0)
 		|| !redir_handler(line))
 	{
 		ft_putstr_fd("Syntax error\n", 2);
