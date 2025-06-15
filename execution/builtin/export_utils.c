@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/06/15 10:27:44 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/15 11:07:22 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
 	}
 	else
 	{
-		if (!ft_strcmp(name, "PATH") && env_check_path(ft_env, 0))
+		if (!ft_strcmp(name, "PATH") && env_check_path(ft_env, 3))
 		{
 			value = ft_strjoin(PATH, value, gg);
 			ft_putenv(name, value, ft_env);
