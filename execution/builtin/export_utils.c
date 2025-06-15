@@ -6,7 +6,7 @@
 /*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:51:05 by ihamani           #+#    #+#             */
-/*   Updated: 2025/06/13 14:00:13 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/15 10:27:44 by ihamani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,16 @@ void	export_append(char *name, char *value, t_env **ft_env, t_gc **gg)
 		free(tmp);
 	}
 	else
-		ft_putenv(name, value, ft_env);
+	{
+		if (!ft_strcmp(name, "PATH") && env_check_path(ft_env, 0))
+		{
+			value = ft_strjoin(PATH, value, gg);
+			ft_putenv(name, value, ft_env);
+			env_check_path(ft_env, -1);
+		}
+		else
+			ft_putenv(name, value, ft_env);
+	}
 }
 
 void	ft_upenv(char *name, char *value, t_env **ft_env)
@@ -68,7 +77,7 @@ static int	check_key(char *str, char *value)
 		if (i == 0 && ((str[i] >= '0' && str[i] <= '9')
 				|| str[i] == '+'))
 			return (0);
-		if (ft_chrstr(str[i], "-!?$%@-#/\\"))
+		if (ft_chrstr(str[i], "-!?$%@-#.,/\\"))
 			return (0);
 		if (str[i] == '+' && str[i + 1])
 			return (0);
@@ -88,8 +97,7 @@ int	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 	if (!check_key(name, value))
 	{
 		ft_putstr_fd(name, 2);
-		ft_putstr_fd(": not a valid identifier\n", 2);
-		return (1);
+		return (ft_putstr_fd(": not a valid identifier\n", 2), 1);
 	}
 	else if (check_key(name, value) == 2)
 		export_append(name, value, ft_env, gg);
@@ -102,7 +110,11 @@ int	ext_export(char *name, char *value, t_env **ft_env, t_gc **gg)
 			ft_putenv(name, value, ft_env);
 		}
 		else
+		{
+			if (!ft_strcmp(name, "PATH") && value)
+				env_check_path(ft_env, -1);
 			ft_upenv(name, value, ft_env);
+		}
 	}
 	return (0);
 }
