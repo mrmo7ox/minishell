@@ -1,5 +1,2 @@
-push.sh
 .gitignore
-.command_history
 .vscode
-minishell

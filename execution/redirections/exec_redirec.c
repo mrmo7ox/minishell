@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 09:44:05 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/06/14 18:34:42 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/15 11:28:58 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ bool	append_files(t_tk *token, char *path, t_c *c)
 		return (errno = 2, perror(" "), false);
 	}
 	tmp = redc_expander(formating(path, c->garbage), c);
-	printf("[%s]\n", tmp);
 	if (!has_qoute(path) && (!tmp || !tmp[0] || !check_amb(tmp)))
 	{
 		set_status(1, -1);
