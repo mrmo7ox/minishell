@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:03:38 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/06/14 14:19:30 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/15 15:02:50 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,5 @@ char	**wildcards(char **args, t_c *c)
 		ft_add_wild(&head, ft_new_wild(args[i], false, c));
 		i++;
 	}
-	merge_sorting(&head, c);
 	return (convert_array(&head, c));
 }
