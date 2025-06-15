@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 16:40:20 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/06/13 13:22:44 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/14 18:34:51 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ typedef struct s_list
 	t_env					**env;
 	int						status;
 	t_gc					**garbage;
+	t_c						*c;
 }							t_list;
 
 typedef struct s_new_string
@@ -186,6 +187,7 @@ typedef struct s_new_string
 	char					*holder;
 	char					*temp;
 	t_expand				*start_end;
+	t_qoutes				*q;
 }							t_new;
 
 typedef struct s_size
@@ -195,6 +197,7 @@ typedef struct s_size
 	char					*holder;
 	char					*temp;
 	t_expand				*start_end;
+	t_qoutes				*q;
 	size_t					new_size;
 
 }							t_size;
@@ -471,6 +474,10 @@ int							process_dollar_expansion(char *arg, int j, t_c *c,
 bool						ft_strinstr(char *haystack, char *needle);
 void						env_init_helper(char *name, char *value,
 								t_env **ft_env);
-bool						check_amb(char *tmp);
+bool						check_amb(char *new);
 void						init_pwd(t_env **ft_env);
+char						*del_exp(char *line, t_c *c);
+void						merge_sorting(t_wild **head, t_c *c);
+char						*redc_expander(char *line, t_c *c);
+
 #endif

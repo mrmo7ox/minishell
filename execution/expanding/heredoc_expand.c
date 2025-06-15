@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_expand.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 14:43:50 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/06/01 09:35:00 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/14 15:30:20 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ char	*h_expander(char *line, t_c *c)
 	u.expand = &expand_res;
 	u.env = c->ft_env;
 	u.garbage = c->garbage;
+	u.c = c;
 	u.status = set_status(c->status, 0);
 	get_quote_index(&u, c->garbage);
 	get_expand_index(&u, c->garbage);

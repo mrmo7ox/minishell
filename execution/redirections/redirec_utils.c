@@ -6,7 +6,7 @@
 /*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:50:13 by ihamani           #+#    #+#             */
-/*   Updated: 2025/06/02 10:53:58 by moel-oua         ###   ########.fr       */
+/*   Updated: 2025/06/14 18:09:37 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	heredoc_ext(t_tk *token, char *path, t_c *c)
 		if (!line || g_signal == 169)
 			heredoc_eof(c);
 		ft_add_gc(c->garbage, ft_new_gc_node(line));
-		if (!ft_strcmp(remove_qoutes(path, c), line))
+		if (!ft_strcmp(del_exp(path, c), line))
 			break ;
 		if (qoutes)
 			line = h_expander(line, c);
@@ -92,6 +92,8 @@ bool	check_redr_file(char *str)
 
 	i = 0;
 	while (ft_whitespaces(str[i]))
+		i++;
+	while (str[i] && str[i] == '$')
 		i++;
 	if (!str[i])
 		return (false);

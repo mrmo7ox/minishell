@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihamani <ihamani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: moel-oua <moel-oua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:40:06 by moel-oua          #+#    #+#             */
-/*   Updated: 2025/06/01 17:54:33 by ihamani          ###   ########.fr       */
+/*   Updated: 2025/06/15 10:29:56 by moel-oua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ static bool	cases(char *holder)
 
 bool	find_case(t_new *s, char *new, char *line, t_list *utils)
 {
+	(void)line;
 	if (cases(s->holder))
 	{
-		new[s->pos++] = line[s->i++];
+		s->i++;
 		return (false);
 	}
 	if (!ft_strcmp(s->holder, "?"))
 		s->temp = ft_itoa(utils->status, utils->garbage);
+	else if (!ft_strcmp(s->holder, "$"))
+		s->temp = utils->c->pid;
 	else
 		s->temp = ft_getenv(s->holder, utils->env);
 	if (s->temp)
@@ -49,6 +52,8 @@ bool	find_case_b(t_size *u, t_list *utils)
 	}
 	if (!ft_strcmp(u->holder, "?"))
 		u->temp = ft_itoa(utils->status, utils->garbage);
+	else if (!ft_strcmp(u->holder, "$"))
+		u->temp = utils->c->pid;
 	else
 		u->temp = ft_getenv(u->holder, utils->env);
 	if (u->temp)
