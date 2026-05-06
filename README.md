@@ -1,6 +1,6 @@
 # minishell
 
-description: my own custom shell coded in c for the 1337 curriculum.
+my own custom shell coded in c for the 1337 curriculum.
 
 ## the story
 building a shell from scratch is crazy. you type a command in bash and it just works, but behind the scenes, there is so much going on. i had to figure out how to break down the input with a tokenizer[cite: 1], handle weird syntax errors[cite: 1], and manage all the environment variables[cite: 1]. splitting the work between parsing the commands[cite: 1] and actually executing them[cite: 1] was a massive puzzle.
